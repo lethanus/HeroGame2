@@ -66,11 +66,11 @@ namespace ConstructionYard
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Fast Elf killing Goblin", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("01 Fast Elf killing Goblin", new string[] {
                 "mytag"}, SourceLine=4)]
-        public virtual void FastElfKillingGoblin()
+        public virtual void _01FastElfKillingGoblin()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fast Elf killing Goblin", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Fast Elf killing Goblin", null, new string[] {
                         "mytag"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);

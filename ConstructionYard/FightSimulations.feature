@@ -2,7 +2,7 @@
 	Fighting 
 
 @mytag
-Scenario: Fast Elf killing Goblin
+Scenario: 01 Fast Elf killing Goblin
 	Given The following characters
 		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |
 		| Elf_A    | Elf    | 20    | 20 | 10  | 5   | 10    |
