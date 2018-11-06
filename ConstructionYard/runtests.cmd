@@ -1,15 +1,15 @@
 @pushd %~dp0
 
-@where /q msbuild
+REM @where /q msbuild
 
-@IF ERRORLEVEL 1 (
-	echo "MSBuild is not in your PATH. Please use a developer command prompt!"
-	goto :end
-) ELSE (
-	MSBuild.exe "ConstructionYard.csproj"
-)
+REM @IF ERRORLEVEL 1 (
+REM 	echo "MSBuild is not in your PATH. Please use a developer command prompt!"
+REM 	goto :end
+REM ) ELSE (
+REM 	MSBuild.exe "ConstructionYard.csproj"
+REM )
 
-@if ERRORLEVEL 1 goto end
+REM @if ERRORLEVEL 1 goto end
 
 @cd ..\packages\SpecRun.Runner.*\tools
 
