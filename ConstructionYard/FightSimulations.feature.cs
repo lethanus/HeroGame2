@@ -66,17 +66,18 @@ namespace ConstructionYard
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Elf hits Goblin", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Fast Elf killing Goblin", new string[] {
                 "mytag"}, SourceLine=4)]
-        public virtual void ElfHitsGoblin()
+        public virtual void FastElfKillingGoblin()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf hits Goblin", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fast Elf killing Goblin", null, new string[] {
                         "mytag"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
                         "Name",
                         "MaxHp",
                         "Hp",
@@ -84,6 +85,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Def",
                         "Speed"});
             table1.AddRow(new string[] {
+                        "Elf_A",
                         "Elf",
                         "20",
                         "20",
@@ -91,6 +93,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "10"});
             table1.AddRow(new string[] {
+                        "Golbin_B",
                         "Golbin",
                         "10",
                         "10",
@@ -100,13 +103,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
  testRunner.Given("The following characters", ((string)(null)), table1, "Given ");
 #line 10
- testRunner.And("Character \'Elf\' is assigned to team \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("Character \'Goblin\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.When("Fight turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
                         "Name",
                         "MaxHp",
                         "Hp",
@@ -114,6 +118,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Def",
                         "Speed"});
             table2.AddRow(new string[] {
+                        "Elf_A",
                         "Elf",
                         "20",
                         "20",
@@ -121,6 +126,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "10"});
             table2.AddRow(new string[] {
+                        "Golbin_B",
                         "Golbin",
                         "10",
                         "0",

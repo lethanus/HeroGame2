@@ -2,15 +2,15 @@
 	Fighting 
 
 @mytag
-Scenario: Elf hits Goblin
+Scenario: Fast Elf killing Goblin
 	Given The following characters
-		| Name   | MaxHp | Hp | Att | Def | Speed |
-		| Elf    | 20    | 20 | 10  | 5   | 10    |
-		| Golbin | 10    | 10 | 10  | 0   | 5     |
-	And Character 'Elf' is assigned to team 'A'
-	And Character 'Goblin' is assigned to team 'B'
+		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |
+		| Elf_A    | Elf    | 20    | 20 | 10  | 5   | 10    |
+		| Golbin_B | Golbin | 10    | 10 | 10  | 0   | 5     |
+	And Character 'Elf_A' is assigned to team 'A'
+	And Character 'Golbin_B' is assigned to team 'B'
 	When Fight turn 1 ends
 	Then The following characters status is
-		| Name   | MaxHp | Hp | Att | Def | Speed |
-		| Elf    | 20    | 20 | 10  | 5   | 10    |
-		| Golbin | 10    | 0  | 10  | 0   | 5     |
+		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |
+		| Elf_A    | Elf    | 20    | 20 | 10  | 5   | 10    |
+		| Golbin_B | Golbin | 10    | 0  | 10  | 0   | 5     |
