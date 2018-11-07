@@ -42,10 +42,10 @@ namespace ConstructionYard
         [Then(@"The following characters status is")]
         public void ThenTheFollowingCharactersStatusIs(Table table)
         {
-            var expectedCharactersAfterFight = table.CreateSet<Character>().ToDictionary(x => x.ID, x => x);
+            var expectedCharactersAfterFight = table.CreateSet<Character>();
             foreach(var expectedChar in expectedCharactersAfterFight)
             {
-                Assert.AreEqual(expectedChar.Value, charactersAfterFight.First(x=>x.ID == expectedChar.Key));
+                Assert.AreEqual(expectedChar, charactersAfterFight.First(x=>x.ID == expectedChar.ID));
             }
         }
     }

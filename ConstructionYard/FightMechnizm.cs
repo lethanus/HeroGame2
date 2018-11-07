@@ -35,7 +35,7 @@ namespace ConstructionYard
                     {
                         var firstLiveCharFromOtherTeam = characters.First(x => x.GetTeam() != attacker.GetTeam() && x.GetCharacter().Hp > 0).GetCharacter();
 
-                        firstLiveCharFromOtherTeam.GetCharacter().Hp = CalculateNewHp(
+                        firstLiveCharFromOtherTeam.Hp = CalculateNewHp(
                                 attacker.GetCharacter(),
                                 firstLiveCharFromOtherTeam);
                     }
