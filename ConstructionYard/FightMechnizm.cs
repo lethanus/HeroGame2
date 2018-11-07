@@ -31,11 +31,14 @@ namespace ConstructionYard
             {
                 foreach (var character in characters.OrderByDescending(x => x.Value.GetCharacter().Speed))
                 {
-                    var firstLiveCharForOtherTeam = characters.First(x => x.Value.GetTeam() != character.Value.GetTeam() && x.Value.GetCharacter().Hp > 0).Value.GetCharacter();
+                    if (character.Value.GetCharacter().Hp > 0)
+                    {
+                        var firstLiveCharForOtherTeam = characters.First(x => x.Value.GetTeam() != character.Value.GetTeam() && x.Value.GetCharacter().Hp > 0).Value.GetCharacter();
 
-                    characters[firstLiveCharForOtherTeam.ID].GetCharacter().Hp = CalculateNewHp(
-                            character.Value.GetCharacter(),
-                            firstLiveCharForOtherTeam); 
+                        characters[firstLiveCharForOtherTeam.ID].GetCharacter().Hp = CalculateNewHp(
+                                character.Value.GetCharacter(),
+                                firstLiveCharForOtherTeam);
+                    }
                 }
 
             }
