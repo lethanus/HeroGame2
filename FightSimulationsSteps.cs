@@ -12,49 +12,39 @@ namespace ConstructionYard
     public class FightSimulationsSteps
     {
         private Dictionary<string, Character> characters = new Dictionary<string, Character>();
-        private Dictionary<string, Character> teamA = new Dictionary<string, Character>();
-        private Dictionary<string, Character> teamB = new Dictionary<string, Character>();
+        private List<ICharacterInTeam> charactersInTeams = new List<ICharacterInTeam>();
         private Dictionary<string, Character> charactersAfterFight = new Dictionary<string, Character>();
-
 
         [Given(@"The following characters")]
         public void GivenTheFollowingCharacters(Table table)
         {
-            characters = table.CreateSet<Character>().ToDictionary(x => x.ID, x => x);
+            characters = table.CreateSet<Character>().ToDictionary(x => x.ID, x =>x);
             Assert.Greater(characters.Count, 0);
         }
-        
-        [Given(@"Character '(.*)' is assigned to team A")]
-        public void GivenCharacterIsAssignedToTeamA(string charID)
-        {
-            int before = teamA.Count;
-            teamA.Add(charID, characters[charID]);
-            Assert.AreEqual(before + 1, teamA.Count);
-        }
 
-        [Given(@"Character '(.*)' is assigned to team B")]
-        public void GivenCharacterIsAssignedToTeamB(string charID)
+        [Given(@"Character '(.*)' is assigned to team '(.*)'")]
+        public void GivenCharacterIsAssignedToTeam(string charID, string teamName)
         {
-            int before = teamB.Count;
-            teamB.Add(charID, characters[charID]);
-            Assert.AreEqual(before + 1, teamB.Count);
+            int before = charactersInTeams.Count(x => x.GetTeam() == teamName);
+            characters[charID].SetTeam(teamName);
+            charactersInTeams.Add(characters[charID]);
+            Assert.AreEqual(before + 1, charactersInTeams.Count(x => x.GetTeam() == teamName));
         }
-
 
         [When(@"Fight turn (.*) ends")]
         public void WhenFightTurnEnds(int turnNumber)
         {
-            var fightMechnizm = new FightMechnizm(teamA, teamB);
-            characters = fightMechnizm.GetFightResultsAfterTurn(turnNumber);
+            var fightMechnizm = new FightMechnizm(charactersInTeams);
+            charactersAfterFight = fightMechnizm.GetFightResultsAfterTurn(turnNumber);
         }
         
         [Then(@"The following characters status is")]
         public void ThenTheFollowingCharactersStatusIs(Table table)
         {
-            charactersAfterFight = table.CreateSet<Character>().ToDictionary(x => x.ID, x => x);
-            foreach(var expectedChar in charactersAfterFight)
+            var expectedCharactersAfterFight = table.CreateSet<Character>().ToDictionary(x => x.ID, x => x);
+            foreach(var expectedChar in expectedCharactersAfterFight)
             {
-                Assert.AreEqual(expectedChar.Value, characters[expectedChar.Key]);
+                Assert.AreEqual(expectedChar.Value, charactersAfterFight[expectedChar.Key]);
             }
         }
     }

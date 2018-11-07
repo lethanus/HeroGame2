@@ -1,7 +1,8 @@
 ﻿namespace ConstructionYard
 {
-    public class Character
+    public class Character : ICharacterInTeam
     {
+        private string _team = "";
         public string ID { get; set; }
         public string Name { get; set; }
         public int MaxHp { get; set; }
@@ -26,9 +27,24 @@
             throw new System.Exception($"There are some diffs:{nl} Expected: {ToString()}{nl} Actual: {toCompare.ToString()}");
         }
 
+        public Character GetCharacter()
+        {
+            return this;
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public string GetTeam()
+        {
+            return _team;
+        }
+
+        public void SetTeam(string team)
+        {
+            _team = team;
         }
 
         public override string ToString()

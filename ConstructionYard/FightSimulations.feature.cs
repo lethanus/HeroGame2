@@ -103,9 +103,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
  testRunner.Given("The following characters", ((string)(null)), table1, "Given ");
 #line 10
- testRunner.And("Character \'Elf_A\' is assigned to team A", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("Character \'Golbin_B\' is assigned to team B", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.When("Fight turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -174,9 +174,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 21
  testRunner.Given("The following characters", ((string)(null)), table3, "Given ");
 #line 25
- testRunner.And("Character \'Golbin_A\' is assigned to team A", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_A\' is assigned to team \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
- testRunner.And("Character \'Golbin_B\' is assigned to team B", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 27
  testRunner.When("Fight turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -245,9 +245,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 35
  testRunner.Given("The following characters", ((string)(null)), table5, "Given ");
 #line 39
- testRunner.And("Character \'Elf_A\' is assigned to team A", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
- testRunner.And("Character \'Troll_B\' is assigned to team B", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Troll_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
  testRunner.When("Fight turn 2 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -281,10 +281,10 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("04  Two fast Elfs killing two Goblins in first turn", SourceLine=46)]
+        [TechTalk.SpecRun.ScenarioAttribute("04 Two fast Elfs killing two Goblins in first turn", SourceLine=46)]
         public virtual void _04TwoFastElfsKillingTwoGoblinsInFirstTurn()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04  Two fast Elfs killing two Goblins in first turn", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 Two fast Elfs killing two Goblins in first turn", null, ((string[])(null)));
 #line 47
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -332,13 +332,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 48
  testRunner.Given("The following characters", ((string)(null)), table7, "Given ");
 #line 54
- testRunner.And("Character \'Elf_A\' is assigned to team A", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
- testRunner.And("Character \'Elf_B\' is assigned to team A", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Elf_B\' is assigned to team \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 56
- testRunner.And("Character \'Golbin_A\' is assigned to team B", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_A\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 57
- testRunner.And("Character \'Golbin_B\' is assigned to team B", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 58
  testRunner.When("Fight turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden

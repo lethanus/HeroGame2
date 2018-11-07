@@ -8,40 +8,38 @@ namespace ConstructionYard
 {
     public class FightMechnizm
     {
-        private Dictionary<string, Character> _teamA = new Dictionary<string, Character>();
-        private Dictionary<string, Character> _teamB = new Dictionary<string, Character>();
+        private List<ICharacterInTeam> _startCharacters = new List<ICharacterInTeam>();
 
-        public FightMechnizm(Dictionary<string, Character> teamA, Dictionary<string, Character> teamB)
+        public FightMechnizm(List<ICharacterInTeam> startCharacters)
         {
-            _teamA = teamA;
-            _teamB = teamB;
+            _startCharacters = startCharacters;
         }
 
         public Dictionary<string, Character> GetFightResultsAfterTurn(int turnNumber)
         {
             var characters = new Dictionary<string, Character>();
-            foreach(var character in _teamA)
+            foreach(var character in _startCharacters)
             {
-                characters.Add(character.Key, character.Value);
-            }
-            foreach (var character in _teamB)
-            {
-                characters.Add(character.Key, character.Value);
+                characters.Add(character.GetCharacter().ID, character.GetCharacter());
             }
 
             for (int i = 1; i <= turnNumber; i++)
             {
-                if (_teamA.Count == 1 && _teamB.Count == 1)
+                if (_startCharacters.Count(x => x.GetTeam() == "A") == 1 && _startCharacters.Count(x => x.GetTeam() == "B") == 1)
                 {
-                    var firstCharA = _teamA.Keys.First();
-                    var firstCharB = _teamB.Keys.First();
+                    var firstCharA = _startCharacters.First(x => x.GetTeam() == "A").GetCharacter().ID;
+                    var firstCharB = _startCharacters.First(x => x.GetTeam() == "B").GetCharacter().ID;
 
-                    var newHpB = CalculateNewHp(_teamA[firstCharA], _teamB[firstCharB]);
+                    var newHpB = CalculateNewHp(
+                        _startCharacters.First(x => x.GetCharacter().ID == firstCharA).GetCharacter(),
+                        _startCharacters.First(x => x.GetCharacter().ID == firstCharB).GetCharacter());
                     characters[firstCharB].Hp = newHpB;
 
                     if (newHpB > 0)
                     {
-                        characters[firstCharA].Hp = CalculateNewHp(_teamB[firstCharB], _teamA[firstCharA]);
+                        characters[firstCharA].Hp = CalculateNewHp(
+                            _startCharacters.First(x => x.GetCharacter().ID == firstCharB).GetCharacter(),
+                            _startCharacters.First(x => x.GetCharacter().ID == firstCharA).GetCharacter());
                     }
                 }
 
