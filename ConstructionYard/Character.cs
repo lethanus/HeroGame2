@@ -26,6 +26,11 @@
             throw new System.Exception($"There are some diffs:{nl} Expected: {ToString()}{nl} Actual: {toCompare.ToString()}");
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public override string ToString()
         {
             return $"ID:{ID} Name:{Name} MaxHp:{MaxHp} Hp:{Hp} Att:{Att} Def:{Def} Speed:{Speed}"; 

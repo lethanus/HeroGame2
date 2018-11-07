@@ -36,12 +36,12 @@ namespace ConstructionYard
                     var firstCharA = _teamA.Keys.First();
                     var firstCharB = _teamB.Keys.First();
 
-                    var newHpB = calculateNewHp(_teamA[firstCharA], _teamB[firstCharB]);
+                    var newHpB = CalculateNewHp(_teamA[firstCharA], _teamB[firstCharB]);
                     characters[firstCharB].Hp = newHpB;
 
                     if (newHpB > 0)
                     {
-                        characters[firstCharA].Hp = calculateNewHp(_teamB[firstCharB], _teamA[firstCharA]);
+                        characters[firstCharA].Hp = CalculateNewHp(_teamB[firstCharB], _teamA[firstCharA]);
                     }
                 }
 
@@ -49,7 +49,7 @@ namespace ConstructionYard
             return characters;
         }
 
-        private static int calculateNewHp(Character attacker, Character defender)
+        private static int CalculateNewHp(Character attacker, Character defender)
         {
             var damage = attacker.Att - defender.Def;
             return defender.Hp < damage ? 0 : defender.Hp - damage;
