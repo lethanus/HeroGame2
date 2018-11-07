@@ -76,6 +76,7 @@
     <Compile Include="..\FightSimulationsSteps.cs">
       <Link>FightSimulationsSteps.cs</Link>
     </Compile>
+    <Compile Include="Character.cs" />
     <Compile Include="FightSimulations.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

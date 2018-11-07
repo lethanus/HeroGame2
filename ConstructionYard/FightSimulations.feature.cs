@@ -103,9 +103,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
  testRunner.Given("The following characters", ((string)(null)), table1, "Given ");
 #line 10
- testRunner.And("Character \'Elf_A\' is assigned to team \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Elf_A\' is assigned to team A", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("Character \'Golbin_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_B\' is assigned to team B", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.When("Fight turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
