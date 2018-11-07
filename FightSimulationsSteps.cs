@@ -44,28 +44,8 @@ namespace ConstructionYard
         [When(@"Fight turn (.*) ends")]
         public void WhenFightTurnEnds(int turnNumber)
         {
-            for (int i = 1; i <= turnNumber; i++)
-            {
-                if (teamA.Count == 1 && teamB.Count == 1)
-                {
-                    var firstCharA = teamA.Keys.First();
-                    var firstCharB = teamB.Keys.First();
-                    var attackA = teamA[firstCharA].Att - teamB[firstCharB].Def;
-                    var attackB = teamB[firstCharB].Att - teamA[firstCharA].Def;
-
-                    var hpB = teamB[firstCharB].Hp;
-                    var newHpB = hpB < attackA ? 0 : hpB - attackA;
-                    characters[firstCharB].Hp = newHpB;
-
-                    if (newHpB > 0)
-                    {
-                        var hpA = teamA[firstCharA].Hp;
-                        var newHpA = hpA < attackB ? 0 : hpA - attackB;
-                        characters[firstCharA].Hp = newHpA;
-                    }
-                }
-                
-            }
+            var fightMechnizm = new FightMechnizm(teamA, teamB);
+            characters = fightMechnizm.GetFightResultsAfterTurn(turnNumber);
         }
         
         [Then(@"The following characters status is")]
