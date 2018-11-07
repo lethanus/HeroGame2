@@ -21,7 +21,7 @@ namespace ConstructionYard
 
         public Dictionary<string, Character> GetFightResultsAfterTurn(int turnNumber)
         {
-            var characters = new Dictionary<string, Character>();
+            var characters = new Dictionary<string, ICharacterInTeam>();
             foreach(var character in _startCharacters)
             {
                 characters.Add(character.GetCharacter().ID, character.GetCharacter());
@@ -29,26 +29,17 @@ namespace ConstructionYard
 
             for (int i = 1; i <= turnNumber; i++)
             {
-                if (_startCharacters.Count(x => x.GetTeam() == _firstTeam) == 1 && _startCharacters.Count(x => x.GetTeam() == _secondTeam) == 1)
+                foreach (var character in characters.OrderByDescending(x => x.Value.GetCharacter().Speed))
                 {
-                    var firstCharA = _startCharacters.First(x => x.GetTeam() == _firstTeam).GetCharacter().ID;
-                    var firstCharB = _startCharacters.First(x => x.GetTeam() == _secondTeam).GetCharacter().ID;
+                    var firstLiveCharForOtherTeam = characters.First(x => x.Value.GetTeam() != character.Value.GetTeam() && x.Value.GetCharacter().Hp > 0).Value.GetCharacter();
 
-                    var newHpB = CalculateNewHp(
-                        _startCharacters.First(x => x.GetCharacter().ID == firstCharA).GetCharacter(),
-                        _startCharacters.First(x => x.GetCharacter().ID == firstCharB).GetCharacter());
-                    characters[firstCharB].Hp = newHpB;
-
-                    if (newHpB > 0)
-                    {
-                        characters[firstCharA].Hp = CalculateNewHp(
-                            _startCharacters.First(x => x.GetCharacter().ID == firstCharB).GetCharacter(),
-                            _startCharacters.First(x => x.GetCharacter().ID == firstCharA).GetCharacter());
-                    }
+                    characters[firstLiveCharForOtherTeam.ID].GetCharacter().Hp = CalculateNewHp(
+                            character.Value.GetCharacter(),
+                            firstLiveCharForOtherTeam); 
                 }
 
             }
-            return characters;
+            return characters.ToDictionary(x=>x.Key, x=>x.Value.GetCharacter());
         }
 
         private static int CalculateNewHp(Character attacker, Character defender)
