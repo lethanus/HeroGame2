@@ -13,7 +13,7 @@ namespace ConstructionYard
     {
         private Dictionary<string, Character> characters = new Dictionary<string, Character>();
         private List<ICharacterInTeam> charactersInTeams = new List<ICharacterInTeam>();
-        private Dictionary<string, Character> charactersAfterFight = new Dictionary<string, Character>();
+        private List<Character> charactersAfterFight = new List<Character>();
 
         [Given(@"The following characters")]
         public void GivenTheFollowingCharacters(Table table)
@@ -45,7 +45,7 @@ namespace ConstructionYard
             var expectedCharactersAfterFight = table.CreateSet<Character>().ToDictionary(x => x.ID, x => x);
             foreach(var expectedChar in expectedCharactersAfterFight)
             {
-                Assert.AreEqual(expectedChar.Value, charactersAfterFight[expectedChar.Key]);
+                Assert.AreEqual(expectedChar.Value, charactersAfterFight.First(x=>x.ID == expectedChar.Key));
             }
         }
     }

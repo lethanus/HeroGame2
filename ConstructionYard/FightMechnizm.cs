@@ -19,30 +19,30 @@ namespace ConstructionYard
             _secondTeam = secondTeam;
         }
 
-        public Dictionary<string, Character> GetFightResultsAfterTurn(int turnNumber)
+        public List<Character> GetFightResultsAfterTurn(int turnNumber)
         {
-            var characters = new Dictionary<string, ICharacterInTeam>();
+            var characters = new List<ICharacterInTeam>();
             foreach(var character in _startCharacters)
             {
-                characters.Add(character.GetCharacter().ID, character.GetCharacter());
+                characters.Add(character.GetCharacter());
             }
 
             for (int i = 1; i <= turnNumber; i++)
             {
-                foreach (var character in characters.OrderByDescending(x => x.Value.GetCharacter().Speed))
+                foreach (var attacker in characters.OrderByDescending(x => x.GetCharacter().Speed))
                 {
-                    if (character.Value.GetCharacter().Hp > 0)
+                    if (attacker.GetCharacter().Hp > 0)
                     {
-                        var firstLiveCharForOtherTeam = characters.First(x => x.Value.GetTeam() != character.Value.GetTeam() && x.Value.GetCharacter().Hp > 0).Value.GetCharacter();
+                        var firstLiveCharFromOtherTeam = characters.First(x => x.GetTeam() != attacker.GetTeam() && x.GetCharacter().Hp > 0).GetCharacter();
 
-                        characters[firstLiveCharForOtherTeam.ID].GetCharacter().Hp = CalculateNewHp(
-                                character.Value.GetCharacter(),
-                                firstLiveCharForOtherTeam);
+                        firstLiveCharFromOtherTeam.GetCharacter().Hp = CalculateNewHp(
+                                attacker.GetCharacter(),
+                                firstLiveCharFromOtherTeam);
                     }
                 }
 
             }
-            return characters.ToDictionary(x=>x.Key, x=>x.Value.GetCharacter());
+            return characters.Select(x=>x.GetCharacter()).ToList();
         }
 
         private static int CalculateNewHp(Character attacker, Character defender)
