@@ -35,23 +35,24 @@ namespace ConstructionYard
                 {
                     var firstCharA = _teamA.Keys.First();
                     var firstCharB = _teamB.Keys.First();
-                    var attackA = _teamA[firstCharA].Att - _teamB[firstCharB].Def;
-                    var attackB = _teamB[firstCharB].Att - _teamA[firstCharA].Def;
 
-                    var hpB = _teamB[firstCharB].Hp;
-                    var newHpB = hpB < attackA ? 0 : hpB - attackA;
+                    var newHpB = calculateNewHp(_teamA[firstCharA], _teamB[firstCharB]);
                     characters[firstCharB].Hp = newHpB;
 
                     if (newHpB > 0)
                     {
-                        var hpA = _teamA[firstCharA].Hp;
-                        var newHpA = hpA < attackB ? 0 : hpA - attackB;
-                        characters[firstCharA].Hp = newHpA;
+                        characters[firstCharA].Hp = calculateNewHp(_teamB[firstCharB], _teamA[firstCharA]);
                     }
                 }
 
             }
             return characters;
+        }
+
+        private static int calculateNewHp(Character attacker, Character defender)
+        {
+            var damage = attacker.Att - defender.Def;
+            return defender.Hp < damage ? 0 : defender.Hp - damage;
         }
     }
 }
