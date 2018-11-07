@@ -29,3 +29,17 @@ Scenario: 02 Goblins are hurting each other after 1 turn
 		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |
 		| Golbin_A | Golbin | 10    | 5  | 5   | 0   | 5     |
 		| Golbin_B | Golbin | 10    | 5  | 5   | 0   | 5     |
+
+
+Scenario: 03 Elf is to weak for a Troll
+	Given The following characters
+		| ID      | Name  | MaxHp | Hp  | Att | Def | Speed |
+		| Elf_A   | Elf   | 20    | 20  | 10  | 5   | 10    |
+		| Troll_B | Troll | 100   | 100 | 15  | 5   | 5     |
+	And Character 'Elf_A' is assigned to team A
+	And Character 'Troll_B' is assigned to team B
+	When Fight turn 2 ends
+	Then The following characters status is
+		| ID      | Name  | MaxHp | Hp | Att | Def | Speed |
+		| Elf_A   | Elf   | 20    | 0  | 10  | 5   | 10    |
+		| Troll_B | Troll | 100   | 90 | 15  | 5   | 5     |
