@@ -44,7 +44,29 @@ namespace ConstructionYard
         [When(@"Fight turn (.*) ends")]
         public void WhenFightTurnEnds(int turnNumber)
         {
-            characters["Golbin_B"].Hp = 0;
+            if (turnNumber == 1)
+            {
+                if (teamA.Count == 1 && teamB.Count == 1)
+                {
+                    var firstCharA = teamA.Keys.First();
+                    var firstCharB = teamB.Keys.First();
+                    var attackA = teamA[firstCharA].Att;
+                    var attackB = teamB[firstCharB].Att;
+
+                    
+                    var hpB = teamB[firstCharB].Hp;
+                    var newHpB = hpB < attackA ? 0 : hpB - attackA;
+                    characters[firstCharB].Hp = newHpB;
+
+                    if (newHpB > 0)
+                    {
+                        var hpA = teamA[firstCharA].Hp;
+                        var newHpA = hpA < attackB ? 0 : hpA - attackB;
+                        characters[firstCharA].Hp = newHpA;
+                    }
+                }
+                
+            }
         }
         
         [Then(@"The following characters status is")]
@@ -53,7 +75,7 @@ namespace ConstructionYard
             charactersAfterFight = table.CreateSet<Character>().ToDictionary(x => x.ID, x => x);
             foreach(var expectedChar in charactersAfterFight)
             {
-                Assert.AreEqual(characters[expectedChar.Key], expectedChar.Value);
+                Assert.AreEqual(expectedChar.Value, characters[expectedChar.Key]);
             }
         }
     }

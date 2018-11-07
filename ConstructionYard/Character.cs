@@ -23,7 +23,7 @@
                 Speed == toCompare.Speed)
                 return true;
             var nl = System.Environment.NewLine;
-            throw new System.Exception($"There are some diffs:{nl}{ToString()}{nl}{toCompare.ToString()}");
+            throw new System.Exception($"There are some diffs:{nl} Expected: {ToString()}{nl} Actual: {toCompare.ToString()}");
         }
 
         public override string ToString()
