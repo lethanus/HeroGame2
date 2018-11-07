@@ -388,6 +388,131 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("05 Fast Elf killing many Goblins and gets wounded", SourceLine=66)]
+        public virtual void _05FastElfKillingManyGoblinsAndGetsWounded()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 Fast Elf killing many Goblins and gets wounded", null, ((string[])(null)));
+#line 67
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Att",
+                        "Def",
+                        "Speed"});
+            table9.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "4",
+                        "10"});
+            table9.AddRow(new string[] {
+                        "Golbin_A",
+                        "Golbin",
+                        "10",
+                        "10",
+                        "5",
+                        "0",
+                        "5"});
+            table9.AddRow(new string[] {
+                        "Golbin_B",
+                        "Golbin",
+                        "10",
+                        "10",
+                        "5",
+                        "0",
+                        "5"});
+            table9.AddRow(new string[] {
+                        "Golbin_C",
+                        "Golbin",
+                        "10",
+                        "10",
+                        "5",
+                        "0",
+                        "5"});
+            table9.AddRow(new string[] {
+                        "Golbin_D",
+                        "Golbin",
+                        "10",
+                        "10",
+                        "5",
+                        "0",
+                        "5"});
+#line 68
+ testRunner.Given("The following characters", ((string)(null)), table9, "Given ");
+#line 75
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 76
+ testRunner.And("Character \'Golbin_A\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
+ testRunner.And("Character \'Golbin_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+ testRunner.And("Character \'Golbin_C\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+ testRunner.And("Character \'Golbin_D\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+ testRunner.When("Fight between \'A\' and \'B\' turn 4 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Att",
+                        "Def",
+                        "Speed"});
+            table10.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "20",
+                        "14",
+                        "10",
+                        "4",
+                        "10"});
+            table10.AddRow(new string[] {
+                        "Golbin_A",
+                        "Golbin",
+                        "10",
+                        "0",
+                        "5",
+                        "0",
+                        "5"});
+            table10.AddRow(new string[] {
+                        "Golbin_B",
+                        "Golbin",
+                        "10",
+                        "0",
+                        "5",
+                        "0",
+                        "5"});
+            table10.AddRow(new string[] {
+                        "Golbin_C",
+                        "Golbin",
+                        "10",
+                        "0",
+                        "5",
+                        "0",
+                        "5"});
+            table10.AddRow(new string[] {
+                        "Golbin_D",
+                        "Golbin",
+                        "10",
+                        "0",
+                        "5",
+                        "0",
+                        "5"});
+#line 81
+ testRunner.Then("The following characters status is", ((string)(null)), table10, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {
