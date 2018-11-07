@@ -66,11 +66,11 @@ namespace ConstructionYard
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("01 Fast Elf killing Goblin", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("01 Fast Elf killing Goblin in first turn", new string[] {
                 "mytag"}, SourceLine=4)]
-        public virtual void _01FastElfKillingGoblin()
+        public virtual void _01FastElfKillingGoblinInFirstTurn()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Fast Elf killing Goblin", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Fast Elf killing Goblin in first turn", null, new string[] {
                         "mytag"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -97,7 +97,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Golbin",
                         "10",
                         "10",
-                        "10",
+                        "5",
                         "0",
                         "5"});
 #line 6
@@ -130,11 +130,82 @@ this.ScenarioInitialize(scenarioInfo);
                         "Golbin",
                         "10",
                         "0",
-                        "10",
+                        "5",
                         "0",
                         "5"});
 #line 13
  testRunner.Then("The following characters status is", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("02 Goblins are hurting each other after 1 turn", SourceLine=19)]
+        public virtual void _02GoblinsAreHurtingEachOtherAfter1Turn()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Goblins are hurting each other after 1 turn", null, ((string[])(null)));
+#line 20
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Att",
+                        "Def",
+                        "Speed"});
+            table3.AddRow(new string[] {
+                        "Golbin_A",
+                        "Golbin",
+                        "10",
+                        "10",
+                        "5",
+                        "0",
+                        "5"});
+            table3.AddRow(new string[] {
+                        "Golbin_B",
+                        "Golbin",
+                        "10",
+                        "10",
+                        "5",
+                        "0",
+                        "5"});
+#line 21
+ testRunner.Given("The following characters", ((string)(null)), table3, "Given ");
+#line 25
+ testRunner.And("Character \'Golbin_A\' is assigned to team A", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.And("Character \'Golbin_B\' is assigned to team B", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.When("Fight turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Att",
+                        "Def",
+                        "Speed"});
+            table4.AddRow(new string[] {
+                        "Golbin_A",
+                        "Golbin",
+                        "10",
+                        "5",
+                        "5",
+                        "0",
+                        "5"});
+            table4.AddRow(new string[] {
+                        "Golbin_B",
+                        "Golbin",
+                        "10",
+                        "5",
+                        "5",
+                        "0",
+                        "5"});
+#line 28
+ testRunner.Then("The following characters status is", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
