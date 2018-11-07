@@ -107,7 +107,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
  testRunner.And("Character \'Golbin_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
- testRunner.When("Fight turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Fight between \'A\' and \'B\' turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -178,7 +178,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 26
  testRunner.And("Character \'Golbin_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 27
- testRunner.When("Fight turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Fight between \'A\' and \'B\' turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -249,7 +249,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 40
  testRunner.And("Character \'Troll_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
- testRunner.When("Fight turn 2 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Fight between \'A\' and \'B\' turn 2 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -340,7 +340,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 57
  testRunner.And("Character \'Golbin_B\' is assigned to team \'B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 58
- testRunner.When("Fight turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Fight between \'A\' and \'B\' turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",

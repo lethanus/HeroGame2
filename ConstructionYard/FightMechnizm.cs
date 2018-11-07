@@ -9,10 +9,14 @@ namespace ConstructionYard
     public class FightMechnizm
     {
         private List<ICharacterInTeam> _startCharacters = new List<ICharacterInTeam>();
+        private string _firstTeam;
+        private string _secondTeam;
 
-        public FightMechnizm(List<ICharacterInTeam> startCharacters)
+        public FightMechnizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
         {
             _startCharacters = startCharacters;
+            _firstTeam = firstTeam;
+            _secondTeam = secondTeam;
         }
 
         public Dictionary<string, Character> GetFightResultsAfterTurn(int turnNumber)
@@ -25,10 +29,10 @@ namespace ConstructionYard
 
             for (int i = 1; i <= turnNumber; i++)
             {
-                if (_startCharacters.Count(x => x.GetTeam() == "A") == 1 && _startCharacters.Count(x => x.GetTeam() == "B") == 1)
+                if (_startCharacters.Count(x => x.GetTeam() == _firstTeam) == 1 && _startCharacters.Count(x => x.GetTeam() == _secondTeam) == 1)
                 {
-                    var firstCharA = _startCharacters.First(x => x.GetTeam() == "A").GetCharacter().ID;
-                    var firstCharB = _startCharacters.First(x => x.GetTeam() == "B").GetCharacter().ID;
+                    var firstCharA = _startCharacters.First(x => x.GetTeam() == _firstTeam).GetCharacter().ID;
+                    var firstCharB = _startCharacters.First(x => x.GetTeam() == _secondTeam).GetCharacter().ID;
 
                     var newHpB = CalculateNewHp(
                         _startCharacters.First(x => x.GetCharacter().ID == firstCharA).GetCharacter(),

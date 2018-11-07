@@ -31,13 +31,14 @@ namespace ConstructionYard
             Assert.AreEqual(before + 1, charactersInTeams.Count(x => x.GetTeam() == teamName));
         }
 
-        [When(@"Fight turn (.*) ends")]
-        public void WhenFightTurnEnds(int turnNumber)
+        [When(@"Fight between '(.*)' and '(.*)' turn (.*) ends")]
+        public void WhenFightBetweenAndTurnEnds(string firstTeam, string secondTeam, int turnNumber)
         {
-            var fightMechnizm = new FightMechnizm(charactersInTeams);
+            var fightMechnizm = new FightMechnizm(charactersInTeams, firstTeam, secondTeam);
             charactersAfterFight = fightMechnizm.GetFightResultsAfterTurn(turnNumber);
         }
-        
+
+
         [Then(@"The following characters status is")]
         public void ThenTheFollowingCharactersStatusIs(Table table)
         {
