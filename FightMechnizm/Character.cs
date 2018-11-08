@@ -13,6 +13,17 @@ namespace HeroGame.Characters
         public int Def { get; set; }
         public int Speed { get; set; }
 
+        public Character(string name, int maxHp, int attack, int defence, int speed)
+        {
+            Name = name;
+            MaxHp = maxHp;
+            Hp = maxHp;
+            Att = attack;
+            Def = defence;
+            Speed = speed;
+            ID = Guid.NewGuid().ToString();
+        }
+
         public override bool Equals(object obj)
         {
             var toCompare = obj as Character;
