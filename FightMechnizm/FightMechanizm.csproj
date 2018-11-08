@@ -7,7 +7,7 @@
     <ProjectGuid>{A4D7A2E5-CEE3-42DF-A516-B7A6ABA72C6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FightMechnizm</RootNamespace>
+    <RootNamespace>FightMechanizm</RootNamespace>
     <AssemblyName>FightMechnizm</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
