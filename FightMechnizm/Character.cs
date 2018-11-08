@@ -73,6 +73,11 @@ namespace HeroGame.Characters
             return $"ID:{ID} Name:{Name} MaxHp:{MaxHp} Hp:{Hp} Att:{Att} Def:{Def} Speed:{Speed}";
         }
 
+        public string ToCharacterString()
+        {
+            return $"{Name} [{MaxHp}/{Hp}]";
+        }
+
         public void SetPosition(TeamPosition position)
         {
             _teamPosition = position;

@@ -31,24 +31,24 @@
             this.teamAfront1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbTeamA = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.teamAfront2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.teamAfront3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.teamAmiddle1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.teamAmiddle2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.teamAmiddle3 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.teamAmiddle4 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.teamArear1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.teamArear2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.teamArear3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.teamArear2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.teamArear1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.teamAmiddle4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.teamAmiddle3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.teamAmiddle2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.teamAmiddle1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.teamAfront3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.teamAfront2 = new System.Windows.Forms.TextBox();
             this.gbTeamB = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.teamBfront3 = new System.Windows.Forms.TextBox();
@@ -130,124 +130,22 @@
             this.gbTeamA.TabStop = false;
             this.gbTeamA.Text = "Team A";
             // 
-            // label2
+            // label10
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(266, 163);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Front 2";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(22, 255);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Rear 3";
             // 
-            // teamAfront2
+            // teamArear3
             // 
-            this.teamAfront2.Location = new System.Drawing.Point(269, 179);
-            this.teamAfront2.Name = "teamAfront2";
-            this.teamAfront2.ReadOnly = true;
-            this.teamAfront2.Size = new System.Drawing.Size(184, 20);
-            this.teamAfront2.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(266, 255);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Front 3";
-            // 
-            // teamAfront3
-            // 
-            this.teamAfront3.Location = new System.Drawing.Point(269, 271);
-            this.teamAfront3.Name = "teamAfront3";
-            this.teamAfront3.ReadOnly = true;
-            this.teamAfront3.Size = new System.Drawing.Size(184, 20);
-            this.teamAfront3.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(157, 34);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Middle 1";
-            // 
-            // teamAmiddle1
-            // 
-            this.teamAmiddle1.Location = new System.Drawing.Point(160, 50);
-            this.teamAmiddle1.Name = "teamAmiddle1";
-            this.teamAmiddle1.ReadOnly = true;
-            this.teamAmiddle1.Size = new System.Drawing.Size(184, 20);
-            this.teamAmiddle1.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(157, 124);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Middle 2";
-            // 
-            // teamAmiddle2
-            // 
-            this.teamAmiddle2.Location = new System.Drawing.Point(160, 140);
-            this.teamAmiddle2.Name = "teamAmiddle2";
-            this.teamAmiddle2.ReadOnly = true;
-            this.teamAmiddle2.Size = new System.Drawing.Size(184, 20);
-            this.teamAmiddle2.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(157, 216);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Middle 3";
-            // 
-            // teamAmiddle3
-            // 
-            this.teamAmiddle3.Location = new System.Drawing.Point(160, 232);
-            this.teamAmiddle3.Name = "teamAmiddle3";
-            this.teamAmiddle3.ReadOnly = true;
-            this.teamAmiddle3.Size = new System.Drawing.Size(184, 20);
-            this.teamAmiddle3.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(157, 312);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Middle 4";
-            // 
-            // teamAmiddle4
-            // 
-            this.teamAmiddle4.Location = new System.Drawing.Point(160, 328);
-            this.teamAmiddle4.Name = "teamAmiddle4";
-            this.teamAmiddle4.ReadOnly = true;
-            this.teamAmiddle4.Size = new System.Drawing.Size(184, 20);
-            this.teamAmiddle4.TabIndex = 12;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 73);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Rear 1";
-            // 
-            // teamArear1
-            // 
-            this.teamArear1.Location = new System.Drawing.Point(25, 89);
-            this.teamArear1.Name = "teamArear1";
-            this.teamArear1.ReadOnly = true;
-            this.teamArear1.Size = new System.Drawing.Size(184, 20);
-            this.teamArear1.TabIndex = 14;
+            this.teamArear3.Location = new System.Drawing.Point(25, 271);
+            this.teamArear3.Name = "teamArear3";
+            this.teamArear3.ReadOnly = true;
+            this.teamArear3.Size = new System.Drawing.Size(184, 20);
+            this.teamArear3.TabIndex = 18;
             // 
             // label9
             // 
@@ -266,22 +164,124 @@
             this.teamArear2.Size = new System.Drawing.Size(184, 20);
             this.teamArear2.TabIndex = 16;
             // 
-            // label10
+            // label8
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(22, 255);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 13);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Rear 3";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(22, 73);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Rear 1";
             // 
-            // teamArear3
+            // teamArear1
             // 
-            this.teamArear3.Location = new System.Drawing.Point(25, 271);
-            this.teamArear3.Name = "teamArear3";
-            this.teamArear3.ReadOnly = true;
-            this.teamArear3.Size = new System.Drawing.Size(184, 20);
-            this.teamArear3.TabIndex = 18;
+            this.teamArear1.Location = new System.Drawing.Point(25, 89);
+            this.teamArear1.Name = "teamArear1";
+            this.teamArear1.ReadOnly = true;
+            this.teamArear1.Size = new System.Drawing.Size(184, 20);
+            this.teamArear1.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(157, 312);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Middle 4";
+            // 
+            // teamAmiddle4
+            // 
+            this.teamAmiddle4.Location = new System.Drawing.Point(160, 328);
+            this.teamAmiddle4.Name = "teamAmiddle4";
+            this.teamAmiddle4.ReadOnly = true;
+            this.teamAmiddle4.Size = new System.Drawing.Size(184, 20);
+            this.teamAmiddle4.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(157, 216);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Middle 3";
+            // 
+            // teamAmiddle3
+            // 
+            this.teamAmiddle3.Location = new System.Drawing.Point(160, 232);
+            this.teamAmiddle3.Name = "teamAmiddle3";
+            this.teamAmiddle3.ReadOnly = true;
+            this.teamAmiddle3.Size = new System.Drawing.Size(184, 20);
+            this.teamAmiddle3.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(157, 124);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Middle 2";
+            // 
+            // teamAmiddle2
+            // 
+            this.teamAmiddle2.Location = new System.Drawing.Point(160, 140);
+            this.teamAmiddle2.Name = "teamAmiddle2";
+            this.teamAmiddle2.ReadOnly = true;
+            this.teamAmiddle2.Size = new System.Drawing.Size(184, 20);
+            this.teamAmiddle2.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(157, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Middle 1";
+            // 
+            // teamAmiddle1
+            // 
+            this.teamAmiddle1.Location = new System.Drawing.Point(160, 50);
+            this.teamAmiddle1.Name = "teamAmiddle1";
+            this.teamAmiddle1.ReadOnly = true;
+            this.teamAmiddle1.Size = new System.Drawing.Size(184, 20);
+            this.teamAmiddle1.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(266, 255);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Front 3";
+            // 
+            // teamAfront3
+            // 
+            this.teamAfront3.Location = new System.Drawing.Point(269, 271);
+            this.teamAfront3.Name = "teamAfront3";
+            this.teamAfront3.ReadOnly = true;
+            this.teamAfront3.Size = new System.Drawing.Size(184, 20);
+            this.teamAfront3.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(266, 163);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Front 2";
+            // 
+            // teamAfront2
+            // 
+            this.teamAfront2.Location = new System.Drawing.Point(269, 179);
+            this.teamAfront2.Name = "teamAfront2";
+            this.teamAfront2.ReadOnly = true;
+            this.teamAfront2.Size = new System.Drawing.Size(184, 20);
+            this.teamAfront2.TabIndex = 2;
             // 
             // gbTeamB
             // 
@@ -580,6 +580,7 @@
             this.Name = "FightScreen";
             this.Text = "Fight screen";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.FightScreen_Load);
             this.gbTeamA.ResumeLayout(false);
             this.gbTeamA.PerformLayout();
             this.gbTeamB.ResumeLayout(false);
