@@ -76,9 +76,6 @@
     <Compile Include="..\FightSimulationsSteps.cs">
       <Link>FightSimulationsSteps.cs</Link>
     </Compile>
-    <Compile Include="Character.cs" />
-    <Compile Include="CharacterInTeam.cs" />
-    <Compile Include="FightMechnizm.cs" />
     <Compile Include="FightSimulations.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,6 +98,12 @@
     <None Include="SpecRunTestProfile_2011_09.xsd">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FightMechanizm\FightMechanizm.csproj">
+      <Project>{0132a1df-c940-4474-944b-a347fc660b9f}</Project>
+      <Name>FightMechanizm</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

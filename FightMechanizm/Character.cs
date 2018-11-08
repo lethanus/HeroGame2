@@ -1,4 +1,6 @@
-﻿namespace ConstructionYard
+﻿using System;
+
+namespace HeroGame.Characters
 {
     public class Character : ICharacterInTeam
     {
@@ -49,7 +51,7 @@
 
         public override string ToString()
         {
-            return $"ID:{ID} Name:{Name} MaxHp:{MaxHp} Hp:{Hp} Att:{Att} Def:{Def} Speed:{Speed}"; 
+            return $"ID:{ID} Name:{Name} MaxHp:{MaxHp} Hp:{Hp} Att:{Att} Def:{Def} Speed:{Speed}";
         }
     }
 }

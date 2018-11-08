@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HeroGame.Characters;
 
-namespace ConstructionYard
+
+namespace HeroGame.FightMechanizm
 {
     public class FightMechnizm
     {
@@ -22,7 +24,7 @@ namespace ConstructionYard
         public List<Character> GetFightResultsAfterTurn(int turnNumber)
         {
             var characters = new List<ICharacterInTeam>();
-            foreach(var character in _startCharacters)
+            foreach (var character in _startCharacters)
             {
                 characters.Add(character.GetCharacter());
             }
@@ -42,7 +44,7 @@ namespace ConstructionYard
                 }
 
             }
-            return characters.Select(x=>x.GetCharacter()).ToList();
+            return characters.Select(x => x.GetCharacter()).ToList();
         }
 
         private static int CalculateNewHp(Character attacker, Character defender)

@@ -5,6 +5,8 @@ using TechTalk.SpecFlow.Assist;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using HeroGame.Characters;
+using HeroGame.FightMechanizm;
 
 namespace ConstructionYard
 {
