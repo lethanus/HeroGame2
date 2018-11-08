@@ -100,9 +100,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FightMechanizm\FightMechanizm.csproj">
-      <Project>{0132a1df-c940-4474-944b-a347fc660b9f}</Project>
-      <Name>FightMechanizm</Name>
+    <ProjectReference Include="..\FightMechnizm\FightMechnizm.csproj">
+      <Project>{a4d7a2e5-cee3-42df-a516-b7a6aba72c6a}</Project>
+      <Name>FightMechnizm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
