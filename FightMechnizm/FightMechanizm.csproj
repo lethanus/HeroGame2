@@ -45,6 +45,7 @@
     <Compile Include="FightMechnizm.cs" />
     <Compile Include="ICharacterInTeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamPositionHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

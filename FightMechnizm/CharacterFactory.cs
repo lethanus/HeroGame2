@@ -8,9 +8,9 @@ namespace HeroGame.Characters
 {
     public class CharacterFactory
     {
-        public List<Character> BuildStandardCharacters()
+        public List<ICharacterInTeam> BuildStandardCharacters()
         {
-            var characters = new List<Character>
+            var characters = new List<ICharacterInTeam>
             {
                 new Character("Goblin", 10, 10, 0, 5),
                 new Character("Elf", 20, 10, 5, 10)

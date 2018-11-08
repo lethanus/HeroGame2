@@ -13,8 +13,8 @@ namespace FightMechanizmTestingGUI
 {
     public partial class FightPreparationScreen : Form
     {
-        private List<Character> teamA = new List<Character>();
-        private List<Character> teamB = new List<Character>();
+        private List<ICharacterInTeam> teamA = new List<ICharacterInTeam>();
+        private List<ICharacterInTeam> teamB = new List<ICharacterInTeam>();
 
         public FightPreparationScreen()
         {
@@ -25,26 +25,33 @@ namespace FightMechanizmTestingGUI
         {
             CharacterFactory characterFactory = new CharacterFactory();
             var characters = characterFactory.BuildStandardCharacters();
-            RefreshListView(listCharacters, characters);
+            RefreshListView(listCharacters, characters, false);
         }
 
-        private void RefreshListView(ListView listView, List<Character> characters)
+        private void RefreshListView(ListView listView, List<ICharacterInTeam> characters, bool team)
         {
             listView.Columns.Clear();
             listView.Columns.Add("Name", 100, HorizontalAlignment.Left);
+            if (team) listView.Columns.Add("Position", 90, HorizontalAlignment.Left);
             listView.Columns.Add("MaxHp", 50, HorizontalAlignment.Right);
             listView.Columns.Add("Attack", 50, HorizontalAlignment.Right);
             listView.Columns.Add("Defence", 50, HorizontalAlignment.Right);
             listView.Columns.Add("Speed", 50, HorizontalAlignment.Right);
-            //listView.Columns.Add("ID", 100, HorizontalAlignment.Right);
             listView.Items.Clear();
-            foreach (var character in characters)
+            foreach (var character in characters.Select(x=>x.GetCharacter()))
             {
-                string[] row = { character.Name, character.MaxHp.ToString(), character.Att.ToString(), character.Def.ToString(), character.Speed.ToString(), character.ID };
-                var listViewItem = new ListViewItem(row);
+                List<string> row = new List<string>();
+                row.Add(character.Name);
+                if (team) row.Add(character.GetPosition().ToString());
+                row.Add(character.MaxHp.ToString());
+                row.Add(character.Att.ToString());
+                row.Add(character.Def.ToString());
+                row.Add(character.Speed.ToString());
+                var listViewItem = new ListViewItem(row.ToArray());
                 listViewItem.Tag = character;
                 listView.Items.Add(listViewItem);
             }
+
         }
 
         private void btToTeamB_Click(object sender, EventArgs e)
@@ -52,9 +59,15 @@ namespace FightMechanizmTestingGUI
             foreach (ListViewItem item in listCharacters.SelectedItems)
             {
                 var character = (Character)item.Tag;
-                teamB.Add(character.CreateCopy());
+                var copy = character.CreateCopy();
+                var position = TeamPositionHelper.GetFirstAvailablePositionInTeam(teamB);
+                if (position != TeamPosition.None)
+                {
+                    copy.SetPosition(position);
+                    teamB.Add(copy);
+                }
             }
-            RefreshListView(listTeamB, teamB);
+            RefreshListView(listTeamB, teamB, true);
         }
 
         private void btToTeamA_Click(object sender, EventArgs e)
@@ -62,16 +75,22 @@ namespace FightMechanizmTestingGUI
             foreach(ListViewItem item in listCharacters.SelectedItems)
             {
                 var character = (Character)item.Tag;
-                teamA.Add(character.CreateCopy());
+                var copy = character.CreateCopy();
+                var position = TeamPositionHelper.GetFirstAvailablePositionInTeam(teamA);
+                if (position != TeamPosition.None)
+                {
+                    copy.SetPosition(position);
+                    teamA.Add(copy);
+                }
             }
-            RefreshListView(listTeamA, teamA);
+            RefreshListView(listTeamA, teamA, true);
         }
 
         private void btSimulateFight_Click(object sender, EventArgs e)
         {
             FightScreen fightScreen = new FightScreen();
-            fightScreen.teamA = teamA;
-            fightScreen.teamB = teamB;
+            //fightScreen.teamA = teamA;
+            //fightScreen.teamB = teamB;
 
             fightScreen.ShowDialog();
         }
@@ -81,9 +100,9 @@ namespace FightMechanizmTestingGUI
             foreach (ListViewItem item in listTeamA.SelectedItems)
             {
                 var character = (Character)item.Tag;
-                teamA = teamA.Where(x => x.ID != character.ID).ToList();
+                teamA = teamA.Where(x => x.GetCharacter().ID != character.ID).ToList();
             }
-            RefreshListView(listTeamA, teamA);
+            RefreshListView(listTeamA, teamA, true);
         }
 
         private void btRemoveFromB_Click(object sender, EventArgs e)
@@ -91,9 +110,9 @@ namespace FightMechanizmTestingGUI
             foreach (ListViewItem item in listTeamB.SelectedItems)
             {
                 var character = (Character)item.Tag;
-                teamB = teamB.Where(x => x.ID != character.ID).ToList();
+                teamB = teamB.Where(x => x.GetCharacter().ID != character.ID).ToList();
             }
-            RefreshListView(listTeamB, teamB);
+            RefreshListView(listTeamB, teamB, true);
 
         }
 
