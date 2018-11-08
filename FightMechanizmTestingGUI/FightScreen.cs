@@ -32,10 +32,10 @@ namespace FightMechanizmTestingGUI
             var all = new List<ICharacterInTeam>();
             all.AddRange(teamA);
             all.AddRange(teamB);
-            FightMechanizm fightMechanizm = new FightMechanizm(all,"A","B");
+            FightMechanizm fightMechanizm = new FightMechanizm(all,"A","B", new TextBoxLogger(logBox));
             fightMechanizm.GetFightResults();
             UpdateCharacters(teamA, teamB);
-            logBox.AppendText($"Team {fightMechanizm.GetWinningTeam()} won");
+            
         }
 
         private void FightScreen_Load(object sender, EventArgs e)

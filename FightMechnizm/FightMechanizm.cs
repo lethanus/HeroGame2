@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HeroGame.Characters;
-
+using HeroGame.Loggers;
 
 namespace HeroGame.FightMechanizm
 {
@@ -14,12 +14,14 @@ namespace HeroGame.FightMechanizm
         private string _firstTeam;
         private string _secondTeam;
         private string _winningTeam;
+        private Logger _looger;
 
-        public FightMechanizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
+        public FightMechanizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam, Logger logger)
         {
             _startCharacters = startCharacters;
             _firstTeam = firstTeam;
             _secondTeam = secondTeam;
+            _looger = logger;
         }
 
         public List<Character> GetFightResults()
@@ -56,6 +58,7 @@ namespace HeroGame.FightMechanizm
                     break;
                 }
             }
+            _looger.LogLine($"Team {_winningTeam} won");
             return characters.Select(x => x.GetCharacter()).ToList();
         }
 
