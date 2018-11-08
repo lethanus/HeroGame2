@@ -69,7 +69,8 @@ namespace FightMechanizmTestingGUI
 
         private void btSimulateFight_Click(object sender, EventArgs e)
         {
-
+            FightScreen fightScreen = new FightScreen();
+            fightScreen.ShowDialog();
         }
 
         private void btRemoveFromA_Click(object sender, EventArgs e)
@@ -91,6 +92,11 @@ namespace FightMechanizmTestingGUI
             }
             RefreshListView(listTeamB, teamB);
 
+        }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

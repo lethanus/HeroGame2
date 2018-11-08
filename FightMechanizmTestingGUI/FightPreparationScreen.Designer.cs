@@ -39,6 +39,7 @@
             this.btSimulateFight = new System.Windows.Forms.Button();
             this.btRemoveFromA = new System.Windows.Forms.Button();
             this.btRemoveFromB = new System.Windows.Forms.Button();
+            this.btClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btToTeamA
@@ -151,11 +152,22 @@
             this.btRemoveFromB.UseVisualStyleBackColor = true;
             this.btRemoveFromB.Click += new System.EventHandler(this.btRemoveFromB_Click);
             // 
+            // btClose
+            // 
+            this.btClose.Location = new System.Drawing.Point(979, 488);
+            this.btClose.Name = "btClose";
+            this.btClose.Size = new System.Drawing.Size(86, 23);
+            this.btClose.TabIndex = 11;
+            this.btClose.Text = "Close";
+            this.btClose.UseVisualStyleBackColor = true;
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
+            // 
             // FightPreparationScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 535);
+            this.Controls.Add(this.btClose);
             this.Controls.Add(this.btRemoveFromB);
             this.Controls.Add(this.btRemoveFromA);
             this.Controls.Add(this.btSimulateFight);
@@ -192,6 +204,7 @@
         private System.Windows.Forms.Button btSimulateFight;
         private System.Windows.Forms.Button btRemoveFromA;
         private System.Windows.Forms.Button btRemoveFromB;
+        private System.Windows.Forms.Button btClose;
     }
 }
 
