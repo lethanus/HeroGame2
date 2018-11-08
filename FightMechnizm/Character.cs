@@ -13,6 +13,7 @@ namespace HeroGame.Characters
         public int Def { get; set; }
         public int Speed { get; set; }
 
+        public Character() {}
         public Character(string name, int maxHp, int attack, int defence, int speed)
         {
             Name = name;
