@@ -25,10 +25,11 @@ namespace ConstructionYard
         }
 
         [Given(@"Character '(.*)' is assigned to team '(.*)' on position '(.*)'")]
-        public void GivenCharacterIsAssignedToTeamOnPositionF(string charID, string teamName, string position)
+        public void GivenCharacterIsAssignedToTeamOnPositionF(string charID, string teamName, TeamPosition position)
         {
             int before = charactersInTeams.Count(x => x.GetTeam() == teamName);
             characters[charID].SetTeam(teamName);
+            characters[charID].SetPosition(position);
             charactersInTeams.Add(characters[charID]);
             Assert.AreEqual(before + 1, charactersInTeams.Count(x => x.GetTeam() == teamName));
 

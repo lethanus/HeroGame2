@@ -5,6 +5,7 @@ namespace HeroGame.Characters
     public class Character : ICharacterInTeam
     {
         private string _team = "";
+        private TeamPosition _teamPosition;
         public string ID { get; set; }
         public string Name { get; set; }
         public int MaxHp { get; set; }
@@ -12,6 +13,7 @@ namespace HeroGame.Characters
         public int Att { get; set; }
         public int Def { get; set; }
         public int Speed { get; set; }
+        
 
         public Character() {}
         public Character(string name, int maxHp, int attack, int defence, int speed)
@@ -69,6 +71,16 @@ namespace HeroGame.Characters
         public override string ToString()
         {
             return $"ID:{ID} Name:{Name} MaxHp:{MaxHp} Hp:{Hp} Att:{Att} Def:{Def} Speed:{Speed}";
+        }
+
+        public void SetPosition(TeamPosition position)
+        {
+            _teamPosition = position;
+        }
+
+        public TeamPosition GetPosition()
+        {
+            return _teamPosition;
         }
     }
 }
