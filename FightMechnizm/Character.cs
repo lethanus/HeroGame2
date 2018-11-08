@@ -24,6 +24,11 @@ namespace HeroGame.Characters
             ID = Guid.NewGuid().ToString();
         }
 
+        public Character CreateCopy()
+        {
+            return new Character(Name, MaxHp, Att, Def, Speed);
+        }
+
         public override bool Equals(object obj)
         {
             var toCompare = obj as Character;

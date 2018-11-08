@@ -96,7 +96,7 @@
             this.listTeamA.GridLines = true;
             this.listTeamA.Location = new System.Drawing.Point(385, 36);
             this.listTeamA.Name = "listTeamA";
-            this.listTeamA.Size = new System.Drawing.Size(305, 312);
+            this.listTeamA.Size = new System.Drawing.Size(578, 197);
             this.listTeamA.TabIndex = 4;
             this.listTeamA.UseCompatibleStateImageBehavior = false;
             this.listTeamA.View = System.Windows.Forms.View.Details;
@@ -104,7 +104,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(765, 17);
+            this.label3.Location = new System.Drawing.Point(386, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 7;
@@ -114,16 +114,16 @@
             // 
             this.listTeamB.FullRowSelect = true;
             this.listTeamB.GridLines = true;
-            this.listTeamB.Location = new System.Drawing.Point(764, 36);
+            this.listTeamB.Location = new System.Drawing.Point(385, 269);
             this.listTeamB.Name = "listTeamB";
-            this.listTeamB.Size = new System.Drawing.Size(305, 312);
+            this.listTeamB.Size = new System.Drawing.Size(578, 189);
             this.listTeamB.TabIndex = 6;
             this.listTeamB.UseCompatibleStateImageBehavior = false;
             this.listTeamB.View = System.Windows.Forms.View.Details;
             // 
             // btSimulateFight
             // 
-            this.btSimulateFight.Location = new System.Drawing.Point(423, 489);
+            this.btSimulateFight.Location = new System.Drawing.Point(740, 488);
             this.btSimulateFight.Name = "btSimulateFight";
             this.btSimulateFight.Size = new System.Drawing.Size(223, 23);
             this.btSimulateFight.TabIndex = 8;
@@ -133,7 +133,7 @@
             // 
             // btRemoveFromA
             // 
-            this.btRemoveFromA.Location = new System.Drawing.Point(389, 364);
+            this.btRemoveFromA.Location = new System.Drawing.Point(979, 36);
             this.btRemoveFromA.Name = "btRemoveFromA";
             this.btRemoveFromA.Size = new System.Drawing.Size(86, 23);
             this.btRemoveFromA.TabIndex = 9;
@@ -143,7 +143,7 @@
             // 
             // btRemoveFromB
             // 
-            this.btRemoveFromB.Location = new System.Drawing.Point(768, 364);
+            this.btRemoveFromB.Location = new System.Drawing.Point(979, 269);
             this.btRemoveFromB.Name = "btRemoveFromB";
             this.btRemoveFromB.Size = new System.Drawing.Size(86, 23);
             this.btRemoveFromB.TabIndex = 10;
