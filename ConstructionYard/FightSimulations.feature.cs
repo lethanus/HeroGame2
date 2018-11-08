@@ -523,6 +523,79 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("06 Elf is not able to damage Human Palladin", SourceLine=90)]
+        public virtual void _06ElfIsNotAbleToDamageHumanPalladin()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06 Elf is not able to damage Human Palladin", null, ((string[])(null)));
+#line 91
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Att",
+                        "Def",
+                        "Speed"});
+            table11.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "5",
+                        "10"});
+            table11.AddRow(new string[] {
+                        "Human_B",
+                        "Human",
+                        "100",
+                        "100",
+                        "40",
+                        "25",
+                        "9"});
+#line 92
+ testRunner.Given("The following characters", ((string)(null)), table11, "Given ");
+#line 96
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 97
+ testRunner.And("Character \'Human_B\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 98
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Att",
+                        "Def",
+                        "Speed"});
+            table12.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "20",
+                        "0",
+                        "10",
+                        "5",
+                        "10"});
+            table12.AddRow(new string[] {
+                        "Human_B",
+                        "Human",
+                        "100",
+                        "100",
+                        "40",
+                        "25",
+                        "9"});
+#line 99
+ testRunner.Then("The following characters status is", ((string)(null)), table12, "Then ");
+#line 103
+ testRunner.And("Team \'B\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {

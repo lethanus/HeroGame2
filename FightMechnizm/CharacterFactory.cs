@@ -12,8 +12,12 @@ namespace HeroGame.Characters
         {
             var characters = new List<ICharacterInTeam>
             {
-                new Character("Goblin", 10, 10, 0, 5),
-                new Character("Elf", 20, 10, 5, 10)
+                new Character("Goblin scout", 10, 10, 0, 5),
+                new Character("Elf hunter", 20, 10, 5, 10),
+                new Character("Human warrior", 40, 15, 7, 4),
+                new Character("Troll warrior", 200, 30, 20, 2),
+                new Character("Skeleton", 15, 8, 3, 5),
+                new Character("Human palladin", 100, 40, 25, 9)
             };
 
 

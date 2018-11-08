@@ -87,3 +87,17 @@ Scenario: 05 Fast Elf killing many Goblins and gets wounded
 		| Golbin_C | Golbin | 10    | 0  | 5   | 0   | 5     |
 		| Golbin_D | Golbin | 10    | 0  | 5   | 0   | 5     |
 	And Team 'A' won
+
+	Scenario: 06 Elf is not able to damage Human Palladin
+	Given The following characters
+		| ID      | Name  | MaxHp | Hp  | Att | Def | Speed |
+		| Elf_A   | Elf   | 20    | 20  | 10  | 5   | 10    |
+		| Human_B | Human | 100   | 100 | 40  | 25  | 9     |
+	And Character 'Elf_A' is assigned to team 'A' on position 'Front_1'
+	And Character 'Human_B' is assigned to team 'B' on position 'Front_1'
+	When Fight between 'A' and 'B' starts
+	Then The following characters status is
+		| ID      | Name  | MaxHp | Hp  | Att | Def | Speed |
+		| Elf_A   | Elf   | 20    | 0   | 10  | 5   | 10    |
+		| Human_B | Human | 100   | 100 | 40  | 25  | 9     |
+	And Team 'B' won
