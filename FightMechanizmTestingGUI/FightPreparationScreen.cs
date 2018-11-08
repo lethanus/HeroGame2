@@ -70,6 +70,9 @@ namespace FightMechanizmTestingGUI
         private void btSimulateFight_Click(object sender, EventArgs e)
         {
             FightScreen fightScreen = new FightScreen();
+            fightScreen.teamA = teamA;
+            fightScreen.teamB = teamB;
+
             fightScreen.ShowDialog();
         }
 

@@ -72,6 +72,9 @@
             this.teamBrear1 = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btClose = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btStart = new System.Windows.Forms.Button();
+            this.btNextTurn = new System.Windows.Forms.Button();
             this.gbTeamA.SuspendLayout();
             this.gbTeamB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -529,11 +532,45 @@
             this.btClose.UseVisualStyleBackColor = true;
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 415);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
+            this.richTextBox1.Size = new System.Drawing.Size(796, 213);
+            this.richTextBox1.TabIndex = 23;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.WordWrap = false;
+            // 
+            // btStart
+            // 
+            this.btStart.Location = new System.Drawing.Point(814, 415);
+            this.btStart.Name = "btStart";
+            this.btStart.Size = new System.Drawing.Size(75, 23);
+            this.btStart.TabIndex = 24;
+            this.btStart.Text = "Start fight";
+            this.btStart.UseVisualStyleBackColor = true;
+            this.btStart.Click += new System.EventHandler(this.btStart_Click);
+            // 
+            // btNextTurn
+            // 
+            this.btNextTurn.Location = new System.Drawing.Point(814, 444);
+            this.btNextTurn.Name = "btNextTurn";
+            this.btNextTurn.Size = new System.Drawing.Size(75, 23);
+            this.btNextTurn.TabIndex = 25;
+            this.btNextTurn.Text = "Next turn";
+            this.btNextTurn.UseVisualStyleBackColor = true;
+            this.btNextTurn.Click += new System.EventHandler(this.btNextTurn_Click);
+            // 
             // FightScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 640);
+            this.Controls.Add(this.btNextTurn);
+            this.Controls.Add(this.btStart);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.splitContainer1);
             this.MaximizeBox = false;
@@ -603,5 +640,8 @@
         private System.Windows.Forms.TextBox teamBrear1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btClose;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btStart;
+        private System.Windows.Forms.Button btNextTurn;
     }
 }
