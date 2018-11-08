@@ -16,6 +16,7 @@ namespace ConstructionYard
         private Dictionary<string, Character> characters = new Dictionary<string, Character>();
         private List<ICharacterInTeam> charactersInTeams = new List<ICharacterInTeam>();
         private List<Character> charactersAfterFight = new List<Character>();
+        private string winningTeam = "";
 
         [Given(@"The following characters")]
         public void GivenTheFollowingCharacters(Table table)
@@ -35,12 +36,18 @@ namespace ConstructionYard
 
         }
 
-
-        [When(@"Fight between '(.*)' and '(.*)' turn (.*) ends")]
-        public void WhenFightBetweenAndTurnEnds(string firstTeam, string secondTeam, int turnNumber)
+        [When(@"Fight between '(.*)' and '(.*)' starts")]
+        public void WhenFightBetweenAndStarts(string firstTeam, string secondTeam)
         {
             var fightMechnizm = new FightMechnizm(charactersInTeams, firstTeam, secondTeam);
-            charactersAfterFight = fightMechnizm.GetFightResultsAfterTurn(turnNumber);
+            charactersAfterFight = fightMechnizm.GetFightResults();
+            winningTeam = fightMechnizm.GetWinningTeam();
+        }
+
+        [Then(@"Team '(.*)' won")]
+        public void ThenTeamWon(string team)
+        {
+            Assert.AreEqual(team, winningTeam);
         }
 
 

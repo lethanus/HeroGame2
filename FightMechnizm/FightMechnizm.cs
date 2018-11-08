@@ -13,6 +13,7 @@ namespace HeroGame.FightMechanizm
         private List<ICharacterInTeam> _startCharacters = new List<ICharacterInTeam>();
         private string _firstTeam;
         private string _secondTeam;
+        private string _winningTeam;
 
         public FightMechnizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
         {
@@ -21,7 +22,7 @@ namespace HeroGame.FightMechanizm
             _secondTeam = secondTeam;
         }
 
-        public List<Character> GetFightResultsAfterTurn(int turnNumber)
+        public List<Character> GetFightResults()
         {
             var characters = new List<ICharacterInTeam>();
             foreach (var character in _startCharacters)
@@ -29,7 +30,7 @@ namespace HeroGame.FightMechanizm
                 characters.Add(character.GetCharacter());
             }
 
-            for (int i = 1; i <= turnNumber; i++)
+            for (int i = 1; i <= 15; i++)
             {
                 foreach (var attacker in characters.OrderByDescending(x => x.GetCharacter().Speed))
                 {
@@ -42,7 +43,18 @@ namespace HeroGame.FightMechanizm
                                 firstLiveCharFromOtherTeam);
                     }
                 }
-
+                var liveFirstTeamCount = characters.Count(x => x.GetTeam() == _firstTeam && x.GetCharacter().Hp > 0);
+                var liveSecondTeamCount = characters.Count(x => x.GetTeam() == _secondTeam && x.GetCharacter().Hp > 0);
+                if (liveFirstTeamCount == 0)
+                {
+                    _winningTeam = _secondTeam;
+                    break;
+                }
+                if (liveSecondTeamCount == 0)
+                {
+                    _winningTeam = _firstTeam;
+                    break;
+                }
             }
             return characters.Select(x => x.GetCharacter()).ToList();
         }
@@ -51,6 +63,11 @@ namespace HeroGame.FightMechanizm
         {
             var damage = attacker.Att - defender.Def;
             return defender.Hp < damage ? 0 : defender.Hp - damage;
+        }
+
+        public string GetWinningTeam()
+        {
+            return _winningTeam;
         }
     }
 }

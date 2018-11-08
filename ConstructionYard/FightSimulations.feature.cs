@@ -107,7 +107,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
  testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
- testRunner.When("Fight between \'A\' and \'B\' turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -135,14 +135,16 @@ this.ScenarioInitialize(scenarioInfo);
                         "5"});
 #line 13
  testRunner.Then("The following characters status is", ((string)(null)), table2, "Then ");
+#line 17
+ testRunner.And("Team \'A\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("02 Goblins are hurting each other after 1 turn", SourceLine=19)]
-        public virtual void _02GoblinsAreHurtingEachOtherAfter1Turn()
+        [TechTalk.SpecRun.ScenarioAttribute("02 Goblins are hurting each other", SourceLine=19)]
+        public virtual void _02GoblinsAreHurtingEachOther()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Goblins are hurting each other after 1 turn", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Goblins are hurting each other", null, ((string[])(null)));
 #line 20
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -178,7 +180,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 26
  testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 27
- testRunner.When("Fight between \'A\' and \'B\' turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -200,12 +202,14 @@ this.ScenarioInitialize(scenarioInfo);
                         "Golbin_B",
                         "Golbin",
                         "10",
-                        "5",
+                        "0",
                         "5",
                         "0",
                         "5"});
 #line 28
  testRunner.Then("The following characters status is", ((string)(null)), table4, "Then ");
+#line 32
+ testRunner.And("Team \'A\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -249,7 +253,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 40
  testRunner.And("Character \'Troll_B\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
- testRunner.When("Fight between \'A\' and \'B\' turn 2 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -277,15 +281,17 @@ this.ScenarioInitialize(scenarioInfo);
                         "5"});
 #line 42
  testRunner.Then("The following characters status is", ((string)(null)), table6, "Then ");
+#line 46
+ testRunner.And("Team \'B\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("04 Two fast Elfs killing two Goblins in first turn", SourceLine=46)]
+        [TechTalk.SpecRun.ScenarioAttribute("04 Two fast Elfs killing two Goblins in first turn", SourceLine=47)]
         public virtual void _04TwoFastElfsKillingTwoGoblinsInFirstTurn()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 Two fast Elfs killing two Goblins in first turn", null, ((string[])(null)));
-#line 47
+#line 48
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -329,18 +335,18 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5"});
-#line 48
+#line 49
  testRunner.Given("The following characters", ((string)(null)), table7, "Given ");
-#line 54
- testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
- testRunner.And("Character \'Elf_B\' is assigned to team \'A\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 56
- testRunner.And("Character \'Golbin_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Elf_B\' is assigned to team \'A\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 57
- testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 58
- testRunner.When("Fight between \'A\' and \'B\' turn 1 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -382,17 +388,19 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5"});
-#line 59
+#line 60
  testRunner.Then("The following characters status is", ((string)(null)), table8, "Then ");
+#line 66
+ testRunner.And("Team \'A\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("05 Fast Elf killing many Goblins and gets wounded", SourceLine=66)]
+        [TechTalk.SpecRun.ScenarioAttribute("05 Fast Elf killing many Goblins and gets wounded", SourceLine=67)]
         public virtual void _05FastElfKillingManyGoblinsAndGetsWounded()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 Fast Elf killing many Goblins and gets wounded", null, ((string[])(null)));
-#line 67
+#line 68
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -444,20 +452,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5"});
-#line 68
+#line 69
  testRunner.Given("The following characters", ((string)(null)), table9, "Given ");
-#line 75
- testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 76
- testRunner.And("Character \'Golbin_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 77
- testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 78
- testRunner.And("Character \'Golbin_C\' is assigned to team \'B\' on position \'Front_3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 79
- testRunner.And("Character \'Golbin_D\' is assigned to team \'B\' on position \'Middle_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Golbin_C\' is assigned to team \'B\' on position \'Front_3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
- testRunner.When("Fight between \'A\' and \'B\' turn 4 ends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Character \'Golbin_D\' is assigned to team \'B\' on position \'Middle_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -507,8 +515,10 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5"});
-#line 81
+#line 82
  testRunner.Then("The following characters status is", ((string)(null)), table10, "Then ");
+#line 89
+ testRunner.And("Team \'A\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
