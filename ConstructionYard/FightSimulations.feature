@@ -7,8 +7,8 @@ Scenario: 01 Fast Elf killing Goblin in first turn
 		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |
 		| Elf_A    | Elf    | 20    | 20 | 10  | 5   | 10    |
 		| Golbin_B | Golbin | 10    | 10 | 5   | 0   | 5     |
-	And Character 'Elf_A' is assigned to team 'A'
-	And Character 'Golbin_B' is assigned to team 'B'
+	And Character 'Elf_A' is assigned to team 'A' on position 'Front_1'
+	And Character 'Golbin_B' is assigned to team 'B' on position 'Front_1'
 	When Fight between 'A' and 'B' turn 1 ends
 	Then The following characters status is
 		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |
@@ -22,8 +22,8 @@ Scenario: 02 Goblins are hurting each other after 1 turn
 		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |
 		| Golbin_A | Golbin | 10    | 10 | 5   | 0   | 5     |
 		| Golbin_B | Golbin | 10    | 10 | 5   | 0   | 5     |
-	And Character 'Golbin_A' is assigned to team 'A'
-	And Character 'Golbin_B' is assigned to team 'B'
+	And Character 'Golbin_A' is assigned to team 'A' on position 'Front_1'
+	And Character 'Golbin_B' is assigned to team 'B' on position 'Front_1'
 	When Fight between 'A' and 'B' turn 1 ends
 	Then The following characters status is
 		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |
@@ -36,8 +36,8 @@ Scenario: 03 Elf is to weak for a Troll
 		| ID      | Name  | MaxHp | Hp  | Att | Def | Speed |
 		| Elf_A   | Elf   | 20    | 20  | 10  | 5   | 10    |
 		| Troll_B | Troll | 100   | 100 | 15  | 5   | 5     |
-	And Character 'Elf_A' is assigned to team 'A'
-	And Character 'Troll_B' is assigned to team 'B'
+	And Character 'Elf_A' is assigned to team 'A' on position 'Front_1'
+	And Character 'Troll_B' is assigned to team 'B' on position 'Front_1'
 	When Fight between 'A' and 'B' turn 2 ends
 	Then The following characters status is
 		| ID      | Name  | MaxHp | Hp | Att | Def | Speed |
@@ -51,10 +51,10 @@ Scenario: 04 Two fast Elfs killing two Goblins in first turn
 		| Elf_B    | Elf    | 20    | 20 | 10  | 5   | 10    |
 		| Golbin_A | Golbin | 10    | 10 | 5   | 0   | 5     |
 		| Golbin_B | Golbin | 10    | 10 | 5   | 0   | 5     |
-	And Character 'Elf_A' is assigned to team 'A'
-	And Character 'Elf_B' is assigned to team 'A'
-	And Character 'Golbin_A' is assigned to team 'B'
-	And Character 'Golbin_B' is assigned to team 'B'
+	And Character 'Elf_A' is assigned to team 'A' on position 'Front_1'
+	And Character 'Elf_B' is assigned to team 'A' on position 'Front_2'
+	And Character 'Golbin_A' is assigned to team 'B' on position 'Front_1'
+	And Character 'Golbin_B' is assigned to team 'B' on position 'Front_2'
 	When Fight between 'A' and 'B' turn 1 ends
 	Then The following characters status is
 		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |
@@ -72,11 +72,11 @@ Scenario: 05 Fast Elf killing many Goblins and gets wounded
 		| Golbin_B | Golbin | 10    | 10 | 5   | 0   | 5     |
 		| Golbin_C | Golbin | 10    | 10 | 5   | 0   | 5     |
 		| Golbin_D | Golbin | 10    | 10 | 5   | 0   | 5     |
-	And Character 'Elf_A' is assigned to team 'A'
-	And Character 'Golbin_A' is assigned to team 'B'
-	And Character 'Golbin_B' is assigned to team 'B'
-	And Character 'Golbin_C' is assigned to team 'B'
-	And Character 'Golbin_D' is assigned to team 'B'
+	And Character 'Elf_A' is assigned to team 'A' on position 'Front_1'
+	And Character 'Golbin_A' is assigned to team 'B' on position 'Front_1'
+	And Character 'Golbin_B' is assigned to team 'B' on position 'Front_2'
+	And Character 'Golbin_C' is assigned to team 'B' on position 'Front_3'
+	And Character 'Golbin_D' is assigned to team 'B' on position 'Middle_1'
 	When Fight between 'A' and 'B' turn 4 ends
 	Then The following characters status is
 		| ID       | Name   | MaxHp | Hp | Att | Def | Speed |

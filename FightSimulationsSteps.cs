@@ -22,14 +22,16 @@ namespace ConstructionYard
             Assert.Greater(characters.Count, 0);
         }
 
-        [Given(@"Character '(.*)' is assigned to team '(.*)'")]
-        public void GivenCharacterIsAssignedToTeam(string charID, string teamName)
+        [Given(@"Character '(.*)' is assigned to team '(.*)' on position '(.*)'")]
+        public void GivenCharacterIsAssignedToTeamOnPositionF(string charID, string teamName, string position)
         {
             int before = charactersInTeams.Count(x => x.GetTeam() == teamName);
             characters[charID].SetTeam(teamName);
             charactersInTeams.Add(characters[charID]);
             Assert.AreEqual(before + 1, charactersInTeams.Count(x => x.GetTeam() == teamName));
+
         }
+
 
         [When(@"Fight between '(.*)' and '(.*)' turn (.*) ends")]
         public void WhenFightBetweenAndTurnEnds(string firstTeam, string secondTeam, int turnNumber)
