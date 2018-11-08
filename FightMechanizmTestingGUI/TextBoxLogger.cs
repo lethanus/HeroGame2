@@ -19,7 +19,7 @@ namespace FightMechanizmTestingGUI
 
         public void LogLine(string line)
         {
-            _richTextBox.AppendText(line);
+            _richTextBox.AppendText(line + Environment.NewLine);
         }
     }
 }

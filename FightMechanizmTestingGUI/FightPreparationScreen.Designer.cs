@@ -58,7 +58,7 @@
             this.listCharacters.GridLines = true;
             this.listCharacters.Location = new System.Drawing.Point(12, 36);
             this.listCharacters.Name = "listCharacters";
-            this.listCharacters.Size = new System.Drawing.Size(305, 312);
+            this.listCharacters.Size = new System.Drawing.Size(356, 312);
             this.listCharacters.TabIndex = 1;
             this.listCharacters.UseCompatibleStateImageBehavior = false;
             this.listCharacters.View = System.Windows.Forms.View.Details;

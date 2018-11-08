@@ -34,15 +34,20 @@ namespace HeroGame.FightMechanizm
 
             for (int i = 1; i <= 15; i++)
             {
+                _looger.LogLine($"Turn {i} started");
                 foreach (var attacker in characters.OrderByDescending(x => x.GetCharacter().Speed))
                 {
                     if (attacker.GetCharacter().Hp > 0)
                     {
-                        var firstLiveCharFromOtherTeam = characters.First(x => x.GetTeam() != attacker.GetTeam() && x.GetCharacter().Hp > 0).GetCharacter();
+                        var firstLiveCharFromOtherTeam = characters.FirstOrDefault(x => x.GetTeam() != attacker.GetTeam() && x.GetCharacter().Hp > 0);
 
-                        firstLiveCharFromOtherTeam.Hp = CalculateNewHp(
-                                attacker.GetCharacter(),
-                                firstLiveCharFromOtherTeam);
+                        if (firstLiveCharFromOtherTeam != null)
+                        {
+                            var defender = firstLiveCharFromOtherTeam.GetCharacter();
+                            defender.Hp = CalculateNewHp(attacker.GetCharacter(), defender);
+                            var isKilled = defender.Hp == 0 ? "[Killed]" : "";
+                            _looger.LogLine($"[{attacker.GetTeam()}]{attacker.GetCharacter().Name} reduced {defender.Name} HP to {defender.Hp} {isKilled}");
+                        }
                     }
                 }
                 var liveFirstTeamCount = characters.Count(x => x.GetTeam() == _firstTeam && x.GetCharacter().Hp > 0);

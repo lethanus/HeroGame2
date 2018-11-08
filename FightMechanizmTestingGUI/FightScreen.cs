@@ -45,39 +45,48 @@ namespace FightMechanizmTestingGUI
 
         private void UpdateCharacters(List<ICharacterInTeam> teamA, List<ICharacterInTeam> teamB)
         {
-            teamAfront1.Text = GetCharacterInfo(teamA, TeamPosition.Front_1);
-            teamAfront2.Text = GetCharacterInfo(teamA, TeamPosition.Front_2);
-            teamAfront3.Text = GetCharacterInfo(teamA, TeamPosition.Front_3);
+            SetCharacterInfo(teamA, TeamPosition.Front_1, teamAfront1);
+            SetCharacterInfo(teamA, TeamPosition.Front_2, teamAfront2);
+            SetCharacterInfo(teamA, TeamPosition.Front_3, teamAfront3);
 
-            teamAmiddle1.Text = GetCharacterInfo(teamA, TeamPosition.Middle_1);
-            teamAmiddle2.Text = GetCharacterInfo(teamA, TeamPosition.Middle_2);
-            teamAmiddle3.Text = GetCharacterInfo(teamA, TeamPosition.Middle_3);
-            teamAmiddle4.Text = GetCharacterInfo(teamA, TeamPosition.Middle_4);
+            SetCharacterInfo(teamA, TeamPosition.Middle_1, teamAmiddle1);
+            SetCharacterInfo(teamA, TeamPosition.Middle_2, teamAmiddle2);
+            SetCharacterInfo(teamA, TeamPosition.Middle_3, teamAmiddle3);
+            SetCharacterInfo(teamA, TeamPosition.Middle_4, teamAmiddle4);
 
-            teamArear1.Text = GetCharacterInfo(teamA, TeamPosition.Rear_1);
-            teamArear2.Text = GetCharacterInfo(teamA, TeamPosition.Rear_2);
-            teamArear3.Text = GetCharacterInfo(teamA, TeamPosition.Rear_3);
+            SetCharacterInfo(teamA, TeamPosition.Rear_1, teamArear1);
+            SetCharacterInfo(teamA, TeamPosition.Rear_2, teamArear2);
+            SetCharacterInfo(teamA, TeamPosition.Rear_3, teamArear3);
 
-            teamBfront1.Text = GetCharacterInfo(teamB, TeamPosition.Front_1);
-            teamBfront2.Text = GetCharacterInfo(teamB, TeamPosition.Front_2);
-            teamBfront3.Text = GetCharacterInfo(teamB, TeamPosition.Front_3);
+            SetCharacterInfo(teamB, TeamPosition.Front_1, teamBfront1);
+            SetCharacterInfo(teamB, TeamPosition.Front_2, teamBfront2);
+            SetCharacterInfo(teamB, TeamPosition.Front_3, teamBfront3);
 
-            teamBmiddle1.Text = GetCharacterInfo(teamB, TeamPosition.Middle_1);
-            teamBmiddle2.Text = GetCharacterInfo(teamB, TeamPosition.Middle_2);
-            teamBmiddle3.Text = GetCharacterInfo(teamB, TeamPosition.Middle_3);
-            teamBmiddle4.Text = GetCharacterInfo(teamB, TeamPosition.Middle_4);
+            SetCharacterInfo(teamB, TeamPosition.Middle_1, teamBmiddle1);
+            SetCharacterInfo(teamB, TeamPosition.Middle_2, teamBmiddle2);
+            SetCharacterInfo(teamB, TeamPosition.Middle_3, teamBmiddle3);
+            SetCharacterInfo(teamB, TeamPosition.Middle_4, teamBmiddle4);
 
-            teamBrear1.Text = GetCharacterInfo(teamB, TeamPosition.Rear_1);
-            teamBrear2.Text = GetCharacterInfo(teamB, TeamPosition.Rear_2);
-            teamBrear3.Text = GetCharacterInfo(teamB, TeamPosition.Rear_3);
+            SetCharacterInfo(teamB, TeamPosition.Rear_1, teamBrear1);
+            SetCharacterInfo(teamB, TeamPosition.Rear_2, teamBrear2);
+            SetCharacterInfo(teamB, TeamPosition.Rear_3, teamBrear3);
 
         }
 
-        private string GetCharacterInfo(List<ICharacterInTeam> team, TeamPosition position)
+        private void SetCharacterInfo(List<ICharacterInTeam> team, TeamPosition position, TextBox textBox)
         {
             var character = team.FirstOrDefault(x => x.GetPosition() == position);
-            if (character == null) return "NONE";
-            else return character.GetCharacter().ToCharacterString();
+            if (character == null)
+            {
+                textBox.Text = "NONE";
+                textBox.BackColor = Color.Gray;
+            }
+            else
+            {
+                textBox.Text = character.GetCharacter().ToCharacterString();
+                if (character.GetCharacter().Hp == 0) textBox.BackColor = Color.Orange;
+                else textBox.BackColor = Color.LightGreen;
+            }
         }
     }
 }

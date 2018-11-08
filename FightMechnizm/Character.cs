@@ -29,7 +29,10 @@ namespace HeroGame.Characters
 
         public Character CreateCopy()
         {
-            return new Character(Name, MaxHp, Att, Def, Speed);
+            var newChar = new Character(Name, MaxHp, Att, Def, Speed);
+            newChar._team = _team;
+            newChar._teamPosition = _teamPosition;
+            return newChar;
         }
 
         public override bool Equals(object obj)

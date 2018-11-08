@@ -35,7 +35,7 @@ namespace FightMechanizmTestingGUI
             if (team) listView.Columns.Add("Position", 90, HorizontalAlignment.Left);
             listView.Columns.Add("MaxHp", 50, HorizontalAlignment.Right);
             listView.Columns.Add("Attack", 50, HorizontalAlignment.Right);
-            listView.Columns.Add("Defence", 50, HorizontalAlignment.Right);
+            listView.Columns.Add("Defence", 70, HorizontalAlignment.Right);
             listView.Columns.Add("Speed", 50, HorizontalAlignment.Right);
             listView.Items.Clear();
             foreach (var character in characters.Select(x=>x.GetCharacter()))
@@ -91,8 +91,16 @@ namespace FightMechanizmTestingGUI
         private void btSimulateFight_Click(object sender, EventArgs e)
         {
             FightScreen fightScreen = new FightScreen();
-            fightScreen.teamA = teamA;
-            fightScreen.teamB = teamB;
+            fightScreen.teamA.Clear();
+            fightScreen.teamB.Clear();
+            foreach(var character in teamA)
+            {
+                fightScreen.teamA.Add(character.GetCharacter().CreateCopy());
+            }
+            foreach (var character in teamB)
+            {
+                fightScreen.teamB.Add(character.GetCharacter().CreateCopy());
+            }
 
             fightScreen.ShowDialog();
         }
