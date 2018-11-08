@@ -60,6 +60,7 @@ namespace FightMechanizmTestingGUI
             {
                 var character = (Character)item.Tag;
                 var copy = character.CreateCopy();
+                copy.SetTeam("B");
                 var position = TeamPositionHelper.GetFirstAvailablePositionInTeam(teamB);
                 if (position != TeamPosition.None)
                 {
@@ -76,6 +77,7 @@ namespace FightMechanizmTestingGUI
             {
                 var character = (Character)item.Tag;
                 var copy = character.CreateCopy();
+                copy.SetTeam("A");
                 var position = TeamPositionHelper.GetFirstAvailablePositionInTeam(teamA);
                 if (position != TeamPosition.None)
                 {

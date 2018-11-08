@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeroGame.Characters;
+using HeroGame.FightMechanizm;
 
 namespace FightMechanizmTestingGUI
 {
@@ -28,12 +29,13 @@ namespace FightMechanizmTestingGUI
 
         private void btStart_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btNextTurn_Click(object sender, EventArgs e)
-        {
-
+            var all = new List<ICharacterInTeam>();
+            all.AddRange(teamA);
+            all.AddRange(teamB);
+            FightMechanizm fightMechanizm = new FightMechanizm(all,"A","B");
+            fightMechanizm.GetFightResults();
+            UpdateCharacters(teamA, teamB);
+            logBox.AppendText($"Team {fightMechanizm.GetWinningTeam()} won");
         }
 
         private void FightScreen_Load(object sender, EventArgs e)

@@ -8,14 +8,14 @@ using HeroGame.Characters;
 
 namespace HeroGame.FightMechanizm
 {
-    public class FightMechnizm
+    public class FightMechanizm
     {
         private List<ICharacterInTeam> _startCharacters = new List<ICharacterInTeam>();
         private string _firstTeam;
         private string _secondTeam;
         private string _winningTeam;
 
-        public FightMechnizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
+        public FightMechanizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
         {
             _startCharacters = startCharacters;
             _firstTeam = firstTeam;
