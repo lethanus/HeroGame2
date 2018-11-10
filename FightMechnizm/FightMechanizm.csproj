@@ -43,6 +43,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="CharacterFactory.cs" />
     <Compile Include="FightMechanizm.cs" />
+    <Compile Include="ICharacter.cs" />
     <Compile Include="ICharacterInTeam.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

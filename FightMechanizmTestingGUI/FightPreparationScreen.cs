@@ -110,7 +110,7 @@ namespace FightMechanizmTestingGUI
             foreach (ListViewItem item in listTeamA.SelectedItems)
             {
                 var character = (Character)item.Tag;
-                teamA = teamA.Where(x => x.GetCharacter().ID != character.ID).ToList();
+                teamA = teamA.Where(x => x.getID() != character.ID).ToList();
             }
             RefreshListView(listTeamA, teamA, true);
         }
@@ -120,7 +120,7 @@ namespace FightMechanizmTestingGUI
             foreach (ListViewItem item in listTeamB.SelectedItems)
             {
                 var character = (Character)item.Tag;
-                teamB = teamB.Where(x => x.GetCharacter().ID != character.ID).ToList();
+                teamB = teamB.Where(x => x.getID() != character.ID).ToList();
             }
             RefreshListView(listTeamB, teamB, true);
 

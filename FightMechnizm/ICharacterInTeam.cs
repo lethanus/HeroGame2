@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HeroGame.Characters
 {
-    public interface ICharacterInTeam
+    public interface ICharacterInTeam : ICharacter
     {
         string GetTeam();
         void SetTeam(string team);

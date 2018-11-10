@@ -90,5 +90,45 @@ namespace HeroGame.Characters
         {
             return _teamPosition;
         }
+
+        public string getID()
+        {
+            return ID;
+        }
+
+        public string getName()
+        {
+            return Name;
+        }
+
+        public int getMaxHp()
+        {
+            return MaxHp;
+        }
+
+        public int getHp()
+        {
+            return Hp;
+        }
+
+        public int getAtt()
+        {
+            return Att;
+        }
+
+        public int getDef()
+        {
+            return Def;
+        }
+
+        public int getSpeed()
+        {
+            return Speed;
+        }
+
+        public void setNewHP(int hp)
+        {
+            Hp = hp;
+        }
     }
 }
