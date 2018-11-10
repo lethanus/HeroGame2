@@ -95,8 +95,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "Normal_Attack"});
             table1.AddRow(new string[] {
-                        "Golbin_B",
-                        "Golbin",
+                        "Goblin_B",
+                        "Goblin",
                         "10",
                         "10",
                         "5",
@@ -108,7 +108,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Goblin_B\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -131,8 +131,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "Normal_Attack"});
             table2.AddRow(new string[] {
-                        "Golbin_B",
-                        "Golbin",
+                        "Goblin_B",
+                        "Goblin",
                         "10",
                         "0",
                         "5",
@@ -165,8 +165,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Speed",
                         "Skills"});
             table3.AddRow(new string[] {
-                        "Golbin_A",
-                        "Golbin",
+                        "Goblin_A",
+                        "Goblin",
                         "10",
                         "10",
                         "5",
@@ -174,8 +174,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table3.AddRow(new string[] {
-                        "Golbin_B",
-                        "Golbin",
+                        "Goblin_B",
+                        "Goblin",
                         "10",
                         "10",
                         "5",
@@ -185,9 +185,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 21
  testRunner.Given("The following characters", ((string)(null)), table3, "Given ");
 #line 25
- testRunner.And("Character \'Golbin_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Goblin_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
- testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Goblin_B\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 27
  testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -201,8 +201,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Speed",
                         "Skills"});
             table4.AddRow(new string[] {
-                        "Golbin_A",
-                        "Golbin",
+                        "Goblin_A",
+                        "Goblin",
                         "10",
                         "5",
                         "5",
@@ -210,8 +210,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table4.AddRow(new string[] {
-                        "Golbin_B",
-                        "Golbin",
+                        "Goblin_B",
+                        "Goblin",
                         "10",
                         "0",
                         "5",
@@ -341,8 +341,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "Normal_Attack"});
             table7.AddRow(new string[] {
-                        "Golbin_A",
-                        "Golbin",
+                        "Goblin_A",
+                        "Goblin",
                         "10",
                         "10",
                         "5",
@@ -350,8 +350,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table7.AddRow(new string[] {
-                        "Golbin_B",
-                        "Golbin",
+                        "Goblin_B",
+                        "Goblin",
                         "10",
                         "10",
                         "5",
@@ -365,9 +365,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 56
  testRunner.And("Character \'Elf_B\' is assigned to team \'A\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 57
- testRunner.And("Character \'Golbin_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Goblin_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 58
- testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Goblin_B\' is assigned to team \'B\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 59
  testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -399,8 +399,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "Normal_Attack"});
             table8.AddRow(new string[] {
-                        "Golbin_A",
-                        "Golbin",
+                        "Goblin_A",
+                        "Goblin",
                         "10",
                         "0",
                         "5",
@@ -408,8 +408,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table8.AddRow(new string[] {
-                        "Golbin_B",
-                        "Golbin",
+                        "Goblin_B",
+                        "Goblin",
                         "10",
                         "0",
                         "5",
@@ -451,8 +451,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "Normal_Attack"});
             table9.AddRow(new string[] {
-                        "Golbin_A",
-                        "Golbin",
+                        "Goblin_A",
+                        "Goblin",
                         "10",
                         "10",
                         "5",
@@ -460,8 +460,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table9.AddRow(new string[] {
-                        "Golbin_B",
-                        "Golbin",
+                        "Goblin_B",
+                        "Goblin",
                         "10",
                         "10",
                         "5",
@@ -469,8 +469,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table9.AddRow(new string[] {
-                        "Golbin_C",
-                        "Golbin",
+                        "Goblin_C",
+                        "Goblin",
                         "10",
                         "10",
                         "5",
@@ -478,8 +478,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table9.AddRow(new string[] {
-                        "Golbin_D",
-                        "Golbin",
+                        "Goblin_D",
+                        "Goblin",
                         "10",
                         "10",
                         "5",
@@ -491,13 +491,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 76
  testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 77
- testRunner.And("Character \'Golbin_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Goblin_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 78
- testRunner.And("Character \'Golbin_B\' is assigned to team \'B\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Goblin_B\' is assigned to team \'B\' on position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 79
- testRunner.And("Character \'Golbin_C\' is assigned to team \'B\' on position \'Front_3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Goblin_C\' is assigned to team \'B\' on position \'Front_3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
- testRunner.And("Character \'Golbin_D\' is assigned to team \'B\' on position \'Middle_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Goblin_D\' is assigned to team \'B\' on position \'Middle_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 81
  testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -520,8 +520,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "Normal_Attack"});
             table10.AddRow(new string[] {
-                        "Golbin_A",
-                        "Golbin",
+                        "Goblin_A",
+                        "Goblin",
                         "10",
                         "0",
                         "5",
@@ -529,8 +529,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table10.AddRow(new string[] {
-                        "Golbin_B",
-                        "Golbin",
+                        "Goblin_B",
+                        "Goblin",
                         "10",
                         "0",
                         "5",
@@ -538,8 +538,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table10.AddRow(new string[] {
-                        "Golbin_C",
-                        "Golbin",
+                        "Goblin_C",
+                        "Goblin",
                         "10",
                         "0",
                         "5",
@@ -547,8 +547,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "Normal_Attack"});
             table10.AddRow(new string[] {
-                        "Golbin_D",
-                        "Golbin",
+                        "Goblin_D",
+                        "Goblin",
                         "10",
                         "0",
                         "5",
