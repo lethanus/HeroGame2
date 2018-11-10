@@ -44,7 +44,6 @@ namespace HeroGame.Characters
             var toCompare = obj as Character;
 
             if (ID == toCompare.ID &&
-                Name == toCompare.Name &&
                 Hp == toCompare.Hp)
                 return true;
             var nl = System.Environment.NewLine;

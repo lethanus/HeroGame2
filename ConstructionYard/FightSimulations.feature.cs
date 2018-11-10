@@ -117,15 +117,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Name",
                         "Hp"});
             table2.AddRow(new string[] {
                         "Elf_A",
-                        "Elf",
                         "20"});
             table2.AddRow(new string[] {
                         "Goblin_B",
-                        "Goblin",
                         "0"});
 #line 13
  testRunner.Then("The following characters status is", ((string)(null)), table2, "Then ");
@@ -184,15 +181,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Name",
                         "Hp"});
             table4.AddRow(new string[] {
                         "Goblin_A",
-                        "Goblin",
                         "5"});
             table4.AddRow(new string[] {
                         "Goblin_B",
-                        "Goblin",
                         "0"});
 #line 28
  testRunner.Then("The following characters status is", ((string)(null)), table4, "Then ");
@@ -251,15 +245,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Name",
                         "Hp"});
             table6.AddRow(new string[] {
                         "Elf_A",
-                        "Elf",
                         "0"});
             table6.AddRow(new string[] {
                         "Troll_B",
-                        "Troll",
                         "90"});
 #line 42
  testRunner.Then("The following characters status is", ((string)(null)), table6, "Then ");
@@ -342,23 +333,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Name",
                         "Hp"});
             table8.AddRow(new string[] {
                         "Elf_A",
-                        "Elf",
                         "20"});
             table8.AddRow(new string[] {
                         "Elf_B",
-                        "Elf",
                         "20"});
             table8.AddRow(new string[] {
                         "Goblin_A",
-                        "Goblin",
                         "0"});
             table8.AddRow(new string[] {
                         "Goblin_B",
-                        "Goblin",
                         "0"});
 #line 60
  testRunner.Then("The following characters status is", ((string)(null)), table8, "Then ");
@@ -453,27 +439,21 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Name",
                         "Hp"});
             table10.AddRow(new string[] {
                         "Elf_A",
-                        "Elf",
                         "14"});
             table10.AddRow(new string[] {
                         "Goblin_A",
-                        "Goblin",
                         "0"});
             table10.AddRow(new string[] {
                         "Goblin_B",
-                        "Goblin",
                         "0"});
             table10.AddRow(new string[] {
                         "Goblin_C",
-                        "Goblin",
                         "0"});
             table10.AddRow(new string[] {
                         "Goblin_D",
-                        "Goblin",
                         "0"});
 #line 82
  testRunner.Then("The following characters status is", ((string)(null)), table10, "Then ");
@@ -532,15 +512,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Name",
                         "Hp"});
             table12.AddRow(new string[] {
                         "Elf_A",
-                        "Elf",
                         "0"});
             table12.AddRow(new string[] {
                         "Human_B",
-                        "Human",
                         "100"});
 #line 99
  testRunner.Then("The following characters status is", ((string)(null)), table12, "Then ");
