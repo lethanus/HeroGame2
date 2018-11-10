@@ -48,21 +48,23 @@ namespace HeroGame.FightMechanizm
                         }
                     }
                 }
-                var liveFirstTeamCount = characters.Count(x => x.GetTeam() == _firstTeam && x.GetCharacter().Hp > 0);
-                var liveSecondTeamCount = characters.Count(x => x.GetTeam() == _secondTeam && x.GetCharacter().Hp > 0);
-                if (liveFirstTeamCount == 0)
-                {
-                    _winningTeam = _secondTeam;
-                    break;
-                }
-                if (liveSecondTeamCount == 0)
-                {
-                    _winningTeam = _firstTeam;
-                    break;
-                }
+                if (CheckFigthEndForTeam(characters, _firstTeam)) break;
+                if (CheckFigthEndForTeam(characters, _secondTeam)) break;
             }
-            _logger.LogLine($"Team {_winningTeam} won");
+            
             return characters.Select(x => x.GetCharacter()).ToList();
+        }
+
+        private bool CheckFigthEndForTeam(List<ICharacterInTeam> characterInTeams, string teamNameToCheck)
+        {
+            var liveSecondTeamCount = characterInTeams.Count(x => x.GetTeam() != teamNameToCheck && x.GetCharacter().Hp > 0);
+            if (liveSecondTeamCount == 0)
+            {
+                _winningTeam = teamNameToCheck;
+                _logger.LogLine($"Team {_winningTeam} won");
+                return true;
+            }
+            return false;
         }
 
         private int CalculateNewHp(Character attacker, Character defender)
