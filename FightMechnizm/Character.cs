@@ -45,12 +45,7 @@ namespace HeroGame.Characters
 
             if (ID == toCompare.ID &&
                 Name == toCompare.Name &&
-                MaxHp == toCompare.MaxHp &&
-                Hp == toCompare.Hp &&
-                Min_Att == toCompare.Min_Att &&
-                Max_Att == toCompare.Max_Att &&
-                Def == toCompare.Def &&
-                Speed == toCompare.Speed)
+                Hp == toCompare.Hp)
                 return true;
             var nl = System.Environment.NewLine;
             throw new System.Exception($"There are some diffs:{nl} Expected: {ToString()}{nl} Actual: {toCompare.ToString()}");

@@ -11,9 +11,9 @@ Scenario: 01 Fast Elf killing Goblin in first turn
 	And Character 'Goblin_B' is assigned to team 'B' on position 'Front_1'
 	When Fight between 'A' and 'B' starts
 	Then The following characters status is
-		| ID       | Name   | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills         |
-		| Elf_A    | Elf    | 20    | 20 | 10      | 10      | 5   | 10    | Min_Dmg_Attack |
-		| Goblin_B | Goblin | 10    | 0  | 5       | 5       | 0   | 5     | Min_Dmg_Attack |
+		| ID       | Name   | Hp |
+		| Elf_A    | Elf    | 20 |
+		| Goblin_B | Goblin | 0  |
 	And Team 'A' won
 
 
@@ -26,9 +26,9 @@ Scenario: 02 Goblins are hurting each other
 	And Character 'Goblin_B' is assigned to team 'B' on position 'Front_1'
 	When Fight between 'A' and 'B' starts
 	Then The following characters status is
-		| ID       | Name   | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills         |
-		| Goblin_A | Goblin | 10    | 5  | 5       | 5       | 0   | 5     | Min_Dmg_Attack |
-		| Goblin_B | Goblin | 10    | 0  | 5       | 5       | 0   | 5     | Min_Dmg_Attack |
+		| ID       | Name   | Hp |
+		| Goblin_A | Goblin | 5  |
+		| Goblin_B | Goblin | 0  |
 	And Team 'A' won
 
 Scenario: 03 Elf is to weak for a Troll
@@ -40,9 +40,9 @@ Scenario: 03 Elf is to weak for a Troll
 	And Character 'Troll_B' is assigned to team 'B' on position 'Front_1'
 	When Fight between 'A' and 'B' starts
 	Then The following characters status is
-		| ID      | Name  | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills         |
-		| Elf_A   | Elf   | 20    | 0  | 10      | 10      | 5   | 10    | Min_Dmg_Attack |
-		| Troll_B | Troll | 100   | 90 | 15      | 15      | 5   | 5     | Min_Dmg_Attack |
+		| ID      | Name  | Hp |
+		| Elf_A   | Elf   | 0  |
+		| Troll_B | Troll | 90 |
 	And Team 'B' won
 
 Scenario: 04 Two fast Elfs killing two Goblins in first turn
@@ -58,11 +58,11 @@ Scenario: 04 Two fast Elfs killing two Goblins in first turn
 	And Character 'Goblin_B' is assigned to team 'B' on position 'Front_2'
 	When Fight between 'A' and 'B' starts
 	Then The following characters status is
-		| ID       | Name   | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills         |
-		| Elf_A    | Elf    | 20    | 20 | 10      | 10      | 5   | 10    | Min_Dmg_Attack |
-		| Elf_B    | Elf    | 20    | 20 | 10      | 10      | 5   | 10    | Min_Dmg_Attack |
-		| Goblin_A | Goblin | 10    | 0  | 5       | 5       | 0   | 5     | Min_Dmg_Attack |
-		| Goblin_B | Goblin | 10    | 0  | 5       | 5       | 0   | 5     | Min_Dmg_Attack |
+		| ID       | Name   | Hp |
+		| Elf_A    | Elf    | 20 |
+		| Elf_B    | Elf    | 20 |
+		| Goblin_A | Goblin | 0  |
+		| Goblin_B | Goblin | 0  |
 	And Team 'A' won
 
 Scenario: 05 Fast Elf killing many Goblins and gets wounded
@@ -80,12 +80,12 @@ Scenario: 05 Fast Elf killing many Goblins and gets wounded
 	And Character 'Goblin_D' is assigned to team 'B' on position 'Middle_1'
 	When Fight between 'A' and 'B' starts
 	Then The following characters status is
-		| ID       | Name   | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills         |
-		| Elf_A    | Elf    | 20    | 14 | 10      | 10      | 4   | 10    | Min_Dmg_Attack |
-		| Goblin_A | Goblin | 10    | 0  | 5       | 5       | 0   | 5     | Min_Dmg_Attack |
-		| Goblin_B | Goblin | 10    | 0  | 5       | 5       | 0   | 5     | Min_Dmg_Attack |
-		| Goblin_C | Goblin | 10    | 0  | 5       | 5       | 0   | 5     | Min_Dmg_Attack |
-		| Goblin_D | Goblin | 10    | 0  | 5       | 5       | 0   | 5     | Min_Dmg_Attack |
+		| ID       | Name   | Hp |
+		| Elf_A    | Elf    | 14 |
+		| Goblin_A | Goblin | 0  |
+		| Goblin_B | Goblin | 0  |
+		| Goblin_C | Goblin | 0  |
+		| Goblin_D | Goblin | 0  |
 	And Team 'A' won
 
 	Scenario: 06 Elf is not able to damage Human Palladin
@@ -97,7 +97,7 @@ Scenario: 05 Fast Elf killing many Goblins and gets wounded
 	And Character 'Human_B' is assigned to team 'B' on position 'Front_1'
 	When Fight between 'A' and 'B' starts
 	Then The following characters status is
-		| ID      | Name  | MaxHp | Hp  | Min_Att | Max_Att | Def | Speed | Skills         |
-		| Elf_A   | Elf   | 20    | 0   | 10      | 10      | 5   | 10    | Min_Dmg_Attack |
-		| Human_B | Human | 100   | 100 | 40      | 40      | 25  | 9     | Min_Dmg_Attack |
+		| ID      | Name  | Hp  |
+		| Elf_A   | Elf   | 0   |
+		| Human_B | Human | 100 |
 	And Team 'B' won
