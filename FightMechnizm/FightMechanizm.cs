@@ -26,9 +26,10 @@ namespace HeroGame.FightMechanizm
 
         public List<Character> StartFight()
         {
-            for (int i = 1; i <= 100; i++)
+            int i = 1;
+            while (!AllCharactersAreDeadInTeam(_firstTeam) && !AllCharactersAreDeadInTeam(_secondTeam))
             {
-                _logger.LogLine($"Turn {i} started");
+                _logger.LogLine($"Turn {i++} started");
                 foreach (var attacker in _characters.OrderByDescending(x => x.getSpeed()))
                 {
                     if (attacker.getHp() > 0)
@@ -42,19 +43,17 @@ namespace HeroGame.FightMechanizm
                         }
                     }
                 }
-                if (CheckFigthEndForTeam(_characters, _firstTeam)) break;
-                if (CheckFigthEndForTeam(_characters, _secondTeam)) break;
             }
             
             return _characters.Select(x => x.GetCharacter()).ToList();
         }
 
-        private bool CheckFigthEndForTeam(List<ICharacterInTeam> characterInTeams, string teamNameToCheck)
+        private bool AllCharactersAreDeadInTeam(string teamName)
         {
-            var liveSecondTeamCount = characterInTeams.Count(x => x.GetTeam() != teamNameToCheck && x.getHp() > 0);
+            var liveSecondTeamCount = _characters.Count(x => x.GetTeam() != teamName && x.getHp() > 0);
             if (liveSecondTeamCount == 0)
             {
-                _winningTeam = teamNameToCheck;
+                _winningTeam = teamName;
                 _logger.LogLine($"Team {_winningTeam} won");
                 return true;
             }
