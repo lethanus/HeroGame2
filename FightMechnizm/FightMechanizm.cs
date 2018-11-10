@@ -62,7 +62,7 @@ namespace HeroGame.FightMechanizm
 
         private int CalculateNewHp(ICharacterInTeam attacker, ICharacterInTeam defender)
         {
-            var attack_value = attacker.getMin_Att();
+            var attack_value = GetRandomAttacValue(attacker.getMin_Att(), attacker.getMax_Att());
             var damage = attack_value > defender.getDef() ? attack_value - defender.getDef() : 0;
             var newHP = defender.getHp() < damage ? 0 : defender.getHp() - damage;
 
@@ -70,6 +70,18 @@ namespace HeroGame.FightMechanizm
             _logger.LogLine($"[{attacker.GetTeam()}] {attacker.getName()} dealed {damage} damage to {defender.getName()} and new HP is {newHP} {isKilled}");
 
             return newHP;
+        }
+
+        private int GetRandomAttacValue(int min, int max)
+        {
+            var bytes = Guid.NewGuid().ToByteArray();
+            int seed = 0;
+            foreach (var byte_value in bytes)
+            {
+                seed += Convert.ToInt32(byte_value);
+            }
+            var randomizer = new Random(seed);
+            return randomizer.Next(min, max);
         }
 
         public string GetWinningTeam()
