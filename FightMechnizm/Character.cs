@@ -10,27 +10,30 @@ namespace HeroGame.Characters
         public string Name { get; set; }
         public int MaxHp { get; set; }
         public int Hp { get; set; }
-        public int Att { get; set; }
+        public int Min_Att { get; set; }
+        public int Max_Att { get; set; }
         public int Def { get; set; }
         public int Speed { get; set; }
         public string Skills { get; set; }
         
 
         public Character() {}
-        public Character(string name, int maxHp, int attack, int defence, int speed)
+        public Character(string name, int maxHp, int min_attack, int max_attack, int defence, int speed, string skills)
         {
             Name = name;
             MaxHp = maxHp;
             Hp = maxHp;
-            Att = attack;
+            Min_Att = min_attack;
+            Max_Att = max_attack;
             Def = defence;
             Speed = speed;
+            Skills = skills;
             ID = Guid.NewGuid().ToString();
         }
 
         public Character CreateCopy()
         {
-            var newChar = new Character(Name, MaxHp, Att, Def, Speed);
+            var newChar = new Character(Name, MaxHp, Min_Att, Max_Att, Def, Speed, Skills);
             newChar._team = _team;
             newChar._teamPosition = _teamPosition;
             return newChar;
@@ -44,7 +47,8 @@ namespace HeroGame.Characters
                 Name == toCompare.Name &&
                 MaxHp == toCompare.MaxHp &&
                 Hp == toCompare.Hp &&
-                Att == toCompare.Att &&
+                Min_Att == toCompare.Min_Att &&
+                Max_Att == toCompare.Max_Att &&
                 Def == toCompare.Def &&
                 Speed == toCompare.Speed)
                 return true;
@@ -74,7 +78,7 @@ namespace HeroGame.Characters
 
         public override string ToString()
         {
-            return $"ID:{ID} Name:{Name} MaxHp:{MaxHp} Hp:{Hp} Att:{Att} Def:{Def} Speed:{Speed}";
+            return $"ID:{ID} Name:{Name} MaxHp:{MaxHp} Hp:{Hp} Att:{Min_Att}-{Max_Att} Def:{Def} Speed:{Speed}";
         }
 
         public string ToCharacterString()
@@ -112,11 +116,6 @@ namespace HeroGame.Characters
             return Hp;
         }
 
-        public int getAtt()
-        {
-            return Att;
-        }
-
         public int getDef()
         {
             return Def;
@@ -130,6 +129,16 @@ namespace HeroGame.Characters
         public void setNewHP(int hp)
         {
             Hp = hp;
+        }
+
+        public int getMin_Att()
+        {
+            return Min_Att;
+        }
+
+        public int getMax_Att()
+        {
+            return Max_Att;
         }
     }
 }

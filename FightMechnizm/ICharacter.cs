@@ -12,7 +12,8 @@ namespace HeroGame.Characters
         string getName();
         int getMaxHp();
         int getHp();
-        int getAtt();
+        int getMin_Att();
+        int getMax_Att();
         int getDef();
         int getSpeed();
         void setNewHP(int hp);

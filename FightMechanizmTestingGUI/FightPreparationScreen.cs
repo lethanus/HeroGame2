@@ -44,7 +44,7 @@ namespace FightMechanizmTestingGUI
                 row.Add(character.Name);
                 if (team) row.Add(character.GetPosition().ToString());
                 row.Add(character.MaxHp.ToString());
-                row.Add(character.Att.ToString());
+                row.Add($"{character.getMin_Att().ToString()}-{character.getMax_Att().ToString()}");
                 row.Add(character.Def.ToString());
                 row.Add(character.Speed.ToString());
                 var listViewItem = new ListViewItem(row.ToArray());

@@ -62,7 +62,8 @@ namespace HeroGame.FightMechanizm
 
         private int CalculateNewHp(ICharacterInTeam attacker, ICharacterInTeam defender)
         {
-            var damage = attacker.getAtt() > defender.getDef() ? attacker.getAtt() - defender.getDef() : 0;
+            var attack_value = attacker.getMin_Att();
+            var damage = attack_value > defender.getDef() ? attack_value - defender.getDef() : 0;
             var newHP = defender.getHp() < damage ? 0 : defender.getHp() - damage;
 
             var isKilled = newHP == 0 ? "[Killed]" : "";

@@ -81,7 +81,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -91,18 +92,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "20",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table1.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
                         "10",
                         "10",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 6
  testRunner.Given("The following characters", ((string)(null)), table1, "Given ");
 #line 10
@@ -117,7 +120,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -127,18 +131,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "20",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table2.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
                         "10",
                         "0",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 13
  testRunner.Then("The following characters status is", ((string)(null)), table2, "Then ");
 #line 17
@@ -160,7 +166,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -170,18 +177,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "10",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table3.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
                         "10",
                         "10",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 21
  testRunner.Given("The following characters", ((string)(null)), table3, "Given ");
 #line 25
@@ -196,7 +205,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -206,18 +216,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table4.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
                         "10",
                         "0",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 28
  testRunner.Then("The following characters status is", ((string)(null)), table4, "Then ");
 #line 32
@@ -239,7 +251,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -249,18 +262,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "20",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table5.AddRow(new string[] {
                         "Troll_B",
                         "Troll",
                         "100",
                         "100",
                         "15",
+                        "15",
                         "5",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 35
  testRunner.Given("The following characters", ((string)(null)), table5, "Given ");
 #line 39
@@ -275,7 +290,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -285,18 +301,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "0",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table6.AddRow(new string[] {
                         "Troll_B",
                         "Troll",
                         "100",
                         "90",
                         "15",
+                        "15",
                         "5",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 42
  testRunner.Then("The following characters status is", ((string)(null)), table6, "Then ");
 #line 46
@@ -318,7 +336,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -328,36 +347,40 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "20",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table7.AddRow(new string[] {
                         "Elf_B",
                         "Elf",
                         "20",
                         "20",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table7.AddRow(new string[] {
                         "Goblin_A",
                         "Goblin",
                         "10",
                         "10",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table7.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
                         "10",
                         "10",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 49
  testRunner.Given("The following characters", ((string)(null)), table7, "Given ");
 #line 55
@@ -376,7 +399,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -386,36 +410,40 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "20",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table8.AddRow(new string[] {
                         "Elf_B",
                         "Elf",
                         "20",
                         "20",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table8.AddRow(new string[] {
                         "Goblin_A",
                         "Goblin",
                         "10",
                         "0",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table8.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
                         "10",
                         "0",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 60
  testRunner.Then("The following characters status is", ((string)(null)), table8, "Then ");
 #line 66
@@ -437,7 +465,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -447,45 +476,50 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "20",
                         "10",
+                        "10",
                         "4",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table9.AddRow(new string[] {
                         "Goblin_A",
                         "Goblin",
                         "10",
                         "10",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table9.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
                         "10",
                         "10",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table9.AddRow(new string[] {
                         "Goblin_C",
                         "Goblin",
                         "10",
                         "10",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table9.AddRow(new string[] {
                         "Goblin_D",
                         "Goblin",
                         "10",
                         "10",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 69
  testRunner.Given("The following characters", ((string)(null)), table9, "Given ");
 #line 76
@@ -506,7 +540,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -516,45 +551,50 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "14",
                         "10",
+                        "10",
                         "4",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table10.AddRow(new string[] {
                         "Goblin_A",
                         "Goblin",
                         "10",
                         "0",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table10.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
                         "10",
                         "0",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table10.AddRow(new string[] {
                         "Goblin_C",
                         "Goblin",
                         "10",
                         "0",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table10.AddRow(new string[] {
                         "Goblin_D",
                         "Goblin",
                         "10",
                         "0",
                         "5",
+                        "5",
                         "0",
                         "5",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 82
  testRunner.Then("The following characters status is", ((string)(null)), table10, "Then ");
 #line 89
@@ -576,7 +616,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -586,18 +627,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "20",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table11.AddRow(new string[] {
                         "Human_B",
                         "Human",
                         "100",
                         "100",
                         "40",
+                        "40",
                         "25",
                         "9",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 92
  testRunner.Given("The following characters", ((string)(null)), table11, "Given ");
 #line 96
@@ -612,7 +655,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Name",
                         "MaxHp",
                         "Hp",
-                        "Att",
+                        "Min_Att",
+                        "Max_Att",
                         "Def",
                         "Speed",
                         "Skills"});
@@ -622,18 +666,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "0",
                         "10",
+                        "10",
                         "5",
                         "10",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
             table12.AddRow(new string[] {
                         "Human_B",
                         "Human",
                         "100",
                         "100",
                         "40",
+                        "40",
                         "25",
                         "9",
-                        "Normal_Attack"});
+                        "Min_Dmg_Attack"});
 #line 99
  testRunner.Then("The following characters status is", ((string)(null)), table12, "Then ");
 #line 103
