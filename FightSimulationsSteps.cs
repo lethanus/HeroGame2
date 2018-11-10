@@ -40,7 +40,7 @@ namespace ConstructionYard
         public void WhenFightBetweenAndStarts(string firstTeam, string secondTeam)
         {
             var fightMechnizm = new FightMechanizm(charactersInTeams, firstTeam, secondTeam, new FakeLogger());
-            charactersAfterFight = fightMechnizm.GetFightResults();
+            charactersAfterFight = fightMechnizm.StartFight();
             winningTeam = fightMechnizm.GetWinningTeam();
         }
 

@@ -33,7 +33,7 @@ namespace FightMechanizmTestingGUI
             all.AddRange(teamA);
             all.AddRange(teamB);
             FightMechanizm fightMechanizm = new FightMechanizm(all,"A","B", new TextBoxLogger(logBox));
-            fightMechanizm.GetFightResults();
+            fightMechanizm.StartFight();
             UpdateCharacters(teamA, teamB);
             
         }

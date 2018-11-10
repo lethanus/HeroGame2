@@ -10,7 +10,7 @@ namespace HeroGame.FightMechanizm
 {
     public class FightMechanizm
     {
-        private List<ICharacterInTeam> _startCharacters = new List<ICharacterInTeam>();
+        private List<ICharacterInTeam> _characters = new List<ICharacterInTeam>();
         private string _firstTeam;
         private string _secondTeam;
         private string _winningTeam;
@@ -18,28 +18,22 @@ namespace HeroGame.FightMechanizm
 
         public FightMechanizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam, Logger logger)
         {
-            _startCharacters = startCharacters;
+            _characters = startCharacters;
             _firstTeam = firstTeam;
             _secondTeam = secondTeam;
             _logger = logger;
         }
 
-        public List<Character> GetFightResults()
+        public List<Character> StartFight()
         {
-            var characters = new List<ICharacterInTeam>();
-            foreach (var character in _startCharacters)
-            {
-                characters.Add(character);
-            }
-
             for (int i = 1; i <= 100; i++)
             {
                 _logger.LogLine($"Turn {i} started");
-                foreach (var attacker in characters.OrderByDescending(x => x.getSpeed()))
+                foreach (var attacker in _characters.OrderByDescending(x => x.getSpeed()))
                 {
                     if (attacker.getHp() > 0)
                     {
-                        var defender = characters.FirstOrDefault(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
+                        var defender = _characters.FirstOrDefault(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
 
                         if (defender != null)
                         {
@@ -48,11 +42,11 @@ namespace HeroGame.FightMechanizm
                         }
                     }
                 }
-                if (CheckFigthEndForTeam(characters, _firstTeam)) break;
-                if (CheckFigthEndForTeam(characters, _secondTeam)) break;
+                if (CheckFigthEndForTeam(_characters, _firstTeam)) break;
+                if (CheckFigthEndForTeam(_characters, _secondTeam)) break;
             }
             
-            return characters.Select(x => x.GetCharacter()).ToList();
+            return _characters.Select(x => x.GetCharacter()).ToList();
         }
 
         private bool CheckFigthEndForTeam(List<ICharacterInTeam> characterInTeams, string teamNameToCheck)
