@@ -15,7 +15,8 @@ namespace HeroGame.Characters
         public int Def { get; set; }
         public int Speed { get; set; }
         public string Skills { get; set; }
-        
+        public string Hp_range { get; set; }
+
 
         public Character() {}
         public Character(string name, int maxHp, int min_attack, int max_attack, int defence, int speed, string skills)
@@ -42,9 +43,11 @@ namespace HeroGame.Characters
         public override bool Equals(object obj)
         {
             var toCompare = obj as Character;
-
+            var hpRange = Hp_range.Split('-');
+            var minHp = Int32.Parse(hpRange[0]);
+            var maxHp = hpRange.Length > 1 ? Int32.Parse(hpRange[1]) : Int32.Parse(hpRange[0]);
             if (ID == toCompare.ID &&
-                Hp == toCompare.Hp)
+                minHp <= toCompare.Hp && toCompare.Hp <= maxHp)
                 return true;
             var nl = System.Environment.NewLine;
             throw new System.Exception($"There are some diffs:{nl} Expected: {ToString()}{nl} Actual: {toCompare.ToString()}");
@@ -72,7 +75,7 @@ namespace HeroGame.Characters
 
         public override string ToString()
         {
-            return $"ID:{ID} Name:{Name} MaxHp:{MaxHp} Hp:{Hp} Att:{Min_Att}-{Max_Att} Def:{Def} Speed:{Speed}";
+            return $"ID:{ID} Hp:{Hp} Hp_range:{Hp_range}";
         }
 
         public string ToCharacterString()

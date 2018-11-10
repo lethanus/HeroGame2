@@ -95,7 +95,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "10",
-                        "Min_Dmg_Attack"});
+                        ""});
             table1.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
@@ -105,7 +105,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
 #line 6
  testRunner.Given("The following characters", ((string)(null)), table1, "Given ");
 #line 10
@@ -117,7 +117,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Hp"});
+                        "Hp_range"});
             table2.AddRow(new string[] {
                         "Elf_A",
                         "20"});
@@ -159,7 +159,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
             table3.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
@@ -169,7 +169,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
 #line 21
  testRunner.Given("The following characters", ((string)(null)), table3, "Given ");
 #line 25
@@ -181,7 +181,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Hp"});
+                        "Hp_range"});
             table4.AddRow(new string[] {
                         "Goblin_A",
                         "5"});
@@ -223,7 +223,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "10",
-                        "Min_Dmg_Attack"});
+                        ""});
             table5.AddRow(new string[] {
                         "Troll_B",
                         "Troll",
@@ -233,7 +233,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "15",
                         "5",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
 #line 35
  testRunner.Given("The following characters", ((string)(null)), table5, "Given ");
 #line 39
@@ -245,7 +245,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Hp"});
+                        "Hp_range"});
             table6.AddRow(new string[] {
                         "Elf_A",
                         "0"});
@@ -287,7 +287,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "10",
-                        "Min_Dmg_Attack"});
+                        ""});
             table7.AddRow(new string[] {
                         "Elf_B",
                         "Elf",
@@ -297,7 +297,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "10",
-                        "Min_Dmg_Attack"});
+                        ""});
             table7.AddRow(new string[] {
                         "Goblin_A",
                         "Goblin",
@@ -307,7 +307,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
             table7.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
@@ -317,7 +317,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
 #line 49
  testRunner.Given("The following characters", ((string)(null)), table7, "Given ");
 #line 55
@@ -333,7 +333,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Hp"});
+                        "Hp_range"});
             table8.AddRow(new string[] {
                         "Elf_A",
                         "20"});
@@ -381,7 +381,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "4",
                         "10",
-                        "Min_Dmg_Attack"});
+                        ""});
             table9.AddRow(new string[] {
                         "Goblin_A",
                         "Goblin",
@@ -391,7 +391,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
             table9.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
@@ -401,7 +401,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
             table9.AddRow(new string[] {
                         "Goblin_C",
                         "Goblin",
@@ -411,7 +411,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
             table9.AddRow(new string[] {
                         "Goblin_D",
                         "Goblin",
@@ -421,7 +421,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "0",
                         "5",
-                        "Min_Dmg_Attack"});
+                        ""});
 #line 69
  testRunner.Given("The following characters", ((string)(null)), table9, "Given ");
 #line 76
@@ -439,7 +439,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Hp"});
+                        "Hp_range"});
             table10.AddRow(new string[] {
                         "Elf_A",
                         "14"});
@@ -490,7 +490,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "10",
-                        "Min_Dmg_Attack"});
+                        ""});
             table11.AddRow(new string[] {
                         "Human_B",
                         "Human",
@@ -500,7 +500,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "40",
                         "25",
                         "9",
-                        "Min_Dmg_Attack"});
+                        ""});
 #line 92
  testRunner.Given("The following characters", ((string)(null)), table11, "Given ");
 #line 96
@@ -512,7 +512,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
-                        "Hp"});
+                        "Hp_range"});
             table12.AddRow(new string[] {
                         "Elf_A",
                         "0"});
@@ -522,6 +522,70 @@ this.ScenarioInitialize(scenarioInfo);
 #line 99
  testRunner.Then("The following characters status is", ((string)(null)), table12, "Then ");
 #line 103
+ testRunner.And("Team \'B\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("07 Damage should be between min and max values", SourceLine=104)]
+        public virtual void _07DamageShouldBeBetweenMinAndMaxValues()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07 Damage should be between min and max values", null, ((string[])(null)));
+#line 105
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table13.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "90",
+                        "0",
+                        "10",
+                        ""});
+            table13.AddRow(new string[] {
+                        "Human_B",
+                        "Human",
+                        "100",
+                        "100",
+                        "20",
+                        "20",
+                        "0",
+                        "9",
+                        ""});
+#line 106
+ testRunner.Given("The following characters", ((string)(null)), table13, "Given ");
+#line 110
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 111
+ testRunner.And("Character \'Human_B\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 112
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Hp_range"});
+            table14.AddRow(new string[] {
+                        "Elf_A",
+                        "0"});
+            table14.AddRow(new string[] {
+                        "Human_B",
+                        "10-90"});
+#line 113
+ testRunner.Then("The following characters status is", ((string)(null)), table14, "Then ");
+#line 117
  testRunner.And("Team \'B\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
