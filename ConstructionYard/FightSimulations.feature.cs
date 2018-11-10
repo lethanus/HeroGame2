@@ -83,7 +83,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table1.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -91,7 +92,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table1.AddRow(new string[] {
                         "Golbin_B",
                         "Golbin",
@@ -99,7 +101,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 6
  testRunner.Given("The following characters", ((string)(null)), table1, "Given ");
 #line 10
@@ -116,7 +119,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table2.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -124,7 +128,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table2.AddRow(new string[] {
                         "Golbin_B",
                         "Golbin",
@@ -132,7 +137,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 13
  testRunner.Then("The following characters status is", ((string)(null)), table2, "Then ");
 #line 17
@@ -156,7 +162,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table3.AddRow(new string[] {
                         "Golbin_A",
                         "Golbin",
@@ -164,7 +171,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table3.AddRow(new string[] {
                         "Golbin_B",
                         "Golbin",
@@ -172,7 +180,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 21
  testRunner.Given("The following characters", ((string)(null)), table3, "Given ");
 #line 25
@@ -189,7 +198,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table4.AddRow(new string[] {
                         "Golbin_A",
                         "Golbin",
@@ -197,7 +207,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table4.AddRow(new string[] {
                         "Golbin_B",
                         "Golbin",
@@ -205,7 +216,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 28
  testRunner.Then("The following characters status is", ((string)(null)), table4, "Then ");
 #line 32
@@ -229,7 +241,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table5.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -237,7 +250,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table5.AddRow(new string[] {
                         "Troll_B",
                         "Troll",
@@ -245,7 +259,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "100",
                         "15",
                         "5",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 35
  testRunner.Given("The following characters", ((string)(null)), table5, "Given ");
 #line 39
@@ -262,7 +277,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table6.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -270,7 +286,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table6.AddRow(new string[] {
                         "Troll_B",
                         "Troll",
@@ -278,7 +295,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "90",
                         "15",
                         "5",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 42
  testRunner.Then("The following characters status is", ((string)(null)), table6, "Then ");
 #line 46
@@ -302,7 +320,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table7.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -310,7 +329,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table7.AddRow(new string[] {
                         "Elf_B",
                         "Elf",
@@ -318,7 +338,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table7.AddRow(new string[] {
                         "Golbin_A",
                         "Golbin",
@@ -326,7 +347,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table7.AddRow(new string[] {
                         "Golbin_B",
                         "Golbin",
@@ -334,7 +356,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 49
  testRunner.Given("The following characters", ((string)(null)), table7, "Given ");
 #line 55
@@ -355,7 +378,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table8.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -363,7 +387,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table8.AddRow(new string[] {
                         "Elf_B",
                         "Elf",
@@ -371,7 +396,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table8.AddRow(new string[] {
                         "Golbin_A",
                         "Golbin",
@@ -379,7 +405,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table8.AddRow(new string[] {
                         "Golbin_B",
                         "Golbin",
@@ -387,7 +414,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 60
  testRunner.Then("The following characters status is", ((string)(null)), table8, "Then ");
 #line 66
@@ -411,7 +439,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table9.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -419,7 +448,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "4",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table9.AddRow(new string[] {
                         "Golbin_A",
                         "Golbin",
@@ -427,7 +457,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table9.AddRow(new string[] {
                         "Golbin_B",
                         "Golbin",
@@ -435,7 +466,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table9.AddRow(new string[] {
                         "Golbin_C",
                         "Golbin",
@@ -443,7 +475,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table9.AddRow(new string[] {
                         "Golbin_D",
                         "Golbin",
@@ -451,7 +484,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 69
  testRunner.Given("The following characters", ((string)(null)), table9, "Given ");
 #line 76
@@ -474,7 +508,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table10.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -482,7 +517,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "14",
                         "10",
                         "4",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table10.AddRow(new string[] {
                         "Golbin_A",
                         "Golbin",
@@ -490,7 +526,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table10.AddRow(new string[] {
                         "Golbin_B",
                         "Golbin",
@@ -498,7 +535,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table10.AddRow(new string[] {
                         "Golbin_C",
                         "Golbin",
@@ -506,7 +544,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
             table10.AddRow(new string[] {
                         "Golbin_D",
                         "Golbin",
@@ -514,7 +553,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "5",
                         "0",
-                        "5"});
+                        "5",
+                        "Normal_Attack"});
 #line 82
  testRunner.Then("The following characters status is", ((string)(null)), table10, "Then ");
 #line 89
@@ -538,7 +578,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table11.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -546,7 +587,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table11.AddRow(new string[] {
                         "Human_B",
                         "Human",
@@ -554,7 +596,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "100",
                         "40",
                         "25",
-                        "9"});
+                        "9",
+                        "Normal_Attack"});
 #line 92
  testRunner.Given("The following characters", ((string)(null)), table11, "Given ");
 #line 96
@@ -571,7 +614,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "Hp",
                         "Att",
                         "Def",
-                        "Speed"});
+                        "Speed",
+                        "Skills"});
             table12.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
@@ -579,7 +623,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "0",
                         "10",
                         "5",
-                        "10"});
+                        "10",
+                        "Normal_Attack"});
             table12.AddRow(new string[] {
                         "Human_B",
                         "Human",
@@ -587,7 +632,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "100",
                         "40",
                         "25",
-                        "9"});
+                        "9",
+                        "Normal_Attack"});
 #line 99
  testRunner.Then("The following characters status is", ((string)(null)), table12, "Then ");
 #line 103

@@ -66,7 +66,7 @@ namespace HeroGame.FightMechanizm
             var newHP = defender.getHp() < damage ? 0 : defender.getHp() - damage;
 
             var isKilled = newHP == 0 ? "[Killed]" : "";
-            _logger.LogLine($"[{attacker.GetTeam()}]{attacker.getName()} dealed {damage} damage to {defender.getName()} and new HP is {newHP} {isKilled}");
+            _logger.LogLine($"[{attacker.GetTeam()}] {attacker.getName()} dealed {damage} damage to {defender.getName()} and new HP is {newHP} {isKilled}");
 
             return newHP;
         }
