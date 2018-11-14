@@ -114,6 +114,7 @@
             this.btRecruitMercenaries.TabIndex = 1;
             this.btRecruitMercenaries.Text = "Recruit Mercenaries";
             this.btRecruitMercenaries.UseVisualStyleBackColor = true;
+            this.btRecruitMercenaries.Click += new System.EventHandler(this.btRecruitMercenaries_Click);
             // 
             // btHeroes
             // 
