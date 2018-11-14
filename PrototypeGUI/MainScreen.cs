@@ -39,5 +39,11 @@ namespace PrototypeGUI
             MercenariesScreen mercenariesScreen = new MercenariesScreen();
             mercenariesScreen.ShowDialog();
         }
+
+        private void btInventory_Click(object sender, EventArgs e)
+        {
+            InventoryScreen inventoryScreen = new InventoryScreen();
+            inventoryScreen.ShowDialog();
+        }
     }
 }

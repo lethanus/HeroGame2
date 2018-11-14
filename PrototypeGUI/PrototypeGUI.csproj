@@ -51,6 +51,12 @@
     <Compile Include="HeroesScreen.Designer.cs">
       <DependentUpon>HeroesScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryScreen.Designer.cs">
+      <DependentUpon>InventoryScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="HeroesScreen.resx">
       <DependentUpon>HeroesScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryScreen.resx">
+      <DependentUpon>InventoryScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>

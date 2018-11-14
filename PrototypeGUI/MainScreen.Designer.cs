@@ -142,6 +142,7 @@
             this.btInventory.TabIndex = 4;
             this.btInventory.Text = "Inventory";
             this.btInventory.UseVisualStyleBackColor = true;
+            this.btInventory.Click += new System.EventHandler(this.btInventory_Click);
             // 
             // button1
             // 
