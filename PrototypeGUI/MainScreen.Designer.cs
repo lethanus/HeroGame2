@@ -122,6 +122,7 @@
             this.btHeroes.TabIndex = 2;
             this.btHeroes.Text = "Heroes";
             this.btHeroes.UseVisualStyleBackColor = true;
+            this.btHeroes.Click += new System.EventHandler(this.btHeroes_Click);
             // 
             // btArena
             // 

@@ -27,5 +27,11 @@ namespace PrototypeGUI
             LoginScreen loginScreen = new LoginScreen();
             loginScreen.ShowDialog();
         }
+
+        private void btHeroes_Click(object sender, EventArgs e)
+        {
+            HeroesScreen heroesScreen = new HeroesScreen();
+            heroesScreen.ShowDialog();
+        }
     }
 }
