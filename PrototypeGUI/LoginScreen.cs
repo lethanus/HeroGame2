@@ -10,22 +10,23 @@ using System.Windows.Forms;
 
 namespace PrototypeGUI
 {
-    public partial class btCampain : Form
+    public partial class LoginScreen : Form
     {
-        public btCampain()
+        public LoginScreen()
         {
             InitializeComponent();
         }
 
-        private void btClose_Click(object sender, EventArgs e)
+        private void btLogin_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
             Close();
         }
 
-        private void btLogin_Click(object sender, EventArgs e)
+        private void btCancel_Click(object sender, EventArgs e)
         {
-            LoginScreen loginScreen = new LoginScreen();
-            loginScreen.ShowDialog();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }
