@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FightMechanizm", "FightMech
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FightMechanizmTestingGUI", "FightMechanizmTestingGUI\FightMechanizmTestingGUI.csproj", "{3B7D2A5B-B69A-41B4-B9BF-AA16E13940C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrototypeGUI", "PrototypeGUI\PrototypeGUI.csproj", "{4612B08E-4D85-4537-BD51-C13E37ED4FCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3B7D2A5B-B69A-41B4-B9BF-AA16E13940C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B7D2A5B-B69A-41B4-B9BF-AA16E13940C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B7D2A5B-B69A-41B4-B9BF-AA16E13940C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4612B08E-4D85-4537-BD51-C13E37ED4FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4612B08E-4D85-4537-BD51-C13E37ED4FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4612B08E-4D85-4537-BD51-C13E37ED4FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4612B08E-4D85-4537-BD51-C13E37ED4FCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
