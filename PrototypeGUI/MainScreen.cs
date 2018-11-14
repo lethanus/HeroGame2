@@ -33,5 +33,11 @@ namespace PrototypeGUI
             HeroesScreen heroesScreen = new HeroesScreen();
             heroesScreen.ShowDialog();
         }
+
+        private void btMercenaries_Click(object sender, EventArgs e)
+        {
+            MercenariesScreen mercenariesScreen = new MercenariesScreen();
+            mercenariesScreen.ShowDialog();
+        }
     }
 }

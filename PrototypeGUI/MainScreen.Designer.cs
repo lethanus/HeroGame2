@@ -104,6 +104,7 @@
             this.btMercenaries.TabIndex = 0;
             this.btMercenaries.Text = "Mercenaries";
             this.btMercenaries.UseVisualStyleBackColor = true;
+            this.btMercenaries.Click += new System.EventHandler(this.btMercenaries_Click);
             // 
             // btRecruitMercenaries
             // 
