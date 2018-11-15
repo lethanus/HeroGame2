@@ -61,12 +61,9 @@ namespace PrototypeGUI
             var accounts = _accountRepository.GetAccounts();
             if(accounts.Count == 0)
             {
-                _accountRepository.AddAccount(new Account
-                {
-                    ID = $"{Guid.NewGuid().ToString()}_testAccount",
-                    Login = "testAccount",
-                    Password = "testPasword"
-                });
+                _accountRepository.AddAccount(new Account("testAccount", "testPasword"));
+                _accountRepository.AddAccount(new Account("testAccount1", "testPasword"));
+                _accountRepository.AddAccount(new Account("testAccount2", "testPasword"));
             }
         }
     }

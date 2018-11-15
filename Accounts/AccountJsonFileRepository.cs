@@ -26,7 +26,7 @@ namespace HeroGame.Accounts
             }
             accountCollection.Accounts.Add(newAccount);
 
-            File.WriteAllText(_pathToRepoFile, JsonConvert.SerializeObject(accountCollection));
+            File.WriteAllText(_pathToRepoFile, JsonConvert.SerializeObject(accountCollection,Formatting.Indented));
 
         }
 
