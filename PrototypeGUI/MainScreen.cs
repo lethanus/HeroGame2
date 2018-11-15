@@ -14,6 +14,7 @@ namespace PrototypeGUI
     public partial class btCampain : Form
     {
         private AccountJsonFileRepository _accountRepository;
+        private Account _loggedAccount = null;
 
         public btCampain()
         {
@@ -28,7 +29,16 @@ namespace PrototypeGUI
         private void btLogin_Click(object sender, EventArgs e)
         {
             LoginScreen loginScreen = new LoginScreen();
-            loginScreen.ShowDialog();
+            if(loginScreen.ShowDialog() == DialogResult.OK)
+            {
+                AccountManagement accountManagement = new AccountManagement(_accountRepository);
+                _loggedAccount = accountManagement.Login(loginScreen.Login, loginScreen.Password);
+                if (_loggedAccount != null)
+                    accountDetailsBox.Text = _loggedAccount.ToString();
+                else
+                    accountDetailsBox.Text = "Login failed";
+            }
+            UpdateGameControls(_loggedAccount);
         }
 
         private void btHeroes_Click(object sender, EventArgs e)
@@ -61,9 +71,18 @@ namespace PrototypeGUI
             var accounts = _accountRepository.GetAccounts();
             if(accounts.Count == 0)
             {
-                _accountRepository.AddAccount(new Account("testAccount", "testPasword"));
-                _accountRepository.AddAccount(new Account("testAccount1", "testPasword"));
-                _accountRepository.AddAccount(new Account("testAccount2", "testPasword"));
+                _accountRepository.AddAccount(new Account("testAccount", "testPassword"));
+                _accountRepository.AddAccount(new Account("testAccount1", "testPassword"));
+                _accountRepository.AddAccount(new Account("testAccount2", "testPassword"));
+            }
+            UpdateGameControls(_loggedAccount);
+        }
+
+        private void UpdateGameControls(Account account)
+        {
+            foreach (Control control in gamePanel.Controls)
+            {
+                control.Enabled = account != null;
             }
         }
     }

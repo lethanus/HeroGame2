@@ -19,5 +19,9 @@ namespace HeroGame.Accounts
             Password = password;
             ID = $"{Guid.NewGuid().ToString()}_{login}";
         }
+        public override string ToString()
+        {
+            return $"Account details: Login={Login} Password={Password}";
+        }
     }
 }

@@ -12,6 +12,9 @@ namespace PrototypeGUI
 {
     public partial class LoginScreen : Form
     {
+        public string Login { get; private set; }
+        public string Password { get; private set; }
+
         public LoginScreen()
         {
             InitializeComponent();
@@ -19,6 +22,8 @@ namespace PrototypeGUI
 
         private void btLogin_Click(object sender, EventArgs e)
         {
+            Login = accountNameBox.Text.Trim();
+            Password = passwordBox.Text.Trim();
             DialogResult = DialogResult.OK;
             Close();
         }

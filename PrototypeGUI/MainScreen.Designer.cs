@@ -31,7 +31,7 @@
             this.btLogin = new System.Windows.Forms.Button();
             this.accountDetailsBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gamePanel = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btAdventures = new System.Windows.Forms.Button();
             this.btInventory = new System.Windows.Forms.Button();
@@ -40,7 +40,7 @@
             this.btRecruitMercenaries = new System.Windows.Forms.Button();
             this.btMercenaries = new System.Windows.Forms.Button();
             this.btClose = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btLogin
@@ -70,21 +70,21 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Account details";
             // 
-            // groupBox1
+            // gamePanel
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btAdventures);
-            this.groupBox1.Controls.Add(this.btInventory);
-            this.groupBox1.Controls.Add(this.btArena);
-            this.groupBox1.Controls.Add(this.btHeroes);
-            this.groupBox1.Controls.Add(this.btRecruitMercenaries);
-            this.groupBox1.Controls.Add(this.btMercenaries);
-            this.groupBox1.Location = new System.Drawing.Point(402, 29);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(386, 409);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Game panel";
+            this.gamePanel.Controls.Add(this.button1);
+            this.gamePanel.Controls.Add(this.btAdventures);
+            this.gamePanel.Controls.Add(this.btInventory);
+            this.gamePanel.Controls.Add(this.btArena);
+            this.gamePanel.Controls.Add(this.btHeroes);
+            this.gamePanel.Controls.Add(this.btRecruitMercenaries);
+            this.gamePanel.Controls.Add(this.btMercenaries);
+            this.gamePanel.Location = new System.Drawing.Point(402, 29);
+            this.gamePanel.Name = "gamePanel";
+            this.gamePanel.Size = new System.Drawing.Size(386, 409);
+            this.gamePanel.TabIndex = 3;
+            this.gamePanel.TabStop = false;
+            this.gamePanel.Text = "Game panel";
             // 
             // button1
             // 
@@ -169,7 +169,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btClose);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gamePanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.accountDetailsBox);
             this.Controls.Add(this.btLogin);
@@ -180,7 +180,7 @@
             this.Name = "btCampain";
             this.Text = "Game Main Screen";
             this.Load += new System.EventHandler(this.btCampain_Load);
-            this.groupBox1.ResumeLayout(false);
+            this.gamePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,7 +191,7 @@
         private System.Windows.Forms.Button btLogin;
         private System.Windows.Forms.RichTextBox accountDetailsBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gamePanel;
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.Button btRecruitMercenaries;
         private System.Windows.Forms.Button btMercenaries;
