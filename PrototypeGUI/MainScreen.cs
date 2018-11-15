@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HeroGame.Accounts;
 
 namespace PrototypeGUI
 {
     public partial class btCampain : Form
     {
+        private AccountJsonFileRepository _accountRepository;
+
         public btCampain()
         {
             InitializeComponent();
@@ -50,6 +53,21 @@ namespace PrototypeGUI
         {
             RecruitMercenariesScreen recruitMercenariesScreen = new RecruitMercenariesScreen();
             recruitMercenariesScreen.ShowDialog();
+        }
+
+        private void btCampain_Load(object sender, EventArgs e)
+        {
+            _accountRepository = new AccountJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\Accounts.json");
+            var accounts = _accountRepository.GetAccounts();
+            if(accounts.Count == 0)
+            {
+                _accountRepository.AddAccount(new Account
+                {
+                    ID = $"{Guid.NewGuid().ToString()}_testAccount",
+                    Login = "testAccount",
+                    Password = "testPasword"
+                });
+            }
         }
     }
 }

@@ -123,5 +123,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Accounts\Accounts.csproj">
+      <Project>{40b17d91-3720-483c-9719-0da63ee6f927}</Project>
+      <Name>Accounts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FightMechnizm\FightMechanizm.csproj">
+      <Project>{a4d7a2e5-cee3-42df-a516-b7a6aba72c6a}</Project>
+      <Name>FightMechanizm</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
