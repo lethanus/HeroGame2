@@ -4,7 +4,7 @@ using NUnit.Framework;
 using TechTalk.SpecFlow.Assist;
 using System.Linq;
 using System.Collections;
-using System.Collections.Generic;
+using HeroGame.Accounts;
 
 namespace ConstructionYard
 {
@@ -41,46 +41,6 @@ namespace ConstructionYard
     }
 
 
-    public interface IAccountRepository
-    {
-        void AddAccount(Account newAccount);
-        List<Account> GetAccounts();
-    }
 
-    public class AccountMemoryRepository : IAccountRepository
-    {
-        private List<Account> accounts = new List<Account>();
 
-        public void AddAccount(Account newAccount)
-        {
-            accounts.Add(newAccount);
-        }
-
-        public List<Account> GetAccounts()
-        {
-            return accounts;
-        }
-    }
-
-    public class AccountManagement
-    {
-        private IAccountRepository _accountRepo;
-        public AccountManagement(IAccountRepository accountRepo)
-        {
-            _accountRepo = accountRepo;
-        }
-
-        public Account Login(string login, string password)
-        {
-            return _accountRepo.GetAccounts().FirstOrDefault(x => x.Login == login && x.Password == password);
-        }
-    }
-
-    public class Account
-    {
-        public string ID { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-
-    }
 }
