@@ -11,21 +11,24 @@ namespace ConstructionYard
     [Binding]
     public class AccountManagementSteps
     {
-        private List<Account> accounts;
         private Account loggedId = null;
-
+        private IAccountRepository accountRepo = new AccountMemoryRepository();
 
         [Given(@"Some accounts exists in system")]
         public void GivenSomeAccountsExistsInSystem(Table table)
         {
-            accounts = table.CreateSet<Account>().ToList();
-            Assert.Greater(accounts.Count, 0);
+            var accounts = table.CreateSet<Account>().ToList();
+            foreach(var account in accounts)
+            {
+                accountRepo.AddAccount(account);
+            }
+            Assert.Greater(accountRepo.GetAccounts().Count, 0);
         }
         
         [When(@"I try to login for '(.*)' and password '(.*)'")]
         public void WhenITryToLoginForAndPassword(string givenLogin, string givenPassword)
         {
-            AccountManagement accountManagement = new AccountManagement();
+            AccountManagement accountManagement = new AccountManagement(accountRepo);
             loggedId = accountManagement.Login(givenLogin, givenPassword);
         }
         
@@ -37,11 +40,39 @@ namespace ConstructionYard
         }
     }
 
+
+    public interface IAccountRepository
+    {
+        void AddAccount(Account newAccount);
+        List<Account> GetAccounts();
+    }
+
+    public class AccountMemoryRepository : IAccountRepository
+    {
+        private List<Account> accounts = new List<Account>();
+
+        public void AddAccount(Account newAccount)
+        {
+            accounts.Add(newAccount);
+        }
+
+        public List<Account> GetAccounts()
+        {
+            return accounts;
+        }
+    }
+
     public class AccountManagement
     {
+        private IAccountRepository _accountRepo;
+        public AccountManagement(IAccountRepository accountRepo)
+        {
+            _accountRepo = accountRepo;
+        }
+
         public Account Login(string login, string password)
         {
-            return null;
+            return _accountRepo.GetAccounts().FirstOrDefault(x => x.Login == login && x.Password == password);
         }
     }
 
