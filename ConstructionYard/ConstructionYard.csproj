@@ -73,8 +73,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AccountManagementSteps.cs">
+      <Link>AccountManagementSteps.cs</Link>
+    </Compile>
     <Compile Include="..\FightSimulationsSteps.cs">
       <Link>FightSimulationsSteps.cs</Link>
+    </Compile>
+    <Compile Include="AccountManagement.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountManagement.feature</DependentUpon>
     </Compile>
     <Compile Include="FakeLogger.cs" />
     <Compile Include="FightSimulations.feature.cs">
@@ -85,6 +93,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AccountManagement.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AccountManagement.feature.cs</LastGenOutput>
+    </None>
     <None Include="App.config" />
     <None Include="Default.srprofile" />
     <None Include="FightSimulations.feature">
