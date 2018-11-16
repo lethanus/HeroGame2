@@ -66,11 +66,11 @@ namespace ConstructionYard
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Successful login", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("01 Successful login", new string[] {
                 "mytag"}, SourceLine=4)]
-        public virtual void SuccessfulLogin()
+        public virtual void _01SuccessfulLogin()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successful login", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Successful login", null, new string[] {
                         "mytag"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -94,10 +94,10 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Failed login", SourceLine=11)]
-        public virtual void FailedLogin()
+        [TechTalk.SpecRun.ScenarioAttribute("02 Failed login", SourceLine=11)]
+        public virtual void _02FailedLogin()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failed login", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Failed login", null, ((string[])(null)));
 #line 12
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

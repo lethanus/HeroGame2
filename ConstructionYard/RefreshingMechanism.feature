@@ -2,7 +2,7 @@
 	This will ensure that player cannot use refresh button until given time passed
 
 @mytag
-Scenario: Refreshing for the first time
+Scenario: 01 Refreshing for the first time
 	Given Some accounts exists in system
 	| ID   | Login | Password |
 	| ID_1 | test  | test     |

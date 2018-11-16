@@ -66,11 +66,11 @@ namespace ConstructionYard
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Refreshing for the first time", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("01 Refreshing for the first time", new string[] {
                 "mytag"}, SourceLine=4)]
-        public virtual void RefreshingForTheFirstTime()
+        public virtual void _01RefreshingForTheFirstTime()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Refreshing for the first time", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Refreshing for the first time", null, new string[] {
                         "mytag"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
