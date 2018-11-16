@@ -8,6 +8,7 @@ using HeroesGame.Accounts;
 using NUnit.Framework;
 using TechTalk.SpecFlow.Assist;
 using HeroesGame.Repositories;
+using System.IO;
 
 namespace ConstructionYard
 {
@@ -24,14 +25,21 @@ namespace ConstructionYard
         }
 
         [BeforeScenario]
-        public void InitializeAccountRepository()
+        public void InitializeRepository()
         {
             var accountRepo = new AccountJsonFileRepository("accounts.json");
             objectContainer.RegisterInstanceAs<IAccountRepository>(accountRepo);
             var refreshRepo = new MemoryRefreshRepository();
             objectContainer.RegisterInstanceAs<IRefreshRepository>(refreshRepo);
-            var configRepo = new MemoryConfigRepository();
+            var configRepo = new ConfigJsonFileRepository("configuration.json");
             objectContainer.RegisterInstanceAs<IConfigRepository>(configRepo);
+        }
+
+        [AfterScenario]
+        public void CleanupRepository()
+        {
+            File.Delete("accounts.json");
+            File.Delete("configuration.json");
         }
 
         [Given(@"that there was no refresh actions before for option '(.*)' for account ID '(.*)'")]

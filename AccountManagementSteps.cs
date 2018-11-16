@@ -7,6 +7,7 @@ using System.Collections;
 using HeroesGame.Accounts;
 using HeroesGame.Repositories;
 using BoDi;
+using System.IO;
 
 namespace ConstructionYard
 {
@@ -26,6 +27,12 @@ namespace ConstructionYard
         {
             var accountRepo = new AccountJsonFileRepository("accounts.json");
             objectContainer.RegisterInstanceAs<IAccountRepository>(accountRepo);
+        }
+
+        [AfterScenario]
+        public void CleanupAccountRepository()
+        {
+            File.Delete("accounts.json");
         }
 
         [Given(@"Some accounts exists in system")]
