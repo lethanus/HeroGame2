@@ -46,7 +46,7 @@
     <Compile Include="Accounts\AccountJsonFileRepository.cs" />
     <Compile Include="Configuration\ConfigJsonFileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RefreshingMechanism\MemoryRefreshRepository.cs" />
+    <Compile Include="RefreshingMechanism\RefreshJsonFileRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

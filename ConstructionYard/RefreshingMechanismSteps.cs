@@ -29,7 +29,7 @@ namespace ConstructionYard
         {
             var accountRepo = new AccountJsonFileRepository("accounts.json");
             objectContainer.RegisterInstanceAs<IAccountRepository>(accountRepo);
-            var refreshRepo = new MemoryRefreshRepository();
+            var refreshRepo = new RefreshJsonFileRepository(Directory.GetCurrentDirectory());
             objectContainer.RegisterInstanceAs<IRefreshRepository>(refreshRepo);
             var configRepo = new ConfigJsonFileRepository("configuration.json");
             objectContainer.RegisterInstanceAs<IConfigRepository>(configRepo);
@@ -40,6 +40,11 @@ namespace ConstructionYard
         {
             File.Delete("accounts.json");
             File.Delete("configuration.json");
+            foreach(var file in Directory.GetFiles(Directory.GetCurrentDirectory()))
+            {
+                if(file.Contains("RefreshFacts_"))
+                    File.Delete(file);
+            }
         }
 
         [Given(@"that there was no refresh actions before for option '(.*)' for account ID '(.*)'")]
