@@ -5,6 +5,7 @@ using System.Linq;
 using HeroGame.Accounts;
 using NUnit.Framework;
 using System.Collections.Generic;
+using TechTalk.SpecFlow.Assist;
 
 namespace ConstructionYard
 {
@@ -38,7 +39,19 @@ namespace ConstructionYard
             var refreshes = refreshRepo.GetAllForUserAndOption(accountID, option);
             Assert.AreEqual(0, refreshes.Count);
         }
-        
+
+        [Given(@"that there are some refresh actions")]
+        public void GivenThatThereWasAreSomeRefreshActionsBeforeForOptionForAccountID(Table table)
+        {
+            var refreshRepo = objectContainer.Resolve<IRefreshRepository>();
+            var refreshFacts = table.CreateSet<RefreshFact>().ToList();
+            foreach (var refresh in refreshFacts)
+            {
+                refreshRepo.AddRefreshFact(refresh.AccountID, refresh.Option, refresh.LastAction);
+            }
+        }
+
+
         [Given(@"current time is set to '(.*)'")]
         public void GivenCurrentTimeIsSetTo(DateTime currentTime)
         {
@@ -71,8 +84,8 @@ namespace ConstructionYard
             refreshRepo.AddRefreshFact(accountID, option, actionTime);
         }
         
-        [Then(@"Refresh for option '(.*)' is '(.*)' and next refresh is available at '(.*)' for account ID '(.*)'")]
-        public void ThenRefreshForOptionIsAndNextRefreshIsAvailableAt(string option, string expectedStatus, DateTime nextActionTime, string accountID)
+        [Then(@"Refresh for option '(.*)' is '(.*)' for account ID '(.*)'")]
+        public void ThenRefreshForOptionIsAndNextRefreshIsAvailableAt(string option, string expectedStatus, string accountID)
         {
             var refreshRepo = objectContainer.Resolve<IRefreshRepository>();
             var configRepo = objectContainer.Resolve<IConfigRepository>();
@@ -97,9 +110,12 @@ namespace ConstructionYard
 
         public void AddRefreshFact(string accountID, string option, DateTime actionTime)
         {
-            refreshes.Add(accountID, new List<RefreshFact> {
-                new RefreshFact { AccountID = accountID, Option = option, LastAction = actionTime }
-            });
+            var refreshFact = new RefreshFact { AccountID = accountID, Option = option, LastAction = actionTime };
+            if (refreshes.ContainsKey(accountID))
+            {
+                refreshes[accountID].Add(refreshFact);
+            }
+            else refreshes.Add(accountID, new List<RefreshFact> { refreshFact });
         }
 
         public List<RefreshFact> GetAllForUserAndOption(string accountID, string option)
