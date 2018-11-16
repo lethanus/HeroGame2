@@ -2,10 +2,11 @@
 using TechTalk.SpecFlow;
 using BoDi;
 using System.Linq;
-using HeroGame.Accounts;
+using HeroesGame.Accounts;
 using NUnit.Framework;
 using System.Collections.Generic;
 using TechTalk.SpecFlow.Assist;
+using HeroGamees.Repositories;
 
 namespace ConstructionYard
 {

@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HeroGame.Characters;
-using HeroGame.FightMechanizm;
+using HeroesGame.Characters;
+using HeroesGame.FightMechanizm;
 
 namespace FightMechanizmTestingGUI
 {

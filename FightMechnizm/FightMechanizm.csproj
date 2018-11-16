@@ -45,7 +45,6 @@
     <Compile Include="FightMechanizm.cs" />
     <Compile Include="ICharacter.cs" />
     <Compile Include="ICharacterInTeam.cs" />
-    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeamPositionHelper.cs" />
   </ItemGroup>

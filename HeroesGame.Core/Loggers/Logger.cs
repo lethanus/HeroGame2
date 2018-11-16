@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroGame.Loggers
+namespace HeroesGame.Loggers
 {
     public interface Logger
     {

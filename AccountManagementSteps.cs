@@ -4,7 +4,8 @@ using NUnit.Framework;
 using TechTalk.SpecFlow.Assist;
 using System.Linq;
 using System.Collections;
-using HeroGame.Accounts;
+using HeroesGame.Accounts;
+using HeroGamees.Repositories;
 using BoDi;
 
 namespace ConstructionYard

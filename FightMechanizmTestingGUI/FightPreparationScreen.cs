@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HeroGame.Characters;
+using HeroesGame.Characters;
 
 namespace FightMechanizmTestingGUI
 {
