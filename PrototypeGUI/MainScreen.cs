@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeroesGame.Accounts;
+using HeroesGame.Configuration;
+using HeroesGame.RefresingMechanism;
 using HeroesGame.Repositories;
 
 namespace PrototypeGUI
 {
     public partial class btCampain : Form
     {
-        private AccountJsonFileRepository _accountRepository;
+        private IAccountRepository _accountRepository;
+        private IConfigRepository _configRepository;
+        private IRefreshRepository _refreshRepository;
+
         private Account _loggedAccount = null;
 
         public btCampain()
@@ -77,6 +82,8 @@ namespace PrototypeGUI
                 _accountRepository.AddAccount(new Account("testAccount2", "testPassword"));
             }
             UpdateGameControls(_loggedAccount);
+            _configRepository = new ConfigJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\Configuration.json");
+            //_configRepository.GetParameterValue()
         }
 
         private void UpdateGameControls(Account account)
