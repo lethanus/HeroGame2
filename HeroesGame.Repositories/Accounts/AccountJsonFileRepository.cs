@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using System.IO;
 using HeroesGame.Accounts;
 
-namespace HeroGamees.Repositories
+namespace HeroesGame.Repositories
 {
     public class AccountJsonFileRepository : IAccountRepository
     {

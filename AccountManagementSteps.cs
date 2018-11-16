@@ -5,7 +5,7 @@ using TechTalk.SpecFlow.Assist;
 using System.Linq;
 using System.Collections;
 using HeroesGame.Accounts;
-using HeroGamees.Repositories;
+using HeroesGame.Repositories;
 using BoDi;
 
 namespace ConstructionYard

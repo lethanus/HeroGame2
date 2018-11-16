@@ -48,12 +48,13 @@
     <Compile Include="Characters\ICharacter.cs" />
     <Compile Include="Characters\ICharacterInTeam.cs" />
     <Compile Include="Characters\TeamPositionHelper.cs" />
+    <Compile Include="Configuration\IConfigRepository.cs" />
     <Compile Include="FightingMrchanism\FightMechanizm.cs" />
     <Compile Include="Loggers\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefreshingMechanism\IRefreshRepository.cs" />
+    <Compile Include="RefreshingMechanism\RefreshFact.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="RefreshingMechanism\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

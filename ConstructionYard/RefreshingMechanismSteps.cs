@@ -2,11 +2,12 @@
 using TechTalk.SpecFlow;
 using BoDi;
 using System.Linq;
+using HeroesGame.Configuration;
+using HeroesGame.RefresingMechanism;
 using HeroesGame.Accounts;
 using NUnit.Framework;
-using System.Collections.Generic;
 using TechTalk.SpecFlow.Assist;
-using HeroGamees.Repositories;
+using HeroesGame.Repositories;
 
 namespace ConstructionYard
 {
@@ -95,77 +96,6 @@ namespace ConstructionYard
             var actualStatus = refreshRepo.GetRefreshStatus(option, accountID, configRepo.GetParameterValue(parameterName), _currentTime);
 
             Assert.AreEqual(expectedStatus, actualStatus);
-        }
-    }
-
-    public interface IRefreshRepository
-    {
-        void AddRefreshFact(string accountID, string option, DateTime actionTime);
-        List<RefreshFact> GetAllForUserAndOption(string accountID, string option);
-        string GetRefreshStatus(string option, string accountID, string refreshDelay, DateTime currentTime);
-    }
-
-    public class MemoryRefreshRepository : IRefreshRepository
-    {
-        private Dictionary<string,List<RefreshFact>> refreshes = new Dictionary<string, List<RefreshFact>>();
-
-        public void AddRefreshFact(string accountID, string option, DateTime actionTime)
-        {
-            var refreshFact = new RefreshFact { AccountID = accountID, Option = option, LastAction = actionTime };
-            if (refreshes.ContainsKey(accountID))
-            {
-                refreshes[accountID].Add(refreshFact);
-            }
-            else refreshes.Add(accountID, new List<RefreshFact> { refreshFact });
-        }
-
-        public List<RefreshFact> GetAllForUserAndOption(string accountID, string option)
-        {
-            if (!refreshes.ContainsKey(accountID)) return new List<RefreshFact>();
-            return refreshes[accountID].Where(x=>x.Option == option).ToList();
-        }
-
-        public string GetRefreshStatus(string option, string accountID, string refreshDelay, DateTime currentTime)
-        {
-            if (!refreshes.ContainsKey(accountID)) return "Enabled";
-            else
-            {
-                int secondesToAdd = Int32.Parse(refreshDelay);
-                var notPassedRefreshes = refreshes[accountID]
-                    .Where(x => x.Option == option && x.LastAction.AddSeconds(secondesToAdd) > currentTime);
-                if(notPassedRefreshes.Count() == 0 ) return "Enabled";
-            }
-            return "Disabled";
-        }
-    }
-
-    public class RefreshFact
-    {
-        public string AccountID { get; set; }
-        public string Option { get; set; }
-        public DateTime LastAction { get; set; }
-
-    }
-
-    public interface IConfigRepository
-    {
-        string GetParameterValue(string parameterName);
-        void SetConfigParameter(string parameter, string value);
-
-    }
-
-    public class MemoryConfigRepository : IConfigRepository
-    {
-        private Dictionary<string, string> _configValues = new Dictionary<string, string>();
-
-        public string GetParameterValue(string parameterName)
-        {
-            return _configValues[parameterName];
-        }
-
-        public void SetConfigParameter(string parameter, string value)
-        {
-            _configValues.Add(parameter, value);
         }
     }
 }

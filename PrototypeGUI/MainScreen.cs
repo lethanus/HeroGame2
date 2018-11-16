@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeroesGame.Accounts;
-using HeroGamees.Repositories;
+using HeroesGame.Repositories;
 
 namespace PrototypeGUI
 {
