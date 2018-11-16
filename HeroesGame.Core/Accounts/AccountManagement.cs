@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HeroesGame.Accounts
 {
-    public class AccountManagement
+    public class AccountManagement : IAccountManagement
     {
         private IAccountRepository _accountRepo;
         private Account _loogedAccount;

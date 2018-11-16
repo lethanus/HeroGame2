@@ -20,6 +20,7 @@ namespace PrototypeGUI
         private IConfigRepository _configRepository;
         private IRefreshRepository _refreshRepository;
         private RefreshingMechnism _refreshingMechnism;
+        private AccountManagement _accountManagement;
 
         private Account _loggedAccount = null;
 
@@ -38,8 +39,7 @@ namespace PrototypeGUI
             LoginScreen loginScreen = new LoginScreen();
             if(loginScreen.ShowDialog() == DialogResult.OK)
             {
-                AccountManagement accountManagement = new AccountManagement(_accountRepository);
-                _loggedAccount = accountManagement.Login(loginScreen.Login, loginScreen.Password);
+                _loggedAccount = _accountManagement.Login(loginScreen.Login, loginScreen.Password);
                 if (_loggedAccount != null)
                     accountDetailsBox.Text = _loggedAccount.ToString();
                 else
@@ -87,8 +87,8 @@ namespace PrototypeGUI
             var delay = _configRepository.GetParameterValue("Delay_for_option_Mercenaries_in_sec");
             if (delay == "") _configRepository.SetConfigParameter("Delay_for_option_Mercenaries_in_sec", "60");
             _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
-
-            _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository);
+            _accountManagement = new AccountManagement(_accountRepository);
+            _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
         }
 
         private void UpdateGameControls(Account account)

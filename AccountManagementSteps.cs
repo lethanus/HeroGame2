@@ -25,14 +25,13 @@ namespace ConstructionYard
         [BeforeScenario]
         public void InitializeAccountRepository()
         {
-            var accountRepo = new AccountJsonFileRepository("accounts.json");
-            objectContainer.RegisterInstanceAs<IAccountRepository>(accountRepo);
+            TestInstaler.InitializeRepository(objectContainer);
         }
 
         [AfterScenario]
         public void CleanupAccountRepository()
         {
-            File.Delete("accounts.json");
+            TestInstaler.CleanupRepository();
         }
 
         [Given(@"Some accounts exists in system")]
@@ -50,8 +49,7 @@ namespace ConstructionYard
         [When(@"I try to login for '(.*)' and password '(.*)'")]
         public void WhenITryToLoginForAndPassword(string givenLogin, string givenPassword)
         {
-            var accountRepo = objectContainer.Resolve<IAccountRepository>();
-            AccountManagement accountManagement = new AccountManagement(accountRepo);
+            var accountManagement = objectContainer.Resolve<IAccountManagement>();
             loggedId = accountManagement.Login(givenLogin, givenPassword);
         }
         

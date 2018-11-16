@@ -97,6 +97,7 @@
       <DependentUpon>RefreshingMechanism.feature</DependentUpon>
     </Compile>
     <Compile Include="RefreshingMechanismSteps.cs" />
+    <Compile Include="TestInstaler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AccountManagement.feature">

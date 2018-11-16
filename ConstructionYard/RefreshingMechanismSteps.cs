@@ -17,7 +17,6 @@ namespace ConstructionYard
     {
         private readonly IObjectContainer objectContainer;
         private DateTime _currentTime = DateTime.Now;
-        private RefreshingMechnism _refreshingMechnism;
 
         public RefreshingMechanismSteps(IObjectContainer objectContainer)
         {
@@ -27,25 +26,13 @@ namespace ConstructionYard
         [BeforeScenario]
         public void InitializeRepository()
         {
-            var accountRepo = new AccountJsonFileRepository("accountsForRefresh.json");
-            objectContainer.RegisterInstanceAs<IAccountRepository>(accountRepo);
-            var refreshRepo = new RefreshJsonFileRepository(Directory.GetCurrentDirectory());
-            objectContainer.RegisterInstanceAs<IRefreshRepository>(refreshRepo);
-            var configRepo = new ConfigJsonFileRepository("configuration.json");
-            objectContainer.RegisterInstanceAs<IConfigRepository>(configRepo);
-            _refreshingMechnism = new RefreshingMechnism(refreshRepo, configRepo);
+            TestInstaler.InitializeRepository(objectContainer);
         }
 
         [AfterScenario]
         public void CleanupRepository()
         {
-            File.Delete("accountsForRefresh.json");
-            File.Delete("configuration.json");
-            foreach(var file in Directory.GetFiles(Directory.GetCurrentDirectory()))
-            {
-                if(file.Contains("RefreshFacts_"))
-                    File.Delete(file);
-            }
+            TestInstaler.CleanupRepository();
         }
 
         [Given(@"that there was no refresh actions before for option '(.*)' for account ID '(.*)'")]
@@ -59,10 +46,11 @@ namespace ConstructionYard
         [Given(@"that there are some refresh actions")]
         public void GivenThatThereWasAreSomeRefreshActionsBeforeForOptionForAccountID(Table table)
         {
+            var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
             var refreshFacts = table.CreateSet<RefreshFact>().ToList();
             foreach (var refresh in refreshFacts)
             {
-                _refreshingMechnism.AddRefreshFact(refresh.Option, refresh.AccountID, refresh.LastAction);
+                refreshingMechnism.AddRefreshFact(refresh.Option, refresh.AccountID, refresh.LastAction);
             }
         }
 
@@ -80,24 +68,27 @@ namespace ConstructionYard
             configRepo.SetConfigParameter($"Delay_for_option_{option}_in_sec", delayInSeconds);
         }
         
-        [When(@"mechanizm will set refresh to '(.*)' for option '(.*)' for account ID '(.*)'")]
-        public void WhenMechanizmWillSetRefreshToForOption(string expectedStatus, string option, string accountID)
+        [When(@"mechanizm will set refresh to '(.*)' for option '(.*)'")]
+        public void WhenMechanizmWillSetRefreshToForOption(string expectedStatus, string option)
         {
-            var actualStatus = _refreshingMechnism.GetRefreshStatus(option, accountID, _currentTime);
+            var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
+            var actualStatus = refreshingMechnism.GetRefreshStatus(option, _currentTime);
 
             Assert.AreEqual(expectedStatus, actualStatus);
         }
         
-        [When(@"player with account ID '(.*)' will use refresh for '(.*)' option at '(.*)'")]
-        public void WhenPlayerWillUseRefreshForOptionAt(string accountID, string option, DateTime actionTime)
+        [When(@"player will use refresh for '(.*)' option at '(.*)'")]
+        public void WhenPlayerWillUseRefreshForOptionAt(string option, DateTime actionTime)
         {
-            _refreshingMechnism.AddRefreshFact(option, accountID, actionTime);
+            var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
+            refreshingMechnism.AddRefreshFactForLoggedAccount(option, actionTime);
         }
         
-        [Then(@"Refresh for option '(.*)' is '(.*)' for account ID '(.*)'")]
-        public void ThenRefreshForOptionIsAndNextRefreshIsAvailableAt(string option, string expectedStatus, string accountID)
+        [Then(@"Refresh for option '(.*)' is '(.*)'")]
+        public void ThenRefreshForOptionIsAndNextRefreshIsAvailableAt(string option, string expectedStatus)
         {
-            var actualStatus = _refreshingMechnism.GetRefreshStatus(option, accountID, _currentTime);
+            var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
+            var actualStatus = refreshingMechnism.GetRefreshStatus(option, _currentTime);
 
             Assert.AreEqual(expectedStatus, actualStatus);
         }

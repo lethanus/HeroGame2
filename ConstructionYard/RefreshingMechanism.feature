@@ -10,10 +10,10 @@ Scenario: 01 Refreshing for the first time
 	And current time is set to '2018-10-15 10:00:00'
 	And Refresh time for option 'Test' is set to '30' seconds
 	When I try to login for 'test' and password 'test'
-	And mechanizm will set refresh to 'Enabled' for option 'Test' for account ID 'ID_1'
-	And player with account ID 'ID_1' will use refresh for 'Test' option at '2018-10-15 10:00:00'
+	And mechanizm will set refresh to 'Enabled' for option 'Test'
+	And player will use refresh for 'Test' option at '2018-10-15 10:00:00'
 	Then Logged account id is 'ID_1'
-	And Refresh for option 'Test' is 'Disabled' for account ID 'ID_1'
+	And Refresh for option 'Test' is 'Disabled'
 
 
 Scenario: 02 Refreshing should be disabled when time from last refresh didn't passed
@@ -30,7 +30,7 @@ Scenario: 02 Refreshing should be disabled when time from last refresh didn't pa
 	And Refresh time for option 'Test' is set to '30' seconds
 	When I try to login for 'test' and password 'test'
 	Then Logged account id is 'ID_1'
-	And Refresh for option 'Test' is 'Disabled' for account ID 'ID_1'
+	And Refresh for option 'Test' is 'Disabled'
 
 
 Scenario: 03 Refreshing should be enabled when time from last refresh already passed
@@ -47,4 +47,4 @@ Scenario: 03 Refreshing should be enabled when time from last refresh already pa
 	And Refresh time for option 'Test' is set to '30' seconds
 	When I try to login for 'test' and password 'test'
 	Then Logged account id is 'ID_1'
-	And Refresh for option 'Test' is 'Enabled' for account ID 'ID_1'
+	And Refresh for option 'Test' is 'Enabled'

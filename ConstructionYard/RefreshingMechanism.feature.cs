@@ -95,14 +95,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 12
  testRunner.When("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
- testRunner.And("mechanizm will set refresh to \'Enabled\' for option \'Test\' for account ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("mechanizm will set refresh to \'Enabled\' for option \'Test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
- testRunner.And("player with account ID \'ID_1\' will use refresh for \'Test\' option at \'2018-10-15 1" +
-                    "0:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("player will use refresh for \'Test\' option at \'2018-10-15 10:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 16
- testRunner.And("Refresh for option \'Test\' is \'Disabled\' for account ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Refresh for option \'Test\' is \'Disabled\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -157,7 +156,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 32
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 33
- testRunner.And("Refresh for option \'Test\' is \'Disabled\' for account ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Refresh for option \'Test\' is \'Disabled\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -212,7 +211,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 49
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 50
- testRunner.And("Refresh for option \'Test\' is \'Enabled\' for account ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Refresh for option \'Test\' is \'Enabled\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

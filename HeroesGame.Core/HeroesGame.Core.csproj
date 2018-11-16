@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Accounts\Account.cs" />
     <Compile Include="Accounts\AccountManagement.cs" />
+    <Compile Include="Accounts\IAccountManagement.cs" />
     <Compile Include="Accounts\IAccountRepository.cs" />
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\CharacterFactory.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="FightingMrchanism\FightMechanizm.cs" />
     <Compile Include="Loggers\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefreshingMechanism\IRefreshingMechnism.cs" />
     <Compile Include="RefreshingMechanism\IRefreshRepository.cs" />
     <Compile Include="RefreshingMechanism\RefreshFact.cs" />
     <Compile Include="RefreshingMechanism\RefreshingMechnism.cs" />
