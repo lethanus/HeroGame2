@@ -1,11 +1,27 @@
 ﻿using System;
 using TechTalk.SpecFlow;
+using BoDi;
+using HeroGame.Accounts;
 
 namespace ConstructionYard
 {
     [Binding]
     public class RefreshingMechanismSteps
     {
+        private readonly IObjectContainer objectContainer;
+
+        public RefreshingMechanismSteps(IObjectContainer objectContainer)
+        {
+            this.objectContainer = objectContainer;
+        }
+
+        [BeforeScenario]
+        public void InitializeAccountRepository()
+        {
+            var accountRepo = new AccountJsonFileRepository("accounts.json");
+            objectContainer.RegisterInstanceAs<IAccountRepository>(accountRepo);
+        }
+
         [Given(@"that there was no refresh actions before for option '(.*)' for account ID '(.*)'")]
         public void GivenThatThereWasNoRefreshActionsBeforeForOption(string option, string accountID)
         {
