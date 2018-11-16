@@ -27,13 +27,55 @@ namespace PrototypeGUI
 
         private void RecruitMercenariesScreen_Load(object sender, EventArgs e)
         {
-
+            UpdateRefresh();
         }
 
 
         private void UpdateRefresh()
         {
-            _refreshingMechnism.GetRefreshStatus("Mercenaries", DateTime.Now);
+            var status = _refreshingMechnism.GetRefreshStatus("Mercenaries", DateTime.Now);
+            btRefresh.Enabled = status == RefresStatus.Enabled;
+            var delay = _refreshingMechnism.GetDelayValue("Mercenaries");
+            nextRefreshBar.Maximum = delay;
+            var lastRefreshTime = _refreshingMechnism.GetLastRefresh("Mercenaries");
+            if (lastRefreshTime != null)
+            {
+                var now = DateTime.Now;
+                if (lastRefreshTime.LastAction.AddSeconds(delay) > now)
+                {
+                    nextRefreshBar.Value = (int)(now - lastRefreshTime.LastAction).TotalSeconds;
+                    refreshTimer.Enabled = true;
+                }
+                else
+                {
+                    nextRefreshBar.Value = delay;
+                    refreshTimer.Enabled = false;
+                }
+            }
+            else
+            {
+                nextRefreshBar.Value = delay;
+                refreshTimer.Enabled = false;
+            }
+
+        }
+
+        private void btRefresh_Click(object sender, EventArgs e)
+        {
+            _refreshingMechnism.AddRefreshFactForLoggedAccount("Mercenaries", DateTime.Now);
+            UpdateRefresh();
+            refreshTimer.Enabled = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (nextRefreshBar.Value < nextRefreshBar.Maximum)
+                nextRefreshBar.Value++;
+            else
+            {
+                refreshTimer.Enabled = false;
+                UpdateRefresh();
+            }
         }
     }
 }

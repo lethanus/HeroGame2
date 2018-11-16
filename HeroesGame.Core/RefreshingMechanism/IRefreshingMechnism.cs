@@ -9,5 +9,7 @@ namespace HeroesGame.RefresingMechanism
         RefresStatus GetRefreshStatus(string option, DateTime currentTime);
         void AddRefreshFact(string option, string accountID, DateTime actionTime);
         void AddRefreshFactForLoggedAccount(string option, DateTime actionTime);
+        int GetDelayValue(string option);
+        RefreshFact GetLastRefresh(string option);
     }
 }

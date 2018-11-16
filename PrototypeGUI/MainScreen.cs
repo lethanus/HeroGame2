@@ -84,7 +84,7 @@ namespace PrototypeGUI
             
             _configRepository = new ConfigJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\Configuration.json");
             var delay = _configRepository.GetParameterValue("Delay_for_option_Mercenaries_in_sec");
-            if (delay == "") _configRepository.SetConfigParameter("Delay_for_option_Mercenaries_in_sec", "60");
+            if (delay == "") _configRepository.SetConfigParameter("Delay_for_option_Mercenaries_in_sec", "20");
             _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);

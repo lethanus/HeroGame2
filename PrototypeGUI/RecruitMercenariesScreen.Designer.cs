@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btClose = new System.Windows.Forms.Button();
             this.listRecruits = new System.Windows.Forms.ListView();
             this.btRefresh = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btClose
@@ -70,6 +72,7 @@
             this.btRefresh.TabIndex = 2;
             this.btRefresh.Text = "Refresh";
             this.btRefresh.UseVisualStyleBackColor = true;
+            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
             // 
             // nextRefreshBar
             // 
@@ -167,6 +170,11 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Potential recruits";
             // 
+            // refreshTimer
+            // 
+            this.refreshTimer.Interval = 1000;
+            this.refreshTimer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // RecruitMercenariesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,5 +220,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Timer refreshTimer;
     }
 }
