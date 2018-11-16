@@ -27,7 +27,7 @@ namespace ConstructionYard
         [BeforeScenario]
         public void InitializeRepository()
         {
-            var accountRepo = new AccountJsonFileRepository("accounts.json");
+            var accountRepo = new AccountJsonFileRepository("accountsForRefresh.json");
             objectContainer.RegisterInstanceAs<IAccountRepository>(accountRepo);
             var refreshRepo = new RefreshJsonFileRepository(Directory.GetCurrentDirectory());
             objectContainer.RegisterInstanceAs<IRefreshRepository>(refreshRepo);
@@ -39,7 +39,7 @@ namespace ConstructionYard
         [AfterScenario]
         public void CleanupRepository()
         {
-            File.Delete("accounts.json");
+            File.Delete("accountsForRefresh.json");
             File.Delete("configuration.json");
             foreach(var file in Directory.GetFiles(Directory.GetCurrentDirectory()))
             {

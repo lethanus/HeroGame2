@@ -19,6 +19,7 @@ namespace PrototypeGUI
         private IAccountRepository _accountRepository;
         private IConfigRepository _configRepository;
         private IRefreshRepository _refreshRepository;
+        private RefreshingMechnism _refreshingMechnism;
 
         private Account _loggedAccount = null;
 
@@ -67,7 +68,7 @@ namespace PrototypeGUI
 
         private void btRecruitMercenaries_Click(object sender, EventArgs e)
         {
-            RecruitMercenariesScreen recruitMercenariesScreen = new RecruitMercenariesScreen();
+            RecruitMercenariesScreen recruitMercenariesScreen = new RecruitMercenariesScreen(_refreshingMechnism);
             recruitMercenariesScreen.ShowDialog();
         }
 
@@ -83,7 +84,11 @@ namespace PrototypeGUI
             }
             UpdateGameControls(_loggedAccount);
             _configRepository = new ConfigJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\Configuration.json");
-            //_configRepository.GetParameterValue()
+            var delay = _configRepository.GetParameterValue("Delay_for_option_Mercenaries_in_sec");
+            if (delay == "") _configRepository.SetConfigParameter("Delay_for_option_Mercenaries_in_sec", "60");
+            _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
+
+            _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository);
         }
 
         private void UpdateGameControls(Account account)

@@ -18,6 +18,7 @@ namespace HeroesGame.Repositories
         public string GetParameterValue(string parameterName)
         {
             _configValues = GetAllParameters(_pathToRepoFile);
+            if (!_configValues.ContainsKey(parameterName)) return "";
             return _configValues[parameterName];
         }
 

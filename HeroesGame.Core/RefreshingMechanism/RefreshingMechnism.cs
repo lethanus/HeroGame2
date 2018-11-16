@@ -25,7 +25,5 @@ namespace HeroesGame.RefresingMechanism
         {
             _refreshRepository.AddRefreshFact(accountID, option, actionTime);
         }
-
-
     }
 }

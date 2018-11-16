@@ -9,6 +9,7 @@ namespace HeroesGame.Accounts
     public class AccountManagement
     {
         private IAccountRepository _accountRepo;
+        private Account _loogedAccount;
         public AccountManagement(IAccountRepository accountRepo)
         {
             _accountRepo = accountRepo;
@@ -16,7 +17,13 @@ namespace HeroesGame.Accounts
 
         public Account Login(string login, string password)
         {
-            return _accountRepo.GetAccounts().FirstOrDefault(x => x.Login == login && x.Password == password);
+            _loogedAccount = _accountRepo.GetAccounts().FirstOrDefault(x => x.Login == login && x.Password == password);
+            return GetLoggedAccount();
+        }
+
+        public Account GetLoggedAccount()
+        {
+            return _loogedAccount;
         }
     }
 }

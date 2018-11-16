@@ -190,6 +190,7 @@
             this.MinimizeBox = false;
             this.Name = "RecruitMercenariesScreen";
             this.Text = "Recruit Mercenaries";
+            this.Load += new System.EventHandler(this.RecruitMercenariesScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
