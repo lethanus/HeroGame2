@@ -129,8 +129,12 @@ namespace ConstructionYard
             if (!refreshes.ContainsKey(accountID)) return "Enabled";
             else
             {
-                return "Disabled";
+                int secondesToAdd = Int32.Parse(refreshDelay);
+                var notPassedRefreshes = refreshes[accountID]
+                    .Where(x => x.Option == option && x.LastAction.AddSeconds(secondesToAdd) > currentTime);
+                if(notPassedRefreshes.Count() == 0 ) return "Enabled";
             }
+            return "Disabled";
         }
     }
 
