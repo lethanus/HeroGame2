@@ -3,9 +3,10 @@
 
 namespace HeroesGame.RefresingMechanism
 {
+    public enum RefresStatus { Enabled, Disabled }
     public interface IRefreshingMechnism
     {
-        string GetRefreshStatus(string option, DateTime currentTime);
+        RefresStatus GetRefreshStatus(string option, DateTime currentTime);
         void AddRefreshFact(string option, string accountID, DateTime actionTime);
         void AddRefreshFactForLoggedAccount(string option, DateTime actionTime);
     }

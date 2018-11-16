@@ -22,8 +22,6 @@ namespace PrototypeGUI
         private RefreshingMechnism _refreshingMechnism;
         private AccountManagement _accountManagement;
 
-        private Account _loggedAccount = null;
-
         public btCampain()
         {
             InitializeComponent();
@@ -39,13 +37,13 @@ namespace PrototypeGUI
             LoginScreen loginScreen = new LoginScreen();
             if(loginScreen.ShowDialog() == DialogResult.OK)
             {
-                _loggedAccount = _accountManagement.Login(loginScreen.Login, loginScreen.Password);
-                if (_loggedAccount != null)
-                    accountDetailsBox.Text = _loggedAccount.ToString();
+                var loggedAccount = _accountManagement.Login(loginScreen.Login, loginScreen.Password);
+                if (loggedAccount != null)
+                    accountDetailsBox.Text = loggedAccount.ToString();
                 else
                     accountDetailsBox.Text = "Login failed";
             }
-            UpdateGameControls(_loggedAccount);
+            UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
 
         private void btHeroes_Click(object sender, EventArgs e)
@@ -82,13 +80,16 @@ namespace PrototypeGUI
                 _accountRepository.AddAccount(new Account("testAccount1", "testPassword"));
                 _accountRepository.AddAccount(new Account("testAccount2", "testPassword"));
             }
-            UpdateGameControls(_loggedAccount);
+            _accountManagement = new AccountManagement(_accountRepository);
+            
             _configRepository = new ConfigJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\Configuration.json");
             var delay = _configRepository.GetParameterValue("Delay_for_option_Mercenaries_in_sec");
             if (delay == "") _configRepository.SetConfigParameter("Delay_for_option_Mercenaries_in_sec", "60");
             _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
-            _accountManagement = new AccountManagement(_accountRepository);
+            
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
+
+            UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
 
         private void UpdateGameControls(Account account)

@@ -17,25 +17,10 @@ namespace HeroesGame.Repositories
 
         public void AddRefreshFact(string accountID, string option, DateTime actionTime)
         {
-            var refreshFacts = GetRefreshesForAccount(accountID, _directoryPath);
+            var refreshFacts = GetRefreshesForAccount(accountID);
             var refreshFact = new RefreshFact { AccountID = accountID, Option = option, LastAction = actionTime };
             refreshFacts.Add(refreshFact);
             SaveRefreshesForAccount(refreshFacts, accountID, _directoryPath);
-        }
-
-        public List<RefreshFact> GetAllForUserAndOption(string accountID, string option)
-        {
-            return GetRefreshesForAccount(accountID, _directoryPath);
-        }
-
-        public string GetRefreshStatus(string option, string accountID, string refreshDelay, DateTime currentTime)
-        {
-            var refreshFacts = GetRefreshesForAccount(accountID, _directoryPath);
-            int secondesToAdd = Int32.Parse(refreshDelay);
-            var notPassedRefreshes = refreshFacts
-                    .Where(x => x.Option == option && x.LastAction.AddSeconds(secondesToAdd) > currentTime);
-
-            return notPassedRefreshes.Count() == 0 ? "Enabled" : "Disabled";
         }
 
         private void SaveRefreshesForAccount(List<RefreshFact> refreshes, string accountID, string directoryPath)
@@ -45,9 +30,9 @@ namespace HeroesGame.Repositories
             File.WriteAllText(pathToFile, json);
         }
 
-        private List<RefreshFact> GetRefreshesForAccount(string accountID, string directoryPath)
+        public List<RefreshFact> GetRefreshesForAccount(string accountID)
         {
-            string pathToFile = $"{directoryPath}\\RefreshFacts_{accountID}.json";
+            string pathToFile = $"{_directoryPath}\\RefreshFacts_{accountID}.json";
             if (!File.Exists(pathToFile))
             {
                 return new List<RefreshFact>();

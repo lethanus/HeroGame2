@@ -39,7 +39,7 @@ namespace ConstructionYard
         public void GivenThatThereWasNoRefreshActionsBeforeForOption(string option, string accountID)
         {
             var refreshRepo = objectContainer.Resolve<IRefreshRepository>();
-            var refreshes = refreshRepo.GetAllForUserAndOption(accountID, option);
+            var refreshes = refreshRepo.GetRefreshesForAccount(accountID).Where(x=>x.Option == option).ToList();
             Assert.AreEqual(0, refreshes.Count);
         }
 
@@ -69,7 +69,7 @@ namespace ConstructionYard
         }
         
         [When(@"mechanizm will set refresh to '(.*)' for option '(.*)'")]
-        public void WhenMechanizmWillSetRefreshToForOption(string expectedStatus, string option)
+        public void WhenMechanizmWillSetRefreshToForOption(RefresStatus expectedStatus, string option)
         {
             var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
             var actualStatus = refreshingMechnism.GetRefreshStatus(option, _currentTime);
@@ -85,7 +85,7 @@ namespace ConstructionYard
         }
         
         [Then(@"Refresh for option '(.*)' is '(.*)'")]
-        public void ThenRefreshForOptionIsAndNextRefreshIsAvailableAt(string option, string expectedStatus)
+        public void ThenRefreshForOptionIsAndNextRefreshIsAvailableAt(string option, RefresStatus expectedStatus)
         {
             var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
             var actualStatus = refreshingMechnism.GetRefreshStatus(option, _currentTime);

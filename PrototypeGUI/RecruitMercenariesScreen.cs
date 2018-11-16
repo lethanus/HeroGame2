@@ -13,8 +13,8 @@ namespace PrototypeGUI
 {
     public partial class RecruitMercenariesScreen : Form
     {
-        private RefreshingMechnism _refreshingMechnism;
-        public RecruitMercenariesScreen(RefreshingMechnism refreshingMechnism)
+        private IRefreshingMechnism _refreshingMechnism;
+        public RecruitMercenariesScreen(IRefreshingMechnism refreshingMechnism)
         {
             InitializeComponent();
             _refreshingMechnism = refreshingMechnism;
@@ -28,6 +28,12 @@ namespace PrototypeGUI
         private void RecruitMercenariesScreen_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void UpdateRefresh()
+        {
+            _refreshingMechnism.GetRefreshStatus("Mercenaries", DateTime.Now);
         }
     }
 }

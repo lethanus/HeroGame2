@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using HeroesGame.Configuration;
 using HeroesGame.RefresingMechanism;
 using HeroesGame.Accounts;
@@ -18,10 +19,15 @@ namespace HeroesGame.RefresingMechanism
             _accountManagement = accountManagement;
         }
 
-        public string GetRefreshStatus(string option, DateTime currentTime)
+        public RefresStatus GetRefreshStatus(string option, DateTime currentTime)
         {
+            var refreshFacts = _refreshRepository.GetRefreshesForAccount(_accountManagement.GetLoggedAccount().ID);
             var parameterName = $"Delay_for_option_{option}_in_sec";
-            return _refreshRepository.GetRefreshStatus(option, _accountManagement.GetLoggedAccount().ID, _configRepository.GetParameterValue(parameterName), currentTime);
+
+            int secondesToAdd = Int32.Parse(_configRepository.GetParameterValue(parameterName));
+            var notPassedRefreshes = refreshFacts
+                    .Where(x => x.Option == option && x.LastAction.AddSeconds(secondesToAdd) > currentTime);
+            return notPassedRefreshes.Count() == 0 ? RefresStatus.Enabled : RefresStatus.Disabled;
         }
 
         public void AddRefreshFact(string option, string accountID, DateTime actionTime)
