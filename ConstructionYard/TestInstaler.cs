@@ -27,6 +27,10 @@ namespace ConstructionYard
             objectContainer.RegisterInstanceAs<IAccountManagement>(accountManagement);
             var refreshingMechnism = new RefreshingMechnism(refreshRepo, configRepo, accountManagement);
             objectContainer.RegisterInstanceAs<IRefreshingMechnism>(refreshingMechnism);
+            var mercenaryRepo = new MercenaryMemoryRepository(Directory.GetCurrentDirectory());
+            objectContainer.RegisterInstanceAs<IMercenaryRepository>(mercenaryRepo);
+            var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement);
+            objectContainer.RegisterInstanceAs<IMercenaryManagement>(mercenaryManagement);
         }
 
         public static void CleanupRepository()

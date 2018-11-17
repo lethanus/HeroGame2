@@ -90,6 +90,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FightSimulations.feature</DependentUpon>
     </Compile>
+    <Compile Include="Mercenaries.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mercenaries.feature</DependentUpon>
+    </Compile>
+    <Compile Include="MercenariesSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefreshingMechanism.feature.cs">
       <AutoGen>True</AutoGen>
@@ -109,6 +115,10 @@
     <None Include="FightSimulations.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FightSimulations.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Mercenaries.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Mercenaries.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="RefreshingMechanism.feature">

@@ -52,7 +52,15 @@ namespace ConstructionYard
             var accountManagement = objectContainer.Resolve<IAccountManagement>();
             loggedId = accountManagement.Login(givenLogin, givenPassword);
         }
-        
+
+        [Given(@"I try to login for '(.*)' and password '(.*)'")]
+        public void GivenITryToLoginForAndPassword(string givenLogin, string givenPassword)
+        {
+            var accountManagement = objectContainer.Resolve<IAccountManagement>();
+            loggedId = accountManagement.Login(givenLogin, givenPassword);
+        }
+
+
         [Then(@"Logged account id is '(.*)'")]
         public void ThenLoggedAccountIdIs(string expectedAccountID)
         {

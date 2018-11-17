@@ -43,7 +43,7 @@ namespace HeroesGame.Characters
         public override bool Equals(object obj)
         {
             var toCompare = obj as Character;
-            var hpRange = Hp_range.Split('-');
+            var hpRange = Hp_range == null ? new string[] { Hp.ToString() } : Hp_range.Split('-');
             var minHp = Int32.Parse(hpRange[0]);
             var maxHp = hpRange.Length > 1 ? Int32.Parse(hpRange[1]) : Int32.Parse(hpRange[0]);
             if (ID == toCompare.ID &&
