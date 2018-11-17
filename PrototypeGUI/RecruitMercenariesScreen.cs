@@ -27,6 +27,7 @@ namespace PrototypeGUI
 
         private void RecruitMercenariesScreen_Load(object sender, EventArgs e)
         {
+            refreshTimer.Enabled = false;
             UpdateRefresh();
         }
 
@@ -36,25 +37,25 @@ namespace PrototypeGUI
             var status = _refreshingMechnism.GetRefreshStatus("Mercenaries", DateTime.Now);
             btRefresh.Enabled = status == RefresStatus.Enabled;
             var delay = _refreshingMechnism.GetDelayValue("Mercenaries");
-            nextRefreshBar.Maximum = delay;
+            nextRefreshBar.Maximum = delay*4;
             var lastRefreshTime = _refreshingMechnism.GetLastRefresh("Mercenaries");
             if (lastRefreshTime != null)
             {
                 var now = DateTime.Now;
                 if (lastRefreshTime.LastAction.AddSeconds(delay) > now)
                 {
-                    nextRefreshBar.Value = (int)(now - lastRefreshTime.LastAction).TotalSeconds;
+                    nextRefreshBar.Value = (int)(now - lastRefreshTime.LastAction).TotalSeconds*4;
                     refreshTimer.Enabled = true;
                 }
                 else
                 {
-                    nextRefreshBar.Value = delay;
+                    nextRefreshBar.Value = delay*4;
                     refreshTimer.Enabled = false;
                 }
             }
             else
             {
-                nextRefreshBar.Value = delay;
+                nextRefreshBar.Value = delay*4;
                 refreshTimer.Enabled = false;
             }
 

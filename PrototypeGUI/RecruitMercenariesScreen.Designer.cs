@@ -172,7 +172,7 @@
             // 
             // refreshTimer
             // 
-            this.refreshTimer.Interval = 1000;
+            this.refreshTimer.Interval = 250;
             this.refreshTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // RecruitMercenariesScreen
