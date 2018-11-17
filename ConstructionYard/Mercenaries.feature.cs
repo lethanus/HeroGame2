@@ -188,7 +188,237 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         ""});
 #line 18
- testRunner.And("Account \'ID_1\' should have mercenaries", ((string)(null)), table4, "And ");
+ testRunner.And("Logged account should have mercenaries", ((string)(null)), table4, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("02 Adding new mercenary to many accounts", SourceLine=25)]
+        public virtual void _02AddingNewMercenaryToManyAccounts()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Adding new mercenary to many accounts", null, ((string[])(null)));
+#line 26
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Login",
+                        "Password"});
+            table5.AddRow(new string[] {
+                        "ID_1",
+                        "test",
+                        "test"});
+            table5.AddRow(new string[] {
+                        "ID_2",
+                        "test2",
+                        "test2"});
+#line 27
+ testRunner.Given("Some accounts exists in system", ((string)(null)), table5, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table6.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "10",
+                        "5",
+                        "10",
+                        ""});
+            table6.AddRow(new string[] {
+                        "Goblin_B",
+                        "Goblin",
+                        "10",
+                        "10",
+                        "5",
+                        "5",
+                        "0",
+                        "5",
+                        ""});
+#line 31
+ testRunner.And("Account \'ID_1\' already have some mercenaries", ((string)(null)), table6, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table7.AddRow(new string[] {
+                        "Elf_D",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "10",
+                        "5",
+                        "10",
+                        ""});
+            table7.AddRow(new string[] {
+                        "Goblin_E",
+                        "Goblin",
+                        "10",
+                        "10",
+                        "5",
+                        "5",
+                        "0",
+                        "5",
+                        ""});
+#line 35
+ testRunner.And("Account \'ID_2\' already have some mercenaries", ((string)(null)), table7, "And ");
+#line 39
+ testRunner.When("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table8.AddRow(new string[] {
+                        "Elf_C",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "10",
+                        "5",
+                        "10",
+                        ""});
+#line 40
+ testRunner.And("Player will add new mercenary", ((string)(null)), table8, "And ");
+#line 43
+ testRunner.When("I try to login for \'test2\' and password \'test2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table9.AddRow(new string[] {
+                        "Elf_X",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "10",
+                        "5",
+                        "10",
+                        ""});
+#line 44
+ testRunner.And("Player will add new mercenary", ((string)(null)), table9, "And ");
+#line 47
+ testRunner.Then("Logged account id is \'ID_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table10.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "10",
+                        "5",
+                        "10",
+                        ""});
+            table10.AddRow(new string[] {
+                        "Goblin_B",
+                        "Goblin",
+                        "10",
+                        "10",
+                        "5",
+                        "5",
+                        "0",
+                        "5",
+                        ""});
+            table10.AddRow(new string[] {
+                        "Elf_C",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "10",
+                        "5",
+                        "10",
+                        ""});
+#line 48
+ testRunner.And("Account \'ID_1\' should have mercenaries", ((string)(null)), table10, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table11.AddRow(new string[] {
+                        "Elf_D",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "10",
+                        "5",
+                        "10",
+                        ""});
+            table11.AddRow(new string[] {
+                        "Goblin_E",
+                        "Goblin",
+                        "10",
+                        "10",
+                        "5",
+                        "5",
+                        "0",
+                        "5",
+                        ""});
+            table11.AddRow(new string[] {
+                        "Elf_X",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "10",
+                        "5",
+                        "10",
+                        ""});
+#line 53
+ testRunner.And("Logged account should have mercenaries", ((string)(null)), table11, "And ");
 #line hidden
             this.ScenarioCleanup();
         }

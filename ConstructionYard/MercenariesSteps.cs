@@ -5,9 +5,7 @@ using TechTalk.SpecFlow.Assist;
 using NUnit.Framework;
 using System.Linq;
 using BoDi;
-using System.IO;
-using System.Collections.Generic;
-using HeroesGame.Accounts;
+using HeroesGame.Mercenaries;
 
 namespace ConstructionYard
 {
@@ -43,7 +41,7 @@ namespace ConstructionYard
             var expectedMercenaries = table.CreateSet<Character>();
             foreach (var mercenary in expectedMercenaries)
             {
-                mercenaryRepo.Add(mercenary);
+                mercenaryRepo.Add(mercenary, accountID);
             }
         }
 
@@ -61,6 +59,18 @@ namespace ConstructionYard
         [Then(@"Account '(.*)' should have mercenaries")]
         public void ThenAccountAlreadyHaveSomeMercenaries(string accountID, Table table)
         {
+            var mercenaryRepository = objectContainer.Resolve<IMercenaryRepository>();
+            var accountMerceenaries = mercenaryRepository.GetAllMercenariesForUser(accountID);
+            var expectedMercenaries = table.CreateSet<Character>();
+            foreach (var mercenary in expectedMercenaries)
+            {
+                Assert.AreEqual(mercenary, accountMerceenaries.First(x => x.ID == mercenary.ID));
+            }
+        }
+
+        [Then(@"Logged account should have mercenaries")]
+        public void ThenLoggedAccountShouldHaveMercenaries(Table table)
+        {
             var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
             var accountMerceenaries = mercenaryManagement.GetAllMercenariesForLoggedUser();
             var expectedMercenaries = table.CreateSet<Character>();
@@ -70,60 +80,7 @@ namespace ConstructionYard
             }
         }
 
-    }
 
-    public interface IMercenaryRepository
-    {
-        void Add(Character mercenary);
-        List<Character> GetAllMercenariesForUser(string accountID);
-    }
-
-    public class MercenaryMemoryRepository : IMercenaryRepository
-    {
-        private string _directory;
-        private List<Character> _marcenaries;
-        public MercenaryMemoryRepository(string directory)
-        {
-            _directory = directory;
-            _marcenaries = new List<Character>();
-        }
-
-        public void Add(Character mercenary)
-        {
-            _marcenaries.Add(mercenary);
-        }
-
-        public List<Character> GetAllMercenariesForUser(string accountID)
-        {
-            return _marcenaries;
-        }
-    }
-
-    public interface IMercenaryManagement
-    {
-        void AddNewMercenary(Character mercenary);
-        List<Character> GetAllMercenariesForLoggedUser();
-    }
-
-    public class MercenaryManagement : IMercenaryManagement
-    {
-        private IMercenaryRepository _mercenaryRepository;
-        private IAccountManagement _accountManagement;
-        public MercenaryManagement(IMercenaryRepository mercenaryRepository, IAccountManagement accountManagement)
-        {
-            _mercenaryRepository = mercenaryRepository;
-            _accountManagement = accountManagement;
-        }
-
-        public void AddNewMercenary(Character mercenary)
-        {
-            _mercenaryRepository.Add(mercenary);
-        }
-
-        public List<Character> GetAllMercenariesForLoggedUser()
-        {
-            return _mercenaryRepository.GetAllMercenariesForUser(_accountManagement.GetLoggedAccount().ID);
-        }
     }
 
 

@@ -52,6 +52,9 @@
     <Compile Include="Configuration\IConfigRepository.cs" />
     <Compile Include="FightingMrchanism\FightMechanizm.cs" />
     <Compile Include="Loggers\Logger.cs" />
+    <Compile Include="Mercenaries\IMercenaryManagement.cs" />
+    <Compile Include="Mercenaries\IMercenaryRepository.cs" />
+    <Compile Include="Mercenaries\MercenaryManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefreshingMechanism\IRefreshingMechnism.cs" />
     <Compile Include="RefreshingMechanism\IRefreshRepository.cs" />

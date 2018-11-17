@@ -8,6 +8,7 @@ using HeroesGame.Configuration;
 using HeroesGame.RefresingMechanism;
 using HeroesGame.Accounts;
 using HeroesGame.Repositories;
+using HeroesGame.Mercenaries;
 using System.IO;
 
 namespace ConstructionYard
@@ -27,7 +28,7 @@ namespace ConstructionYard
             objectContainer.RegisterInstanceAs<IAccountManagement>(accountManagement);
             var refreshingMechnism = new RefreshingMechnism(refreshRepo, configRepo, accountManagement);
             objectContainer.RegisterInstanceAs<IRefreshingMechnism>(refreshingMechnism);
-            var mercenaryRepo = new MercenaryMemoryRepository(Directory.GetCurrentDirectory());
+            var mercenaryRepo = new MercenaryJsonFileRepository(Directory.GetCurrentDirectory());
             objectContainer.RegisterInstanceAs<IMercenaryRepository>(mercenaryRepo);
             var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement);
             objectContainer.RegisterInstanceAs<IMercenaryManagement>(mercenaryManagement);
@@ -39,7 +40,7 @@ namespace ConstructionYard
             File.Delete("configuration.json");
             foreach (var file in Directory.GetFiles(Directory.GetCurrentDirectory()))
             {
-                if (file.Contains("RefreshFacts_"))
+                if (file.Contains("RefreshFacts_") || file.Contains("Mercenaries_"))
                     File.Delete(file);
             }
         }
