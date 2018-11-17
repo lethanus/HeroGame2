@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using HeroesGame.Accounts;
 using HeroesGame.Configuration;
 using HeroesGame.RefresingMechanism;
+using HeroesGame.Mercenaries;
 using HeroesGame.Repositories;
 
 namespace PrototypeGUI
@@ -19,8 +20,10 @@ namespace PrototypeGUI
         private IAccountRepository _accountRepository;
         private IConfigRepository _configRepository;
         private IRefreshRepository _refreshRepository;
-        private RefreshingMechnism _refreshingMechnism;
-        private AccountManagement _accountManagement;
+        private IRefreshingMechnism _refreshingMechnism;
+        private IAccountManagement _accountManagement;
+        private IMercenaryRepository _mercenaryRepository;
+        private IMercenaryManagement _mercenaryManagement;
 
         public btCampain()
         {
@@ -54,7 +57,7 @@ namespace PrototypeGUI
 
         private void btMercenaries_Click(object sender, EventArgs e)
         {
-            MercenariesScreen mercenariesScreen = new MercenariesScreen();
+            MercenariesScreen mercenariesScreen = new MercenariesScreen(_mercenaryManagement);
             mercenariesScreen.ShowDialog();
         }
 
@@ -88,6 +91,9 @@ namespace PrototypeGUI
             _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
+
+            _mercenaryRepository = new MercenaryJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
+            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement);
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }

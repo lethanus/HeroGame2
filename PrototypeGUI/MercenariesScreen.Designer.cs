@@ -63,6 +63,7 @@
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "MercenariesScreen";
             this.Text = "Mercenaries";
+            this.Load += new System.EventHandler(this.MercenariesScreen_Load);
             this.ResumeLayout(false);
 
         }
