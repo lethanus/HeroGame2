@@ -7,6 +7,7 @@ namespace HeroesGame.Mercenaries
     {
         void AddNewMercenary(Character mercenary);
         List<Character> GetAllMercenariesForLoggedUser();
+        Mercenary GetMercenaryBaseOnTemplate(string mercenaryName, int mercenaryLevel);
     }
 
 

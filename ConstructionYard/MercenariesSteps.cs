@@ -13,6 +13,7 @@ namespace ConstructionYard
     public class MercenariesSteps
     {
         private readonly IObjectContainer objectContainer;
+        private Mercenary _newMercenary;
         private DateTime _currentTime = DateTime.Now;
 
         public MercenariesSteps(IObjectContainer objectContainer)
@@ -95,13 +96,23 @@ namespace ConstructionYard
         [When(@"Creating mercenary '(.*)' of level '(.*)'")]
         public void WhenCreatingMercenaryOfLevel(string mercenaryName, int mercenaryLevel)
         {
-            
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            _newMercenary = mercenaryManagement.GetMercenaryBaseOnTemplate(mercenaryName, mercenaryLevel);
         }
 
         [Then(@"Created mercenary should have '(.*)' between '(.*)' and '(.*)'")]
         public void ThenCreatedMercanaryShouldHaveBetweenAnd(string stat, int minValue, int maxValue)
         {
-            Assert.AreEqual(true, false);
+            var valueToCompare = 0;
+            switch(stat)
+            {
+                case "Hp": { valueToCompare = _newMercenary.Hp; break; }
+                case "Attack": { valueToCompare = _newMercenary.Attack; break; }
+                case "Defence": { valueToCompare = _newMercenary.Defence; break; }
+                case "Speed": { valueToCompare = _newMercenary.Speed; break; }
+            }
+            Assert.GreaterOrEqual(valueToCompare, minValue);
+            Assert.GreaterOrEqual(maxValue, valueToCompare);
         }
 
 

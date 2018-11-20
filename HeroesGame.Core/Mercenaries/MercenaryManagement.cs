@@ -23,6 +23,12 @@ namespace HeroesGame.Mercenaries
         {
             return _mercenaryRepository.GetAllMercenariesForUser(_accountManagement.GetLoggedAccount().ID);
         }
+
+        public Mercenary GetMercenaryBaseOnTemplate(string mercenaryName, int mercenaryLevel)
+        {
+            var newMercenary = new Mercenary();
+            return newMercenary;
+        }
     }
 
 

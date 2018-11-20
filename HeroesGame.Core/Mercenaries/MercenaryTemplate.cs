@@ -10,6 +10,4 @@
         public string Speed_range { get; set; }
 
     }
-
-
 }
