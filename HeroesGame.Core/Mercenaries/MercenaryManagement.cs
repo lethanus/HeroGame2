@@ -33,17 +33,19 @@ namespace HeroesGame.Mercenaries
         {
             var newMercenary = new Mercenary();
             var mercenaryTemplate = _mercenaryTemplateRepository.GetMercenaryTemplates().First(x => x.Level == mercenaryLevel.ToString() && x.Name == mercenaryName);
-            var hpRange = mercenaryTemplate.HP_range.Split('-').Select(x => Int32.Parse(x)).ToArray();
-            var attackRange = mercenaryTemplate.Attack_range.Split('-').Select(x => Int32.Parse(x)).ToArray();
-            var defenceRange = mercenaryTemplate.Defence_range.Split('-').Select(x => Int32.Parse(x)).ToArray();
-            var speedRange = mercenaryTemplate.Speed_range.Split('-').Select(x => Int32.Parse(x)).ToArray();
 
-            newMercenary.Hp = ValueRandomizer.GetRandomValueInRange(hpRange[0], hpRange[1]);
-            newMercenary.Attack = ValueRandomizer.GetRandomValueInRange(attackRange[0], attackRange[1]);
-            newMercenary.Defence = ValueRandomizer.GetRandomValueInRange(defenceRange[0], defenceRange[1]);
-            newMercenary.Speed = ValueRandomizer.GetRandomValueInRange(speedRange[0], speedRange[1]);
+            newMercenary.Hp = GetRandomValueFromTemplateRange(mercenaryTemplate.HP_range);
+            newMercenary.Attack = GetRandomValueFromTemplateRange(mercenaryTemplate.Attack_range);
+            newMercenary.Defence = GetRandomValueFromTemplateRange(mercenaryTemplate.Defence_range);
+            newMercenary.Speed = GetRandomValueFromTemplateRange(mercenaryTemplate.Speed_range);
 
             return newMercenary;
+        }
+
+        private int GetRandomValueFromTemplateRange(string rangeString)
+        {
+            var range = rangeString.Split('-').Select(x => Int32.Parse(x)).ToArray();
+            return ValueRandomizer.GetRandomValueInRange(range[0], range[1]);
         }
     }
 
