@@ -17,7 +17,7 @@ namespace ConstructionYard
     {
         private readonly IObjectContainer objectContainer;
         private Mercenary _newMercenary;
-        private List<Mercenary> _generatedMercenaries;
+        
         private DateTime _currentTime = DateTime.Now;
 
         public MercenariesSteps(IObjectContainer objectContainer)
@@ -131,14 +131,15 @@ namespace ConstructionYard
         public void WhenUserWithIDWillUseRefreshForMercenaries(string accountID)
         {
             var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
-            _generatedMercenaries = mercenaryManagement.GenerateMercenaries(accountID);
+            mercenaryManagement.GenerateMercenaries(accountID);
         }
 
 
         [Then(@"Count of potential recruits generated should be '(.*)' for user with ID '(.*)'")]
         public void ThenCountOfPotentialRecruitsGeneratedShouldBe(int expectedCount, string accoutID)
         {
-            Assert.AreEqual(expectedCount, _generatedMercenaries.Count());
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            Assert.AreEqual(expectedCount, mercenaryManagement.GetRecruits().Count());
         }
 
         [Given(@"The chance of getting level '(.*)' mercenaries is set to '(.*)' of '(.*)'")]
@@ -159,7 +160,8 @@ namespace ConstructionYard
         [Then(@"All potential recruits should have set '(.*)' to '(.*)'")]
         public void ThenAllPotentialRecruitsShouldHaveSetTo(string stat, string value)
         {
-            foreach(var mercenary in _generatedMercenaries)
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            foreach (var mercenary in mercenaryManagement.GetRecruits())
             {
                 var valueToCompare = "";
                 switch (stat)
@@ -174,7 +176,8 @@ namespace ConstructionYard
         [Then(@"All potential recruits should have set value of '(.*)' between '(.*)' and '(.*)'")]
         public void ThenAllPotentialRecruitsShouldHaveSetBetweenAnd(string stat, int minValue, int maxValue)
         {
-            foreach (var mercenary in _generatedMercenaries)
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            foreach (var mercenary in mercenaryManagement.GetRecruits())
             {
                 var valueToCompare = 0;
                 switch (stat)
@@ -193,9 +196,10 @@ namespace ConstructionYard
         [Then(@"There are some potential recruits with '(.*)' equal to '(.*)'")]
         public void ThenThereAreSomePotentialRecruitsWithEqualTo(string stat, string value)
         {
-            if(stat == "Name")
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            if (stat == "Name")
             {
-                var count = _generatedMercenaries.Count(x => x.Name == value);
+                var count = mercenaryManagement.GetRecruits().Count(x => x.Name == value);
                 Assert.Greater(count, 0);
             }
             else Assert.AreEqual(0, 1);
@@ -203,6 +207,5 @@ namespace ConstructionYard
 
 
     }
-
 
 }

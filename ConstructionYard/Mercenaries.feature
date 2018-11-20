@@ -68,7 +68,7 @@ Scenario: 03 New mercenary should be created base on mercenary template
 	When Creating mercenary 'Goblin' of level '4'
 	Then Created mercenary should have 'Hp' between '40' and '55'
 	And Created mercenary should have 'Attack_Min' between '30' and '40'
-	And Created mercenary should have 'Attack_Max' between '34' and '44'
+	And Created mercenary should have 'Attack_Max' between '40' and '50'
 	And Created mercenary should have 'Defence' between '18' and '22'
 	And Created mercenary should have 'Speed' between '11' and '13'
 

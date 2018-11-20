@@ -26,6 +26,7 @@ namespace PrototypeGUI
         private IMercenaryRepository _mercenaryRepository;
         private IMercenaryTemplateRepository _mercenaryTemplateRepository;
         private IMercenaryManagement _mercenaryManagement;
+        private IRecruitsRepository _recruitsRepository;
 
         public btCampain()
         {
@@ -96,11 +97,11 @@ namespace PrototypeGUI
             EnsureConfigValue("ChanceForLevel_4_mercenary", "50_10000");
 
             _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
-            
+            _recruitsRepository = new RecruitsJsonRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
             _mercenaryTemplateRepository = new MercenaryTemplateJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\MercenaryTemplates.json");
             _mercenaryRepository = new MercenaryJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
-            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository, new ValueRandomizer(), _configRepository);
+            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository, new ValueRandomizer(), _configRepository, _recruitsRepository);
             if(_mercenaryTemplateRepository.GetMercenaryTemplates().Count == 0)
             {
                 foreach (var template in MercenaryTemplatesCollectionGenerator.Generate())

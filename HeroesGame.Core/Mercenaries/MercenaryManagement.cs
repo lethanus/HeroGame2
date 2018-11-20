@@ -15,15 +15,17 @@ namespace HeroesGame.Mercenaries
         private IAccountManagement _accountManagement;
         private IValueRandomizer _randomizer;
         private IConfigRepository _configRepository;
+        private IRecruitsRepository _recruitsRepository;
         public MercenaryManagement(IMercenaryRepository mercenaryRepository, IAccountManagement accountManagement,
             IMercenaryTemplateRepository mercenaryTemplateRepository, IValueRandomizer randomizer,
-            IConfigRepository configRepository)
+            IConfigRepository configRepository, IRecruitsRepository recruitsRepository)
         {
             _mercenaryRepository = mercenaryRepository;
             _accountManagement = accountManagement;
             _mercenaryTemplateRepository = mercenaryTemplateRepository;
             _randomizer = randomizer;
             _configRepository = configRepository;
+            _recruitsRepository = recruitsRepository;
         }
 
         public void AddNewMercenary(Character mercenary)
@@ -31,7 +33,7 @@ namespace HeroesGame.Mercenaries
             _mercenaryRepository.Add(mercenary, _accountManagement.GetLoggedAccount().ID);
         }
 
-        public List<Mercenary> GenerateMercenaries(string accountID)
+        public void GenerateMercenaries(string accountID)
         {
             var count = Int32.Parse(_configRepository.GetParameterValue("NumberOfRecruits"));
             var mercenaryChances = new Dictionary<int, ChanceRange>();
@@ -65,8 +67,10 @@ namespace HeroesGame.Mercenaries
                 mercenaries.Add(newMercenary);
 
             }
-
-            return mercenaries;
+            foreach (var recruit in mercenaries)
+            {
+                _recruitsRepository.Add(recruit, _accountManagement.GetLoggedAccount().ID);
+            }
         }
 
         public List<Character> GetAllMercenariesForLoggedUser()
@@ -90,6 +94,11 @@ namespace HeroesGame.Mercenaries
             newMercenary.ID = $"{Guid.NewGuid().ToString()}_{newMercenary.Level}_{newMercenary.Name}";
 
             return newMercenary;
+        }
+
+        public List<Mercenary> GetRecruits()
+        {
+            return _recruitsRepository.GetAllRecruitsForUser(_accountManagement.GetLoggedAccount().ID);
         }
 
         private int GetRandomValueFromTemplateRange(string rangeString, string stat_name)

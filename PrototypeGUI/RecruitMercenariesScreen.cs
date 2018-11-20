@@ -69,7 +69,8 @@ namespace PrototypeGUI
             _refreshingMechnism.AddRefreshFactForLoggedAccount("Mercenaries", DateTime.Now);
             UpdateRefresh();
             refreshTimer.Enabled = true;
-            var recruits = _mercenaryManagement.GenerateMercenaries("a");
+            _mercenaryManagement.GenerateMercenaries("a");
+            var recruits = _mercenaryManagement.GetRecruits();
 
             listRecruits.Columns.Clear();
             listRecruits.Columns.Add("Level", 50, HorizontalAlignment.Left);

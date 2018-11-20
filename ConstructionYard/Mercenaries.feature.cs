@@ -480,7 +480,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 70
  testRunner.And("Created mercenary should have \'Attack_Min\' between \'30\' and \'40\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 71
- testRunner.And("Created mercenary should have \'Attack_Max\' between \'34\' and \'44\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Created mercenary should have \'Attack_Max\' between \'40\' and \'50\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 72
  testRunner.And("Created mercenary should have \'Defence\' between \'18\' and \'22\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 73

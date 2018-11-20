@@ -55,6 +55,7 @@
     <Compile Include="Mercenaries\IMercenaryManagement.cs" />
     <Compile Include="Mercenaries\IMercenaryRepository.cs" />
     <Compile Include="Mercenaries\IMercenaryTemplateRepository.cs" />
+    <Compile Include="Mercenaries\IRecruitsRepository.cs" />
     <Compile Include="Mercenaries\Mercenary.cs" />
     <Compile Include="Mercenaries\MercenaryManagement.cs" />
     <Compile Include="Mercenaries\MercenaryTemplate.cs" />
