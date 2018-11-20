@@ -50,5 +50,12 @@ namespace HeroesGame.Repositories
             return JsonConvert.DeserializeObject<List<Mercenary>>(json);
         }
 
+        public void Clear(string accountID)
+        {
+            string pathToFile = $"{_directoryPath}\\Recruits_{accountID}.json";
+            List<Mercenary> recruits = new List<Mercenary>();
+            string json = JsonConvert.SerializeObject(recruits, Formatting.Indented);
+            File.WriteAllText(pathToFile, json);
+        }
     }
 }

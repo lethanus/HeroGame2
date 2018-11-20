@@ -87,7 +87,7 @@ Scenario: 04 Generating potential recruits for level 1
 	And Number of recruits is set to '5'
 	And The chance of getting level '1' mercenaries is set to '100' of '100'
 	And Randomzer for mercenary level will always return '7'
-	When User with ID 'ID_1' will use refresh for mercenaries
+	When User will use refresh for mercenaries
 	Then Count of potential recruits generated should be '5' for user with ID 'ID_1'
 	And All potential recruits should have set 'Name' to 'Goblin'
 	And All potential recruits should have set 'Level' to '1'
@@ -115,7 +115,7 @@ Scenario: 05 Generating potential recruits for level 2
 	And The chance of getting level '3' mercenaries is set to '1000' of '10000'
 	And The chance of getting level '4' mercenaries is set to '100' of '10000'
 	And Randomzer for mercenary level will always return '2400'
-	When User with ID 'ID_1' will use refresh for mercenaries
+	When User will use refresh for mercenaries
 	Then Count of potential recruits generated should be '2' for user with ID 'ID_1'
 	And All potential recruits should have set 'Name' to 'Goblin'
 	And All potential recruits should have set 'Level' to '2'
@@ -143,7 +143,7 @@ Scenario: 06 Generating potential recruits for level 3
 	And The chance of getting level '3' mercenaries is set to '1000' of '10000'
 	And The chance of getting level '4' mercenaries is set to '100' of '10000'
 	And Randomzer for mercenary level will always return '999'
-	When User with ID 'ID_1' will use refresh for mercenaries
+	When User will use refresh for mercenaries
 	Then Count of potential recruits generated should be '3' for user with ID 'ID_1'
 	And All potential recruits should have set 'Name' to 'Goblin'
 	And All potential recruits should have set 'Level' to '3'
@@ -170,7 +170,7 @@ Scenario: 07 Generating potential recruits for level 4
 	And The chance of getting level '3' mercenaries is set to '1000' of '10000'
 	And The chance of getting level '4' mercenaries is set to '100' of '10000'
 	And Randomzer for mercenary level will always return '2'
-	When User with ID 'ID_1' will use refresh for mercenaries
+	When User will use refresh for mercenaries
 	Then Count of potential recruits generated should be '7' for user with ID 'ID_1'
 	And All potential recruits should have set 'Name' to 'Goblin'
 	And All potential recruits should have set 'Level' to '4'
@@ -193,7 +193,7 @@ Scenario: 08 Generating potential recruits for level 1 for many first level merc
 	And Number of recruits is set to '100'
 	And The chance of getting level '1' mercenaries is set to '100' of '100'
 	And Randomzer for mercenary level will always return '7'
-	When User with ID 'ID_1' will use refresh for mercenaries
+	When User will use refresh for mercenaries
 	Then Count of potential recruits generated should be '100' for user with ID 'ID_1'
 	And There are some potential recruits with 'Name' equal to 'Goblin'
 	And There are some potential recruits with 'Name' equal to 'Elf'

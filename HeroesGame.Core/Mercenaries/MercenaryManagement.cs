@@ -33,8 +33,9 @@ namespace HeroesGame.Mercenaries
             _mercenaryRepository.Add(mercenary, _accountManagement.GetLoggedAccount().ID);
         }
 
-        public void GenerateMercenaries(string accountID)
+        public void GenerateMercenaries()
         {
+            _recruitsRepository.Clear(_accountManagement.GetLoggedAccount().ID);
             var count = Int32.Parse(_configRepository.GetParameterValue("NumberOfRecruits"));
             var mercenaryChances = new Dictionary<int, ChanceRange>();
             mercenaryChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_1_mercenary")));

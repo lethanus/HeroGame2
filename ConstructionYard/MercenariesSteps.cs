@@ -127,11 +127,11 @@ namespace ConstructionYard
             configRepo.SetConfigParameter($"NumberOfRecruits", numberOfRecruits.ToString());
         }
 
-        [When(@"User with ID '(.*)' will use refresh for mercenaries")]
-        public void WhenUserWithIDWillUseRefreshForMercenaries(string accountID)
+        [When(@"User will use refresh for mercenaries")]
+        public void WhenUserWithIDWillUseRefreshForMercenaries()
         {
             var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
-            mercenaryManagement.GenerateMercenaries(accountID);
+            mercenaryManagement.GenerateMercenaries();
         }
 
 

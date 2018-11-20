@@ -559,7 +559,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 89
  testRunner.And("Randomzer for mercenary level will always return \'7\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 90
- testRunner.When("User with ID \'ID_1\' will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 91
  testRunner.Then("Count of potential recruits generated should be \'5\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 92
@@ -658,7 +658,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 117
  testRunner.And("Randomzer for mercenary level will always return \'2400\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 118
- testRunner.When("User with ID \'ID_1\' will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 119
  testRunner.Then("Count of potential recruits generated should be \'2\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 120
@@ -757,7 +757,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 145
  testRunner.And("Randomzer for mercenary level will always return \'999\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 146
- testRunner.When("User with ID \'ID_1\' will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 147
  testRunner.Then("Count of potential recruits generated should be \'3\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 148
@@ -856,7 +856,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 172
  testRunner.And("Randomzer for mercenary level will always return \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 173
- testRunner.When("User with ID \'ID_1\' will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 174
  testRunner.Then("Count of potential recruits generated should be \'7\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 175
@@ -941,7 +941,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 195
  testRunner.And("Randomzer for mercenary level will always return \'7\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 196
- testRunner.When("User with ID \'ID_1\' will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 197
  testRunner.Then("Count of potential recruits generated should be \'100\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 198

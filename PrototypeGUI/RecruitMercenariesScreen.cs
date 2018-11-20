@@ -32,8 +32,36 @@ namespace PrototypeGUI
         {
             refreshTimer.Enabled = false;
             UpdateRefresh();
+            RefreshRecruits();
         }
 
+        private void RefreshRecruits()
+        {
+            var recruits = _mercenaryManagement.GetRecruits();
+
+            listRecruits.Columns.Clear();
+            listRecruits.Columns.Add("Level", 50, HorizontalAlignment.Left);
+            listRecruits.Columns.Add("Name", 100, HorizontalAlignment.Left);
+            listRecruits.Columns.Add("MaxHp", 50, HorizontalAlignment.Right);
+            listRecruits.Columns.Add("Attack", 50, HorizontalAlignment.Right);
+            listRecruits.Columns.Add("Defence", 70, HorizontalAlignment.Right);
+            listRecruits.Columns.Add("Speed", 50, HorizontalAlignment.Right);
+            listRecruits.Items.Clear();
+            foreach (var recruit in recruits)
+            {
+                List<string> row = new List<string>();
+                row.Add(recruit.Level.ToString());
+                row.Add(recruit.Name);
+                row.Add(recruit.Hp.ToString());
+                row.Add($"{recruit.Attack_Min.ToString()}-{recruit.Attack_Max.ToString()}");
+                row.Add(recruit.Defence.ToString());
+                row.Add(recruit.Speed.ToString());
+                var listViewItem = new ListViewItem(row.ToArray());
+                listViewItem.Tag = recruit;
+                listRecruits.Items.Add(listViewItem);
+            }
+
+        }
 
         private void UpdateRefresh()
         {
@@ -69,30 +97,8 @@ namespace PrototypeGUI
             _refreshingMechnism.AddRefreshFactForLoggedAccount("Mercenaries", DateTime.Now);
             UpdateRefresh();
             refreshTimer.Enabled = true;
-            _mercenaryManagement.GenerateMercenaries("a");
-            var recruits = _mercenaryManagement.GetRecruits();
-
-            listRecruits.Columns.Clear();
-            listRecruits.Columns.Add("Level", 50, HorizontalAlignment.Left);
-            listRecruits.Columns.Add("Name", 100, HorizontalAlignment.Left);
-            listRecruits.Columns.Add("MaxHp", 50, HorizontalAlignment.Right);
-            listRecruits.Columns.Add("Attack", 50, HorizontalAlignment.Right);
-            listRecruits.Columns.Add("Defence", 70, HorizontalAlignment.Right);
-            listRecruits.Columns.Add("Speed", 50, HorizontalAlignment.Right);
-            listRecruits.Items.Clear();
-            foreach (var recruit in recruits)
-            {
-                List<string> row = new List<string>();
-                row.Add(recruit.Level.ToString());
-                row.Add(recruit.Name);
-                row.Add(recruit.Hp.ToString());
-                row.Add($"{recruit.Attack_Min.ToString()}-{recruit.Attack_Max.ToString()}");
-                row.Add(recruit.Defence.ToString());
-                row.Add(recruit.Speed.ToString());
-                var listViewItem = new ListViewItem(row.ToArray());
-                listViewItem.Tag = recruit;
-                listRecruits.Items.Add(listViewItem);
-            }
+            _mercenaryManagement.GenerateMercenaries();
+            RefreshRecruits();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
