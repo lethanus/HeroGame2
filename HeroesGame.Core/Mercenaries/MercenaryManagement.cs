@@ -51,7 +51,17 @@ namespace HeroesGame.Mercenaries
                     if (randomValue < mercenaryChances[j].Value) level = j;
                 }
 
-                var newMercenary = GetMercenaryBaseOnTemplate("Goblin", level);
+                var mercenariesOnLevel = _mercenaryTemplateRepository.GetMercenaryTemplates().Where(x => x.Level == level.ToString());
+
+                int counter = 1;
+                var names = new Dictionary<int, string>();
+                foreach(var name in mercenariesOnLevel.Select(x=>x.Name).Distinct())
+                {
+                    names.Add(counter++, name);
+                }
+                var randomValueForName = _randomizer.GetRandomValueInRange(1, counter, "Mercenary_name");
+
+                var newMercenary = GetMercenaryBaseOnTemplate(names[randomValueForName], level);
                 mercenaries.Add(newMercenary);
 
             }
