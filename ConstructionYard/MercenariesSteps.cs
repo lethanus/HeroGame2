@@ -4,8 +4,11 @@ using HeroesGame.Characters;
 using TechTalk.SpecFlow.Assist;
 using NUnit.Framework;
 using System.Linq;
+using System.Collections.Generic;
 using BoDi;
 using HeroesGame.Mercenaries;
+using HeroesGame.Configuration;
+using HeroesGame.Core.Randomizers;
 
 namespace ConstructionYard
 {
@@ -14,6 +17,7 @@ namespace ConstructionYard
     {
         private readonly IObjectContainer objectContainer;
         private Mercenary _newMercenary;
+        private List<Mercenary> _generatedMercenaries;
         private DateTime _currentTime = DateTime.Now;
 
         public MercenariesSteps(IObjectContainer objectContainer)
@@ -116,46 +120,71 @@ namespace ConstructionYard
         }
 
         [Given(@"Number of recruits is set to '(.*)'")]
-        public void GivenNumberOfRecruitsIsSetTo(int p0)
+        public void GivenNumberOfRecruitsIsSetTo(int numberOfRecruits)
         {
-            
+            var configRepo = objectContainer.Resolve<IConfigRepository>();
+            configRepo.SetConfigParameter($"NumberOfRecruits", numberOfRecruits.ToString());
         }
 
         [When(@"User with ID '(.*)' will use refresh for mercenaries")]
-        public void WhenUserWithIDWillUseRefreshForMercenaries(string p0)
+        public void WhenUserWithIDWillUseRefreshForMercenaries(string accountID)
         {
-            
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            _generatedMercenaries = mercenaryManagement.GenerateMercenaries(accountID);
         }
 
 
         [Then(@"Count of potential recruits generated should be '(.*)' for user with ID '(.*)'")]
-        public void ThenCountOfPotentialRecruitsGeneratedShouldBe(int p0, string accoutID)
+        public void ThenCountOfPotentialRecruitsGeneratedShouldBe(int expectedCount, string accoutID)
         {
-            
+            Assert.AreEqual(expectedCount, _generatedMercenaries.Count());
         }
 
         [Given(@"The chance of getting level '(.*)' mercenaries is set to '(.*)' of '(.*)'")]
-        public void GivenTheChanceOfGettingLevelMercenariesIsSetToOf(int p0, int p1, int p2)
+        public void GivenTheChanceOfGettingLevelMercenariesIsSetToOf(int level, int chanceValue, int chanceMax)
         {
-            
+            var configRepo = objectContainer.Resolve<IConfigRepository>();
+            configRepo.SetConfigParameter($"ChanceForLevel_{level}_mercenary", $"{chanceValue}_{chanceMax}");
         }
 
         [Given(@"Randomzer for mercenary level will always return '(.*)'")]
-        public void GivenRendomzerForMercenaryLevelWillAlwaysReturn(int p0)
+        public void GivenRendomzerForMercenaryLevelWillAlwaysReturn(int randomizerResult)
         {
-           
+            var randomizer = objectContainer.Resolve<IValueRandomizer>();
+            randomizer.SetReturnValue(randomizerResult);
         }
 
         [Then(@"All potential recruits should have set '(.*)' to '(.*)'")]
-        public void ThenAllPotentialRecruitsShouldHaveSetTo(string p0, string p1)
+        public void ThenAllPotentialRecruitsShouldHaveSetTo(string stat, string value)
         {
-            
+            foreach(var mercenary in _generatedMercenaries)
+            {
+                var valueToCompare = "";
+                switch (stat)
+                {
+                    case "Name": { valueToCompare = _newMercenary.Name; break; }
+                    case "Level": { valueToCompare = _newMercenary.Level.ToString(); break; }
+                }
+                Assert.AreEqual(value, valueToCompare);
+            }
         }
 
         [Then(@"All potential recruits should have set value of '(.*)' between '(.*)' and '(.*)'")]
-        public void ThenAllPotentialRecruitsShouldHaveSetBetweenAnd(string p0, int p1, int p2)
+        public void ThenAllPotentialRecruitsShouldHaveSetBetweenAnd(string stat, int minValue, int maxValue)
         {
-           
+            foreach (var mercenary in _generatedMercenaries)
+            {
+                var valueToCompare = 0;
+                switch (stat)
+                {
+                    case "Hp": { valueToCompare = _newMercenary.Hp; break; }
+                    case "Attack": { valueToCompare = _newMercenary.Attack; break; }
+                    case "Defence": { valueToCompare = _newMercenary.Defence; break; }
+                    case "Speed": { valueToCompare = _newMercenary.Speed; break; }
+                }
+                Assert.GreaterOrEqual(valueToCompare, minValue);
+                Assert.GreaterOrEqual(maxValue, valueToCompare);
+            }
         }
 
 

@@ -10,7 +10,7 @@ using HeroesGame.Accounts;
 using HeroesGame.Repositories;
 using HeroesGame.Mercenaries;
 using System.IO;
-
+using HeroesGame.Core.Randomizers;
 
 namespace ConstructionYard
 {
@@ -19,6 +19,8 @@ namespace ConstructionYard
 
         public static void InitializeRepository(IObjectContainer objectContainer)
         {
+            var valueRandomizer = new ValueRandomizer();
+            objectContainer.RegisterInstanceAs<IValueRandomizer>(valueRandomizer);
             var accountRepo = new AccountJsonFileRepository("accounts.json");
             objectContainer.RegisterInstanceAs<IAccountRepository>(accountRepo);
             var refreshRepo = new RefreshJsonFileRepository(Directory.GetCurrentDirectory());
@@ -33,7 +35,7 @@ namespace ConstructionYard
             objectContainer.RegisterInstanceAs<IMercenaryRepository>(mercenaryRepo);
             var mercenaryTemplateRepository = new MercenaryTemplateJsonFileRepository("mercenaryTemplates.json");
             objectContainer.RegisterInstanceAs<IMercenaryTemplateRepository>(mercenaryTemplateRepository);
-            var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement, mercenaryTemplateRepository);
+            var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement, mercenaryTemplateRepository, valueRandomizer);
             objectContainer.RegisterInstanceAs<IMercenaryManagement>(mercenaryManagement);
         }
 

@@ -60,6 +60,7 @@
     <Compile Include="Mercenaries\MercenaryTemplate.cs" />
     <Compile Include="Mercenaries\MercenaryTemplatesCollectionGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Randomizers\IValueRandomizer.cs" />
     <Compile Include="Randomizers\ValueRandomizer.cs" />
     <Compile Include="RefreshingMechanism\IRefreshingMechnism.cs" />
     <Compile Include="RefreshingMechanism\IRefreshRepository.cs" />

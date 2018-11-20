@@ -12,6 +12,7 @@ using HeroesGame.Configuration;
 using HeroesGame.RefresingMechanism;
 using HeroesGame.Mercenaries;
 using HeroesGame.Repositories;
+using HeroesGame.Core.Randomizers;
 
 namespace PrototypeGUI
 {
@@ -94,7 +95,7 @@ namespace PrototypeGUI
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
             _mercenaryTemplateRepository = new MercenaryTemplateJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\MercenaryTemplates.json");
             _mercenaryRepository = new MercenaryJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
-            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository);
+            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository, new ValueRandomizer());
             if(_mercenaryTemplateRepository.GetMercenaryTemplates().Count == 0)
             {
                 foreach (var template in MercenaryTemplatesCollectionGenerator.Generate())

@@ -16,13 +16,15 @@ namespace HeroesGame.FightMechanizm
         private string _secondTeam;
         private string _winningTeam;
         private Logger _logger;
+        private IValueRandomizer _randomizer;
 
-        public FightMechanizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam, Logger logger)
+        public FightMechanizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam, Logger logger, IValueRandomizer randomizer)
         {
             _characters = startCharacters;
             _firstTeam = firstTeam;
             _secondTeam = secondTeam;
             _logger = logger;
+            _randomizer = randomizer;
         }
 
         public List<Character> StartFight()
@@ -63,7 +65,7 @@ namespace HeroesGame.FightMechanizm
 
         private int CalculateNewHp(ICharacterInTeam attacker, ICharacterInTeam defender)
         {
-            var attack_value = ValueRandomizer.GetRandomValueInRange(attacker.getMin_Att(), attacker.getMax_Att());
+            var attack_value = _randomizer.GetRandomValueInRange(attacker.getMin_Att(), attacker.getMax_Att());
             var damage = attack_value > defender.getDef() ? attack_value - defender.getDef() : 0;
             var newHP = defender.getHp() < damage ? 0 : defender.getHp() - damage;
 

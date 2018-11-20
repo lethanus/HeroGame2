@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeroesGame.Characters;
 using HeroesGame.FightMechanizm;
+using HeroesGame.Core.Randomizers;
 
 namespace FightMechanizmTestingGUI
 {
@@ -32,7 +33,7 @@ namespace FightMechanizmTestingGUI
             var all = new List<ICharacterInTeam>();
             all.AddRange(teamA);
             all.AddRange(teamB);
-            FightMechanizm fightMechanizm = new FightMechanizm(all,"A","B", new TextBoxLogger(logBox));
+            FightMechanizm fightMechanizm = new FightMechanizm(all,"A","B", new TextBoxLogger(logBox), new ValueRandomizer());
             fightMechanizm.StartFight();
             UpdateCharacters(teamA, teamB);
             

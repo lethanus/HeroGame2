@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using HeroesGame.Characters;
 using HeroesGame.FightMechanizm;
+using HeroesGame.Core.Randomizers;
 
 namespace ConstructionYard
 {
@@ -39,7 +40,7 @@ namespace ConstructionYard
         [When(@"Fight between '(.*)' and '(.*)' starts")]
         public void WhenFightBetweenAndStarts(string firstTeam, string secondTeam)
         {
-            var fightMechnizm = new FightMechanizm(charactersInTeams, firstTeam, secondTeam, new FakeLogger());
+            var fightMechnizm = new FightMechanizm(charactersInTeams, firstTeam, secondTeam, new FakeLogger(), new ValueRandomizer());
             charactersAfterFight = fightMechnizm.StartFight();
             winningTeam = fightMechnizm.GetWinningTeam();
         }

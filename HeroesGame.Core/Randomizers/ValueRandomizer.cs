@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace HeroesGame.Core.Randomizers
 {
-    public class ValueRandomizer
+    public class ValueRandomizer : IValueRandomizer
     {
-
-        public static int GetRandomValueInRange(int min, int max)
+        private int _valueToReturn = -1;
+        public int GetRandomValueInRange(int min, int max)
         {
+            if (_valueToReturn > -1) return _valueToReturn;
             var bytes = Guid.NewGuid().ToByteArray();
             int seed = 0;
             foreach (var byte_value in bytes)
@@ -19,6 +20,11 @@ namespace HeroesGame.Core.Randomizers
             }
             var randomizer = new Random(seed);
             return randomizer.Next(min, max);
+        }
+
+        public void SetReturnValue(int value)
+        {
+            _valueToReturn = value;
         }
     }
 }
