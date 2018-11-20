@@ -39,6 +39,10 @@ namespace HeroesGame.Mercenaries
             newMercenary.Defence = GetRandomValueFromTemplateRange(mercenaryTemplate.Defence_range);
             newMercenary.Speed = GetRandomValueFromTemplateRange(mercenaryTemplate.Speed_range);
 
+            newMercenary.Level = Int32.Parse(mercenaryTemplate.Level);
+            newMercenary.Name = mercenaryTemplate.Name;
+            newMercenary.ID = $"{Guid.NewGuid().ToString()}_{newMercenary.Level}_{newMercenary.Name}";
+
             return newMercenary;
         }
 

@@ -46,7 +46,7 @@
     <Compile Include="Accounts\AccountJsonFileRepository.cs" />
     <Compile Include="Configuration\ConfigJsonFileRepository.cs" />
     <Compile Include="Mercenaries\MercenaryJsonFileRepository.cs" />
-    <Compile Include="Mercenaries\MercenaryTemplateRepository.cs" />
+    <Compile Include="Mercenaries\MercenaryTemplateJsonFileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefreshingMechanism\RefreshJsonFileRepository.cs" />
   </ItemGroup>

@@ -31,7 +31,7 @@ namespace ConstructionYard
             objectContainer.RegisterInstanceAs<IRefreshingMechnism>(refreshingMechnism);
             var mercenaryRepo = new MercenaryJsonFileRepository(Directory.GetCurrentDirectory());
             objectContainer.RegisterInstanceAs<IMercenaryRepository>(mercenaryRepo);
-            var mercenaryTemplateRepository = new MercenaryTemplateRepository();
+            var mercenaryTemplateRepository = new MercenaryTemplateJsonFileRepository("mercenaryTemplates.json");
             objectContainer.RegisterInstanceAs<IMercenaryTemplateRepository>(mercenaryTemplateRepository);
             var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement, mercenaryTemplateRepository);
             objectContainer.RegisterInstanceAs<IMercenaryManagement>(mercenaryManagement);
@@ -41,6 +41,7 @@ namespace ConstructionYard
         {
             File.Delete("accounts.json");
             File.Delete("configuration.json");
+            File.Delete("mercenaryTemplates.json");
             foreach (var file in Directory.GetFiles(Directory.GetCurrentDirectory()))
             {
                 if (file.Contains("RefreshFacts_") || file.Contains("Mercenaries_"))
