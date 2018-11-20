@@ -111,7 +111,8 @@ namespace ConstructionYard
             switch(stat)
             {
                 case "Hp": { valueToCompare = _newMercenary.Hp; break; }
-                case "Attack": { valueToCompare = _newMercenary.Attack; break; }
+                case "Attack_Min": { valueToCompare = _newMercenary.Attack_Min; break; }
+                case "Attack_Max": { valueToCompare = _newMercenary.Attack_Max; break; }
                 case "Defence": { valueToCompare = _newMercenary.Defence; break; }
                 case "Speed": { valueToCompare = _newMercenary.Speed; break; }
             }
@@ -179,7 +180,8 @@ namespace ConstructionYard
                 switch (stat)
                 {
                     case "Hp": { valueToCompare = mercenary.Hp; break; }
-                    case "Attack": { valueToCompare = mercenary.Attack; break; }
+                    case "Attack_Min": { valueToCompare = mercenary.Attack_Min; break; }
+                    case "Attack_Max": { valueToCompare = mercenary.Attack_Max; break; }
                     case "Defence": { valueToCompare = mercenary.Defence; break; }
                     case "Speed": { valueToCompare = mercenary.Speed; break; }
                 }

@@ -60,14 +60,15 @@ Scenario: 02 Adding new mercenary to many accounts
 
 Scenario: 03 New mercenary should be created base on mercenary template
 	Given Some mercenary templates
-	| Level | Name   | HP_range | Attack_range | Defence_range | Speed_range |
-	| 1     | Goblin | 18-22    | 8-12         | 8-12          | 8-10        |
-	| 2     | Goblin | 22-26    | 12-16        | 10-14         | 9-11        |
-	| 3     | Goblin | 26-34    | 16-24        | 12-16         | 10-12       |
-	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
+	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
+	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
+	| 2     | Goblin | 22-26    | 12-16            | 10-14         | 9-11        | 5                  |
+	| 3     | Goblin | 26-34    | 16-24            | 12-16         | 10-12       | 7                  |
+	| 4     | Goblin | 40-55    | 30-40            | 18-22         | 11-13       | 10                 |
 	When Creating mercenary 'Goblin' of level '4'
 	Then Created mercenary should have 'Hp' between '40' and '55'
-	And Created mercenary should have 'Attack' between '30' and '40'
+	And Created mercenary should have 'Attack_Min' between '30' and '40'
+	And Created mercenary should have 'Attack_Max' between '34' and '44'
 	And Created mercenary should have 'Defence' between '18' and '22'
 	And Created mercenary should have 'Speed' between '11' and '13'
 
@@ -78,11 +79,11 @@ Scenario: 04 Generating potential recruits for level 1
 	| ID_1 | test  | test     |
 	And I try to login for 'test' and password 'test'
 	And Some mercenary templates
-	| Level | Name   | HP_range | Attack_range | Defence_range | Speed_range |
-	| 1     | Goblin | 18-22    | 8-12         | 8-12          | 8-10        |
-	| 2     | Goblin | 22-26    | 12-16        | 10-14         | 9-11        |
-	| 3     | Goblin | 26-34    | 16-24        | 12-16         | 10-12       |
-	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
+	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
+	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
+	| 2     | Goblin | 22-26    | 12-16            | 10-14         | 9-11        | 5                  |
+	| 3     | Goblin | 26-34    | 16-24            | 12-16         | 10-12       | 7                  |
+	| 4     | Goblin | 40-55    | 30-40            | 18-22         | 11-13       | 10                 |
 	And Number of recruits is set to '5'
 	And The chance of getting level '1' mercenaries is set to '100' of '100'
 	And Randomzer for mercenary level will always return '7'
@@ -91,7 +92,8 @@ Scenario: 04 Generating potential recruits for level 1
 	And All potential recruits should have set 'Name' to 'Goblin'
 	And All potential recruits should have set 'Level' to '1'
 	And All potential recruits should have set value of 'Hp' between '18' and '22'
-	And All potential recruits should have set value of 'Attack' between '8' and '12'
+	And All potential recruits should have set value of 'Attack_Min' between '8' and '12'
+	And All potential recruits should have set value of 'Attack_Max' between '12' and '16'
 	And All potential recruits should have set value of 'Defence' between '8' and '12'
 	And All potential recruits should have set value of 'Speed' between '8' and '10'
 
@@ -102,11 +104,11 @@ Scenario: 05 Generating potential recruits for level 2
 	| ID_1 | test  | test     |
 	And I try to login for 'test' and password 'test'
 	And Some mercenary templates
-	| Level | Name   | HP_range | Attack_range | Defence_range | Speed_range |
-	| 1     | Goblin | 18-22    | 8-12         | 8-12          | 8-10        |
-	| 2     | Goblin | 22-26    | 12-16        | 10-14         | 9-11        |
-	| 3     | Goblin | 26-34    | 16-24        | 12-16         | 10-12       |
-	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
+	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
+	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
+	| 2     | Goblin | 22-26    | 12-16            | 10-14         | 9-11        | 5                  |
+	| 3     | Goblin | 26-34    | 16-24            | 12-16         | 10-12       | 7                  |
+	| 4     | Goblin | 40-55    | 30-40            | 18-22         | 11-13       | 10                 |
 	And Number of recruits is set to '2'
 	And The chance of getting level '1' mercenaries is set to '10000' of '10000'
 	And The chance of getting level '2' mercenaries is set to '2500' of '10000'
@@ -118,7 +120,8 @@ Scenario: 05 Generating potential recruits for level 2
 	And All potential recruits should have set 'Name' to 'Goblin'
 	And All potential recruits should have set 'Level' to '2'
 	And All potential recruits should have set value of 'Hp' between '22' and '26'
-	And All potential recruits should have set value of 'Attack' between '12' and '16'
+	And All potential recruits should have set value of 'Attack_Min' between '12' and '16'
+	And All potential recruits should have set value of 'Attack_Max' between '17' and '21'
 	And All potential recruits should have set value of 'Defence' between '10' and '14'
 	And All potential recruits should have set value of 'Speed' between '9' and '11'
 
@@ -129,11 +132,11 @@ Scenario: 06 Generating potential recruits for level 3
 	| ID_1 | test  | test     |
 	And I try to login for 'test' and password 'test'
 	And Some mercenary templates
-	| Level | Name   | HP_range | Attack_range | Defence_range | Speed_range |
-	| 1     | Goblin | 18-22    | 8-12         | 8-12          | 8-10        |
-	| 2     | Goblin | 22-26    | 12-16        | 10-14         | 9-11        |
-	| 3     | Goblin | 26-34    | 16-24        | 12-16         | 10-12       |
-	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
+	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
+	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
+	| 2     | Goblin | 22-26    | 12-16            | 10-14         | 9-11        | 5                  |
+	| 3     | Goblin | 26-34    | 16-24            | 12-16         | 10-12       | 7                  |
+	| 4     | Goblin | 40-55    | 30-40            | 18-22         | 11-13       | 10                 |
 	And Number of recruits is set to '3'
 	And The chance of getting level '1' mercenaries is set to '10000' of '10000'
 	And The chance of getting level '2' mercenaries is set to '2500' of '10000'
@@ -145,7 +148,8 @@ Scenario: 06 Generating potential recruits for level 3
 	And All potential recruits should have set 'Name' to 'Goblin'
 	And All potential recruits should have set 'Level' to '3'
 	And All potential recruits should have set value of 'Hp' between '26' and '34'
-	And All potential recruits should have set value of 'Attack' between '16' and '24'
+	And All potential recruits should have set value of 'Attack_Min' between '16' and '24'
+	And All potential recruits should have set value of 'Attack_Max' between '23' and '31'
 	And All potential recruits should have set value of 'Defence' between '12' and '16'
 	And All potential recruits should have set value of 'Speed' between '10' and '12'
 
@@ -155,11 +159,11 @@ Scenario: 07 Generating potential recruits for level 4
 	| ID_1 | test  | test     |
 	And I try to login for 'test' and password 'test'
 	And Some mercenary templates
-	| Level | Name   | HP_range | Attack_range | Defence_range | Speed_range |
-	| 1     | Goblin | 18-22    | 8-12         | 8-12          | 8-10        |
-	| 2     | Goblin | 22-26    | 12-16        | 10-14         | 9-11        |
-	| 3     | Goblin | 26-34    | 16-24        | 12-16         | 10-12       |
-	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
+	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
+	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
+	| 2     | Goblin | 22-26    | 12-16            | 10-14         | 9-11        | 5                  |
+	| 3     | Goblin | 26-34    | 16-24            | 12-16         | 10-12       | 7                  |
+	| 4     | Goblin | 40-55    | 30-40            | 18-22         | 11-13       | 10                 |
 	And Number of recruits is set to '7'
 	And The chance of getting level '1' mercenaries is set to '10000' of '10000'
 	And The chance of getting level '2' mercenaries is set to '2500' of '10000'
@@ -171,7 +175,8 @@ Scenario: 07 Generating potential recruits for level 4
 	And All potential recruits should have set 'Name' to 'Goblin'
 	And All potential recruits should have set 'Level' to '4'
 	And All potential recruits should have set value of 'Hp' between '40' and '55'
-	And All potential recruits should have set value of 'Attack' between '30' and '40'
+	And All potential recruits should have set value of 'Attack_Min' between '30' and '40'
+	And All potential recruits should have set value of 'Attack_Max' between '40' and '50'
 	And All potential recruits should have set value of 'Defence' between '18' and '22'
 	And All potential recruits should have set value of 'Speed' between '11' and '13'
 
@@ -181,10 +186,10 @@ Scenario: 08 Generating potential recruits for level 1 for many first level merc
 	| ID_1 | test  | test     |
 	And I try to login for 'test' and password 'test'
 	And Some mercenary templates
-	| Level | Name   | HP_range | Attack_range | Defence_range | Speed_range |
-	| 1     | Goblin | 18-22    | 8-12         | 8-12          | 8-10        |
-	| 1     | Elf    | 22-26    | 12-16        | 10-14         | 9-11        |
-	| 1     | Orc    | 26-34    | 16-24        | 12-16         | 10-12       |
+	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
+	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
+	| 1     | Elf    | 22-26    | 12-16            | 10-14         | 9-11        | 4                  |
+	| 1     | Orc    | 26-34    | 16-24            | 12-16         | 10-12       | 4                  |
 	And Number of recruits is set to '100'
 	And The chance of getting level '1' mercenaries is set to '100' of '100'
 	And Randomzer for mercenary level will always return '7'

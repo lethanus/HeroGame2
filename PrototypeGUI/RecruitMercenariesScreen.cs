@@ -85,7 +85,7 @@ namespace PrototypeGUI
                 row.Add(recruit.Level.ToString());
                 row.Add(recruit.Name);
                 row.Add(recruit.Hp.ToString());
-                row.Add(recruit.Attack.ToString());
+                row.Add($"{recruit.Attack_Min.ToString()}-{recruit.Attack_Max.ToString()}");
                 row.Add(recruit.Defence.ToString());
                 row.Add(recruit.Speed.ToString());
                 var listViewItem = new ListViewItem(row.ToArray());

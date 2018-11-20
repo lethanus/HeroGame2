@@ -17,7 +17,8 @@ namespace HeroesGame.Mercenaries
                 Level = "1",
                 Name = "Goblin",
                 HP_range = "18-22",
-                Attack_range = "8-12",
+                Min_Attack_range = "8-12",
+                Attack_add_for_max = "4",
                 Defence_range = "8-12",
                 Speed_range = "8-10"
             });
@@ -26,7 +27,8 @@ namespace HeroesGame.Mercenaries
                 Level = "2",
                 Name = "Goblin",
                 HP_range = "22-26",
-                Attack_range = "12-16",
+                Min_Attack_range = "12-16",
+                Attack_add_for_max = "4",
                 Defence_range = "10-14",
                 Speed_range = "9-11"
             });
@@ -35,7 +37,8 @@ namespace HeroesGame.Mercenaries
                 Level = "3",
                 Name = "Goblin",
                 HP_range = "26-34",
-                Attack_range = "16-24",
+                Min_Attack_range = "16-24",
+                Attack_add_for_max = "4",
                 Defence_range = "10-12",
                 Speed_range = "9-11"
             });
@@ -44,7 +47,8 @@ namespace HeroesGame.Mercenaries
                 Level = "4",
                 Name = "Goblin",
                 HP_range = "40-55",
-                Attack_range = "30-40",
+                Min_Attack_range = "30-40",
+                Attack_add_for_max = "4",
                 Defence_range = "18-22",
                 Speed_range = "11-13"
             });
@@ -53,7 +57,8 @@ namespace HeroesGame.Mercenaries
                 Level = "1",
                 Name = "Elf",
                 HP_range = "18-22",
-                Attack_range = "8-12",
+                Min_Attack_range = "8-12",
+                Attack_add_for_max = "4",
                 Defence_range = "8-12",
                 Speed_range = "8-10"
             });
@@ -62,7 +67,8 @@ namespace HeroesGame.Mercenaries
                 Level = "1",
                 Name = "Ork",
                 HP_range = "18-22",
-                Attack_range = "8-12",
+                Min_Attack_range = "8-12",
+                Attack_add_for_max = "4",
                 Defence_range = "8-12",
                 Speed_range = "8-10"
             });
@@ -71,7 +77,8 @@ namespace HeroesGame.Mercenaries
                 Level = "2",
                 Name = "Ork",
                 HP_range = "22-26",
-                Attack_range = "12-16",
+                Min_Attack_range = "12-16",
+                Attack_add_for_max = "4",
                 Defence_range = "10-14",
                 Speed_range = "9-11"
             });
@@ -80,7 +87,8 @@ namespace HeroesGame.Mercenaries
                 Level = "2",
                 Name = "Elf",
                 HP_range = "22-26",
-                Attack_range = "12-16",
+                Min_Attack_range = "12-16",
+                Attack_add_for_max = "4",
                 Defence_range = "10-14",
                 Speed_range = "9-11"
             });

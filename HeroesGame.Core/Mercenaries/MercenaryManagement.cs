@@ -80,10 +80,11 @@ namespace HeroesGame.Mercenaries
             var mercenaryTemplate = _mercenaryTemplateRepository.GetMercenaryTemplates().First(x => x.Level == mercenaryLevel.ToString() && x.Name == mercenaryName);
 
             newMercenary.Hp = GetRandomValueFromTemplateRange(mercenaryTemplate.HP_range, "Mercenary_Hp");
-            newMercenary.Attack = GetRandomValueFromTemplateRange(mercenaryTemplate.Attack_range, "Mercenary_Attack");
+            newMercenary.Attack_Min = GetRandomValueFromTemplateRange(mercenaryTemplate.Min_Attack_range, "Mercenary_Attack");
             newMercenary.Defence = GetRandomValueFromTemplateRange(mercenaryTemplate.Defence_range, "Mercenary_Defence");
             newMercenary.Speed = GetRandomValueFromTemplateRange(mercenaryTemplate.Speed_range, "Mercenary_Speed");
 
+            newMercenary.Attack_Max = newMercenary.Attack_Min + Int32.Parse(mercenaryTemplate.Attack_add_for_max);
             newMercenary.Level = Int32.Parse(mercenaryTemplate.Level);
             newMercenary.Name = mercenaryTemplate.Name;
             newMercenary.ID = $"{Guid.NewGuid().ToString()}_{newMercenary.Level}_{newMercenary.Name}";

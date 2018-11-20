@@ -58,6 +58,8 @@
             // 
             // listRecruits
             // 
+            this.listRecruits.FullRowSelect = true;
+            this.listRecruits.GridLines = true;
             this.listRecruits.Location = new System.Drawing.Point(12, 30);
             this.listRecruits.Name = "listRecruits";
             this.listRecruits.Size = new System.Drawing.Size(512, 379);
