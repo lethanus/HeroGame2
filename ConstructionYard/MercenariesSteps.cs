@@ -188,6 +188,17 @@ namespace ConstructionYard
             }
         }
 
+        [Then(@"There are some potential recruits with '(.*)' equal to '(.*)'")]
+        public void ThenThereAreSomePotentialRecruitsWithEqualTo(string stat, string value)
+        {
+            if(stat == "Name")
+            {
+                var count = _generatedMercenaries.Count(x => x.Name == value);
+                Assert.Greater(count, 0);
+            }
+            else Assert.AreEqual(0, 1);
+        }
+
 
     }
 
