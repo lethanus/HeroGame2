@@ -545,7 +545,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 87
  testRunner.And("The chance of getting level \'1\' mercenaries is set to \'10\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 88
- testRunner.And("Randomzer for mercenary level will always return \'7\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Randomzer for mercenary level \'1\' will always return \'7\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 89
  testRunner.When("User with ID \'ID_1\' will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 90

@@ -8,7 +8,7 @@ namespace HeroesGame.Core.Randomizers
 {
     public interface IValueRandomizer
     {
-        int GetRandomValueInRange(int min, int max);
-        void SetReturnValue(int value);
+        int GetRandomValueInRange(int min, int max, string subject);
+        void SetReturnValue(string subject, int fixedValue);
     }
 }

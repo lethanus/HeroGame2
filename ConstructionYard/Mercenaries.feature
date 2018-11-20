@@ -85,7 +85,7 @@ Scenario: 04 Generating potential recruits
 	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
 	And Number of recruits is set to '5'
 	And The chance of getting level '1' mercenaries is set to '10' of '100'
-	And Randomzer for mercenary level will always return '7'
+	And Randomzer for mercenary level '1' will always return '7'
 	When User with ID 'ID_1' will use refresh for mercenaries
 	Then Count of potential recruits generated should be '5' for user with ID 'ID_1'
 	And All potential recruits should have set 'Name' to 'Goblin'

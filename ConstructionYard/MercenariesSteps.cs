@@ -147,12 +147,13 @@ namespace ConstructionYard
             configRepo.SetConfigParameter($"ChanceForLevel_{level}_mercenary", $"{chanceValue}_{chanceMax}");
         }
 
-        [Given(@"Randomzer for mercenary level will always return '(.*)'")]
-        public void GivenRendomzerForMercenaryLevelWillAlwaysReturn(int randomizerResult)
+        [Given(@"Randomzer for mercenary level '(.*)' will always return '(.*)'")]
+        public void GivenRandomzerForMercenaryLevelWillAlwaysReturn(int level, int randomizerResult)
         {
             var randomizer = objectContainer.Resolve<IValueRandomizer>();
-            randomizer.SetReturnValue(randomizerResult);
+            randomizer.SetReturnValue($"Mercenary_level_{level}_chance", randomizerResult);
         }
+
 
         [Then(@"All potential recruits should have set '(.*)' to '(.*)'")]
         public void ThenAllPotentialRecruitsShouldHaveSetTo(string stat, string value)
@@ -162,8 +163,8 @@ namespace ConstructionYard
                 var valueToCompare = "";
                 switch (stat)
                 {
-                    case "Name": { valueToCompare = _newMercenary.Name; break; }
-                    case "Level": { valueToCompare = _newMercenary.Level.ToString(); break; }
+                    case "Name": { valueToCompare = mercenary.Name; break; }
+                    case "Level": { valueToCompare = mercenary.Level.ToString(); break; }
                 }
                 Assert.AreEqual(value, valueToCompare);
             }
@@ -177,10 +178,10 @@ namespace ConstructionYard
                 var valueToCompare = 0;
                 switch (stat)
                 {
-                    case "Hp": { valueToCompare = _newMercenary.Hp; break; }
-                    case "Attack": { valueToCompare = _newMercenary.Attack; break; }
-                    case "Defence": { valueToCompare = _newMercenary.Defence; break; }
-                    case "Speed": { valueToCompare = _newMercenary.Speed; break; }
+                    case "Hp": { valueToCompare = mercenary.Hp; break; }
+                    case "Attack": { valueToCompare = mercenary.Attack; break; }
+                    case "Defence": { valueToCompare = mercenary.Defence; break; }
+                    case "Speed": { valueToCompare = mercenary.Speed; break; }
                 }
                 Assert.GreaterOrEqual(valueToCompare, minValue);
                 Assert.GreaterOrEqual(maxValue, valueToCompare);

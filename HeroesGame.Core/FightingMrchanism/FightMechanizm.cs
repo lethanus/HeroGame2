@@ -65,7 +65,7 @@ namespace HeroesGame.FightMechanizm
 
         private int CalculateNewHp(ICharacterInTeam attacker, ICharacterInTeam defender)
         {
-            var attack_value = _randomizer.GetRandomValueInRange(attacker.getMin_Att(), attacker.getMax_Att());
+            var attack_value = _randomizer.GetRandomValueInRange(attacker.getMin_Att(), attacker.getMax_Att(), "Attack");
             var damage = attack_value > defender.getDef() ? attack_value - defender.getDef() : 0;
             var newHP = defender.getHp() < damage ? 0 : defender.getHp() - damage;
 

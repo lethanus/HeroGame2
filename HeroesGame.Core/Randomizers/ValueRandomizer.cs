@@ -8,10 +8,11 @@ namespace HeroesGame.Core.Randomizers
 {
     public class ValueRandomizer : IValueRandomizer
     {
-        private int _valueToReturn = -1;
-        public int GetRandomValueInRange(int min, int max)
+        Dictionary<string, int> _fixedValues = new Dictionary<string, int>();
+
+        public int GetRandomValueInRange(int min, int max, string subject)
         {
-            if (_valueToReturn > -1) return _valueToReturn;
+            if (_fixedValues.ContainsKey(subject)) return _fixedValues[subject];
             var bytes = Guid.NewGuid().ToByteArray();
             int seed = 0;
             foreach (var byte_value in bytes)
@@ -22,9 +23,9 @@ namespace HeroesGame.Core.Randomizers
             return randomizer.Next(min, max);
         }
 
-        public void SetReturnValue(int value)
+        public void SetReturnValue(string subject, int fixedValue)
         {
-            _valueToReturn = value;
+            _fixedValues.Add(subject, fixedValue);
         }
     }
 }
