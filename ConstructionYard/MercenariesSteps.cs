@@ -4,7 +4,6 @@ using HeroesGame.Characters;
 using TechTalk.SpecFlow.Assist;
 using NUnit.Framework;
 using System.Linq;
-using System.Collections.Generic;
 using BoDi;
 using HeroesGame.Mercenaries;
 
@@ -105,37 +104,6 @@ namespace ConstructionYard
             Assert.AreEqual(true, false);
         }
 
-
-    }
-    public interface IMercenaryTemplateRepository
-    {
-        void AddMercenaryTemplate(MercenaryTemplate mercenary);
-        List<MercenaryTemplate> GetMercenaryTemplates();
-    }
-
-    public class MercenaryTemplateRepository : IMercenaryTemplateRepository
-    {
-        private List<MercenaryTemplate> _mercenaryTemplates = new List<MercenaryTemplate>();
-        public void AddMercenaryTemplate(MercenaryTemplate mercenary)
-        {
-            _mercenaryTemplates.Add(mercenary);
-        }
-
-        public List<MercenaryTemplate> GetMercenaryTemplates()
-        {
-            return _mercenaryTemplates;
-        }
-    }
-
-
-    public class MercenaryTemplate
-    {
-        public string Level { get; set; }
-        public string Name { get; set; }
-        public string HP_range { get; set; }
-        public string Attack_range { get; set; }
-        public string Defence_range { get; set; }
-        public string Speed_range { get; set; }
 
     }
 

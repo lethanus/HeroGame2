@@ -11,6 +11,7 @@ using HeroesGame.Repositories;
 using HeroesGame.Mercenaries;
 using System.IO;
 
+
 namespace ConstructionYard
 {
     public class TestInstaler
