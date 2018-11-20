@@ -115,6 +115,49 @@ namespace ConstructionYard
             Assert.GreaterOrEqual(maxValue, valueToCompare);
         }
 
+        [Given(@"Number of recruits is set to '(.*)'")]
+        public void GivenNumberOfRecruitsIsSetTo(int p0)
+        {
+            
+        }
+
+        [When(@"User with ID '(.*)' will use refresh for mercenaries")]
+        public void WhenUserWithIDWillUseRefreshForMercenaries(string p0)
+        {
+            
+        }
+
+
+        [Then(@"Count of potential recruits generated should be '(.*)' for user with ID '(.*)'")]
+        public void ThenCountOfPotentialRecruitsGeneratedShouldBe(int p0, string accoutID)
+        {
+            
+        }
+
+        [Given(@"The chance of getting level '(.*)' mercenaries is set to '(.*)' of '(.*)'")]
+        public void GivenTheChanceOfGettingLevelMercenariesIsSetToOf(int p0, int p1, int p2)
+        {
+            
+        }
+
+        [Given(@"Randomzer for mercenary level will always return '(.*)'")]
+        public void GivenRendomzerForMercenaryLevelWillAlwaysReturn(int p0)
+        {
+           
+        }
+
+        [Then(@"All potential recruits should have set '(.*)' to '(.*)'")]
+        public void ThenAllPotentialRecruitsShouldHaveSetTo(string p0, string p1)
+        {
+            
+        }
+
+        [Then(@"All potential recruits should have set value of '(.*)' between '(.*)' and '(.*)'")]
+        public void ThenAllPotentialRecruitsShouldHaveSetBetweenAnd(string p0, int p1, int p2)
+        {
+           
+        }
+
 
     }
 

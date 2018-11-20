@@ -66,7 +66,31 @@ Scenario: 03 New mercenary should be created base on mercenary template
 	| 3     | Goblin | 26-34    | 16-24        | 12-16         | 10-12       |
 	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
 	When Creating mercenary 'Goblin' of level '4'
-	Then Created mercenary should have 'Hp' between '40 ' and '55'
-	And Created mercenary should have 'Attack' between '30 ' and '40'
-	And Created mercenary should have 'Defence' between '18 ' and '22'
-	And Created mercenary should have 'Speed' between '11 ' and '13'
+	Then Created mercenary should have 'Hp' between '40' and '55'
+	And Created mercenary should have 'Attack' between '30' and '40'
+	And Created mercenary should have 'Defence' between '18' and '22'
+	And Created mercenary should have 'Speed' between '11' and '13'
+
+
+Scenario: 04 Generating potential recruits
+	Given Some accounts exists in system
+	| ID   | Login | Password |
+	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
+	And Some mercenary templates
+	| Level | Name   | HP_range | Attack_range | Defence_range | Speed_range |
+	| 1     | Goblin | 18-22    | 8-12         | 8-12          | 8-10        |
+	| 2     | Goblin | 22-26    | 12-16        | 10-14         | 9-11        |
+	| 3     | Goblin | 26-34    | 16-24        | 12-16         | 10-12       |
+	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
+	And Number of recruits is set to '5'
+	And The chance of getting level '1' mercenaries is set to '10' of '100'
+	And Randomzer for mercenary level will always return '7'
+	When User with ID 'ID_1' will use refresh for mercenaries
+	Then Count of potential recruits generated should be '5' for user with ID 'ID_1'
+	And All potential recruits should have set 'Name' to 'Goblin'
+	And All potential recruits should have set 'Level' to '1'
+	And All potential recruits should have set value of 'Hp' between '18' and '22'
+	And All potential recruits should have set value of 'Attack' between '8' and '12'
+	And All potential recruits should have set value of 'Defence' between '8' and '12'
+	And All potential recruits should have set value of 'Speed' between '8' and '10'
