@@ -55,3 +55,18 @@ Scenario: 02 Adding new mercenary to many accounts
 	| Elf_D    | Elf    | 20    | 20 | 10      | 10      | 5   | 10    |        |
 	| Goblin_E | Goblin | 10    | 10 | 5       | 5       | 0   | 5     |        |
 	| Elf_X    | Elf    | 20    | 20 | 10      | 10      | 5   | 10    |        |
+
+
+
+Scenario: 03 New mercenary should be created base on mercenary template
+	Given Some mercenary templates
+	| Level | Name   | HP_range | Attack_range | Defence_range | Speed_range |
+	| 1     | Goblin | 18-22    | 8-12         | 8-12          | 8-10        |
+	| 2     | Goblin | 22-26    | 12-16        | 10-14         | 9-11        |
+	| 3     | Goblin | 26-34    | 16-24        | 12-16         | 10-12       |
+	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
+	When Creating mercenary 'Goblin' of level '4'
+	Then Created mercenary should have 'Hp' between '40 ' and '55'
+	And Created mercenary should have 'Attack' between '30 ' and '40'
+	And Created mercenary should have 'Defence' between '18 ' and '22'
+	And Created mercenary should have 'Speed' between '11 ' and '13'

@@ -4,6 +4,7 @@ using HeroesGame.Characters;
 using TechTalk.SpecFlow.Assist;
 using NUnit.Framework;
 using System.Linq;
+using System.Collections.Generic;
 using BoDi;
 using HeroesGame.Mercenaries;
 
@@ -80,6 +81,61 @@ namespace ConstructionYard
             }
         }
 
+        [Given(@"Some mercenary templates")]
+        public void GivenSomeMercenaryTemplates(Table table)
+        {
+            var mercenaryTemplateRepo = objectContainer.Resolve<IMercenaryTemplateRepository>();
+            var mercenaries = table.CreateSet<MercenaryTemplate>().ToList();
+            foreach (var mercenary in mercenaries)
+            {
+                mercenaryTemplateRepo.AddMercenaryTemplate(mercenary);
+            }
+            Assert.Greater(mercenaryTemplateRepo.GetMercenaryTemplates().Count, 0);
+        }
+
+        [When(@"Creating mercenary '(.*)' of level '(.*)'")]
+        public void WhenCreatingMercenaryOfLevel(string mercenaryName, int mercenaryLevel)
+        {
+            
+        }
+
+        [Then(@"Created mercenary should have '(.*)' between '(.*)' and '(.*)'")]
+        public void ThenCreatedMercanaryShouldHaveBetweenAnd(string stat, int minValue, int maxValue)
+        {
+            Assert.AreEqual(true, false);
+        }
+
+
+    }
+    public interface IMercenaryTemplateRepository
+    {
+        void AddMercenaryTemplate(MercenaryTemplate mercenary);
+        List<MercenaryTemplate> GetMercenaryTemplates();
+    }
+
+    public class MercenaryTemplateRepository : IMercenaryTemplateRepository
+    {
+        private List<MercenaryTemplate> _mercenaryTemplates = new List<MercenaryTemplate>();
+        public void AddMercenaryTemplate(MercenaryTemplate mercenary)
+        {
+            _mercenaryTemplates.Add(mercenary);
+        }
+
+        public List<MercenaryTemplate> GetMercenaryTemplates()
+        {
+            return _mercenaryTemplates;
+        }
+    }
+
+
+    public class MercenaryTemplate
+    {
+        public string Level { get; set; }
+        public string Name { get; set; }
+        public string HP_range { get; set; }
+        public string Attack_range { get; set; }
+        public string Defence_range { get; set; }
+        public string Speed_range { get; set; }
 
     }
 

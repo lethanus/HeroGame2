@@ -32,6 +32,8 @@ namespace ConstructionYard
             objectContainer.RegisterInstanceAs<IMercenaryRepository>(mercenaryRepo);
             var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement);
             objectContainer.RegisterInstanceAs<IMercenaryManagement>(mercenaryManagement);
+            var mercenaryTemplateRepository = new MercenaryTemplateRepository();
+            objectContainer.RegisterInstanceAs<IMercenaryTemplateRepository>(mercenaryTemplateRepository);
         }
 
         public static void CleanupRepository()
