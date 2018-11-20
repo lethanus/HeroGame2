@@ -95,6 +95,13 @@ namespace PrototypeGUI
             _mercenaryTemplateRepository = new MercenaryTemplateJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\MercenaryTemplates.json");
             _mercenaryRepository = new MercenaryJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository);
+            if(_mercenaryTemplateRepository.GetMercenaryTemplates().Count == 0)
+            {
+                foreach (var template in MercenaryTemplatesCollectionGenerator.Generate())
+                {
+                    _mercenaryTemplateRepository.AddMercenaryTemplate(template);
+                }
+            }
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
