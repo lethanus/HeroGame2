@@ -147,11 +147,11 @@ namespace ConstructionYard
             configRepo.SetConfigParameter($"ChanceForLevel_{level}_mercenary", $"{chanceValue}_{chanceMax}");
         }
 
-        [Given(@"Randomzer for mercenary level '(.*)' will always return '(.*)'")]
-        public void GivenRandomzerForMercenaryLevelWillAlwaysReturn(int level, int randomizerResult)
+        [Given(@"Randomzer for mercenary level will always return '(.*)'")]
+        public void GivenRandomzerForMercenaryLevelWillAlwaysReturn(int randomizerResult)
         {
             var randomizer = objectContainer.Resolve<IValueRandomizer>();
-            randomizer.SetReturnValue($"Mercenary_level_{level}_chance", randomizerResult);
+            randomizer.SetReturnValue($"Mercenary_level_chance", randomizerResult);
         }
 
 
