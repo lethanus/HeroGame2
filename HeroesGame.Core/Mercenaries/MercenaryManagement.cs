@@ -34,12 +34,24 @@ namespace HeroesGame.Mercenaries
         public List<Mercenary> GenerateMercenaries(string accountID)
         {
             var count = Int32.Parse(_configRepository.GetParameterValue("NumberOfRecruits"));
+            var mercenaryChances = new Dictionary<int, ChanceRange>();
+            mercenaryChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_1_mercenary")));
+            mercenaryChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_2_mercenary")));
+            mercenaryChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_3_mercenary")));
+            mercenaryChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_4_mercenary")));
 
             List<Mercenary> mercenaries = new List<Mercenary>();
 
             for(int i = 1; i<= count; i++)
             {
-                var newMercenary = GetMercenaryBaseOnTemplate("Goblin", 1);
+                var level = 1;
+                var randomValue = _randomizer.GetRandomValueInRange(1, mercenaryChances[1].MaxValue, "Mercenary_level_chance");
+                for(int j = 1; j<=4; j++)
+                {
+                    if (randomValue < mercenaryChances[j].Value) level = j;
+                }
+
+                var newMercenary = GetMercenaryBaseOnTemplate("Goblin", level);
                 mercenaries.Add(newMercenary);
 
             }
@@ -74,6 +86,27 @@ namespace HeroesGame.Mercenaries
             var range = rangeString.Split('-').Select(x => Int32.Parse(x)).ToArray();
             return _randomizer.GetRandomValueInRange(range[0], range[1], stat_name);
         }
+    }
+
+    public class ChanceRange
+    {
+        public int Value { get; private set; }
+        public int MaxValue { get; private set; }
+        public ChanceRange(string rangeString)
+        {
+            if (rangeString == "")
+            {
+                Value = 0;
+                MaxValue = 10000;
+            }
+            else
+            {
+                var values = rangeString.Split('_').Select(x => Int32.Parse(x)).ToArray();
+                Value = values[0];
+                MaxValue = values[1];
+            }
+        }
+
     }
 
 
