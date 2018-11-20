@@ -23,6 +23,7 @@ namespace PrototypeGUI
         private IRefreshingMechnism _refreshingMechnism;
         private IAccountManagement _accountManagement;
         private IMercenaryRepository _mercenaryRepository;
+        private IMercenaryTemplateRepository _mercenaryTemplateRepository;
         private IMercenaryManagement _mercenaryManagement;
 
         public btCampain()
@@ -91,9 +92,9 @@ namespace PrototypeGUI
             _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
-
+            _mercenaryTemplateRepository = new MercenaryTemplateRepository();
             _mercenaryRepository = new MercenaryJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
-            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement);
+            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository);
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
