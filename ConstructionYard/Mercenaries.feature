@@ -148,3 +148,29 @@ Scenario: 06 Generating potential recruits for level 3
 	And All potential recruits should have set value of 'Attack' between '16' and '24'
 	And All potential recruits should have set value of 'Defence' between '12' and '16'
 	And All potential recruits should have set value of 'Speed' between '10' and '12'
+
+Scenario: 07 Generating potential recruits for level 4
+	Given Some accounts exists in system
+	| ID   | Login | Password |
+	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
+	And Some mercenary templates
+	| Level | Name   | HP_range | Attack_range | Defence_range | Speed_range |
+	| 1     | Goblin | 18-22    | 8-12         | 8-12          | 8-10        |
+	| 2     | Goblin | 22-26    | 12-16        | 10-14         | 9-11        |
+	| 3     | Goblin | 26-34    | 16-24        | 12-16         | 10-12       |
+	| 4     | Goblin | 40-55    | 30-40        | 18-22         | 11-13       |
+	And Number of recruits is set to '7'
+	And The chance of getting level '1' mercenaries is set to '10000' of '10000'
+	And The chance of getting level '2' mercenaries is set to '2500' of '10000'
+	And The chance of getting level '3' mercenaries is set to '1000' of '10000'
+	And The chance of getting level '4' mercenaries is set to '100' of '10000'
+	And Randomzer for mercenary level will always return '2'
+	When User with ID 'ID_1' will use refresh for mercenaries
+	Then Count of potential recruits generated should be '7' for user with ID 'ID_1'
+	And All potential recruits should have set 'Name' to 'Goblin'
+	And All potential recruits should have set 'Level' to '4'
+	And All potential recruits should have set value of 'Hp' between '40' and '55'
+	And All potential recruits should have set value of 'Attack' between '30' and '40'
+	And All potential recruits should have set value of 'Defence' between '18' and '22'
+	And All potential recruits should have set value of 'Speed' between '11' and '13'

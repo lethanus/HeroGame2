@@ -746,6 +746,96 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("07 Generating potential recruits for level 4", SourceLine=151)]
+        public virtual void _07GeneratingPotentialRecruitsForLevel4()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07 Generating potential recruits for level 4", null, ((string[])(null)));
+#line 152
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Login",
+                        "Password"});
+            table19.AddRow(new string[] {
+                        "ID_1",
+                        "test",
+                        "test"});
+#line 153
+ testRunner.Given("Some accounts exists in system", ((string)(null)), table19, "Given ");
+#line 156
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Level",
+                        "Name",
+                        "HP_range",
+                        "Attack_range",
+                        "Defence_range",
+                        "Speed_range"});
+            table20.AddRow(new string[] {
+                        "1",
+                        "Goblin",
+                        "18-22",
+                        "8-12",
+                        "8-12",
+                        "8-10"});
+            table20.AddRow(new string[] {
+                        "2",
+                        "Goblin",
+                        "22-26",
+                        "12-16",
+                        "10-14",
+                        "9-11"});
+            table20.AddRow(new string[] {
+                        "3",
+                        "Goblin",
+                        "26-34",
+                        "16-24",
+                        "12-16",
+                        "10-12"});
+            table20.AddRow(new string[] {
+                        "4",
+                        "Goblin",
+                        "40-55",
+                        "30-40",
+                        "18-22",
+                        "11-13"});
+#line 157
+ testRunner.And("Some mercenary templates", ((string)(null)), table20, "And ");
+#line 163
+ testRunner.And("Number of recruits is set to \'7\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 164
+ testRunner.And("The chance of getting level \'1\' mercenaries is set to \'10000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 165
+ testRunner.And("The chance of getting level \'2\' mercenaries is set to \'2500\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 166
+ testRunner.And("The chance of getting level \'3\' mercenaries is set to \'1000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 167
+ testRunner.And("The chance of getting level \'4\' mercenaries is set to \'100\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 168
+ testRunner.And("Randomzer for mercenary level will always return \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 169
+ testRunner.When("User with ID \'ID_1\' will use refresh for mercenaries", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 170
+ testRunner.Then("Count of potential recruits generated should be \'7\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 171
+ testRunner.And("All potential recruits should have set \'Name\' to \'Goblin\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 172
+ testRunner.And("All potential recruits should have set \'Level\' to \'4\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 173
+ testRunner.And("All potential recruits should have set value of \'Hp\' between \'40\' and \'55\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 174
+ testRunner.And("All potential recruits should have set value of \'Attack\' between \'30\' and \'40\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 175
+ testRunner.And("All potential recruits should have set value of \'Defence\' between \'18\' and \'22\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 176
+ testRunner.And("All potential recruits should have set value of \'Speed\' between \'11\' and \'13\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {
