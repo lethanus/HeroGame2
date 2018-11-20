@@ -71,7 +71,7 @@ namespace PrototypeGUI
 
         private void btRecruitMercenaries_Click(object sender, EventArgs e)
         {
-            RecruitMercenariesScreen recruitMercenariesScreen = new RecruitMercenariesScreen(_refreshingMechnism);
+            RecruitMercenariesScreen recruitMercenariesScreen = new RecruitMercenariesScreen(_refreshingMechnism, _mercenaryManagement);
             recruitMercenariesScreen.ShowDialog();
         }
 
@@ -88,8 +88,13 @@ namespace PrototypeGUI
             _accountManagement = new AccountManagement(_accountRepository);
             
             _configRepository = new ConfigJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\Configuration.json");
-            var delay = _configRepository.GetParameterValue("Delay_for_option_Mercenaries_in_sec");
-            if (delay == "") _configRepository.SetConfigParameter("Delay_for_option_Mercenaries_in_sec", "20");
+            EnsureConfigValue("Delay_for_option_Mercenaries_in_sec", "20");
+            EnsureConfigValue("NumberOfRecruits", "10");
+            EnsureConfigValue("ChanceForLevel_1_mercenary", "10000_10000");
+            EnsureConfigValue("ChanceForLevel_2_mercenary", "2500_10000");
+            EnsureConfigValue("ChanceForLevel_3_mercenary", "500_10000");
+            EnsureConfigValue("ChanceForLevel_4_mercenary", "50_10000");
+
             _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
@@ -105,6 +110,13 @@ namespace PrototypeGUI
             }
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
+        }
+
+        private void EnsureConfigValue(string parameterName, string parameterValue)
+        {
+            var value = _configRepository.GetParameterValue(parameterName);
+            if (value == "") _configRepository.SetConfigParameter(parameterName, parameterValue);
+
         }
 
         private void UpdateGameControls(Account account)

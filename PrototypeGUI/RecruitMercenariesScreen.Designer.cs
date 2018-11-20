@@ -63,6 +63,7 @@
             this.listRecruits.Size = new System.Drawing.Size(512, 379);
             this.listRecruits.TabIndex = 1;
             this.listRecruits.UseCompatibleStateImageBehavior = false;
+            this.listRecruits.View = System.Windows.Forms.View.Details;
             // 
             // btRefresh
             // 

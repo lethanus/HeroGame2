@@ -48,6 +48,43 @@ namespace HeroesGame.Mercenaries
                 Defence_range = "18-22",
                 Speed_range = "11-13"
             });
+            tempaltes.Add(new MercenaryTemplate
+            {
+                Level = "1",
+                Name = "Elf",
+                HP_range = "18-22",
+                Attack_range = "8-12",
+                Defence_range = "8-12",
+                Speed_range = "8-10"
+            });
+            tempaltes.Add(new MercenaryTemplate
+            {
+                Level = "1",
+                Name = "Ork",
+                HP_range = "18-22",
+                Attack_range = "8-12",
+                Defence_range = "8-12",
+                Speed_range = "8-10"
+            });
+            tempaltes.Add(new MercenaryTemplate
+            {
+                Level = "2",
+                Name = "Ork",
+                HP_range = "22-26",
+                Attack_range = "12-16",
+                Defence_range = "10-14",
+                Speed_range = "9-11"
+            });
+            tempaltes.Add(new MercenaryTemplate
+            {
+                Level = "2",
+                Name = "Elf",
+                HP_range = "22-26",
+                Attack_range = "12-16",
+                Defence_range = "10-14",
+                Speed_range = "9-11"
+            });
+
 
             return tempaltes;
         }
