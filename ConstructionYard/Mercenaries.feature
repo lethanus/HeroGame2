@@ -199,3 +199,19 @@ Scenario: 08 Generating potential recruits for level 1 for many first level merc
 	And There are some potential recruits with 'Name' equal to 'Elf'
 	And There are some potential recruits with 'Name' equal to 'Orc'
 	And All potential recruits should have set 'Level' to '1'
+
+Scenario: 09 Successfully convincing level 1 recruit
+	Given Some accounts exists in system
+	| ID   | Login | Password |
+	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
+	And There as some recruits
+	| ID    | Level | Name | Hp | Attack_Min | Attack_Max | Defence | Speed |
+	| Elf_A | 1     | Elf  | 20 | 10         | 20         | 10      | 5     | 
+	And The chance of convincing level '1' recruits is set to '100' of '100'
+	And Randomzer for convincing recruits will always return '50'
+	When Logged user will try to convince recruit with ID 'Elf_A'
+	Then Logged account id is 'ID_1'
+	And Logged account should have mercenaries
+	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
+	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        |  

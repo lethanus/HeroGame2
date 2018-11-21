@@ -33,6 +33,11 @@ namespace HeroesGame.Mercenaries
             _mercenaryRepository.Add(mercenary, _accountManagement.GetLoggedAccount().ID);
         }
 
+        public void ConvinceRecruit(Mercenary recruit)
+        {
+            
+        }
+
         public void GenerateMercenaries()
         {
             _recruitsRepository.Clear(_accountManagement.GetLoggedAccount().ID);

@@ -9,6 +9,7 @@ using BoDi;
 using HeroesGame.Mercenaries;
 using HeroesGame.Configuration;
 using HeroesGame.Core.Randomizers;
+using HeroesGame.Accounts;
 
 namespace ConstructionYard
 {
@@ -205,6 +206,41 @@ namespace ConstructionYard
             else Assert.AreEqual(0, 1);
         }
 
+        [Given(@"There as some recruits")]
+        public void GivenThereAsSomeRecruits(Table table)
+        {
+            var recruitRepo = objectContainer.Resolve<IRecruitsRepository>();
+            var accountManagement = objectContainer.Resolve<IAccountManagement>();
+            
+            var recruits = table.CreateSet<Mercenary>().ToList();
+            foreach (var recruit in recruits)
+            {
+                recruitRepo.Add(recruit, accountManagement.GetLoggedAccount().ID);
+            }
+            Assert.AreEqual(table.RowCount, recruitRepo.GetAllRecruitsForUser(accountManagement.GetLoggedAccount().ID).Count);
+        }
+
+        [Given(@"The chance of convincing level '(.*)' recruits is set to '(.*)' of '(.*)'")]
+        public void GivenTheChanceOfConvincingLevelRecruitsIsSetToOf(int level, int chanceValue, int chanceMax)
+        {
+            var configRepo = objectContainer.Resolve<IConfigRepository>();
+            configRepo.SetConfigParameter($"ConvinceLevel_{level}_recruit", $"{chanceValue}_{chanceMax}");
+        }
+
+        [Given(@"Randomzer for convincing recruits will always return '(.*)'")]
+        public void GivenRandomzerForConvincingRecruitsWillAlwaysReturn(int randomizerResult)
+        {
+            var randomizer = objectContainer.Resolve<IValueRandomizer>();
+            randomizer.SetReturnValue($"Recruits_convincing", randomizerResult);
+        }
+
+        [When(@"Logged user will try to convince recruit with ID '(.*)'")]
+        public void WhenLoggedUserWillTryToConvinceRecruitWithID(string recruitID)
+        {
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            var recruit = mercenaryManagement.GetRecruits().First(x => x.ID == recruitID);
+            mercenaryManagement.ConvinceRecruit(recruit);
+        }
 
     }
 
