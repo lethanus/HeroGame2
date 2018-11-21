@@ -41,13 +41,13 @@ namespace HeroesGame.Mercenaries
             convinceChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_3_recruit")));
             convinceChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_4_recruit")));
             var randomValue = _randomizer.GetRandomValueInRange(1, convinceChances[1].MaxValue, "Recruits_convincing");
-            if(randomValue <= convinceChances[recruit.Level].Value )
-            {
+            var convinced = randomValue <= convinceChances[recruit.Level].Value;
+            if (convinced)
+            { 
                 AddNewMercenary(recruit.CreateCharacter());
-                _recruitsRepository.Remove(recruit, _accountManagement.GetLoggedAccount().ID);
-                return true;
             }
-            return false;
+            _recruitsRepository.Remove(recruit, _accountManagement.GetLoggedAccount().ID);
+            return convinced;
         }
 
         public void GenerateMercenaries()

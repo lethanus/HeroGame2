@@ -1109,7 +1109,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 238
  testRunner.And("Logged account should have mercenaries", ((string)(null)), table28, "And ");
 #line 240
- testRunner.And("Count of potential recruits generated should be \'1\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Count of potential recruits generated should be \'0\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

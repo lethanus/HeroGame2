@@ -237,7 +237,7 @@ Scenario: 10 Failing to convince level 1 recruit
 	Then Logged account id is 'ID_1'
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills | 
-	And Count of potential recruits generated should be '1' for user with ID 'ID_1'
+	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
 
 Scenario: 11 Successfully convincing level 2 recruit
 	Given Some accounts exists in system
