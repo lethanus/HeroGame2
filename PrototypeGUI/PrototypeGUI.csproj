@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationSettingsScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurationSettingsScreen.Designer.cs">
+      <DependentUpon>ConfigurationSettingsScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeroesScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     <Compile Include="RecruitMercenariesScreen.Designer.cs">
       <DependentUpon>RecruitMercenariesScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConfigurationSettingsScreen.resx">
+      <DependentUpon>ConfigurationSettingsScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeroesScreen.resx">
       <DependentUpon>HeroesScreen.cs</DependentUpon>
     </EmbeddedResource>

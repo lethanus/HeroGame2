@@ -41,6 +41,7 @@
             this.btMercenaries = new System.Windows.Forms.Button();
             this.btClose = new System.Windows.Forms.Button();
             this.btMercenaryTemplates = new System.Windows.Forms.Button();
+            this.btConfigSettings = new System.Windows.Forms.Button();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,11 +175,22 @@
             this.btMercenaryTemplates.UseVisualStyleBackColor = true;
             this.btMercenaryTemplates.Click += new System.EventHandler(this.btMercenaryTemplates_Click);
             // 
+            // btConfigSettings
+            // 
+            this.btConfigSettings.Location = new System.Drawing.Point(18, 386);
+            this.btConfigSettings.Name = "btConfigSettings";
+            this.btConfigSettings.Size = new System.Drawing.Size(133, 23);
+            this.btConfigSettings.TabIndex = 6;
+            this.btConfigSettings.Text = "Configuration settings";
+            this.btConfigSettings.UseVisualStyleBackColor = true;
+            this.btConfigSettings.Click += new System.EventHandler(this.btConfigSettings_Click);
+            // 
             // btCampain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btConfigSettings);
             this.Controls.Add(this.btMercenaryTemplates);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.gamePanel);
@@ -213,6 +225,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btAdventures;
         private System.Windows.Forms.Button btMercenaryTemplates;
+        private System.Windows.Forms.Button btConfigSettings;
     }
 }
 

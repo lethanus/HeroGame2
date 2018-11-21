@@ -15,6 +15,11 @@ namespace HeroesGame.Repositories
             _pathToRepoFile = pathToRepoFile;
         }
 
+        public Dictionary<string, string> GetAll()
+        {
+            return GetAllParameters(_pathToRepoFile);
+        }
+
         public string GetParameterValue(string parameterName)
         {
             _configValues = GetAllParameters(_pathToRepoFile);

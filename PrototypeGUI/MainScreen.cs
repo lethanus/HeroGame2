@@ -138,5 +138,11 @@ namespace PrototypeGUI
             MercenaryTemplatesScreen mercenaryTemplatesScreen = new MercenaryTemplatesScreen(_mercenaryTemplateRepository);
             mercenaryTemplatesScreen.ShowDialog();
         }
+
+        private void btConfigSettings_Click(object sender, EventArgs e)
+        {
+            ConfigurationSettingsScreen configurationSettingsScreen = new ConfigurationSettingsScreen(_configRepository);
+            configurationSettingsScreen.ShowDialog();
+        }
     }
 }
