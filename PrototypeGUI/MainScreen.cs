@@ -147,7 +147,7 @@ namespace PrototypeGUI
 
         private void btPackFormation_Click(object sender, EventArgs e)
         {
-            PackFormationScreen packFormationScreen = new PackFormationScreen();
+            PackFormationScreen packFormationScreen = new PackFormationScreen(_mercenaryManagement);
             packFormationScreen.ShowDialog();
         }
     }
