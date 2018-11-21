@@ -7,7 +7,7 @@ namespace HeroesGame.PackBuilding
     {
         string GetCharacterIdOnPosition(TeamPosition position, string accountID);
         void SetCharacterToPosition(string characterID, TeamPosition position, string iD);
-        List<CharacterInThePack> GetAll();
+        List<CharacterInThePack> GetAll(string accountID);
     }
 
 }

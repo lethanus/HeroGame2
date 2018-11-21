@@ -21,7 +21,7 @@ namespace HeroesGame.PackBuilding
 
         public void SetCharacterToPosition(string characterID, TeamPosition position)
         {
-            var charactersPositions = _packFormationRepository.GetAll();
+            var charactersPositions = _packFormationRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
             foreach(var character in charactersPositions)
             {
                 if(character.Character_ID == characterID)

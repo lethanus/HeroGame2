@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using HeroesGame.Characters;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 using HeroesGame.PackBuilding;
 
@@ -9,42 +11,67 @@ namespace HeroesGame.Repositories
     public class PackFormationJsonFileRepository : IPackFormationRepository
     {
         private string _directoryPath;
-        private Dictionary<TeamPosition, string> _packFormation = new Dictionary<TeamPosition, string>();
 
         public PackFormationJsonFileRepository(string directoryPath)
         {
             _directoryPath = directoryPath;
-            _packFormation.Add(TeamPosition.Front_1, "");
-            _packFormation.Add(TeamPosition.Front_2, "");
-            _packFormation.Add(TeamPosition.Front_3, "");
-            _packFormation.Add(TeamPosition.Middle_1, "");
-            _packFormation.Add(TeamPosition.Middle_2, "");
-            _packFormation.Add(TeamPosition.Middle_3, "");
-            _packFormation.Add(TeamPosition.Middle_4, "");
-            _packFormation.Add(TeamPosition.Rear_1, "");
-            _packFormation.Add(TeamPosition.Rear_2, "");
-            _packFormation.Add(TeamPosition.Rear_3, "");
-            _packFormation.Add(TeamPosition.None, "");
         }
 
-        public List<CharacterInThePack> GetAll()
+        public List<CharacterInThePack> GetAll(string accountID)
         {
-            List<CharacterInThePack> charactersInThePack = new List<CharacterInThePack>();
-            foreach(var row in _packFormation)
-            {
-                charactersInThePack.Add(new CharacterInThePack { Character_ID = row.Value, Position = row.Key });
-            }
-            return charactersInThePack;
+            return GetFormationForAccount(accountID);
         }
 
         public string GetCharacterIdOnPosition(TeamPosition position, string accountID)
         {
-            return _packFormation[position];
+            var positions = GetFormationForAccount(accountID);
+            return positions.ToDictionary(x => x.Position, x => x.Character_ID)[position];
         }
 
-        public void SetCharacterToPosition(string characterID, TeamPosition position, string iD)
+        public void SetCharacterToPosition(string characterID, TeamPosition position, string accountID)
         {
-            _packFormation[position] = characterID;
+            var positions = GetFormationForAccount(accountID);
+            positions.First(x => x.Position == position).Character_ID = characterID;
+            SaveFormationForAccount(positions, accountID, _directoryPath);
+        }
+
+        private void SaveFormationForAccount(List<CharacterInThePack> formation, string accountID, string directoryPath)
+        {
+            string pathToFile = $"{directoryPath}\\PackFormation_{accountID}.json";
+            string json = JsonConvert.SerializeObject(formation, Formatting.Indented);
+            File.WriteAllText(pathToFile, json);
+        }
+
+        public List<CharacterInThePack> GetFormationForAccount(string accountID)
+        {
+            string pathToFile = $"{_directoryPath}\\PackFormation_{accountID}.json";
+            if (!File.Exists(pathToFile))
+            {
+                return CreateDefaultPositions();
+            }
+            var json = File.ReadAllText(pathToFile);
+            var positions = JsonConvert.DeserializeObject<List<CharacterInThePack>>(json);
+            if (positions.Count == 0)
+                positions.AddRange(CreateDefaultPositions());
+            return positions;
+        }
+
+        private List<CharacterInThePack> CreateDefaultPositions()
+        {
+            List<CharacterInThePack> positions = new List<CharacterInThePack>();
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Front_1, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Front_2, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Front_3, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Middle_1, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Middle_2, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Middle_3, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Middle_4, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Rear_1, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Rear_2, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.Rear_3, Character_ID = "" });
+            positions.Add(new CharacterInThePack { Position = TeamPosition.None, Character_ID = "" });
+            return positions;
+
         }
     }
 
