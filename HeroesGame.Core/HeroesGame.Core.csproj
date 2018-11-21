@@ -50,7 +50,7 @@
     <Compile Include="Characters\ICharacterInTeam.cs" />
     <Compile Include="Characters\TeamPositionHelper.cs" />
     <Compile Include="Configuration\IConfigRepository.cs" />
-    <Compile Include="FightingMrchanism\FightMechanizm.cs" />
+    <Compile Include="FightingMechanism\FightMechanizm.cs" />
     <Compile Include="Loggers\Logger.cs" />
     <Compile Include="Mercenaries\IMercenaryManagement.cs" />
     <Compile Include="Mercenaries\IMercenaryRepository.cs" />
