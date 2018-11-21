@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using BoDi;
 using HeroesGame.Configuration;
 using HeroesGame.RefresingMechanism;
@@ -11,6 +7,7 @@ using HeroesGame.Repositories;
 using HeroesGame.Mercenaries;
 using System.IO;
 using HeroesGame.Core.Randomizers;
+using HeroesGame.PackBuilding;
 
 namespace ConstructionYard
 {

@@ -60,6 +60,10 @@
     <Compile Include="Mercenaries\MercenaryManagement.cs" />
     <Compile Include="Mercenaries\MercenaryTemplate.cs" />
     <Compile Include="Mercenaries\MercenaryTemplatesCollectionGenerator.cs" />
+    <Compile Include="PackFormation\CharacterInThePack.cs" />
+    <Compile Include="PackFormation\IPackFormationBuilder.cs" />
+    <Compile Include="PackFormation\IPackFormationRepository.cs" />
+    <Compile Include="PackFormation\PackFormationBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Randomizers\IValueRandomizer.cs" />
     <Compile Include="Randomizers\ValueRandomizer.cs" />
