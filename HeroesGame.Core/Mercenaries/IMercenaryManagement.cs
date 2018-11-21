@@ -11,6 +11,7 @@ namespace HeroesGame.Mercenaries
         void GenerateMercenaries();
         List<Mercenary> GetRecruits();
         bool ConvinceRecruit(Mercenary recruit);
+        double GetConvinceChance(int level);
     }
 
 

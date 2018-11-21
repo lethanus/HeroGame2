@@ -35,7 +35,7 @@
             this.nextRefreshBar = new System.Windows.Forms.ProgressBar();
             this.btConvince = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.convinceChanceBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btAddGift = new System.Windows.Forms.Button();
             this.btRemoveGift = new System.Windows.Forms.Button();
@@ -66,6 +66,7 @@
             this.listRecruits.TabIndex = 1;
             this.listRecruits.UseCompatibleStateImageBehavior = false;
             this.listRecruits.View = System.Windows.Forms.View.Details;
+            this.listRecruits.SelectedIndexChanged += new System.EventHandler(this.listRecruits_SelectedIndexChanged);
             // 
             // btRefresh
             // 
@@ -99,18 +100,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(555, 295);
+            this.label1.Location = new System.Drawing.Point(565, 295);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 13);
+            this.label1.Size = new System.Drawing.Size(142, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Current chance to convince (%):";
+            this.label1.Text = "Current chance to convince:";
             // 
-            // textBox1
+            // convinceChanceBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(713, 292);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(75, 20);
-            this.textBox1.TabIndex = 6;
+            this.convinceChanceBox.Location = new System.Drawing.Point(713, 292);
+            this.convinceChanceBox.Name = "convinceChanceBox";
+            this.convinceChanceBox.ReadOnly = true;
+            this.convinceChanceBox.Size = new System.Drawing.Size(75, 20);
+            this.convinceChanceBox.TabIndex = 6;
             // 
             // label2
             // 
@@ -191,7 +193,7 @@
             this.Controls.Add(this.btRemoveGift);
             this.Controls.Add(this.btAddGift);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.convinceChanceBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btConvince);
             this.Controls.Add(this.nextRefreshBar);
@@ -216,7 +218,7 @@
         private System.Windows.Forms.ProgressBar nextRefreshBar;
         private System.Windows.Forms.Button btConvince;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox convinceChanceBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btAddGift;
         private System.Windows.Forms.Button btRemoveGift;

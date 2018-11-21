@@ -50,6 +50,17 @@ namespace HeroesGame.Mercenaries
             return convinced;
         }
 
+        public double GetConvinceChance(int level)
+        {
+            var convinceChances = new Dictionary<int, ChanceRange>();
+            convinceChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_1_recruit")));
+            convinceChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_2_recruit")));
+            convinceChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_3_recruit")));
+            convinceChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_4_recruit")));
+
+            return (convinceChances[level].Value / (convinceChances[level].MaxValue * 1.0)) * 100;
+        }
+
         public void GenerateMercenaries()
         {
             _recruitsRepository.Clear(_accountManagement.GetLoggedAccount().ID);

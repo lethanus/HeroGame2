@@ -122,5 +122,15 @@ namespace PrototypeGUI
                 RefreshRecruits();
             }
         }
+
+        private void listRecruits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listRecruits.SelectedItems.Count == 1)
+            {
+                var recruit = (Mercenary)listRecruits.SelectedItems[0].Tag;
+                var chance = _mercenaryManagement.GetConvinceChance(recruit.Level);
+                convinceChanceBox.Text = $"{chance}%";
+            }
+        }
     }
 }
