@@ -44,11 +44,14 @@
             // 
             // listMercenaries
             // 
+            this.listMercenaries.FullRowSelect = true;
+            this.listMercenaries.GridLines = true;
             this.listMercenaries.Location = new System.Drawing.Point(12, 12);
             this.listMercenaries.Name = "listMercenaries";
             this.listMercenaries.Size = new System.Drawing.Size(776, 397);
             this.listMercenaries.TabIndex = 1;
             this.listMercenaries.UseCompatibleStateImageBehavior = false;
+            this.listMercenaries.View = System.Windows.Forms.View.Details;
             // 
             // MercenariesScreen
             // 

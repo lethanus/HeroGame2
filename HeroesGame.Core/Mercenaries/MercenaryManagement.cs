@@ -33,7 +33,7 @@ namespace HeroesGame.Mercenaries
             _mercenaryRepository.Add(mercenary, _accountManagement.GetLoggedAccount().ID);
         }
 
-        public void ConvinceRecruit(Mercenary recruit)
+        public bool ConvinceRecruit(Mercenary recruit)
         {
             var convinceChances = new Dictionary<int, ChanceRange>();
             convinceChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_1_recruit")));
@@ -45,7 +45,9 @@ namespace HeroesGame.Mercenaries
             {
                 AddNewMercenary(recruit.CreateCharacter());
                 _recruitsRepository.Remove(recruit, _accountManagement.GetLoggedAccount().ID);
+                return true;
             }
+            return false;
         }
 
         public void GenerateMercenaries()

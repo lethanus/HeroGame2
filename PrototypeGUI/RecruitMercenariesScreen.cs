@@ -117,7 +117,9 @@ namespace PrototypeGUI
             if(listRecruits.SelectedItems.Count == 1)
             {
                 var recruit = (Mercenary)listRecruits.SelectedItems[0].Tag;
-                _mercenaryManagement.ConvinceRecruit(recruit);
+                var result = _mercenaryManagement.ConvinceRecruit(recruit);
+                MessageBox.Show(result ? "Good job" : "Nah... Failed");
+                RefreshRecruits();
             }
         }
     }
