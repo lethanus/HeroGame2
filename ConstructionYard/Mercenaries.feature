@@ -218,6 +218,7 @@ Scenario: 09 Successfully convincing level 1 recruit
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        |  
+	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
 
 Scenario: 10 Failing to convince level 1 recruit
 	Given Some accounts exists in system
@@ -236,7 +237,7 @@ Scenario: 10 Failing to convince level 1 recruit
 	Then Logged account id is 'ID_1'
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills | 
-
+	And Count of potential recruits generated should be '1' for user with ID 'ID_1'
 
 Scenario: 11 Successfully convincing level 2 recruit
 	Given Some accounts exists in system
@@ -256,6 +257,7 @@ Scenario: 11 Successfully convincing level 2 recruit
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        | 
+	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
 
 Scenario: 12 Successfully convincing level 3 recruit
 	Given Some accounts exists in system
@@ -275,6 +277,7 @@ Scenario: 12 Successfully convincing level 3 recruit
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        | 
+	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
 
 Scenario: 13 Successfully convincing level 4 recruit
 	Given Some accounts exists in system
@@ -294,4 +297,4 @@ Scenario: 13 Successfully convincing level 4 recruit
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        | 
-
+	And Count of potential recruits generated should be '0' for user with ID 'ID_1'

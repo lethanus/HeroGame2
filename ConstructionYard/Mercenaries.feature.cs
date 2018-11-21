@@ -1034,15 +1034,17 @@ this.ScenarioInitialize(scenarioInfo);
                         ""});
 #line 218
  testRunner.And("Logged account should have mercenaries", ((string)(null)), table25, "And ");
+#line 221
+ testRunner.And("Count of potential recruits generated should be \'0\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("10 Failing to convince level 1 recruit", SourceLine=221)]
+        [TechTalk.SpecRun.ScenarioAttribute("10 Failing to convince level 1 recruit", SourceLine=222)]
         public virtual void _10FailingToConvinceLevel1Recruit()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10 Failing to convince level 1 recruit", null, ((string[])(null)));
-#line 222
+#line 223
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -1054,9 +1056,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "ID_1",
                         "test",
                         "test"});
-#line 223
+#line 224
  testRunner.Given("Some accounts exists in system", ((string)(null)), table26, "Given ");
-#line 226
+#line 227
  testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1077,21 +1079,21 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5"});
-#line 227
+#line 228
  testRunner.And("There as some recruits", ((string)(null)), table27, "And ");
-#line 230
- testRunner.And("The chance of convincing level \'1\' recruits is set to \'70\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 231
- testRunner.And("The chance of convincing level \'2\' recruits is set to \'50\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'1\' recruits is set to \'70\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 232
- testRunner.And("The chance of convincing level \'3\' recruits is set to \'20\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'2\' recruits is set to \'50\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 233
- testRunner.And("The chance of convincing level \'4\' recruits is set to \'10\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'3\' recruits is set to \'20\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 234
- testRunner.And("Randomzer for convincing recruits will always return \'80\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'4\' recruits is set to \'10\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 235
- testRunner.When("Logged user will try to convince recruit with ID \'Elf_A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Randomzer for convincing recruits will always return \'80\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 236
+ testRunner.When("Logged user will try to convince recruit with ID \'Elf_A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 237
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1104,17 +1106,19 @@ this.ScenarioInitialize(scenarioInfo);
                         "Def",
                         "Speed",
                         "Skills"});
-#line 237
+#line 238
  testRunner.And("Logged account should have mercenaries", ((string)(null)), table28, "And ");
+#line 240
+ testRunner.And("Count of potential recruits generated should be \'1\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("11 Successfully convincing level 2 recruit", SourceLine=240)]
+        [TechTalk.SpecRun.ScenarioAttribute("11 Successfully convincing level 2 recruit", SourceLine=241)]
         public virtual void _11SuccessfullyConvincingLevel2Recruit()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("11 Successfully convincing level 2 recruit", null, ((string[])(null)));
-#line 241
+#line 242
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -1126,9 +1130,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "ID_1",
                         "test",
                         "test"});
-#line 242
+#line 243
  testRunner.Given("Some accounts exists in system", ((string)(null)), table29, "Given ");
-#line 245
+#line 246
  testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1149,21 +1153,21 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5"});
-#line 246
+#line 247
  testRunner.And("There as some recruits", ((string)(null)), table30, "And ");
-#line 249
- testRunner.And("The chance of convincing level \'1\' recruits is set to \'100\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 250
- testRunner.And("The chance of convincing level \'2\' recruits is set to \'50\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'1\' recruits is set to \'100\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 251
- testRunner.And("The chance of convincing level \'3\' recruits is set to \'20\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'2\' recruits is set to \'50\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 252
- testRunner.And("The chance of convincing level \'4\' recruits is set to \'10\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'3\' recruits is set to \'20\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 253
- testRunner.And("Randomzer for convincing recruits will always return \'49\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'4\' recruits is set to \'10\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 254
- testRunner.When("Logged user will try to convince recruit with ID \'Elf_A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Randomzer for convincing recruits will always return \'49\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 255
+ testRunner.When("Logged user will try to convince recruit with ID \'Elf_A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 256
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1186,17 +1190,19 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         ""});
-#line 256
+#line 257
  testRunner.And("Logged account should have mercenaries", ((string)(null)), table31, "And ");
+#line 260
+ testRunner.And("Count of potential recruits generated should be \'0\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("12 Successfully convincing level 3 recruit", SourceLine=259)]
+        [TechTalk.SpecRun.ScenarioAttribute("12 Successfully convincing level 3 recruit", SourceLine=261)]
         public virtual void _12SuccessfullyConvincingLevel3Recruit()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("12 Successfully convincing level 3 recruit", null, ((string[])(null)));
-#line 260
+#line 262
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -1208,9 +1214,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "ID_1",
                         "test",
                         "test"});
-#line 261
+#line 263
  testRunner.Given("Some accounts exists in system", ((string)(null)), table32, "Given ");
-#line 264
+#line 266
  testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1231,21 +1237,21 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5"});
-#line 265
+#line 267
  testRunner.And("There as some recruits", ((string)(null)), table33, "And ");
-#line 268
- testRunner.And("The chance of convincing level \'1\' recruits is set to \'100\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 269
- testRunner.And("The chance of convincing level \'2\' recruits is set to \'50\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 270
- testRunner.And("The chance of convincing level \'3\' recruits is set to \'20\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'1\' recruits is set to \'100\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 271
- testRunner.And("The chance of convincing level \'4\' recruits is set to \'10\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'2\' recruits is set to \'50\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 272
- testRunner.And("Randomzer for convincing recruits will always return \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'3\' recruits is set to \'20\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 273
- testRunner.When("Logged user will try to convince recruit with ID \'Elf_A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("The chance of convincing level \'4\' recruits is set to \'10\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 274
+ testRunner.And("Randomzer for convincing recruits will always return \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 275
+ testRunner.When("Logged user will try to convince recruit with ID \'Elf_A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 276
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1268,17 +1274,19 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         ""});
-#line 275
+#line 277
  testRunner.And("Logged account should have mercenaries", ((string)(null)), table34, "And ");
+#line 280
+ testRunner.And("Count of potential recruits generated should be \'0\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("13 Successfully convincing level 4 recruit", SourceLine=278)]
+        [TechTalk.SpecRun.ScenarioAttribute("13 Successfully convincing level 4 recruit", SourceLine=281)]
         public virtual void _13SuccessfullyConvincingLevel4Recruit()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("13 Successfully convincing level 4 recruit", null, ((string[])(null)));
-#line 279
+#line 282
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -1290,9 +1298,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "ID_1",
                         "test",
                         "test"});
-#line 280
- testRunner.Given("Some accounts exists in system", ((string)(null)), table35, "Given ");
 #line 283
+ testRunner.Given("Some accounts exists in system", ((string)(null)), table35, "Given ");
+#line 286
  testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1313,21 +1321,21 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "10",
                         "5"});
-#line 284
- testRunner.And("There as some recruits", ((string)(null)), table36, "And ");
 #line 287
- testRunner.And("The chance of convincing level \'1\' recruits is set to \'100\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 288
- testRunner.And("The chance of convincing level \'2\' recruits is set to \'50\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 289
- testRunner.And("The chance of convincing level \'3\' recruits is set to \'20\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("There as some recruits", ((string)(null)), table36, "And ");
 #line 290
- testRunner.And("The chance of convincing level \'4\' recruits is set to \'10\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'1\' recruits is set to \'100\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 291
- testRunner.And("Randomzer for convincing recruits will always return \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The chance of convincing level \'2\' recruits is set to \'50\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 292
- testRunner.When("Logged user will try to convince recruit with ID \'Elf_A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("The chance of convincing level \'3\' recruits is set to \'20\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 293
+ testRunner.And("The chance of convincing level \'4\' recruits is set to \'10\' of \'100\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 294
+ testRunner.And("Randomzer for convincing recruits will always return \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 295
+ testRunner.When("Logged user will try to convince recruit with ID \'Elf_A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 296
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1350,8 +1358,10 @@ this.ScenarioInitialize(scenarioInfo);
                         "10",
                         "5",
                         ""});
-#line 294
+#line 297
  testRunner.And("Logged account should have mercenaries", ((string)(null)), table37, "And ");
+#line 300
+ testRunner.And("Count of potential recruits generated should be \'0\' for user with ID \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
