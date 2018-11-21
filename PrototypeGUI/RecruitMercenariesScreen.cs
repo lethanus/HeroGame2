@@ -104,11 +104,16 @@ namespace PrototypeGUI
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (nextRefreshBar.Value < nextRefreshBar.Maximum)
+            {
                 nextRefreshBar.Value++;
+                var left = (double) nextRefreshBar.Maximum - nextRefreshBar.Value;
+                timeLeftBox.Text = DateTime.MinValue.AddSeconds(left/4).ToLongTimeString();
+            }
             else
             {
                 refreshTimer.Enabled = false;
                 UpdateRefresh();
+                timeLeftBox.Text = "Ready";
             }
         }
 
