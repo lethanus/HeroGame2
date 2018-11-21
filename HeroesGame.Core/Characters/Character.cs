@@ -16,9 +16,13 @@ namespace HeroesGame.Characters
         public int Speed { get; set; }
         public string Skills { get; set; }
         public string Hp_range { get; set; }
+        public int Level { get; set; }
 
 
-        public Character() {}
+        public Character()
+        {
+            Level = 1;
+        }
         public Character(string name, int maxHp, int min_attack, int max_attack, int defence, int speed, string skills)
         {
             Name = name;
@@ -29,6 +33,7 @@ namespace HeroesGame.Characters
             Def = defence;
             Speed = speed;
             Skills = skills;
+            Level = 1;
             ID = Guid.NewGuid().ToString();
         }
 
@@ -37,6 +42,7 @@ namespace HeroesGame.Characters
             var newChar = new Character(Name, MaxHp, Min_Att, Max_Att, Def, Speed, Skills);
             newChar._team = _team;
             newChar._teamPosition = _teamPosition;
+            newChar.Level = Level;
             return newChar;
         }
 

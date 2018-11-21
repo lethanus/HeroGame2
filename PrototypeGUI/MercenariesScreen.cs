@@ -30,15 +30,17 @@ namespace PrototypeGUI
             var mercenaries = _mercenaryManagement.GetAllMercenariesForLoggedUser();
 
             listMercenaries.Columns.Clear();
+            listMercenaries.Columns.Add("Level", 100, HorizontalAlignment.Center);
             listMercenaries.Columns.Add("Name", 100, HorizontalAlignment.Left);
-            listMercenaries.Columns.Add("MaxHp", 50, HorizontalAlignment.Right);
-            listMercenaries.Columns.Add("Attack", 50, HorizontalAlignment.Right);
-            listMercenaries.Columns.Add("Defence", 70, HorizontalAlignment.Right);
-            listMercenaries.Columns.Add("Speed", 50, HorizontalAlignment.Right);
+            listMercenaries.Columns.Add("MaxHp", 50, HorizontalAlignment.Center);
+            listMercenaries.Columns.Add("Attack", 50, HorizontalAlignment.Center);
+            listMercenaries.Columns.Add("Defence", 70, HorizontalAlignment.Center);
+            listMercenaries.Columns.Add("Speed", 50, HorizontalAlignment.Center);
             listMercenaries.Items.Clear();
             foreach(var mercenary in mercenaries)
             {
                 List<string> row = new List<string>();
+                row.Add(mercenary.Level.ToString());
                 row.Add(mercenary.Name);
                 row.Add(mercenary.MaxHp.ToString());
                 row.Add($"{mercenary.getMin_Att().ToString()}-{mercenary.getMax_Att().ToString()}");

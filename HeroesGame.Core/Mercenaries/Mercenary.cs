@@ -25,6 +25,7 @@ namespace HeroesGame.Mercenaries
             character.Min_Att = Attack_Min;
             character.Def = Defence;
             character.Speed = Speed;
+            character.Level = Level;
 
             return character;
         }
