@@ -39,6 +39,12 @@ namespace ConstructionYard
             objectContainer.RegisterInstanceAs<IMercenaryTemplateRepository>(mercenaryTemplateRepository);
             var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement, mercenaryTemplateRepository, valueRandomizer, configRepo, recruitRepo);
             objectContainer.RegisterInstanceAs<IMercenaryManagement>(mercenaryManagement);
+
+            var packFormationRepository = new PackFormationJsonFileRepository(Directory.GetCurrentDirectory());
+            objectContainer.RegisterInstanceAs<IPackFormationRepository>(packFormationRepository);
+
+            var packFormationBuilder = new PackFormationBuilder(packFormationRepository, accountManagement);
+            objectContainer.RegisterInstanceAs<IPackFormationBuilder>(packFormationBuilder);
         }
 
         public static void CleanupRepository()
