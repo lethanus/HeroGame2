@@ -44,6 +44,7 @@ namespace HeroesGame.Mercenaries
             if(randomValue <= convinceChances[recruit.Level].Value )
             {
                 AddNewMercenary(recruit.CreateCharacter());
+                _recruitsRepository.Remove(recruit, _accountManagement.GetLoggedAccount().ID);
             }
         }
 

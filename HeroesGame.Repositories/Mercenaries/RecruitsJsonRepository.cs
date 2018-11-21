@@ -57,5 +57,12 @@ namespace HeroesGame.Repositories
             string json = JsonConvert.SerializeObject(recruits, Formatting.Indented);
             File.WriteAllText(pathToFile, json);
         }
+
+        public void Remove(Mercenary recruit, string accountID)
+        {
+            var recruits = GetRecruitsForAccount(accountID);
+            var filtered = recruits.Where(x => x.ID != recruit.ID).ToList();
+            SaveRecruitsForAccount(filtered, accountID, _directoryPath);
+        }
     }
 }
