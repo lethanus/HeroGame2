@@ -94,6 +94,7 @@
             this.btConvince.TabIndex = 4;
             this.btConvince.Text = "Try convince to join your pack";
             this.btConvince.UseVisualStyleBackColor = true;
+            this.btConvince.Click += new System.EventHandler(this.btConvince_Click);
             // 
             // label1
             // 

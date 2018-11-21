@@ -111,5 +111,14 @@ namespace PrototypeGUI
                 UpdateRefresh();
             }
         }
+
+        private void btConvince_Click(object sender, EventArgs e)
+        {
+            if(listRecruits.SelectedItems.Count == 1)
+            {
+                var recruit = (Mercenary)listRecruits.SelectedItems[0].Tag;
+                _mercenaryManagement.ConvinceRecruit(recruit);
+            }
+        }
     }
 }

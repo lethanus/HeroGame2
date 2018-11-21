@@ -96,6 +96,11 @@ namespace PrototypeGUI
             EnsureConfigValue("ChanceForLevel_3_mercenary", "500_10000");
             EnsureConfigValue("ChanceForLevel_4_mercenary", "50_10000");
 
+            EnsureConfigValue("ConvinceLevel_1_recruit", "7500_10000");
+            EnsureConfigValue("ConvinceLevel_2_recruit", "5000_10000");
+            EnsureConfigValue("ConvinceLevel_3_recruit", "2000_10000");
+            EnsureConfigValue("ConvinceLevel_4_recruit", "1000_10000");
+
             _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _recruitsRepository = new RecruitsJsonRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
