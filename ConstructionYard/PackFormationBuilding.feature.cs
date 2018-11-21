@@ -163,6 +163,103 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("02 Replacing character from the position", SourceLine=29)]
+        public virtual void _02ReplacingCharacterFromThePosition()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Replacing character from the position", null, ((string[])(null)));
+#line 30
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Login",
+                        "Password"});
+            table4.AddRow(new string[] {
+                        "ID_1",
+                        "test",
+                        "test"});
+#line 31
+ testRunner.Given("Some accounts exists in system", ((string)(null)), table4, "Given ");
+#line 34
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table5.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "20",
+                        "20",
+                        "10",
+                        "10",
+                        "5",
+                        "10",
+                        ""});
+            table5.AddRow(new string[] {
+                        "Goblin_B",
+                        "Goblin",
+                        "10",
+                        "10",
+                        "5",
+                        "5",
+                        "0",
+                        "5",
+                        ""});
+#line 35
+ testRunner.And("Account \'ID_1\' already have some mercenaries", ((string)(null)), table5, "And ");
+#line 39
+ testRunner.When("Player will set character with ID \'Elf_A\' to position \'Middle_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
+ testRunner.When("Player will set character with ID \'Goblin_B\' to position \'Middle_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Position",
+                        "Character_ID"});
+            table6.AddRow(new string[] {
+                        "Front_1",
+                        ""});
+            table6.AddRow(new string[] {
+                        "Front_2",
+                        ""});
+            table6.AddRow(new string[] {
+                        "Front_3",
+                        ""});
+            table6.AddRow(new string[] {
+                        "Middle_1",
+                        "Goblin_B"});
+            table6.AddRow(new string[] {
+                        "Middle_2",
+                        ""});
+            table6.AddRow(new string[] {
+                        "Middle_3",
+                        ""});
+            table6.AddRow(new string[] {
+                        "Middle_4",
+                        ""});
+            table6.AddRow(new string[] {
+                        "Rear_1",
+                        ""});
+            table6.AddRow(new string[] {
+                        "Rear_2",
+                        ""});
+            table6.AddRow(new string[] {
+                        "Rear_3",
+                        ""});
+#line 41
+ testRunner.Then("Pack formation should look like this", ((string)(null)), table6, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {
