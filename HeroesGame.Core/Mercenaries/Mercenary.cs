@@ -1,4 +1,7 @@
-﻿namespace HeroesGame.Mercenaries
+﻿using HeroesGame.Characters;
+
+
+namespace HeroesGame.Mercenaries
 {
     public class Mercenary
     {
@@ -10,5 +13,20 @@
         public int Attack_Max { get; set; }
         public int Defence { get; set; }
         public int Speed { get; set; }
+
+        public Character CreateCharacter()
+        {
+            var character = new Character();
+            character.Name = Name;
+            character.MaxHp = Hp;
+            character.Hp = Hp;
+            character.ID = ID;
+            character.Max_Att = Attack_Max;
+            character.Min_Att = Attack_Min;
+            character.Def = Defence;
+            character.Speed = Speed;
+
+            return character;
+        }
     }
 }
