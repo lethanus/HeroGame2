@@ -96,6 +96,12 @@
       <DependentUpon>Mercenaries.feature</DependentUpon>
     </Compile>
     <Compile Include="MercenariesSteps.cs" />
+    <Compile Include="PackFormationBuilding.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PackFormationBuilding.feature</DependentUpon>
+    </Compile>
+    <Compile Include="PackFormationBuildingSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefreshingMechanism.feature.cs">
       <AutoGen>True</AutoGen>
@@ -121,6 +127,10 @@
       <LastGenOutput>Mercenaries.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="PackFormationBuilding.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PackFormationBuilding.feature.cs</LastGenOutput>
+    </None>
     <None Include="RefreshingMechanism.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RefreshingMechanism.feature.cs</LastGenOutput>

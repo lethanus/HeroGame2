@@ -17,8 +17,8 @@ namespace ConstructionYard
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Mercenaries", Description="\tManaging mercenaries for account", SourceFile="Mercenaries.feature", SourceLine=0)]
-    public partial class MercenariesFeature
+    [TechTalk.SpecRun.FeatureAttribute("Mercenaries management", Description="\tManaging mercenaries for account", SourceFile="Mercenaries.feature", SourceLine=0)]
+    public partial class MercenariesManagementFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -30,7 +30,7 @@ namespace ConstructionYard
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Mercenaries", "\tManaging mercenaries for account", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Mercenaries management", "\tManaging mercenaries for account", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

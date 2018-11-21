@@ -17,7 +17,7 @@ namespace ConstructionYard
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("RefreshingMechanism", Description="\tThis will ensure that player cannot use refresh button until given time passed", SourceFile="RefreshingMechanism.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Refreshing mechanism", Description="\tThis will ensure that player cannot use refresh button until given time passed", SourceFile="RefreshingMechanism.feature", SourceLine=0)]
     public partial class RefreshingMechanismFeature
     {
         
@@ -30,7 +30,7 @@ namespace ConstructionYard
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RefreshingMechanism", "\tThis will ensure that player cannot use refresh button until given time passed", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Refreshing mechanism", "\tThis will ensure that player cannot use refresh button until given time passed", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

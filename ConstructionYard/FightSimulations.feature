@@ -1,4 +1,4 @@
-﻿Feature: FightSimulations
+﻿Feature: Fight simulations
 	Fighting 
 
 @mytag

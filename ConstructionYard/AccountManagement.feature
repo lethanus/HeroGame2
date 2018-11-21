@@ -1,4 +1,4 @@
-﻿Feature: AccountManagement
+﻿Feature: Account management
 	
 
 @mytag

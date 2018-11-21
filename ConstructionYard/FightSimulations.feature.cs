@@ -17,7 +17,7 @@ namespace ConstructionYard
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("FightSimulations", Description="\tFighting ", SourceFile="FightSimulations.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Fight simulations", Description="\tFighting ", SourceFile="FightSimulations.feature", SourceLine=0)]
     public partial class FightSimulationsFeature
     {
         
@@ -30,7 +30,7 @@ namespace ConstructionYard
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "FightSimulations", "\tFighting ", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Fight simulations", "\tFighting ", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

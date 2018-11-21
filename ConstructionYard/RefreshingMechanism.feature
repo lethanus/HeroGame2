@@ -1,4 +1,4 @@
-﻿Feature: RefreshingMechanism
+﻿Feature: Refreshing mechanism
 	This will ensure that player cannot use refresh button until given time passed
 
 @mytag

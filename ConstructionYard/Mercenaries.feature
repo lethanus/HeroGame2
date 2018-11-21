@@ -1,4 +1,4 @@
-﻿Feature: Mercenaries
+﻿Feature: Mercenaries management
 	Managing mercenaries for account
 
 @mytag
