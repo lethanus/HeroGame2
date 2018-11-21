@@ -12,6 +12,7 @@ using HeroesGame.Configuration;
 using HeroesGame.RefresingMechanism;
 using HeroesGame.Mercenaries;
 using HeroesGame.Repositories;
+using HeroesGame.PackBuilding;
 using HeroesGame.Core.Randomizers;
 
 namespace PrototypeGUI
@@ -27,6 +28,8 @@ namespace PrototypeGUI
         private IMercenaryTemplateRepository _mercenaryTemplateRepository;
         private IMercenaryManagement _mercenaryManagement;
         private IRecruitsRepository _recruitsRepository;
+        private IPackFormationBuilder _packFormationBuilder;
+        private IPackFormationRepository _packFormationRepository;
 
         public btCampain()
         {
@@ -101,6 +104,10 @@ namespace PrototypeGUI
             EnsureConfigValue("ConvinceLevel_3_recruit", "2000_10000");
             EnsureConfigValue("ConvinceLevel_4_recruit", "1000_10000");
 
+            _packFormationRepository = new PackFormationJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
+            _packFormationBuilder = new PackFormationBuilder(_packFormationRepository, _accountManagement);
+
+
             _refreshRepository = new RefreshJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _recruitsRepository = new RecruitsJsonRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
@@ -147,7 +154,7 @@ namespace PrototypeGUI
 
         private void btPackFormation_Click(object sender, EventArgs e)
         {
-            PackFormationScreen packFormationScreen = new PackFormationScreen(_mercenaryManagement);
+            PackFormationScreen packFormationScreen = new PackFormationScreen(_mercenaryManagement, _packFormationBuilder);
             packFormationScreen.ShowDialog();
         }
     }

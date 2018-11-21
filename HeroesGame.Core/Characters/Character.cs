@@ -89,6 +89,11 @@ namespace HeroesGame.Characters
             return $"{Name} [{MaxHp}/{Hp}]";
         }
 
+        public string ToPositionFormatString()
+        {
+            return $"{Level} - {Name}";
+        }
+
         public void SetPosition(TeamPosition position)
         {
             _teamPosition = position;

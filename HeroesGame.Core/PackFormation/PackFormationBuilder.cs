@@ -1,5 +1,6 @@
 ﻿using HeroesGame.Characters;
 using HeroesGame.Accounts;
+using System.Collections.Generic;
 
 namespace HeroesGame.PackBuilding
 {
@@ -12,6 +13,11 @@ namespace HeroesGame.PackBuilding
         {
             _packFormationRepository = packFormationRepository;
             _accountManagement = accountManagement;
+        }
+
+        public List<CharacterInThePack> GetAll()
+        {
+            return _packFormationRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }
 
         public string GetCharacterIdOnPosition(TeamPosition position)
