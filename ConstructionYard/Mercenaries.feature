@@ -209,7 +209,10 @@ Scenario: 09 Successfully convincing level 1 recruit
 	| ID    | Level | Name | Hp | Attack_Min | Attack_Max | Defence | Speed |
 	| Elf_A | 1     | Elf  | 20 | 10         | 20         | 10      | 5     | 
 	And The chance of convincing level '1' recruits is set to '100' of '100'
-	And Randomzer for convincing recruits will always return '50'
+	And The chance of convincing level '2' recruits is set to '50' of '100'
+	And The chance of convincing level '3' recruits is set to '20' of '100'
+	And The chance of convincing level '4' recruits is set to '10' of '100'
+	And Randomzer for convincing recruits will always return '90'
 	When Logged user will try to convince recruit with ID 'Elf_A'
 	Then Logged account id is 'ID_1'
 	And Logged account should have mercenaries
@@ -224,9 +227,32 @@ Scenario: 10 Failing to convince level 1 recruit
 	And There as some recruits
 	| ID    | Level | Name | Hp | Attack_Min | Attack_Max | Defence | Speed |
 	| Elf_A | 1     | Elf  | 20 | 10         | 20         | 10      | 5     | 
-	And The chance of convincing level '1' recruits is set to '10' of '100'
-	And Randomzer for convincing recruits will always return '50'
+	And The chance of convincing level '1' recruits is set to '70' of '100'
+	And The chance of convincing level '2' recruits is set to '50' of '100'
+	And The chance of convincing level '3' recruits is set to '20' of '100'
+	And The chance of convincing level '4' recruits is set to '10' of '100'
+	And Randomzer for convincing recruits will always return '80'
 	When Logged user will try to convince recruit with ID 'Elf_A'
 	Then Logged account id is 'ID_1'
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills | 
+
+
+Scenario: 11 Successfully convincing level 2 recruit
+	Given Some accounts exists in system
+	| ID   | Login | Password |
+	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
+	And There as some recruits
+	| ID    | Level | Name | Hp | Attack_Min | Attack_Max | Defence | Speed |
+	| Elf_A | 2     | Elf  | 20 | 10         | 20         | 10      | 5     | 
+	And The chance of convincing level '1' recruits is set to '100' of '100'
+	And The chance of convincing level '2' recruits is set to '50' of '100'
+	And The chance of convincing level '3' recruits is set to '20' of '100'
+	And The chance of convincing level '4' recruits is set to '10' of '100'
+	And Randomzer for convincing recruits will always return '49'
+	When Logged user will try to convince recruit with ID 'Elf_A'
+	Then Logged account id is 'ID_1'
+	And Logged account should have mercenaries
+	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
+	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        | 
