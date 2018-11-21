@@ -42,6 +42,7 @@
             this.btClose = new System.Windows.Forms.Button();
             this.btMercenaryTemplates = new System.Windows.Forms.Button();
             this.btConfigSettings = new System.Windows.Forms.Button();
+            this.btPackFormation = new System.Windows.Forms.Button();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +75,7 @@
             // 
             // gamePanel
             // 
+            this.gamePanel.Controls.Add(this.btPackFormation);
             this.gamePanel.Controls.Add(this.button1);
             this.gamePanel.Controls.Add(this.btAdventures);
             this.gamePanel.Controls.Add(this.btInventory);
@@ -185,6 +187,16 @@
             this.btConfigSettings.UseVisualStyleBackColor = true;
             this.btConfigSettings.Click += new System.EventHandler(this.btConfigSettings_Click);
             // 
+            // btPackFormation
+            // 
+            this.btPackFormation.Location = new System.Drawing.Point(25, 111);
+            this.btPackFormation.Name = "btPackFormation";
+            this.btPackFormation.Size = new System.Drawing.Size(124, 23);
+            this.btPackFormation.TabIndex = 7;
+            this.btPackFormation.Text = "Pack formation";
+            this.btPackFormation.UseVisualStyleBackColor = true;
+            this.btPackFormation.Click += new System.EventHandler(this.btPackFormation_Click);
+            // 
             // btCampain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,6 +238,7 @@
         private System.Windows.Forms.Button btAdventures;
         private System.Windows.Forms.Button btMercenaryTemplates;
         private System.Windows.Forms.Button btConfigSettings;
+        private System.Windows.Forms.Button btPackFormation;
     }
 }
 

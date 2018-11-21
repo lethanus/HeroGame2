@@ -60,6 +60,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.listMercenaryTemplates);
             this.Controls.Add(this.btClose);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(816, 489);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "MercenaryTemplatesScreen";
             this.Text = "Mercenary templates";
             this.Load += new System.EventHandler(this.MercenaryTemplatesScreen_Load);

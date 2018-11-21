@@ -144,5 +144,11 @@ namespace PrototypeGUI
             ConfigurationSettingsScreen configurationSettingsScreen = new ConfigurationSettingsScreen(_configRepository);
             configurationSettingsScreen.ShowDialog();
         }
+
+        private void btPackFormation_Click(object sender, EventArgs e)
+        {
+            PackFormationScreen packFormationScreen = new PackFormationScreen();
+            packFormationScreen.ShowDialog();
+        }
     }
 }

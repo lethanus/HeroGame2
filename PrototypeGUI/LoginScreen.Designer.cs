@@ -106,6 +106,7 @@
             this.MaximumSize = new System.Drawing.Size(317, 162);
             this.MinimizeBox = false;
             this.Name = "LoginScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
