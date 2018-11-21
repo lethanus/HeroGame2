@@ -40,6 +40,7 @@
             this.btRecruitMercenaries = new System.Windows.Forms.Button();
             this.btMercenaries = new System.Windows.Forms.Button();
             this.btClose = new System.Windows.Forms.Button();
+            this.btMercenaryTemplates = new System.Windows.Forms.Button();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,11 +164,22 @@
             this.btClose.UseVisualStyleBackColor = true;
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
+            // btMercenaryTemplates
+            // 
+            this.btMercenaryTemplates.Location = new System.Drawing.Point(16, 415);
+            this.btMercenaryTemplates.Name = "btMercenaryTemplates";
+            this.btMercenaryTemplates.Size = new System.Drawing.Size(135, 23);
+            this.btMercenaryTemplates.TabIndex = 5;
+            this.btMercenaryTemplates.Text = "Mercenary templates";
+            this.btMercenaryTemplates.UseVisualStyleBackColor = true;
+            this.btMercenaryTemplates.Click += new System.EventHandler(this.btMercenaryTemplates_Click);
+            // 
             // btCampain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btMercenaryTemplates);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.gamePanel);
             this.Controls.Add(this.label1);
@@ -200,6 +212,7 @@
         private System.Windows.Forms.Button btInventory;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btAdventures;
+        private System.Windows.Forms.Button btMercenaryTemplates;
     }
 }
 

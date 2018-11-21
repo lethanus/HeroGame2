@@ -132,5 +132,11 @@ namespace PrototypeGUI
                 control.Enabled = account != null;
             }
         }
+
+        private void btMercenaryTemplates_Click(object sender, EventArgs e)
+        {
+            MercenaryTemplatesScreen mercenaryTemplatesScreen = new MercenaryTemplatesScreen(_mercenaryTemplateRepository);
+            mercenaryTemplatesScreen.ShowDialog();
+        }
     }
 }
