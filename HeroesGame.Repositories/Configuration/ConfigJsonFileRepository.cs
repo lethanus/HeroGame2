@@ -7,14 +7,10 @@ using System.Linq;
 
 namespace HeroesGame.Repositories
 {
-    public class ConfigJsonFileRepository : IConfigRepository
+    public class ConfigJsonFileRepository : JsonListRepository<ConfigurationParameter>,  IConfigRepository
     {
-        private string _pathToRepoFile = "";
+        public ConfigJsonFileRepository(string pathToRepoFile) : base(pathToRepoFile) { }
 
-        public ConfigJsonFileRepository(string pathToRepoFile)
-        {
-            _pathToRepoFile = pathToRepoFile;
-        }
         public string GetParameterValue(string parameterName)
         {
             var configValues = GetAll();
@@ -22,27 +18,15 @@ namespace HeroesGame.Repositories
             return configValues.First(x=>x.Name == parameterName).Value;
         }
 
-        public void SetConfigParameter(string parameter, string value)
+        public void SetConfigParameter(string parameterName, string value)
         {
             var configValues = GetAll();
-            configValues.Add(new ConfigurationParameter { Name = parameter, Value = value });
-            SaveAllParameters(configValues, _pathToRepoFile);
-        }
-
-        public List<ConfigurationParameter> GetAll()
-        {
-            if (!File.Exists(_pathToRepoFile))
-            {
-                return new List<ConfigurationParameter>();
-            }
-            var json = File.ReadAllText(_pathToRepoFile);
-            return JsonConvert.DeserializeObject<List<ConfigurationParameter>>(json);
-        }
-
-        private void SaveAllParameters(List<ConfigurationParameter> configurationParameters, string pathToFile)
-        {
-            string json = JsonConvert.SerializeObject(configurationParameters, Formatting.Indented);
-            File.WriteAllText(pathToFile, json);
+            var parameter = configValues.FirstOrDefault(x => x.Name == parameterName);
+            if(parameter == null)
+                configValues.Add(new ConfigurationParameter { Name = parameterName, Value = value });
+            else
+                configValues.First(x => x.Name == parameterName).Value = value;
+            SaveAll(configValues);
         }
     }
 }
