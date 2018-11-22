@@ -130,11 +130,11 @@ namespace PrototypeGUI
             _positionInInventoryRepository = new PositionInInventoryJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _itemTemplateRepository = new ItemTemplateJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\ItemTemplates.json");
             _inventoryManagement = new InventoryManagement(_itemTemplateRepository, _positionInInventoryRepository, _accountManagement);
-            if (_itemTemplateRepository.GetAllTemplates().Count == 0)
+            if (_itemTemplateRepository.GetAll().Count == 0)
             {
                 foreach (var template in ItemTemplatesCollectionGenerator.Generate())
                 {
-                    _itemTemplateRepository.AddTemplate(template);
+                    _itemTemplateRepository.Add(template);
                 }
 
             }

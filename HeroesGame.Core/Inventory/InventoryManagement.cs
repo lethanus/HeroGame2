@@ -20,7 +20,7 @@ namespace HeroesGame.Inventory
 
         public void AddItems(string itemID, int amount)
         {
-            var seletedItem = _itemTemplateRepository.GetAllTemplates().First(x=>x.ID == itemID);
+            var seletedItem = _itemTemplateRepository.GetAll().First(x=>x.ID == itemID);
             var allPositions = _positionInInventoryRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
             var position = allPositions.FirstOrDefault(x => x.ID == itemID);
             if (position == null)

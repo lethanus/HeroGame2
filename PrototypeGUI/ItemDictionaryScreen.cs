@@ -28,7 +28,7 @@ namespace PrototypeGUI
 
         private void ItemDictionaryScreen_Load(object sender, EventArgs e)
         {
-            var itemTemplates = _itemTemplateRepository.GetAllTemplates();
+            var itemTemplates = _itemTemplateRepository.GetAll();
 
             listItems.Columns.Clear();
             listItems.Columns.Add("ID", 100, HorizontalAlignment.Center);

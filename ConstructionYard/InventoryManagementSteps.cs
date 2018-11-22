@@ -48,7 +48,7 @@ namespace ConstructionYard
             var itemTemplates = table.CreateSet<ItemTemplate>().ToList();
             foreach (var template in itemTemplates)
             {
-                itemTemplateRepository.AddTemplate(template);
+                itemTemplateRepository.Add(template);
             }
         }
         

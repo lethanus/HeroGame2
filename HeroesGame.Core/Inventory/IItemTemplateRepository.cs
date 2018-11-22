@@ -5,7 +5,7 @@ namespace HeroesGame.Inventory
 {
     public interface IItemTemplateRepository
     {
-        void AddTemplate(ItemTemplate template);
-        List<ItemTemplate> GetAllTemplates();
+        void Add(ItemTemplate template);
+        List<ItemTemplate> GetAll();
     }
 }
