@@ -73,7 +73,7 @@ namespace PrototypeGUI
 
         private void btInventory_Click(object sender, EventArgs e)
         {
-            InventoryScreen inventoryScreen = new InventoryScreen();
+            InventoryScreen inventoryScreen = new InventoryScreen(_inventoryManagement);
             inventoryScreen.ShowDialog();
         }
 

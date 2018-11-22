@@ -44,11 +44,14 @@
             // 
             // listItems
             // 
+            this.listItems.FullRowSelect = true;
+            this.listItems.GridLines = true;
             this.listItems.Location = new System.Drawing.Point(12, 12);
             this.listItems.Name = "listItems";
             this.listItems.Size = new System.Drawing.Size(776, 397);
             this.listItems.TabIndex = 1;
             this.listItems.UseCompatibleStateImageBehavior = false;
+            this.listItems.View = System.Windows.Forms.View.Details;
             // 
             // InventoryScreen
             // 
@@ -63,6 +66,7 @@
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "InventoryScreen";
             this.Text = "Inventory";
+            this.Load += new System.EventHandler(this.InventoryScreen_Load);
             this.ResumeLayout(false);
 
         }
