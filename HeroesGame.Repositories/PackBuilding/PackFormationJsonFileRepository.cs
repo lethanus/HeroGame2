@@ -17,20 +17,15 @@ namespace HeroesGame.Repositories
             _directoryPath = directoryPath;
         }
 
-        public List<CharacterInThePack> GetAll(string accountID)
-        {
-            return GetFormationForAccount(accountID);
-        }
-
         public string GetCharacterIdOnPosition(TeamPosition position, string accountID)
         {
-            var positions = GetFormationForAccount(accountID);
+            var positions = GetAll(accountID);
             return positions.ToDictionary(x => x.Position, x => x.Character_ID)[position];
         }
 
         public void SetCharacterToPosition(string characterID, TeamPosition position, string accountID)
         {
-            var positions = GetFormationForAccount(accountID);
+            var positions = GetAll(accountID);
             positions.First(x => x.Position == position).Character_ID = characterID;
             SaveFormationForAccount(positions, accountID, _directoryPath);
         }
@@ -42,7 +37,7 @@ namespace HeroesGame.Repositories
             File.WriteAllText(pathToFile, json);
         }
 
-        public List<CharacterInThePack> GetFormationForAccount(string accountID)
+        public List<CharacterInThePack> GetAll(string accountID)
         {
             string pathToFile = $"{_directoryPath}\\PackFormation_{accountID}.json";
             if (!File.Exists(pathToFile))
