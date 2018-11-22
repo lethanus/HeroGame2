@@ -93,9 +93,9 @@ namespace ConstructionYard
             var mercenaries = table.CreateSet<MercenaryTemplate>().ToList();
             foreach (var mercenary in mercenaries)
             {
-                mercenaryTemplateRepo.AddMercenaryTemplate(mercenary);
+                mercenaryTemplateRepo.Add(mercenary);
             }
-            Assert.Greater(mercenaryTemplateRepo.GetMercenaryTemplates().Count, 0);
+            Assert.Greater(mercenaryTemplateRepo.GetAll().Count, 0);
         }
 
         [When(@"Creating mercenary '(.*)' of level '(.*)'")]

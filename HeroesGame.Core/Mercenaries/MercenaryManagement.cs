@@ -82,7 +82,7 @@ namespace HeroesGame.Mercenaries
                     if (randomValue < mercenaryChances[j].Value) level = j;
                 }
 
-                var mercenariesOnLevel = _mercenaryTemplateRepository.GetMercenaryTemplates().Where(x => x.Level == level.ToString());
+                var mercenariesOnLevel = _mercenaryTemplateRepository.GetAll().Where(x => x.Level == level.ToString());
 
                 int counter = 1;
                 var names = new Dictionary<int, string>();
@@ -110,7 +110,7 @@ namespace HeroesGame.Mercenaries
         public Mercenary GetMercenaryBaseOnTemplate(string mercenaryName, int mercenaryLevel)
         {
             var newMercenary = new Mercenary();
-            var mercenaryTemplate = _mercenaryTemplateRepository.GetMercenaryTemplates().First(x => x.Level == mercenaryLevel.ToString() && x.Name == mercenaryName);
+            var mercenaryTemplate = _mercenaryTemplateRepository.GetAll().First(x => x.Level == mercenaryLevel.ToString() && x.Name == mercenaryName);
 
             newMercenary.Hp = GetRandomValueFromTemplateRange(mercenaryTemplate.HP_range, "Mercenary_Hp");
             newMercenary.Attack_Min = GetRandomValueFromTemplateRange(mercenaryTemplate.Min_Attack_range, "Mercenary_Attack");

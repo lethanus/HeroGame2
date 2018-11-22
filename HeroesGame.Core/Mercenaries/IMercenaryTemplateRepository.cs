@@ -4,8 +4,8 @@ namespace HeroesGame.Mercenaries
 {
     public interface IMercenaryTemplateRepository
     {
-        void AddMercenaryTemplate(MercenaryTemplate mercenaryTemplate);
-        List<MercenaryTemplate> GetMercenaryTemplates();
+        void Add(MercenaryTemplate mercenaryTemplate);
+        List<MercenaryTemplate> GetAll();
     }
 
 

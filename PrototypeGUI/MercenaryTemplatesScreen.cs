@@ -36,7 +36,7 @@ namespace PrototypeGUI
             listMercenaryTemplates.Columns.Add("Defence_range", 100, HorizontalAlignment.Center);
             listMercenaryTemplates.Columns.Add("Speed_range", 100, HorizontalAlignment.Center);
             listMercenaryTemplates.Items.Clear();
-            foreach (var template in _mercenaryTemplateRepository.GetMercenaryTemplates())
+            foreach (var template in _mercenaryTemplateRepository.GetAll())
             {
                 List<string> row = new List<string>();
                 row.Add(template.Level);
