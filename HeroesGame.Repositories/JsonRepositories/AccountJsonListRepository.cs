@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using HeroesGame.Common;
 
 namespace HeroesGame.Repositories
 {
-    public class AccountJsonListRepository<T>
+    public class AccountJsonListRepository<T> where T : ObjectWithID
     {
         protected readonly string _directoryPath;
         private readonly string _filePrefix;
@@ -45,5 +46,19 @@ namespace HeroesGame.Repositories
             return JsonConvert.DeserializeObject<List<T>>(json);
         }
 
+        public void Clear(string accountID)
+        {
+            string pathToFile = $"{_directoryPath}\\{_filePrefix}_{accountID}.json";
+            List<T> items = new List<T>();
+            string json = JsonConvert.SerializeObject(items, Formatting.Indented);
+            File.WriteAllText(pathToFile, json);
+        }
+
+        public void Remove(T item, string accountID)
+        {
+            var items = GetAll(accountID);
+            var filtered = items.Where(x => x.ID != item.ID).ToList();
+            SaveAll(filtered, accountID, _directoryPath);
+        }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System;
+using HeroesGame.Common;
+
 
 namespace HeroesGame.Characters
 {
-    public class Character : ICharacterInTeam
+    public class Character : ObjectWithID, ICharacterInTeam
     {
         private string _team = "";
         private TeamPosition _teamPosition;
-        public string ID { get; set; }
         public string Name { get; set; }
         public int MaxHp { get; set; }
         public int Hp { get; set; }

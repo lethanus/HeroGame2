@@ -1,11 +1,10 @@
 ﻿using HeroesGame.Characters;
-
+using HeroesGame.Common;
 
 namespace HeroesGame.Mercenaries
 {
-    public class Mercenary
+    public class Mercenary : ObjectWithID
     {
-        public string ID { get; set; }
         public int Level { get; set; }
         public string Name { get; set; }
         public int Hp { get; set; }
