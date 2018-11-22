@@ -18,19 +18,14 @@ namespace HeroesGame.Repositories
 
         public void AddForAccount(PositionInInventory newItem, string accountID)
         {
-            var positions = GetPositionInInventoryForAccount(accountID);
+            var positions = GetAllForAcount(accountID);
             positions.Add(newItem);
             SavePositionInInventoryForAccount(positions, accountID, _directoryPath);
         }
 
-        public List<PositionInInventory> GetAllForAcount(string accountID)
-        {
-            return GetPositionInInventoryForAccount(accountID);
-        }
-
         public void ChangeAmountForAccount(string itemID, int newAmount, string accountID)
         {
-            var positions = GetPositionInInventoryForAccount(accountID);
+            var positions = GetAllForAcount(accountID);
             positions.First(x => x.ID == itemID).Amount = newAmount;
             SavePositionInInventoryForAccount(positions, accountID, _directoryPath);
         }
@@ -43,7 +38,7 @@ namespace HeroesGame.Repositories
             File.WriteAllText(pathToFile, json);
         }
 
-        public List<PositionInInventory> GetPositionInInventoryForAccount(string accountID)
+        public List<PositionInInventory> GetAllForAcount(string accountID)
         {
             string pathToFile = $"{_directoryPath}\\Inventory_{accountID}.json";
             if (!File.Exists(pathToFile))
@@ -56,7 +51,7 @@ namespace HeroesGame.Repositories
 
         public void RemovePositionWithID(string itemID, string accountID)
         {
-            var positions = GetPositionInInventoryForAccount(accountID).Where(x => x.ID != itemID).ToList();
+            var positions = GetAllForAcount(accountID).Where(x => x.ID != itemID).ToList();
             SavePositionInInventoryForAccount(positions, accountID, _directoryPath);
         }
     }
