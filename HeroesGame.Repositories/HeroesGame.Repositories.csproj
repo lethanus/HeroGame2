@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Accounts\AccountJsonFileRepository.cs" />
     <Compile Include="Configuration\ConfigJsonFileRepository.cs" />
+    <Compile Include="Inventory\ItemTemplateJsonFileRepository.cs" />
+    <Compile Include="Inventory\PositionInInventoryJsonFileRepository.cs" />
     <Compile Include="Mercenaries\MercenaryJsonFileRepository.cs" />
     <Compile Include="Mercenaries\MercenaryTemplateJsonFileRepository.cs" />
     <Compile Include="Mercenaries\RecruitsJsonRepository.cs" />

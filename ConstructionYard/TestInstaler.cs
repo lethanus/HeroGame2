@@ -8,6 +8,7 @@ using HeroesGame.Mercenaries;
 using System.IO;
 using HeroesGame.Core.Randomizers;
 using HeroesGame.PackBuilding;
+using HeroesGame.Inventory;
 
 namespace ConstructionYard
 {

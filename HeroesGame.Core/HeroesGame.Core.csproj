@@ -51,6 +51,12 @@
     <Compile Include="Characters\TeamPositionHelper.cs" />
     <Compile Include="Configuration\IConfigRepository.cs" />
     <Compile Include="FightingMechanism\FightMechanizm.cs" />
+    <Compile Include="Inventory\IInventoryManagement.cs" />
+    <Compile Include="Inventory\IItemTemplateRepository.cs" />
+    <Compile Include="Inventory\InventoryManagement.cs" />
+    <Compile Include="Inventory\IPositionInInventoryRepository.cs" />
+    <Compile Include="Inventory\ItemTemplate.cs" />
+    <Compile Include="Inventory\PositionInInventory.cs" />
     <Compile Include="Loggers\Logger.cs" />
     <Compile Include="Mercenaries\IMercenaryManagement.cs" />
     <Compile Include="Mercenaries\IMercenaryRepository.cs" />
