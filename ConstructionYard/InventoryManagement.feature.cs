@@ -66,11 +66,11 @@ namespace ConstructionYard
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Adding few items to empty inventory", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("01 Adding few items to empty inventory", new string[] {
                 "mytag"}, SourceLine=4)]
-        public virtual void AddingFewItemsToEmptyInventory()
+        public virtual void _01AddingFewItemsToEmptyInventory()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding few items to empty inventory", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Adding few items to empty inventory", null, new string[] {
                         "mytag"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -122,6 +122,69 @@ this.ScenarioInitialize(scenarioInfo);
                         "Trophy"});
 #line 16
  testRunner.Then("Inventory should have items below", ((string)(null)), table4, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("02 Adding few items to not empty inventory", SourceLine=20)]
+        public virtual void _02AddingFewItemsToNotEmptyInventory()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Adding few items to not empty inventory", null, ((string[])(null)));
+#line 21
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Login",
+                        "Password"});
+            table5.AddRow(new string[] {
+                        "ID_1",
+                        "test",
+                        "test"});
+#line 22
+ testRunner.Given("Some accounts exists in system", ((string)(null)), table5, "Given ");
+#line 25
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category"});
+            table6.AddRow(new string[] {
+                        "TR_1",
+                        "Rat tail",
+                        "5",
+                        "Trophy"});
+#line 26
+ testRunner.And("Inventory already contains items below", ((string)(null)), table6, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Category"});
+            table7.AddRow(new string[] {
+                        "TR_1",
+                        "Rat tail",
+                        "Trophy"});
+#line 29
+ testRunner.And("Items dictionary contains items below", ((string)(null)), table7, "And ");
+#line 32
+ testRunner.When("Adding item with ID \'TR_1\' with amount \'5\' to inventory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category"});
+            table8.AddRow(new string[] {
+                        "TR_1",
+                        "Rat tail",
+                        "10",
+                        "Trophy"});
+#line 33
+ testRunner.Then("Inventory should have items below", ((string)(null)), table8, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
