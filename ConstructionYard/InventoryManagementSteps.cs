@@ -77,6 +77,7 @@ namespace ConstructionYard
             {
                 Assert.AreEqual(item, positionsInInventory.First(x => x.ID == item.ID));
             }
+            Assert.AreEqual(expectedPositionsInInventory.Count, positionsInInventory.Count);
         }
     }
 }
