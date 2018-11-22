@@ -179,5 +179,15 @@ namespace PrototypeGUI
             ItemDictionaryScreen itemDictionaryScreen = new ItemDictionaryScreen(_itemTemplateRepository);
             itemDictionaryScreen.ShowDialog();
         }
+
+        private void btFillInventory_Click(object sender, EventArgs e)
+        {
+            var items = _itemTemplateRepository.GetAll();
+            foreach(var item in items)
+            {
+                _inventoryManagement.AddItems(item.ID, 10);
+            }
+            MessageBox.Show("10 of each added!");
+        }
     }
 }

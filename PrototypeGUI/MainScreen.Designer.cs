@@ -44,6 +44,7 @@
             this.btMercenaryTemplates = new System.Windows.Forms.Button();
             this.btConfigSettings = new System.Windows.Forms.Button();
             this.btItemDictionary = new System.Windows.Forms.Button();
+            this.btFillInventory = new System.Windows.Forms.Button();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +77,7 @@
             // 
             // gamePanel
             // 
+            this.gamePanel.Controls.Add(this.btFillInventory);
             this.gamePanel.Controls.Add(this.btPackFormation);
             this.gamePanel.Controls.Add(this.button1);
             this.gamePanel.Controls.Add(this.btAdventures);
@@ -131,7 +133,7 @@
             // 
             // btArena
             // 
-            this.btArena.Location = new System.Drawing.Point(228, 140);
+            this.btArena.Location = new System.Drawing.Point(228, 175);
             this.btArena.Name = "btArena";
             this.btArena.Size = new System.Drawing.Size(124, 23);
             this.btArena.TabIndex = 3;
@@ -140,7 +142,7 @@
             // 
             // btHeroes
             // 
-            this.btHeroes.Location = new System.Drawing.Point(228, 169);
+            this.btHeroes.Location = new System.Drawing.Point(228, 204);
             this.btHeroes.Name = "btHeroes";
             this.btHeroes.Size = new System.Drawing.Size(124, 23);
             this.btHeroes.TabIndex = 2;
@@ -150,7 +152,7 @@
             // 
             // btRecruitMercenaries
             // 
-            this.btRecruitMercenaries.Location = new System.Drawing.Point(228, 82);
+            this.btRecruitMercenaries.Location = new System.Drawing.Point(228, 117);
             this.btRecruitMercenaries.Name = "btRecruitMercenaries";
             this.btRecruitMercenaries.Size = new System.Drawing.Size(124, 23);
             this.btRecruitMercenaries.TabIndex = 1;
@@ -160,7 +162,7 @@
             // 
             // btMercenaries
             // 
-            this.btMercenaries.Location = new System.Drawing.Point(228, 111);
+            this.btMercenaries.Location = new System.Drawing.Point(228, 146);
             this.btMercenaries.Name = "btMercenaries";
             this.btMercenaries.Size = new System.Drawing.Size(124, 23);
             this.btMercenaries.TabIndex = 0;
@@ -208,6 +210,16 @@
             this.btItemDictionary.UseVisualStyleBackColor = true;
             this.btItemDictionary.Click += new System.EventHandler(this.btItemDictionary_Click);
             // 
+            // btFillInventory
+            // 
+            this.btFillInventory.Location = new System.Drawing.Point(228, 59);
+            this.btFillInventory.Name = "btFillInventory";
+            this.btFillInventory.Size = new System.Drawing.Size(124, 23);
+            this.btFillInventory.TabIndex = 8;
+            this.btFillInventory.Text = "Add 10 of all";
+            this.btFillInventory.UseVisualStyleBackColor = true;
+            this.btFillInventory.Click += new System.EventHandler(this.btFillInventory_Click);
+            // 
             // btCampain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +264,7 @@
         private System.Windows.Forms.Button btConfigSettings;
         private System.Windows.Forms.Button btPackFormation;
         private System.Windows.Forms.Button btItemDictionary;
+        private System.Windows.Forms.Button btFillInventory;
     }
 }
 
