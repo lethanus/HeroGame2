@@ -217,7 +217,7 @@ namespace ConstructionYard
             {
                 recruitRepo.Add(recruit, accountManagement.GetLoggedAccount().ID);
             }
-            Assert.AreEqual(table.RowCount, recruitRepo.GetAllRecruitsForUser(accountManagement.GetLoggedAccount().ID).Count);
+            Assert.AreEqual(table.RowCount, recruitRepo.GetAll(accountManagement.GetLoggedAccount().ID).Count);
         }
 
         [Given(@"The chance of convincing level '(.*)' recruits is set to '(.*)' of '(.*)'")]

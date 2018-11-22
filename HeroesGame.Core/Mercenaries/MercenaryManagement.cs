@@ -127,7 +127,7 @@ namespace HeroesGame.Mercenaries
 
         public List<Mercenary> GetRecruits()
         {
-            return _recruitsRepository.GetAllRecruitsForUser(_accountManagement.GetLoggedAccount().ID);
+            return _recruitsRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }
 
         private int GetRandomValueFromTemplateRange(string rangeString, string stat_name)

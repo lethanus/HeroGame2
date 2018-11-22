@@ -9,40 +9,9 @@ using Newtonsoft.Json;
 
 namespace HeroesGame.Repositories
 {
-    public class RecruitsJsonRepository : IRecruitsRepository
+    public class RecruitsJsonRepository : AccountJsonListRepository<Mercenary>, IRecruitsRepository
     {
-
-        private string _directoryPath;
-        public RecruitsJsonRepository(string directoryPath)
-        {
-            _directoryPath = directoryPath;
-        }
-
-        public void Add(Mercenary recruit, string accountID)
-        {
-            var recruits = GetAllRecruitsForUser(accountID);
-            recruits.Add(recruit);
-            SaveRecruitsForAccount(recruits, accountID, _directoryPath);
-        }
-
-        private void SaveRecruitsForAccount(List<Mercenary> recruits, string accountID, string directoryPath)
-        {
-            string pathToFile = $"{directoryPath}\\Recruits_{accountID}.json";
-            string json = JsonConvert.SerializeObject(recruits, Formatting.Indented);
-            File.WriteAllText(pathToFile, json);
-        }
-
-
-        public List<Mercenary> GetAllRecruitsForUser(string accountID)
-        {
-            string pathToFile = $"{_directoryPath}\\Recruits_{accountID}.json";
-            if (!File.Exists(pathToFile))
-            {
-                return new List<Mercenary>();
-            }
-            var json = File.ReadAllText(pathToFile);
-            return JsonConvert.DeserializeObject<List<Mercenary>>(json);
-        }
+        public RecruitsJsonRepository(string directoryPath) : base(directoryPath, "Recruits") { }
 
         public void Clear(string accountID)
         {
@@ -54,9 +23,9 @@ namespace HeroesGame.Repositories
 
         public void Remove(Mercenary recruit, string accountID)
         {
-            var recruits = GetAllRecruitsForUser(accountID);
+            var recruits = GetAll(accountID);
             var filtered = recruits.Where(x => x.ID != recruit.ID).ToList();
-            SaveRecruitsForAccount(filtered, accountID, _directoryPath);
+            SaveAll(filtered, accountID, _directoryPath);
         }
     }
 }

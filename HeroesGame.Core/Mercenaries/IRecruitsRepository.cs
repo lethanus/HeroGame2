@@ -9,7 +9,7 @@ namespace HeroesGame.Mercenaries
     public interface IRecruitsRepository
     {
         void Add(Mercenary recruit, string accountID);
-        List<Mercenary> GetAllRecruitsForUser(string accountID);
+        List<Mercenary> GetAll(string accountID);
         void Clear(string accountID);
         void Remove(Mercenary recruit, string accountID);
     }
