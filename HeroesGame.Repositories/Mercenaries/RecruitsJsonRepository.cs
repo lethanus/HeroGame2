@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace HeroesGame.Repositories
 {
-    public class RecruitsJsonRepository : AccountJsonListRepository<Mercenary>, IRecruitsRepository
+    public class RecruitsJsonRepository : JsonListRepositoryForAccounts<Mercenary>, IRecruitsRepository
     {
         public RecruitsJsonRepository(string directoryPath) : base(directoryPath, "Recruits") { }
     }

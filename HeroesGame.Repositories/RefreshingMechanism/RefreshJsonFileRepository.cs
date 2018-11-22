@@ -7,7 +7,7 @@ using System.IO;
 
 namespace HeroesGame.Repositories
 {
-    public class RefreshJsonFileRepository : AccountJsonListRepository<RefreshFact>,  IRefreshRepository
+    public class RefreshJsonFileRepository : JsonListRepositoryForAccounts<RefreshFact>,  IRefreshRepository
     {
         public RefreshJsonFileRepository(string directoryPath) : base(directoryPath, "RefreshFacts") { }
     }

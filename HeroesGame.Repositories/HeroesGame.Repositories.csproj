@@ -47,7 +47,7 @@
     <Compile Include="Configuration\ConfigJsonFileRepository.cs" />
     <Compile Include="Inventory\ItemTemplateJsonFileRepository.cs" />
     <Compile Include="Inventory\PositionInInventoryJsonFileRepository.cs" />
-    <Compile Include="JsonRepositories\AccountJsonListRepository.cs" />
+    <Compile Include="JsonRepositories\JsonListRepositoryForAccounts.cs" />
     <Compile Include="Mercenaries\MercenaryJsonFileRepository.cs" />
     <Compile Include="Mercenaries\MercenaryTemplateJsonFileRepository.cs" />
     <Compile Include="Mercenaries\RecruitsJsonRepository.cs" />

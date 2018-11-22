@@ -7,7 +7,7 @@ using System.IO;
 
 namespace HeroesGame.Repositories
 {
-    public class PositionInInventoryJsonFileRepository : AccountJsonListRepository<PositionInInventory>, IPositionInInventoryRepository
+    public class PositionInInventoryJsonFileRepository : JsonListRepositoryForAccounts<PositionInInventory>, IPositionInInventoryRepository
     {
         public PositionInInventoryJsonFileRepository(string directoryPath) : base(directoryPath, "Inventory") { }
 

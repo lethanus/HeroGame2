@@ -6,7 +6,7 @@ using HeroesGame.Mercenaries;
 
 namespace HeroesGame.Repositories
 {
-    public class MercenaryJsonFileRepository : AccountJsonListRepository<Character>, IMercenaryRepository
+    public class MercenaryJsonFileRepository : JsonListRepositoryForAccounts<Character>, IMercenaryRepository
     {
 
         public MercenaryJsonFileRepository(string directoryPath) : base(directoryPath, "Mercenaries") { }

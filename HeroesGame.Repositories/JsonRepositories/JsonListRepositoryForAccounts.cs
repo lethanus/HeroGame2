@@ -10,12 +10,12 @@ using HeroesGame.Common;
 
 namespace HeroesGame.Repositories
 {
-    public class AccountJsonListRepository<T> where T : ObjectWithID
+    public class JsonListRepositoryForAccounts<T> where T : ObjectWithID
     {
         protected readonly string _directoryPath;
         private readonly string _filePrefix;
 
-        public AccountJsonListRepository(string directoryPath, string filePrefix)
+        public JsonListRepositoryForAccounts(string directoryPath, string filePrefix)
         {
             _directoryPath = directoryPath;
             _filePrefix = filePrefix;
