@@ -53,5 +53,10 @@ namespace HeroesGame.Repositories
             var json = File.ReadAllText(pathToFile);
             return JsonConvert.DeserializeObject<List<PositionInInventory>>(json);
         }
+
+        public void RemovePositionWithID(string itemID, string accountID)
+        {
+            
+        }
     }
 }

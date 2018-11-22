@@ -47,7 +47,16 @@ namespace HeroesGame.Inventory
 
         public void RemoveItems(string itemID, int amount)
         {
-            
+            var allPositions = _positionInInventoryRepository.GetAllForAcount(_accountManagement.GetLoggedAccount().ID);
+            var position = allPositions.First(x => x.ID == itemID);
+            if(position.Amount == amount)
+            {
+                _positionInInventoryRepository.RemovePositionWithID(position.ID, _accountManagement.GetLoggedAccount().ID);
+            }
+            else if(position.Amount > amount)
+            {
+                _positionInInventoryRepository.ChangeAmountForAccount(position.ID, position.Amount - amount, _accountManagement.GetLoggedAccount().ID);
+            }
         }
     }
 }

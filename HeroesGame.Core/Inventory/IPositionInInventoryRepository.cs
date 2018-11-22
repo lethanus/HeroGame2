@@ -8,5 +8,6 @@ namespace HeroesGame.Inventory
         void AddForAccount(PositionInInventory newItem, string accountID);
         List<PositionInInventory> GetAllForAcount(string accountID);
         void ChangeAmountForAccount(string itemID, int amount, string accountID);
+        void RemovePositionWithID(string itemID, string accountID);
     }
 }
