@@ -1,10 +1,10 @@
 ﻿using System;
+using HeroesGame.Common;
 
 namespace HeroesGame.RefresingMechanism
 {
-    public class RefreshFact
+    public class RefreshFact : ObjectWithID
     {
-        public string AccountID { get; set; }
         public string Option { get; set; }
         public DateTime LastAction { get; set; }
 

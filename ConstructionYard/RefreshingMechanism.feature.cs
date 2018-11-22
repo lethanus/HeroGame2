@@ -124,48 +124,45 @@ this.ScenarioInitialize(scenarioInfo);
                         "test"});
 #line 20
  testRunner.Given("Some accounts exists in system", ((string)(null)), table2, "Given ");
+#line 23
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "AccountID",
                         "Option",
                         "LastAction"});
             table3.AddRow(new string[] {
-                        "ID_1",
                         "Test",
                         "2018-10-15 10:00:00"});
             table3.AddRow(new string[] {
-                        "ID_1",
                         "Test",
                         "2018-10-15 10:03:00"});
             table3.AddRow(new string[] {
-                        "ID_1",
                         "Test",
                         "2018-10-15 10:05:00"});
             table3.AddRow(new string[] {
-                        "ID_2",
                         "Test",
                         "2018-10-15 10:05:00"});
-#line 23
+#line 24
  testRunner.And("that there are some refresh actions", ((string)(null)), table3, "And ");
-#line 29
- testRunner.And("current time is set to \'2018-10-15 10:05:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
- testRunner.And("Refresh time for option \'Test\' is set to \'30\' seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("current time is set to \'2018-10-15 10:05:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
- testRunner.When("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Refresh time for option \'Test\' is set to \'30\' seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 32
- testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 33
+ testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 34
  testRunner.And("Refresh for option \'Test\' is \'Disabled\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("03 Refreshing should be enabled when time from last refresh already passed", SourceLine=35)]
+        [TechTalk.SpecRun.ScenarioAttribute("03 Refreshing should be enabled when time from last refresh already passed", SourceLine=36)]
         public virtual void _03RefreshingShouldBeEnabledWhenTimeFromLastRefreshAlreadyPassed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 Refreshing should be enabled when time from last refresh already passed", null, ((string[])(null)));
-#line 36
+#line 37
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -177,40 +174,37 @@ this.ScenarioInitialize(scenarioInfo);
                         "ID_1",
                         "test",
                         "test"});
-#line 37
+#line 38
  testRunner.Given("Some accounts exists in system", ((string)(null)), table4, "Given ");
+#line 41
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "AccountID",
                         "Option",
                         "LastAction"});
             table5.AddRow(new string[] {
-                        "ID_1",
                         "Test",
                         "2018-10-15 10:00:00"});
             table5.AddRow(new string[] {
-                        "ID_1",
                         "Test",
                         "2018-10-15 10:03:00"});
             table5.AddRow(new string[] {
-                        "ID_1",
                         "Test",
                         "2018-10-15 10:05:00"});
             table5.AddRow(new string[] {
-                        "ID_2",
                         "Test",
                         "2018-10-15 10:05:00"});
-#line 40
+#line 42
  testRunner.And("that there are some refresh actions", ((string)(null)), table5, "And ");
-#line 46
- testRunner.And("current time is set to \'2018-10-15 10:06:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 47
- testRunner.And("Refresh time for option \'Test\' is set to \'30\' seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
- testRunner.When("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("current time is set to \'2018-10-15 10:06:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
- testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("Refresh time for option \'Test\' is set to \'30\' seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
+ testRunner.When("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 51
+ testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 52
  testRunner.And("Refresh for option \'Test\' is \'Enabled\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

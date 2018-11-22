@@ -5,7 +5,7 @@ namespace HeroesGame.RefresingMechanism
 {
     public interface IRefreshRepository
     {
-        void AddRefreshFact(string accountID, string option, DateTime actionTime);
-        List<RefreshFact> GetRefreshesForAccount(string accountID);
+        void Add(RefreshFact refresh, string accountID);
+        List<RefreshFact> GetAll(string accountID);
     }
 }

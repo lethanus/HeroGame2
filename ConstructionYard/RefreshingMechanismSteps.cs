@@ -39,7 +39,7 @@ namespace ConstructionYard
         public void GivenThatThereWasNoRefreshActionsBeforeForOption(string option, string accountID)
         {
             var refreshRepo = objectContainer.Resolve<IRefreshRepository>();
-            var refreshes = refreshRepo.GetRefreshesForAccount(accountID).Where(x=>x.Option == option).ToList();
+            var refreshes = refreshRepo.GetAll(accountID).Where(x=>x.Option == option).ToList();
             Assert.AreEqual(0, refreshes.Count);
         }
 
@@ -50,7 +50,7 @@ namespace ConstructionYard
             var refreshFacts = table.CreateSet<RefreshFact>().ToList();
             foreach (var refresh in refreshFacts)
             {
-                refreshingMechnism.AddRefreshFact(refresh.Option, refresh.AccountID, refresh.LastAction);
+                refreshingMechnism.AddRefreshFactForLoggedAccount(refresh.Option, refresh.LastAction);
             }
         }
 

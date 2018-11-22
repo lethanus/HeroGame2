@@ -20,12 +20,13 @@ Scenario: 02 Refreshing should be disabled when time from last refresh didn't pa
 	Given Some accounts exists in system
 	| ID   | Login | Password |
 	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
 	And that there are some refresh actions
-	| AccountID | Option | LastAction          |
-	| ID_1      | Test   | 2018-10-15 10:00:00 |
-	| ID_1      | Test   | 2018-10-15 10:03:00 |
-	| ID_1      | Test   | 2018-10-15 10:05:00 |
-	| ID_2      | Test   | 2018-10-15 10:05:00 |
+	| Option | LastAction          |
+	| Test   | 2018-10-15 10:00:00 |
+	| Test   | 2018-10-15 10:03:00 |
+	| Test   | 2018-10-15 10:05:00 |
+	| Test   | 2018-10-15 10:05:00 |
 	And current time is set to '2018-10-15 10:05:00'
 	And Refresh time for option 'Test' is set to '30' seconds
 	When I try to login for 'test' and password 'test'
@@ -37,12 +38,13 @@ Scenario: 03 Refreshing should be enabled when time from last refresh already pa
 	Given Some accounts exists in system
 	| ID   | Login | Password |
 	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
 	And that there are some refresh actions
-	| AccountID | Option | LastAction          |
-	| ID_1      | Test   | 2018-10-15 10:00:00 |
-	| ID_1      | Test   | 2018-10-15 10:03:00 |
-	| ID_1      | Test   | 2018-10-15 10:05:00 |
-	| ID_2      | Test   | 2018-10-15 10:05:00 |
+	| Option | LastAction          |
+	| Test   | 2018-10-15 10:00:00 |
+	| Test   | 2018-10-15 10:03:00 |
+	| Test   | 2018-10-15 10:05:00 |
+	| Test   | 2018-10-15 10:05:00 |
 	And current time is set to '2018-10-15 10:06:00'
 	And Refresh time for option 'Test' is set to '30' seconds
 	When I try to login for 'test' and password 'test'

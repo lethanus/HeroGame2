@@ -27,14 +27,9 @@ namespace HeroesGame.RefresingMechanism
             return refreshFact.LastAction.AddSeconds(secondesToAdd) > currentTime ? RefresStatus.Disabled : RefresStatus.Enabled;
         }
 
-        public void AddRefreshFact(string option, string accountID, DateTime actionTime)
-        {
-            _refreshRepository.AddRefreshFact(accountID, option, actionTime);
-        }
-
         public void AddRefreshFactForLoggedAccount(string option, DateTime actionTime)
         {
-            _refreshRepository.AddRefreshFact(_accountManagement.GetLoggedAccount().ID, option, actionTime);
+            _refreshRepository.Add(new RefreshFact { Option = option, LastAction = actionTime }, _accountManagement.GetLoggedAccount().ID);
         }
 
         public int GetDelayValue(string option)
@@ -45,7 +40,7 @@ namespace HeroesGame.RefresingMechanism
 
         public RefreshFact GetLastRefresh(string option)
         {
-            var refreshFacts = _refreshRepository.GetRefreshesForAccount(_accountManagement.GetLoggedAccount().ID);
+            var refreshFacts = _refreshRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
             return refreshFacts.OrderByDescending(x => x.LastAction).FirstOrDefault();
         }
     }
