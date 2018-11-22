@@ -11,15 +11,6 @@ namespace HeroesGame.Repositories
 
         public MercenaryJsonFileRepository(string directoryPath) : base(directoryPath, "Mercenaries") { }
 
-
-        public void Add(Character mercenary, string accountID)
-        {
-            var marcenaries = GetAll(accountID);
-            marcenaries.Add(mercenary);
-            SaveAll(marcenaries, accountID, _directoryPath);
-        }
-
-
     }
 
 

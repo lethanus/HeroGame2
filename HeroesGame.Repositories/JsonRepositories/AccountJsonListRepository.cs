@@ -20,6 +20,13 @@ namespace HeroesGame.Repositories
             _filePrefix = filePrefix;
         }
 
+        public void Add(T item, string accountID)
+        {
+            var items = GetAll(accountID);
+            items.Add(item);
+            SaveAll(items, accountID, _directoryPath);
+        }
+
         public void SaveAll(List<T> items, string accountID, string directoryPath)
         {
             string pathToFile = $"{directoryPath}\\{_filePrefix}_{accountID}.json";
