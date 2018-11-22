@@ -56,7 +56,8 @@ namespace HeroesGame.Repositories
 
         public void RemovePositionWithID(string itemID, string accountID)
         {
-            
+            var positions = GetPositionInInventoryForAccount(accountID).Where(x => x.ID != itemID).ToList();
+            SavePositionInInventoryForAccount(positions, accountID, _directoryPath);
         }
     }
 }
