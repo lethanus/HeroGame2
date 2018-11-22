@@ -16,15 +16,9 @@ namespace HeroesGame.Repositories
 
         public void Add(Character mercenary, string accountID)
         {
-            var _marcenaries = GetMercenariesForAccount(accountID);
-            _marcenaries.Add(mercenary);
-            SaveMercenariesForAccount(_marcenaries, accountID, _directoryPath);
-        }
-
-        public List<Character> GetAllMercenariesForUser(string accountID)
-        {
-            var _marcenaries = GetMercenariesForAccount(accountID);
-            return _marcenaries;
+            var marcenaries = GetAllMercenariesForUser(accountID);
+            marcenaries.Add(mercenary);
+            SaveMercenariesForAccount(marcenaries, accountID, _directoryPath);
         }
 
         private void SaveMercenariesForAccount(List<Character> characters, string accountID, string directoryPath)
@@ -34,7 +28,7 @@ namespace HeroesGame.Repositories
             File.WriteAllText(pathToFile, json);
         }
 
-        public List<Character> GetMercenariesForAccount(string accountID)
+        public List<Character> GetAllMercenariesForUser(string accountID)
         {
             string pathToFile = $"{_directoryPath}\\Mercenaries_{accountID}.json";
             if (!File.Exists(pathToFile))
