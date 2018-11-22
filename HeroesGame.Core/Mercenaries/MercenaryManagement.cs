@@ -104,7 +104,7 @@ namespace HeroesGame.Mercenaries
 
         public List<Character> GetAllMercenariesForLoggedUser()
         {
-            return _mercenaryRepository.GetAllMercenariesForUser(_accountManagement.GetLoggedAccount().ID);
+            return _mercenaryRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }
 
         public Mercenary GetMercenaryBaseOnTemplate(string mercenaryName, int mercenaryLevel)

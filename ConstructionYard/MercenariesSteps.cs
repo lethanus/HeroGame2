@@ -66,7 +66,7 @@ namespace ConstructionYard
         public void ThenAccountAlreadyHaveSomeMercenaries(string accountID, Table table)
         {
             var mercenaryRepository = objectContainer.Resolve<IMercenaryRepository>();
-            var accountMerceenaries = mercenaryRepository.GetAllMercenariesForUser(accountID);
+            var accountMerceenaries = mercenaryRepository.GetAll(accountID);
             var expectedMercenaries = table.CreateSet<Character>();
             foreach (var mercenary in expectedMercenaries)
             {

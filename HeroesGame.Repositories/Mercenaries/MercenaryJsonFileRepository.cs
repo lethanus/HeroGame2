@@ -6,38 +6,20 @@ using HeroesGame.Mercenaries;
 
 namespace HeroesGame.Repositories
 {
-    public class MercenaryJsonFileRepository : IMercenaryRepository
+    public class MercenaryJsonFileRepository : AccountJsonListRepository<Character>, IMercenaryRepository
     {
-        private string _directoryPath;
-        public MercenaryJsonFileRepository(string directoryPath)
-        {
-            _directoryPath = directoryPath;
-        }
+
+        public MercenaryJsonFileRepository(string directoryPath) : base(directoryPath, "Mercenaries") { }
+
 
         public void Add(Character mercenary, string accountID)
         {
-            var marcenaries = GetAllMercenariesForUser(accountID);
+            var marcenaries = GetAll(accountID);
             marcenaries.Add(mercenary);
-            SaveMercenariesForAccount(marcenaries, accountID, _directoryPath);
+            SaveAll(marcenaries, accountID, _directoryPath);
         }
 
-        private void SaveMercenariesForAccount(List<Character> characters, string accountID, string directoryPath)
-        {
-            string pathToFile = $"{directoryPath}\\Mercenaries_{accountID}.json";
-            string json = JsonConvert.SerializeObject(characters, Formatting.Indented);
-            File.WriteAllText(pathToFile, json);
-        }
 
-        public List<Character> GetAllMercenariesForUser(string accountID)
-        {
-            string pathToFile = $"{_directoryPath}\\Mercenaries_{accountID}.json";
-            if (!File.Exists(pathToFile))
-            {
-                return new List<Character>();
-            }
-            var json = File.ReadAllText(pathToFile);
-            return JsonConvert.DeserializeObject<List<Character>>(json);
-        }
     }
 
 
