@@ -15,14 +15,12 @@ namespace HeroesGame.Repositories
         {
             _pathToRepoFile = pathToRepoFile;
         }
+
         public void AddMercenaryTemplate(MercenaryTemplate mercenaryTemplate)
         {
-            MercenaryTemplatesCollection mercenaryTemplates = new MercenaryTemplatesCollection();
-            foreach (var template in GetMercenaryTemplates())
-            {
-                mercenaryTemplates.Templates.Add(template);
-            }
-            mercenaryTemplates.Templates.Add(mercenaryTemplate);
+            var mercenaryTemplates = new List<MercenaryTemplate>();
+            mercenaryTemplates.AddRange(GetMercenaryTemplates());
+            mercenaryTemplates.Add(mercenaryTemplate);
 
             File.WriteAllText(_pathToRepoFile, JsonConvert.SerializeObject(mercenaryTemplates, Formatting.Indented));
         }
@@ -34,17 +32,7 @@ namespace HeroesGame.Repositories
                 return new List<MercenaryTemplate>();
             }
             var json = File.ReadAllText(_pathToRepoFile);
-            return JsonConvert.DeserializeObject<MercenaryTemplatesCollection>(json).Templates.ToList();
+            return JsonConvert.DeserializeObject<List<MercenaryTemplate>>(json).ToList();
         }
     }
-
-    public class MercenaryTemplatesCollection
-    {
-        public IList<MercenaryTemplate> Templates { get; set; }
-        public MercenaryTemplatesCollection()
-        {
-            Templates = new List<MercenaryTemplate>();
-        }
-    }
-
 }
