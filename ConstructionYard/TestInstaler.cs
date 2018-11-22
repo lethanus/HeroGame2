@@ -58,6 +58,7 @@ namespace ConstructionYard
             File.Delete("accounts.json");
             File.Delete("configuration.json");
             File.Delete("mercenaryTemplates.json");
+            File.Delete("itemTemplates.json");
             foreach (var file in Directory.GetFiles(Directory.GetCurrentDirectory()))
             {
                 if (file.Contains("RefreshFacts_") || file.Contains("Mercenaries_") || file.Contains("Recruits_") || file.Contains("PackFormation_"))

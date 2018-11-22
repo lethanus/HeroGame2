@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using HeroesGame.Inventory;
 using System.Linq;
+using Newtonsoft.Json;
+using System.IO;
 
 
 namespace HeroesGame.Repositories
