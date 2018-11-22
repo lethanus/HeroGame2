@@ -20,12 +20,9 @@ namespace HeroesGame.Repositories
 
         public void AddAccount(Account newAccount)
         {
-            AccountCollection accountCollection = new AccountCollection();
-            foreach(var account in GetAccounts())
-            {
-                accountCollection.Accounts.Add(account);
-            }
-            accountCollection.Accounts.Add(newAccount);
+            var accountCollection = new List<Account>();
+            accountCollection.AddRange(GetAccounts());
+            accountCollection.Add(newAccount);
 
             File.WriteAllText(_pathToRepoFile, JsonConvert.SerializeObject(accountCollection,Formatting.Indented));
 
@@ -38,16 +35,7 @@ namespace HeroesGame.Repositories
                 return new List<Account>();
             }
             var json = File.ReadAllText(_pathToRepoFile);
-            return JsonConvert.DeserializeObject<AccountCollection>(json).Accounts.ToList();
-        }
-    }
-
-    public class AccountCollection
-    {
-        public IList<Account> Accounts { get; set; }
-        public AccountCollection()
-        {
-            Accounts = new List<Account>();
+            return JsonConvert.DeserializeObject<List<Account>>(json);
         }
     }
 }
