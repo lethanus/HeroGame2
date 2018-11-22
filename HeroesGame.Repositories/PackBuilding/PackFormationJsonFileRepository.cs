@@ -8,44 +8,26 @@ using HeroesGame.PackBuilding;
 
 namespace HeroesGame.Repositories
 {
-    public class PackFormationJsonFileRepository : IPackFormationRepository
+    public class PackFormationJsonFileRepository : JsonListRepositoryForAccounts<CharacterInThePack>, IPackFormationRepository
     {
-        private string _directoryPath;
+        public PackFormationJsonFileRepository(string directoryPath) : base(directoryPath, "PackFormation") { }
 
-        public PackFormationJsonFileRepository(string directoryPath)
-        {
-            _directoryPath = directoryPath;
-        }
 
         public string GetCharacterIdOnPosition(TeamPosition position, string accountID)
         {
-            var positions = GetAll(accountID);
-            return positions.ToDictionary(x => x.Position, x => x.Character_ID)[position];
+            return GetAll(accountID).First(x => x.Position == position).Character_ID;
         }
 
         public void SetCharacterToPosition(string characterID, TeamPosition position, string accountID)
         {
             var positions = GetAll(accountID);
             positions.First(x => x.Position == position).Character_ID = characterID;
-            SaveFormationForAccount(positions, accountID, _directoryPath);
-        }
-
-        private void SaveFormationForAccount(List<CharacterInThePack> formation, string accountID, string directoryPath)
-        {
-            string pathToFile = $"{directoryPath}\\PackFormation_{accountID}.json";
-            string json = JsonConvert.SerializeObject(formation, Formatting.Indented);
-            File.WriteAllText(pathToFile, json);
+            SaveAll(positions, accountID, _directoryPath);
         }
 
         public List<CharacterInThePack> GetAll(string accountID)
         {
-            string pathToFile = $"{_directoryPath}\\PackFormation_{accountID}.json";
-            if (!File.Exists(pathToFile))
-            {
-                return CreateDefaultPositions();
-            }
-            var json = File.ReadAllText(pathToFile);
-            var positions = JsonConvert.DeserializeObject<List<CharacterInThePack>>(json);
+            var positions = base.GetAll(accountID);
             if (positions.Count == 0)
                 positions.AddRange(CreateDefaultPositions());
             return positions;
