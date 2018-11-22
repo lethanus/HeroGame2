@@ -90,6 +90,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FightSimulations.feature</DependentUpon>
     </Compile>
+    <Compile Include="InventoryManagement.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryManagement.feature</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagementSteps.cs" />
     <Compile Include="Mercenaries.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,6 +127,10 @@
     <None Include="FightSimulations.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FightSimulations.feature.cs</LastGenOutput>
+    </None>
+    <None Include="InventoryManagement.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>InventoryManagement.feature.cs</LastGenOutput>
     </None>
     <None Include="Mercenaries.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

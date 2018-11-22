@@ -42,6 +42,14 @@ namespace ConstructionYard
 
             var packFormationBuilder = new PackFormationBuilder(packFormationRepository, accountManagement);
             objectContainer.RegisterInstanceAs<IPackFormationBuilder>(packFormationBuilder);
+
+            var itemTemplateRepository = new ItemTemplateJsonFileRepository("itemTemplates.json");
+            objectContainer.RegisterInstanceAs<IItemTemplateRepository>(itemTemplateRepository);
+            var positionInInventoryRepository = new PositionInInventoryJsonFileRepository(Directory.GetCurrentDirectory());
+            objectContainer.RegisterInstanceAs<IPositionInInventoryRepository>(positionInInventoryRepository);
+            var inventoryManagement = new InventoryManagement(itemTemplateRepository, positionInInventoryRepository, accountManagement);
+            objectContainer.RegisterInstanceAs<IInventoryManagement>(inventoryManagement);
+
         }
 
         public static void CleanupRepository()
