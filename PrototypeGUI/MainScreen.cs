@@ -86,12 +86,12 @@ namespace PrototypeGUI
         private void btCampain_Load(object sender, EventArgs e)
         {
             _accountRepository = new AccountJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\Accounts.json");
-            var accounts = _accountRepository.GetAccounts();
+            var accounts = _accountRepository.GetAll();
             if(accounts.Count == 0)
             {
-                _accountRepository.AddAccount(new Account("testAccount", "testPassword"));
-                _accountRepository.AddAccount(new Account("testAccount1", "testPassword"));
-                _accountRepository.AddAccount(new Account("testAccount2", "testPassword"));
+                _accountRepository.Add(new Account("testAccount", "testPassword"));
+                _accountRepository.Add(new Account("testAccount1", "testPassword"));
+                _accountRepository.Add(new Account("testAccount2", "testPassword"));
             }
             _accountManagement = new AccountManagement(_accountRepository);
             

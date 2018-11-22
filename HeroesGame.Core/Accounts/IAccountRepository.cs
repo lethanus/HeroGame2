@@ -9,8 +9,8 @@ namespace HeroesGame.Accounts
     public interface IAccountRepository
     {
 
-        void AddAccount(Account newAccount);
-        List<Account> GetAccounts();
+        void Add(Account newAccount);
+        List<Account> GetAll();
 
     }
 }

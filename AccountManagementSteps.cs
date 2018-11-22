@@ -41,9 +41,9 @@ namespace ConstructionYard
             var accounts = table.CreateSet<Account>().ToList();
             foreach(var account in accounts)
             {
-                accountRepo.AddAccount(account);
+                accountRepo.Add(account);
             }
-            Assert.Greater(accountRepo.GetAccounts().Count, 0);
+            Assert.Greater(accountRepo.GetAll().Count, 0);
         }
         
         [When(@"I try to login for '(.*)' and password '(.*)'")]

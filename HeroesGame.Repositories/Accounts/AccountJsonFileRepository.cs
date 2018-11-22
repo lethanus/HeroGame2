@@ -10,32 +10,8 @@ using HeroesGame.Accounts;
 
 namespace HeroesGame.Repositories
 {
-    public class AccountJsonFileRepository : IAccountRepository
+    public class AccountJsonFileRepository : JsonListRepository<Account>,  IAccountRepository
     {
-        private string _pathToRepoFile;
-        public AccountJsonFileRepository(string pathToRepoFile)
-        {
-            _pathToRepoFile = pathToRepoFile;
-        }
-
-        public void AddAccount(Account newAccount)
-        {
-            var accountCollection = new List<Account>();
-            accountCollection.AddRange(GetAccounts());
-            accountCollection.Add(newAccount);
-
-            File.WriteAllText(_pathToRepoFile, JsonConvert.SerializeObject(accountCollection,Formatting.Indented));
-
-        }
-
-        public List<Account> GetAccounts()
-        {
-            if (!File.Exists(_pathToRepoFile))
-            {
-                return new List<Account>();
-            }
-            var json = File.ReadAllText(_pathToRepoFile);
-            return JsonConvert.DeserializeObject<List<Account>>(json);
-        }
+        public AccountJsonFileRepository(string pathToRepoFile) : base(pathToRepoFile) { }
     }
 }

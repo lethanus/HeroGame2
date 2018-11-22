@@ -17,7 +17,7 @@ namespace HeroesGame.Accounts
 
         public Account Login(string login, string password)
         {
-            _loogedAccount = _accountRepo.GetAccounts().FirstOrDefault(x => x.Login == login && x.Password == password);
+            _loogedAccount = _accountRepo.GetAll().FirstOrDefault(x => x.Login == login && x.Password == password);
             return GetLoggedAccount();
         }
 
