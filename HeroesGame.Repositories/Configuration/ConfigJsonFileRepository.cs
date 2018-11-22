@@ -17,30 +17,25 @@ namespace HeroesGame.Repositories
         }
         public string GetParameterValue(string parameterName)
         {
-            var configValues = GetAllParameters(_pathToRepoFile);
+            var configValues = GetAll();
             if (configValues.Count(x=>x.Name == parameterName) == 0 ) return "";
             return configValues.First(x=>x.Name == parameterName).Value;
         }
 
         public void SetConfigParameter(string parameter, string value)
         {
-            var configValues = GetAllParameters(_pathToRepoFile);
+            var configValues = GetAll();
             configValues.Add(new ConfigurationParameter { Name = parameter, Value = value });
             SaveAllParameters(configValues, _pathToRepoFile);
         }
 
         public List<ConfigurationParameter> GetAll()
         {
-            return GetAllParameters(_pathToRepoFile);
-        }
-
-        private List<ConfigurationParameter> GetAllParameters(string pathToFile)
-        {
-            if (!File.Exists(pathToFile))
+            if (!File.Exists(_pathToRepoFile))
             {
                 return new List<ConfigurationParameter>();
             }
-            var json = File.ReadAllText(pathToFile);
+            var json = File.ReadAllText(_pathToRepoFile);
             return JsonConvert.DeserializeObject<List<ConfigurationParameter>>(json);
         }
 
