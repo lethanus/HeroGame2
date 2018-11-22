@@ -32,6 +32,7 @@
             this.accountDetailsBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gamePanel = new System.Windows.Forms.GroupBox();
+            this.btPackFormation = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btAdventures = new System.Windows.Forms.Button();
             this.btInventory = new System.Windows.Forms.Button();
@@ -42,7 +43,7 @@
             this.btClose = new System.Windows.Forms.Button();
             this.btMercenaryTemplates = new System.Windows.Forms.Button();
             this.btConfigSettings = new System.Windows.Forms.Button();
-            this.btPackFormation = new System.Windows.Forms.Button();
+            this.btItemDictionary = new System.Windows.Forms.Button();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +90,16 @@
             this.gamePanel.TabIndex = 3;
             this.gamePanel.TabStop = false;
             this.gamePanel.Text = "Game panel";
+            // 
+            // btPackFormation
+            // 
+            this.btPackFormation.Location = new System.Drawing.Point(25, 111);
+            this.btPackFormation.Name = "btPackFormation";
+            this.btPackFormation.Size = new System.Drawing.Size(124, 23);
+            this.btPackFormation.TabIndex = 7;
+            this.btPackFormation.Text = "Pack formation";
+            this.btPackFormation.UseVisualStyleBackColor = true;
+            this.btPackFormation.Click += new System.EventHandler(this.btPackFormation_Click);
             // 
             // button1
             // 
@@ -187,21 +198,22 @@
             this.btConfigSettings.UseVisualStyleBackColor = true;
             this.btConfigSettings.Click += new System.EventHandler(this.btConfigSettings_Click);
             // 
-            // btPackFormation
+            // btItemDictionary
             // 
-            this.btPackFormation.Location = new System.Drawing.Point(25, 111);
-            this.btPackFormation.Name = "btPackFormation";
-            this.btPackFormation.Size = new System.Drawing.Size(124, 23);
-            this.btPackFormation.TabIndex = 7;
-            this.btPackFormation.Text = "Pack formation";
-            this.btPackFormation.UseVisualStyleBackColor = true;
-            this.btPackFormation.Click += new System.EventHandler(this.btPackFormation_Click);
+            this.btItemDictionary.Location = new System.Drawing.Point(18, 357);
+            this.btItemDictionary.Name = "btItemDictionary";
+            this.btItemDictionary.Size = new System.Drawing.Size(133, 23);
+            this.btItemDictionary.TabIndex = 7;
+            this.btItemDictionary.Text = "Item dictionary";
+            this.btItemDictionary.UseVisualStyleBackColor = true;
+            this.btItemDictionary.Click += new System.EventHandler(this.btItemDictionary_Click);
             // 
             // btCampain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btItemDictionary);
             this.Controls.Add(this.btConfigSettings);
             this.Controls.Add(this.btMercenaryTemplates);
             this.Controls.Add(this.btClose);
@@ -239,6 +251,7 @@
         private System.Windows.Forms.Button btMercenaryTemplates;
         private System.Windows.Forms.Button btConfigSettings;
         private System.Windows.Forms.Button btPackFormation;
+        private System.Windows.Forms.Button btItemDictionary;
     }
 }
 

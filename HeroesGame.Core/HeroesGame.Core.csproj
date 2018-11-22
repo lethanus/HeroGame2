@@ -56,6 +56,7 @@
     <Compile Include="Inventory\InventoryManagement.cs" />
     <Compile Include="Inventory\IPositionInInventoryRepository.cs" />
     <Compile Include="Inventory\ItemTemplate.cs" />
+    <Compile Include="Inventory\ItemTemplatesCollectionGenerator.cs" />
     <Compile Include="Inventory\PositionInInventory.cs" />
     <Compile Include="Loggers\Logger.cs" />
     <Compile Include="Mercenaries\IMercenaryManagement.cs" />

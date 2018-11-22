@@ -14,6 +14,7 @@ using HeroesGame.Mercenaries;
 using HeroesGame.Repositories;
 using HeroesGame.PackBuilding;
 using HeroesGame.Core.Randomizers;
+using HeroesGame.Inventory;
 
 namespace PrototypeGUI
 {
@@ -30,6 +31,9 @@ namespace PrototypeGUI
         private IRecruitsRepository _recruitsRepository;
         private IPackFormationBuilder _packFormationBuilder;
         private IPackFormationRepository _packFormationRepository;
+        private IInventoryManagement _inventoryManagement;
+        private IPositionInInventoryRepository _positionInInventoryRepository;
+        private IItemTemplateRepository _itemTemplateRepository;
 
         public btCampain()
         {
@@ -122,6 +126,18 @@ namespace PrototypeGUI
                 }
             }
 
+            
+            _positionInInventoryRepository = new PositionInInventoryJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
+            _itemTemplateRepository = new ItemTemplateJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\ItemTemplates.json");
+            _inventoryManagement = new InventoryManagement(_itemTemplateRepository, _positionInInventoryRepository, _accountManagement);
+            if (_itemTemplateRepository.GetAllTemplates().Count == 0)
+            {
+                foreach (var template in ItemTemplatesCollectionGenerator.Generate())
+                {
+                    _itemTemplateRepository.AddTemplate(template);
+                }
+
+            }
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
 
@@ -156,6 +172,12 @@ namespace PrototypeGUI
         {
             PackFormationScreen packFormationScreen = new PackFormationScreen(_mercenaryManagement, _packFormationBuilder);
             packFormationScreen.ShowDialog();
+        }
+
+        private void btItemDictionary_Click(object sender, EventArgs e)
+        {
+            ItemDictionaryScreen itemDictionaryScreen = new ItemDictionaryScreen(_itemTemplateRepository);
+            itemDictionaryScreen.ShowDialog();
         }
     }
 }
