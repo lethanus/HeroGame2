@@ -58,7 +58,15 @@ namespace ConstructionYard
             var inventoryManagement = objectContainer.Resolve<IInventoryManagement>();
             inventoryManagement.AddItems(itemID, amount);
         }
-        
+
+        [When(@"Removing item with ID '(.*)' with amount '(.*)' to inventory")]
+        public void WhenRemovingItemWithIDWithAmountToInventory(string itemID, int amount)
+        {
+            var inventoryManagement = objectContainer.Resolve<IInventoryManagement>();
+            inventoryManagement.RemoveItems(itemID, amount);
+        }
+
+
         [Then(@"Inventory should have items below")]
         public void ThenInventoryShouldHaveItemsBelow(Table table)
         {

@@ -44,5 +44,10 @@ namespace HeroesGame.Inventory
         {
             return _positionInInventoryRepository.GetAllForAcount(_accountManagement.GetLoggedAccount().ID);
         }
+
+        public void RemoveItems(string itemID, int amount)
+        {
+            
+        }
     }
 }
