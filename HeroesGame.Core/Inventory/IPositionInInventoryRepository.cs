@@ -5,9 +5,9 @@ namespace HeroesGame.Inventory
 {
     public interface IPositionInInventoryRepository
     {
-        void AddForAccount(PositionInInventory newItem, string accountID);
-        List<PositionInInventory> GetAllForAcount(string accountID);
+        void Add(PositionInInventory newItem, string accountID);
+        List<PositionInInventory> GetAll (string accountID);
         void ChangeAmountForAccount(string itemID, int amount, string accountID);
-        void RemovePositionWithID(string itemID, string accountID);
+        void Remove(PositionInInventory position, string accountID);
     }
 }

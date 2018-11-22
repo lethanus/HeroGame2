@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using HeroesGame.Common;
 
 namespace HeroesGame.Inventory
 {
-    public class PositionInInventory
-    {
-        public string ID { get; set; }
+    public class PositionInInventory : ObjectWithID
+    { 
         public string Name { get; set; }
         public string Category { get; set; }
         public int Amount { get; set; }

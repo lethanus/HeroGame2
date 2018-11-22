@@ -21,13 +21,13 @@ namespace HeroesGame.Inventory
         public void AddItems(string itemID, int amount)
         {
             var seletedItem = _itemTemplateRepository.GetAllTemplates().First(x=>x.ID == itemID);
-            var allPositions = _positionInInventoryRepository.GetAllForAcount(_accountManagement.GetLoggedAccount().ID);
+            var allPositions = _positionInInventoryRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
             var position = allPositions.FirstOrDefault(x => x.ID == itemID);
             if (position == null)
             {
                 var newItem = new PositionInInventory
                 { ID = seletedItem.ID, Category = seletedItem.Category, Name = seletedItem.Name, Amount = amount };
-                _positionInInventoryRepository.AddForAccount(newItem, _accountManagement.GetLoggedAccount().ID);
+                _positionInInventoryRepository.Add(newItem, _accountManagement.GetLoggedAccount().ID);
             }
             else
             {
@@ -37,21 +37,21 @@ namespace HeroesGame.Inventory
 
         public void AddPosition(PositionInInventory item)
         {
-            _positionInInventoryRepository.AddForAccount(item, _accountManagement.GetLoggedAccount().ID);
+            _positionInInventoryRepository.Add(item, _accountManagement.GetLoggedAccount().ID);
         }
 
         public List<PositionInInventory> GetAll()
         {
-            return _positionInInventoryRepository.GetAllForAcount(_accountManagement.GetLoggedAccount().ID);
+            return _positionInInventoryRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }
 
         public void RemoveItems(string itemID, int amount)
         {
-            var allPositions = _positionInInventoryRepository.GetAllForAcount(_accountManagement.GetLoggedAccount().ID);
+            var allPositions = _positionInInventoryRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
             var position = allPositions.First(x => x.ID == itemID);
             if(position.Amount == amount)
             {
-                _positionInInventoryRepository.RemovePositionWithID(position.ID, _accountManagement.GetLoggedAccount().ID);
+                _positionInInventoryRepository.Remove(position, _accountManagement.GetLoggedAccount().ID);
             }
             else if(position.Amount > amount)
             {
