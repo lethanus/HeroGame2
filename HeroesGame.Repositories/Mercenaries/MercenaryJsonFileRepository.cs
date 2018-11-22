@@ -8,10 +8,6 @@ namespace HeroesGame.Repositories
 {
     public class MercenaryJsonFileRepository : JsonListRepositoryForAccounts<Character>, IMercenaryRepository
     {
-
         public MercenaryJsonFileRepository(string directoryPath) : base(directoryPath, "Mercenaries") { }
-
     }
-
-
 }
