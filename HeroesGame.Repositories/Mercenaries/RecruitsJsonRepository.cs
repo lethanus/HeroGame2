@@ -20,15 +20,9 @@ namespace HeroesGame.Repositories
 
         public void Add(Mercenary recruit, string accountID)
         {
-            var recruits = GetRecruitsForAccount(accountID);
+            var recruits = GetAllRecruitsForUser(accountID);
             recruits.Add(recruit);
             SaveRecruitsForAccount(recruits, accountID, _directoryPath);
-        }
-
-        public List<Mercenary> GetAllRecruitsForUser(string accountID)
-        {
-            var recruits = GetRecruitsForAccount(accountID);
-            return recruits;
         }
 
         private void SaveRecruitsForAccount(List<Mercenary> recruits, string accountID, string directoryPath)
@@ -39,7 +33,7 @@ namespace HeroesGame.Repositories
         }
 
 
-        public List<Mercenary> GetRecruitsForAccount(string accountID)
+        public List<Mercenary> GetAllRecruitsForUser(string accountID)
         {
             string pathToFile = $"{_directoryPath}\\Recruits_{accountID}.json";
             if (!File.Exists(pathToFile))
@@ -60,7 +54,7 @@ namespace HeroesGame.Repositories
 
         public void Remove(Mercenary recruit, string accountID)
         {
-            var recruits = GetRecruitsForAccount(accountID);
+            var recruits = GetAllRecruitsForUser(accountID);
             var filtered = recruits.Where(x => x.ID != recruit.ID).ToList();
             SaveRecruitsForAccount(filtered, accountID, _directoryPath);
         }
