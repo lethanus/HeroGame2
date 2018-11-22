@@ -16,21 +16,42 @@ namespace HeroesGame.Repositories
             _directoryPath = directoryPath;
         }
 
-        private List<PositionInInventory> _positions = new List<PositionInInventory>();
-
         public void AddForAccount(PositionInInventory newItem, string accountID)
         {
-            _positions.Add(newItem);
+            var positions = GetPositionInInventoryForAccount(accountID);
+            positions.Add(newItem);
+            SavePositionInInventoryForAccount(positions, accountID, _directoryPath);
         }
 
         public List<PositionInInventory> GetAllForAcount(string accountID)
         {
-            return _positions;
+            return GetPositionInInventoryForAccount(accountID);
         }
 
         public void ChangeAmountForAccount(string itemID, int newAmount, string accountID)
         {
-            _positions.First(x => x.ID == itemID).Amount = newAmount;
+            var positions = GetPositionInInventoryForAccount(accountID);
+            positions.First(x => x.ID == itemID).Amount = newAmount;
+            SavePositionInInventoryForAccount(positions, accountID, _directoryPath);
+        }
+
+
+        private void SavePositionInInventoryForAccount(List<PositionInInventory> positions, string accountID, string directoryPath)
+        {
+            string pathToFile = $"{directoryPath}\\Inventory_{accountID}.json";
+            string json = JsonConvert.SerializeObject(positions, Formatting.Indented);
+            File.WriteAllText(pathToFile, json);
+        }
+
+        public List<PositionInInventory> GetPositionInInventoryForAccount(string accountID)
+        {
+            string pathToFile = $"{_directoryPath}\\Inventory_{accountID}.json";
+            if (!File.Exists(pathToFile))
+            {
+                return new List<PositionInInventory>();
+            }
+            var json = File.ReadAllText(pathToFile);
+            return JsonConvert.DeserializeObject<List<PositionInInventory>>(json);
         }
     }
 }

@@ -7,7 +7,6 @@ namespace HeroesGame.Repositories
 {
     public class ItemTemplateJsonFileRepository : IItemTemplateRepository
     {
-        private List<ItemTemplate> _itemTemplates = new List<ItemTemplate>();
         private string _pathToRepoFile;
 
         public ItemTemplateJsonFileRepository(string pathToRepoFile)
