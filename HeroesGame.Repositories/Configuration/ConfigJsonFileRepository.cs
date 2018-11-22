@@ -2,49 +2,49 @@
 using HeroesGame.Configuration;
 using Newtonsoft.Json;
 using System.IO;
+using System.Linq;
+
 
 namespace HeroesGame.Repositories
 {
     public class ConfigJsonFileRepository : IConfigRepository
     {
         private string _pathToRepoFile = "";
-        private Dictionary<string, string> _configValues = new Dictionary<string, string>();
 
         public ConfigJsonFileRepository(string pathToRepoFile)
         {
             _pathToRepoFile = pathToRepoFile;
         }
-
-        public Dictionary<string, string> GetAll()
-        {
-            return GetAllParameters(_pathToRepoFile);
-        }
-
         public string GetParameterValue(string parameterName)
         {
-            _configValues = GetAllParameters(_pathToRepoFile);
-            if (!_configValues.ContainsKey(parameterName)) return "";
-            return _configValues[parameterName];
+            var configValues = GetAllParameters(_pathToRepoFile);
+            if (configValues.Count(x=>x.Name == parameterName) == 0 ) return "";
+            return configValues.First(x=>x.Name == parameterName).Value;
         }
 
         public void SetConfigParameter(string parameter, string value)
         {
-            _configValues = GetAllParameters(_pathToRepoFile);
-            _configValues.Add(parameter, value);
-            SaveAllParameters(_configValues, _pathToRepoFile);
+            var configValues = GetAllParameters(_pathToRepoFile);
+            configValues.Add(new ConfigurationParameter { Name = parameter, Value = value });
+            SaveAllParameters(configValues, _pathToRepoFile);
         }
 
-        private Dictionary<string, string> GetAllParameters(string pathToFile)
+        public List<ConfigurationParameter> GetAll()
+        {
+            return GetAllParameters(_pathToRepoFile);
+        }
+
+        private List<ConfigurationParameter> GetAllParameters(string pathToFile)
         {
             if (!File.Exists(pathToFile))
             {
-                return new Dictionary<string, string>();
+                return new List<ConfigurationParameter>();
             }
             var json = File.ReadAllText(pathToFile);
-            return JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            return JsonConvert.DeserializeObject<List<ConfigurationParameter>>(json);
         }
 
-        private void SaveAllParameters(Dictionary<string, string> configurationParameters, string pathToFile)
+        private void SaveAllParameters(List<ConfigurationParameter> configurationParameters, string pathToFile)
         {
             string json = JsonConvert.SerializeObject(configurationParameters, Formatting.Indented);
             File.WriteAllText(pathToFile, json);

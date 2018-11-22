@@ -6,6 +6,6 @@ namespace HeroesGame.Configuration
     {
         string GetParameterValue(string parameterName);
         void SetConfigParameter(string parameter, string value);
-        Dictionary<string, string> GetAll();
+        List<ConfigurationParameter> GetAll();
     }
 }

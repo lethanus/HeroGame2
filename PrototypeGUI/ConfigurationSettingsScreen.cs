@@ -35,7 +35,7 @@ namespace PrototypeGUI
             foreach (var parameter in _configRepository.GetAll())
             {
                 List<string> row = new List<string>();
-                row.Add(parameter.Key);
+                row.Add(parameter.Name);
                 row.Add(parameter.Value);
 
                 var listViewItem = new ListViewItem(row.ToArray());

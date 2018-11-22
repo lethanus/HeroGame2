@@ -49,6 +49,7 @@
     <Compile Include="Characters\ICharacter.cs" />
     <Compile Include="Characters\ICharacterInTeam.cs" />
     <Compile Include="Characters\TeamPositionHelper.cs" />
+    <Compile Include="Configuration\ConfigurationParameter.cs" />
     <Compile Include="Configuration\IConfigRepository.cs" />
     <Compile Include="FightingMechanism\FightMechanizm.cs" />
     <Compile Include="Inventory\IInventoryManagement.cs" />
