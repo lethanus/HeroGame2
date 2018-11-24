@@ -326,6 +326,10 @@ Scenario: 14 Successfully convincing level 4 recruit after bribery
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        | 
 	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
+	And Inventory should have items below
+	| ID   | Name     | Amount | Category |
+	| TR_1 | Rat tail | 7      | Trophy   |
+	| O_1  | Other    | 5      | Other    | 
 
 Scenario: 15 Failing to convince level 4 recruit after bribery
 	Given Some accounts exists in system
@@ -353,7 +357,10 @@ Scenario: 15 Failing to convince level 4 recruit after bribery
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
-
+	And Inventory should have items below
+	| ID   | Name     | Amount | Category |
+	| TR_1 | Rat tail | 10     | Trophy   |
+	| O_1  | Other    | 5      | Other    | 
 
 Scenario: 16 Successfully convincing level 4 recruit after bribery using better item
 	Given Some accounts exists in system
@@ -382,3 +389,7 @@ Scenario: 16 Successfully convincing level 4 recruit after bribery using better 
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        |
 	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
+	And Inventory should have items below
+	| ID   | Name     | Amount | Category |
+	| TR_1 | Rat tail | 9      | Trophy   |
+	| O_1  | Other    | 5      | Other    | 
