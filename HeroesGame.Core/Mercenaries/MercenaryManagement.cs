@@ -68,6 +68,7 @@ namespace HeroesGame.Mercenaries
                     _inventoryManagement.RemoveItems(item.ID, item.Amount);
                 }
             }
+            _gifts.Clear();
             _recruitsRepository.Remove(recruit, _accountManagement.GetLoggedAccount().ID);
             return convinced;
         }
@@ -173,12 +174,18 @@ namespace HeroesGame.Mercenaries
 
         public void RemoveGifts(string itemID, int amount)
         {
-            
+            if(_gifts.ContainsKey(itemID))
+            {
+                if (_gifts[itemID].Amount == amount)
+                    _gifts.Remove(itemID);
+                else
+                    _gifts[itemID].Amount -= amount;
+            }
         }
 
         public List<PositionInInventory> GetCurrentGifts()
         {
-            return new List<PositionInInventory>();
+            return _gifts.Select(x => x.Value).ToList();
         }
     }
 
