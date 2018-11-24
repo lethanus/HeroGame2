@@ -63,6 +63,10 @@ namespace HeroesGame.Mercenaries
             if (convinced)
             { 
                 AddNewMercenary(recruit.CreateCharacter());
+                foreach (var item in _gifts.Values)
+                {
+                    _inventoryManagement.RemoveItems(item.ID, item.Amount);
+                }
             }
             _recruitsRepository.Remove(recruit, _accountManagement.GetLoggedAccount().ID);
             return convinced;
@@ -163,7 +167,7 @@ namespace HeroesGame.Mercenaries
         public void AddGifts(string itemID, int amount)
         {
             var item = _inventoryManagement.GetAvailableGiftItems().First(x => x.ID == itemID);
-
+            item.Amount = amount;
             _gifts.Add(item.ID, item);
         }
     }
