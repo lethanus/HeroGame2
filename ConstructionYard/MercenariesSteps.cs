@@ -246,8 +246,8 @@ namespace ConstructionYard
         [Given(@"Valid as a gifts are items")]
         public void GivenValidAsAGiftsAreItems(Table table)
         {
-            var inventoryManagement = objectContainer.Resolve<IInventoryManagement>();
-            var itemsAsGifts = inventoryManagement.GetAvailableGiftItems();
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            var itemsAsGifts = mercenaryManagement.GetAvailableGiftItems();
             var expectedGiftItems = table.CreateSet<PositionInInventory>().ToList();
             foreach (var item in expectedGiftItems)
             {
@@ -259,7 +259,8 @@ namespace ConstructionYard
         [When(@"Looged user will add '(.*)' items with ID '(.*)' as a gift")]
         public void WhenLoogedUserWillAddItemsWithIDAsAGift(int amount, string itemID)
         {
-            
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            mercenaryManagement.AddGifts(itemID, amount);
         }
 
     }

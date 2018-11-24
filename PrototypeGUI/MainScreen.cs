@@ -117,7 +117,6 @@ namespace PrototypeGUI
             _refreshingMechnism = new RefreshingMechnism(_refreshRepository, _configRepository, _accountManagement);
             _mercenaryTemplateRepository = new MercenaryTemplateJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\MercenaryTemplates.json");
             _mercenaryRepository = new MercenaryJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
-            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository, new ValueRandomizer(), _configRepository, _recruitsRepository);
             if(_mercenaryTemplateRepository.GetAll().Count == 0)
             {
                 foreach (var template in MercenaryTemplatesCollectionGenerator.Generate())
@@ -138,6 +137,8 @@ namespace PrototypeGUI
                 }
 
             }
+            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository, new ValueRandomizer(), _configRepository, _recruitsRepository, _inventoryManagement);
+
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
 

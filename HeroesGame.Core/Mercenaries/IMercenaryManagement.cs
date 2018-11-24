@@ -1,5 +1,6 @@
 ﻿using HeroesGame.Characters;
 using System.Collections.Generic;
+using HeroesGame.Inventory;
 
 namespace HeroesGame.Mercenaries
 {
@@ -12,6 +13,8 @@ namespace HeroesGame.Mercenaries
         List<Mercenary> GetRecruits();
         bool ConvinceRecruit(Mercenary recruit);
         double GetConvinceChance(int level);
+        List<PositionInInventory> GetAvailableGiftItems();
+        void AddGifts(string itemID, int amount);
     }
 
 

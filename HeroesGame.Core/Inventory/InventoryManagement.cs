@@ -61,9 +61,8 @@ namespace HeroesGame.Inventory
 
         public List<PositionInInventory> GetAvailableGiftItems()
         {
-            var gifts = new List<PositionInInventory>();
-
-            return gifts;
+            return _positionInInventoryRepository.GetAll(_accountManagement.GetLoggedAccount().ID)
+                .Where(x => x.Category == ItemCategory.Trophy).ToList();
         }
     }
 }

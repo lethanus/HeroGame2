@@ -5,20 +5,24 @@ using System.Linq;
 using System;
 using HeroesGame.Core.Randomizers;
 using HeroesGame.Configuration;
+using HeroesGame.Inventory;
 
 namespace HeroesGame.Mercenaries
 {
     public class MercenaryManagement : IMercenaryManagement
     {
+        private Dictionary<string, PositionInInventory> _gifts = new Dictionary<string, PositionInInventory>();
         private IMercenaryRepository _mercenaryRepository;
         private IMercenaryTemplateRepository _mercenaryTemplateRepository;
         private IAccountManagement _accountManagement;
         private IValueRandomizer _randomizer;
         private IConfigRepository _configRepository;
         private IRecruitsRepository _recruitsRepository;
+        private IInventoryManagement _inventoryManagement;
+
         public MercenaryManagement(IMercenaryRepository mercenaryRepository, IAccountManagement accountManagement,
             IMercenaryTemplateRepository mercenaryTemplateRepository, IValueRandomizer randomizer,
-            IConfigRepository configRepository, IRecruitsRepository recruitsRepository)
+            IConfigRepository configRepository, IRecruitsRepository recruitsRepository, IInventoryManagement inventoryManagement)
         {
             _mercenaryRepository = mercenaryRepository;
             _accountManagement = accountManagement;
@@ -26,6 +30,7 @@ namespace HeroesGame.Mercenaries
             _randomizer = randomizer;
             _configRepository = configRepository;
             _recruitsRepository = recruitsRepository;
+            _inventoryManagement = inventoryManagement;
         }
 
         public void AddNewMercenary(Character mercenary)
@@ -41,6 +46,16 @@ namespace HeroesGame.Mercenaries
             convinceChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_3_recruit")));
             convinceChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_4_recruit")));
             var randomValue = _randomizer.GetRandomValueInRange(1, convinceChances[1].MaxValue, "Recruits_convincing");
+
+
+            int randomValueModyfication = 0;
+            foreach (var item in _gifts.Values)
+            {
+                randomValueModyfication += item.Amount;
+            }
+
+            randomValue -= randomValueModyfication;
+
             var convinced = randomValue <= convinceChances[recruit.Level].Value;
             if (convinced)
             { 
@@ -77,7 +92,8 @@ namespace HeroesGame.Mercenaries
             {
                 var level = 1;
                 var randomValue = _randomizer.GetRandomValueInRange(1, mercenaryChances[1].MaxValue, "Mercenary_level_chance");
-                for(int j = 1; j<=4; j++)
+
+                for (int j = 1; j<=4; j++)
                 {
                     if (randomValue < mercenaryChances[j].Value) level = j;
                 }
@@ -134,6 +150,18 @@ namespace HeroesGame.Mercenaries
         {
             var range = rangeString.Split('-').Select(x => Int32.Parse(x)).ToArray();
             return _randomizer.GetRandomValueInRange(range[0], range[1], stat_name);
+        }
+
+        public List<PositionInInventory> GetAvailableGiftItems()
+        {
+            return _inventoryManagement.GetAvailableGiftItems();
+        }
+
+        public void AddGifts(string itemID, int amount)
+        {
+            var item = _inventoryManagement.GetAvailableGiftItems().First(x => x.ID == itemID);
+
+            _gifts.Add(item.ID, item);
         }
     }
 
