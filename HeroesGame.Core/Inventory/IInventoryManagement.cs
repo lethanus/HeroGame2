@@ -9,5 +9,6 @@ namespace HeroesGame.Inventory
         void AddPosition(PositionInInventory item);
         List<PositionInInventory> GetAll();
         void RemoveItems(string itemID, int amount);
+        List<PositionInInventory> GetAvailableGiftItems();
     }
 }

@@ -10,6 +10,7 @@ using HeroesGame.Mercenaries;
 using HeroesGame.Configuration;
 using HeroesGame.Core.Randomizers;
 using HeroesGame.Accounts;
+using HeroesGame.Inventory;
 
 namespace ConstructionYard
 {
@@ -240,6 +241,25 @@ namespace ConstructionYard
             var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
             var recruit = mercenaryManagement.GetRecruits().First(x => x.ID == recruitID);
             mercenaryManagement.ConvinceRecruit(recruit);
+        }
+
+        [Given(@"Valid as a gifts are items")]
+        public void GivenValidAsAGiftsAreItems(Table table)
+        {
+            var inventoryManagement = objectContainer.Resolve<IInventoryManagement>();
+            var itemsAsGifts = inventoryManagement.GetAvailableGiftItems();
+            var expectedGiftItems = table.CreateSet<PositionInInventory>().ToList();
+            foreach (var item in expectedGiftItems)
+            {
+                Assert.AreEqual(1, itemsAsGifts.Count(x => x.ID == item.ID));
+            }
+            Assert.AreEqual(expectedGiftItems.Count, itemsAsGifts.Count);
+        }
+
+        [When(@"Looged user will add '(.*)' items with ID '(.*)' as a gift")]
+        public void WhenLoogedUserWillAddItemsWithIDAsAGift(int amount, string itemID)
+        {
+            
         }
 
     }

@@ -58,5 +58,12 @@ namespace HeroesGame.Inventory
                 _positionInInventoryRepository.ChangeAmountForAccount(position.ID, position.Amount - amount, _accountManagement.GetLoggedAccount().ID);
             }
         }
+
+        public List<PositionInInventory> GetAvailableGiftItems()
+        {
+            var gifts = new List<PositionInInventory>();
+
+            return gifts;
+        }
     }
 }
