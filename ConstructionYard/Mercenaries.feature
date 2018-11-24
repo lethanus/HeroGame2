@@ -307,11 +307,11 @@ Scenario: 14 Successfully convincing level 4 recruit after bribery
 	And There as some recruits
 	| ID    | Level | Name | Hp | Attack_Min | Attack_Max | Defence | Speed |
 	| Elf_A | 4     | Elf  | 20 | 10         | 20         | 10      | 5     | 
-	And The chance of convincing level '1' recruits is set to '100' of '100'
-	And The chance of convincing level '2' recruits is set to '50' of '100'
-	And The chance of convincing level '3' recruits is set to '20' of '100'
-	And The chance of convincing level '4' recruits is set to '10' of '100'
-	And Randomzer for convincing recruits will always return '12'
+	And The chance of convincing level '1' recruits is set to '10000' of '10000'
+	And The chance of convincing level '2' recruits is set to '5000' of '10000'
+	And The chance of convincing level '3' recruits is set to '2000' of '10000'
+	And The chance of convincing level '4' recruits is set to '1000' of '10000'
+	And Randomzer for convincing recruits will always return '1290'
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                         |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
@@ -335,11 +335,11 @@ Scenario: 15 Failing to convince level 4 recruit after bribery
 	And There as some recruits
 	| ID    | Level | Name | Hp | Attack_Min | Attack_Max | Defence | Speed |
 	| Elf_A | 4     | Elf  | 20 | 10         | 20         | 10      | 5     | 
-	And The chance of convincing level '1' recruits is set to '100' of '100'
-	And The chance of convincing level '2' recruits is set to '50' of '100'
-	And The chance of convincing level '3' recruits is set to '20' of '100'
-	And The chance of convincing level '4' recruits is set to '10' of '100'
-	And Randomzer for convincing recruits will always return '14'
+	And The chance of convincing level '1' recruits is set to '10000' of '10000'
+	And The chance of convincing level '2' recruits is set to '5000' of '10000'
+	And The chance of convincing level '3' recruits is set to '2000' of '10000'
+	And The chance of convincing level '4' recruits is set to '1000' of '10000'
+	And Randomzer for convincing recruits will always return '1310'
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                         |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
@@ -352,4 +352,33 @@ Scenario: 15 Failing to convince level 4 recruit after bribery
 	Then Logged account id is 'ID_1'
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
+	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
+
+
+Scenario: 16 Successfully convincing level 4 recruit after bribery using better item
+	Given Some accounts exists in system
+	| ID   | Login | Password |
+	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
+	And There as some recruits
+	| ID    | Level | Name | Hp | Attack_Min | Attack_Max | Defence | Speed |
+	| Elf_A | 4     | Elf  | 20 | 10         | 20         | 10      | 5     | 
+	And The chance of convincing level '1' recruits is set to '10000' of '10000'
+	And The chance of convincing level '2' recruits is set to '5000' of '10000'
+	And The chance of convincing level '3' recruits is set to '2000' of '10000'
+	And The chance of convincing level '4' recruits is set to '1000' of '10000'
+	And Randomzer for convincing recruits will always return '1990'
+	And Inventory already contains items below
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+10%) |
+	| O_1  | Other    | 5      | Other    | None                             |
+	And Valid as a gifts are items
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+10%) |
+	When Looged user will add '1' items with ID 'TR_1' as a gift 
+	And Logged user will try to convince recruit with ID 'Elf_A'
+	Then Logged account id is 'ID_1'
+	And Logged account should have mercenaries
+	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
+	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        |
 	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
