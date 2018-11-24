@@ -48,15 +48,18 @@ namespace HeroesGame.Mercenaries
             var randomValue = _randomizer.GetRandomValueInRange(1, convinceChances[1].MaxValue, "Recruits_convincing");
 
 
-            int randomValueModyfication = 0;
+            int randomValueModyficationPercent = 0;
             foreach (var item in _gifts.Values)
             {
-                randomValueModyfication += item.Amount;
+                var percentage = 0;
+                if(Int32.TryParse(item.Effects.Replace("Mercenary_Convince_Chance_(+", "").Replace("%)", "").Trim(), out percentage))
+                {
+                    randomValueModyficationPercent += percentage * item.Amount;
+                }
             }
+            var toAdd = (randomValueModyficationPercent / 100.0) * convinceChances[recruit.Level].MaxValue;
 
-            randomValue -= randomValueModyfication;
-
-            var convinced = randomValue <= convinceChances[recruit.Level].Value;
+            var convinced = randomValue <= convinceChances[recruit.Level].Value + toAdd;
             if (convinced)
             { 
                 AddNewMercenary(recruit.CreateCharacter());

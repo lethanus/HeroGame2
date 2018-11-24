@@ -17,6 +17,7 @@ namespace ConstructionYard
 
         public static void InitializeRepository(IObjectContainer objectContainer)
         {
+            CleanupRepository();
             var valueRandomizer = new ValueRandomizer();
             objectContainer.RegisterInstanceAs<IValueRandomizer>(valueRandomizer);
             var accountRepo = new AccountJsonFileRepository("accounts.json");
