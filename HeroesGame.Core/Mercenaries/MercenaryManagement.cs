@@ -176,7 +176,7 @@ namespace HeroesGame.Mercenaries
         {
             if(_gifts.ContainsKey(itemID))
             {
-                if (_gifts[itemID].Amount == amount)
+                if (_gifts[itemID].Amount <= amount)
                     _gifts.Remove(itemID);
                 else
                     _gifts[itemID].Amount -= amount;
