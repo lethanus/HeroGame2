@@ -393,3 +393,30 @@ Scenario: 16 Successfully convincing level 4 recruit after bribery using better 
 	| ID   | Name     | Amount | Category |
 	| TR_1 | Rat tail | 9      | Trophy   |
 	| O_1  | Other    | 5      | Other    | 
+
+
+Scenario: 17 List of gifts management
+	Given Some accounts exists in system
+	| ID   | Login | Password |
+	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
+	And Inventory already contains items below
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+10%) |
+	And Valid as a gifts are items
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+10%) |
+	When List of gifts should have items below
+	| ID   | Name     | Amount | Category |
+	And Looged user will add '5' items with ID 'TR_1' as a gift 
+	And List of gifts should have items below
+	| ID   | Name     | Amount | Category |
+	| TR_1 | Rat tail | 5      | Trophy   |
+	And Looged user will remove '3' items with ID 'TR_1' from gifts 
+	And List of gifts should have items below
+	| ID   | Name     | Amount | Category |
+	| TR_1 | Rat tail | 2      | Trophy   |
+	And Logged user will try to convince recruit with ID 'Elf_A'
+	And List of gifts should have items below
+	| ID   | Name     | Amount | Category |
+

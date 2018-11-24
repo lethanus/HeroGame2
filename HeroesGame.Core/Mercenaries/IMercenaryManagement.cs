@@ -15,6 +15,8 @@ namespace HeroesGame.Mercenaries
         double GetConvinceChance(int level);
         List<PositionInInventory> GetAvailableGiftItems();
         void AddGifts(string itemID, int amount);
+        void RemoveGifts(string itemID, int amount);
+        List<PositionInInventory> GetCurrentGifts();
     }
 
 

@@ -170,6 +170,16 @@ namespace HeroesGame.Mercenaries
             item.Amount = amount;
             _gifts.Add(item.ID, item);
         }
+
+        public void RemoveGifts(string itemID, int amount)
+        {
+            
+        }
+
+        public List<PositionInInventory> GetCurrentGifts()
+        {
+            return new List<PositionInInventory>();
+        }
     }
 
     public class ChanceRange

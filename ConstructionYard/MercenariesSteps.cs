@@ -263,6 +263,26 @@ namespace ConstructionYard
             mercenaryManagement.AddGifts(itemID, amount);
         }
 
+        [When(@"List of gifts should have items below")]
+        public void WhenListOfGiftsShouldHaveItemsBelow(Table table)
+        {
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            var currentGifts = mercenaryManagement.GetCurrentGifts();
+            var expectedGiftItems = table.CreateSet<PositionInInventory>().ToList();
+            foreach (var item in expectedGiftItems)
+            {
+                Assert.AreEqual(item, currentGifts.First(x => x.ID == item.ID));
+            }
+            Assert.AreEqual(expectedGiftItems.Count, currentGifts.Count);
+        }
+
+        [When(@"Looged user will remove '(.*)' items with ID '(.*)' from gifts")]
+        public void WhenLoogedUserWillRemoveItemsWithIDFromGifts(int amount, string itemID)
+        {
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            mercenaryManagement.RemoveGifts(itemID, amount);
+        }
+
     }
 
 }
