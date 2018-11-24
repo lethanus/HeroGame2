@@ -1429,7 +1429,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Rat tail",
                         "10",
                         "Trophy",
-                        "Mercenary_Convince_chance_(+1%)"});
+                        "Mercenary_Convince_Chance_(+1%)"});
             table40.AddRow(new string[] {
                         "O_1",
                         "Other",
@@ -1450,7 +1450,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Rat tail",
                         "10",
                         "Trophy",
-                        "Mercenary_Convince_chance_(+1%)"});
+                        "Mercenary_Convince_Chance_(+1%)"});
 #line 319
  testRunner.And("Valid as a gifts are items", ((string)(null)), table41, "And ");
 #line 322
@@ -1551,7 +1551,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Rat tail",
                         "10",
                         "Trophy",
-                        "Mercenary_Convince_chance_(+1%)"});
+                        "Mercenary_Convince_Chance_(+1%)"});
             table45.AddRow(new string[] {
                         "O_1",
                         "Other",
@@ -1572,7 +1572,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Rat tail",
                         "10",
                         "Trophy",
-                        "Mercenary_Convince_chance_(+1%)"});
+                        "Mercenary_Convince_Chance_(+1%)"});
 #line 347
  testRunner.And("Valid as a gifts are items", ((string)(null)), table46, "And ");
 #line 350

@@ -15,19 +15,22 @@ namespace HeroesGame.Inventory
             {
                 ID = "TR_1",
                 Name = "Rat tail",
-                Category = "Trophy"
+                Category = ItemCategory.Trophy,
+                Effects = "Mercenary_Convince_Chance_(+1%)"
             });
             tempaltes.Add(new ItemTemplate
             {
                 ID = "TR_2",
                 Name = "Wolf pelt",
-                Category = "Trophy"
+                Category = ItemCategory.Trophy,
+                Effects = "Mercenary_Convince_Chance_(+1%)"
             });
             tempaltes.Add(new ItemTemplate
             {
                 ID = "TR_3",
                 Name = "Spider jaws",
-                Category = "Trophy"
+                Category = ItemCategory.Trophy,
+                Effects = "Mercenary_Convince_Chance_(+1%)"
             });
 
             return tempaltes;

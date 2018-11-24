@@ -314,11 +314,11 @@ Scenario: 14 Successfully convincing level 4 recruit after bribery
 	And Randomzer for convincing recruits will always return '12'
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                         |
-	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_chance_(+1%) |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
 	| O_1  | Other    | 5      | Other    | None                            |
 	And Valid as a gifts are items
 	| ID   | Name     | Amount | Category | Effects                         |
-	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_chance_(+1%) |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
 	When Looged user will add '3' items with ID 'TR_1' as a gift 
 	And Logged user will try to convince recruit with ID 'Elf_A'
 	Then Logged account id is 'ID_1'
@@ -342,11 +342,11 @@ Scenario: 15 Failing to convince level 4 recruit after bribery
 	And Randomzer for convincing recruits will always return '14'
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                         |
-	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_chance_(+1%) |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
 	| O_1  | Other    | 5      | Other    | None                            |
 	And Valid as a gifts are items
 	| ID   | Name     | Amount | Category | Effects                         |
-	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_chance_(+1%) |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
 	When Looged user will add '3' items with ID 'TR_1' as a gift 
 	And Logged user will try to convince recruit with ID 'Elf_A'
 	Then Logged account id is 'ID_1'

@@ -6,8 +6,9 @@ namespace HeroesGame.Inventory
     public class PositionInInventory : ObjectWithID
     { 
         public string Name { get; set; }
-        public string Category { get; set; }
+        public ItemCategory Category { get; set; }
         public int Amount { get; set; }
+        public string Effects { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -25,7 +26,7 @@ namespace HeroesGame.Inventory
             var hashCode = 426773352;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ID);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Category);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Category.ToString());
             hashCode = hashCode * -1521134295 + Amount.GetHashCode();
             return hashCode;
         }

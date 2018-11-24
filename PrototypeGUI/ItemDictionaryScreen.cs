@@ -34,13 +34,15 @@ namespace PrototypeGUI
             listItems.Columns.Add("ID", 100, HorizontalAlignment.Center);
             listItems.Columns.Add("Name", 100, HorizontalAlignment.Center);
             listItems.Columns.Add("Category", 100, HorizontalAlignment.Center);
+            listItems.Columns.Add("Effects", 300, HorizontalAlignment.Center);
             listItems.Items.Clear();
             foreach (var template in itemTemplates)
             {
                 List<string> row = new List<string>();
                 row.Add(template.ID);
                 row.Add(template.Name);
-                row.Add(template.Category);
+                row.Add(template.Category.ToString());
+                row.Add(template.Effects);
                 var listViewItem = new ListViewItem(row.ToArray());
 
                 listItems.Items.Add(listViewItem);

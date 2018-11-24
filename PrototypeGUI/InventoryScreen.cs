@@ -41,7 +41,7 @@ namespace PrototypeGUI
                 List<string> row = new List<string>();
                 row.Add(item.ID);
                 row.Add(item.Name);
-                row.Add(item.Category);
+                row.Add(item.Category.ToString());
                 row.Add(item.Amount.ToString());
                 var listViewItem = new ListViewItem(row.ToArray());
                 listItems.Tag = item;
