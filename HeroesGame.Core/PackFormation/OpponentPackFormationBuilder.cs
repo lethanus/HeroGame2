@@ -23,11 +23,37 @@ namespace HeroesGame.PackBuilding
         public void GenerateOpponentsBaseOnTemplate(string templateID)
         {
             var template = _formationTemplateRepository.GetAll().First(x => x.ID == templateID);
-            var splited = template.F1.Split('@'); 
-            var character = _mercenaryManagement.GetMercenaryBaseOnTemplate(splited[0], Int32.Parse(splited[1])).CreateCharacter();
-            character.ID = "F1_Goblin_1";
-            _team[TeamPosition.Front_1] = character;
+            foreach (var position in TeamPositionHelper.GetTeamPositions())
+                _team[position] = GenerateCharacterForPositionBaseOnTempalte(template, position);
         } 
+
+        private Character GenerateCharacterForPositionBaseOnTempalte(FormationTemplate template, TeamPosition position)
+        {
+            if (GetCharacterDescriptionOnPosition(template, position) == "") return null;
+
+            var splited = GetCharacterDescriptionOnPosition(template, position).Split('@');
+            var character = _mercenaryManagement.GetMercenaryBaseOnTemplate(splited[0], Int32.Parse(splited[1])).CreateCharacter();
+            character.ID = $"{position}_{splited[0]}_{splited[1]}";
+            return character;
+        }
+
+        private string GetCharacterDescriptionOnPosition(FormationTemplate template, TeamPosition position)
+        {
+            switch(position)
+            {
+                case TeamPosition.Front_1: return template.F1;
+                case TeamPosition.Front_2: return template.F2;
+                case TeamPosition.Front_3: return template.F3;
+                case TeamPosition.Middle_1: return template.M1;
+                case TeamPosition.Middle_2: return template.M2;
+                case TeamPosition.Middle_3: return template.M3;
+                case TeamPosition.Middle_4: return template.M4;
+                case TeamPosition.Rear_1: return template.R1;
+                case TeamPosition.Rear_2: return template.R2;
+                case TeamPosition.Rear_3: return template.R3;
+            }
+            return "";
+        }
 
         public string GetOpponentCharacterIdOnPosition(TeamPosition position)
         {
@@ -41,17 +67,9 @@ namespace HeroesGame.PackBuilding
 
         private void PopulateEmptyTeam()
         {
-            _team.Add(TeamPosition.Front_1, null);
-            _team.Add(TeamPosition.Front_2, null);
-            _team.Add(TeamPosition.Front_3, null);
-            _team.Add(TeamPosition.Middle_1, null);
-            _team.Add(TeamPosition.Middle_2, null);
-            _team.Add(TeamPosition.Middle_3, null);
-            _team.Add(TeamPosition.Middle_4, null);
-            _team.Add(TeamPosition.Rear_1, null);
-            _team.Add(TeamPosition.Rear_2, null);
-            _team.Add(TeamPosition.Rear_3, null);
-
+            foreach(var position in TeamPositionHelper.GetTeamPositions())
+               _team.Add(position, null);
+            
         }
     }
 }

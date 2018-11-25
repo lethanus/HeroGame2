@@ -92,19 +92,19 @@ Scenario: 04 Building opponent formation base on template
 	When System want to build opponent pack base on template 'T_1'
 	Then Generated opponents collection should have characters below
 	| ID          | Name   | Level | HP_range |
-	| F1_Goblin_1 | Goblin | 1     | 18-22    |
+	| Front_1_Goblin_1 | Goblin | 1     | 18-22    |
 	And Opponent pack formation should look like this
-	| Position | Character_ID |
-	| Front_1  | F1_Goblin_1  |
-	| Front_2  |              |
-	| Front_3  |              |
-	| Middle_1 |              |
-	| Middle_2 |              |
-	| Middle_3 |              |
-	| Middle_4 |              |
-	| Rear_1   |              |
-	| Rear_2   |              |
-	| Rear_3   |              |
+	| Position | Character_ID     |
+	| Front_1  | Front_1_Goblin_1 |
+	| Front_2  |                  |
+	| Front_3  |                  |
+	| Middle_1 |                  |
+	| Middle_2 |                  |
+	| Middle_3 |                  |
+	| Middle_4 |                  |
+	| Rear_1   |                  |
+	| Rear_2   |                  |
+	| Rear_3   |                  |
 
 
 Scenario: 05 Building opponent formation base on template - many characters
@@ -120,22 +120,22 @@ Scenario: 05 Building opponent formation base on template - many characters
 	| T_2 | Goblin pack - normal | 2     | Goblin@2 | Goblin@2 |    |    | Goblin@2 |    | Goblin@1 | Goblin@4 |    | Goblin@4 |
 	When System want to build opponent pack base on template 'T_2'
 	Then Generated opponents collection should have characters below
-	| ID          | Name   | Level | HP_range |
-	| F1_Goblin_1 | Goblin | 1     | 18-22    |
-	| F2_Goblin_2 | Goblin | 2     | 22-26    |
-	| M2_Goblin_2 | Goblin | 2     | 22-26    |
-	| M4_Goblin_1 | Goblin | 1     | 18-22    |
-	| R1_Goblin_4 | Goblin | 4     | 40-55    |
-	| R3_Goblin_4 | Goblin | 4     | 40-55    |
+	| ID                | Name   | Level | HP_range |
+	| Front_1_Goblin_2  | Goblin | 1     | 22-26    |
+	| Front_2_Goblin_2  | Goblin | 2     | 22-26    |
+	| Middle_2_Goblin_2 | Goblin | 2     | 22-26    |
+	| Middle_4_Goblin_1 | Goblin | 1     | 18-22    |
+	| Rear_1_Goblin_4   | Goblin | 4     | 40-55    |
+	| Rear_3_Goblin_4   | Goblin | 4     | 40-55    |
 	And Opponent pack formation should look like this
-	| Position | Character_ID |
-	| Front_1  | F1_Goblin_1  |
-	| Front_2  | F2_Goblin_2  |
-	| Front_3  |              |
-	| Middle_1 |              |
-	| Middle_2 | M2_Goblin_2  |
-	| Middle_3 |              |
-	| Middle_4 | M4_Goblin_1  |
-	| Rear_1   | R1_Goblin_4  |
-	| Rear_2   |              |
-	| Rear_3   | R3_Goblin_4  |
+	| Position | Character_ID      |
+	| Front_1  | Front_1_Goblin_2  |
+	| Front_2  | Front_2_Goblin_2  |
+	| Front_3  |                   |
+	| Middle_1 |                   |
+	| Middle_2 | Middle_2_Goblin_2 |
+	| Middle_3 |                   |
+	| Middle_4 | Middle_4_Goblin_1 |
+	| Rear_1   | Rear_1_Goblin_4   |
+	| Rear_2   |                   |
+	| Rear_3   | Rear_3_Goblin_4   |

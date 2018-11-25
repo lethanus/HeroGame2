@@ -463,7 +463,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level",
                         "HP_range"});
             table12.AddRow(new string[] {
-                        "F1_Goblin_1",
+                        "Front_1_Goblin_1",
                         "Goblin",
                         "1",
                         "18-22"});
@@ -475,7 +475,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Character_ID"});
             table13.AddRow(new string[] {
                         "Front_1",
-                        "F1_Goblin_1"});
+                        "Front_1_Goblin_1"});
             table13.AddRow(new string[] {
                         "Front_2",
                         ""});
@@ -613,32 +613,32 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level",
                         "HP_range"});
             table16.AddRow(new string[] {
-                        "F1_Goblin_1",
+                        "Front_1_Goblin_2",
                         "Goblin",
                         "1",
-                        "18-22"});
+                        "22-26"});
             table16.AddRow(new string[] {
-                        "F2_Goblin_2",
+                        "Front_2_Goblin_2",
                         "Goblin",
                         "2",
                         "22-26"});
             table16.AddRow(new string[] {
-                        "M2_Goblin_2",
+                        "Middle_2_Goblin_2",
                         "Goblin",
                         "2",
                         "22-26"});
             table16.AddRow(new string[] {
-                        "M4_Goblin_1",
+                        "Middle_4_Goblin_1",
                         "Goblin",
                         "1",
                         "18-22"});
             table16.AddRow(new string[] {
-                        "R1_Goblin_4",
+                        "Rear_1_Goblin_4",
                         "Goblin",
                         "4",
                         "40-55"});
             table16.AddRow(new string[] {
-                        "R3_Goblin_4",
+                        "Rear_3_Goblin_4",
                         "Goblin",
                         "4",
                         "40-55"});
@@ -650,10 +650,10 @@ this.ScenarioInitialize(scenarioInfo);
                         "Character_ID"});
             table17.AddRow(new string[] {
                         "Front_1",
-                        "F1_Goblin_1"});
+                        "Front_1_Goblin_2"});
             table17.AddRow(new string[] {
                         "Front_2",
-                        "F2_Goblin_2"});
+                        "Front_2_Goblin_2"});
             table17.AddRow(new string[] {
                         "Front_3",
                         ""});
@@ -662,22 +662,22 @@ this.ScenarioInitialize(scenarioInfo);
                         ""});
             table17.AddRow(new string[] {
                         "Middle_2",
-                        "M2_Goblin_2"});
+                        "Middle_2_Goblin_2"});
             table17.AddRow(new string[] {
                         "Middle_3",
                         ""});
             table17.AddRow(new string[] {
                         "Middle_4",
-                        "M4_Goblin_1"});
+                        "Middle_4_Goblin_1"});
             table17.AddRow(new string[] {
                         "Rear_1",
-                        "R1_Goblin_4"});
+                        "Rear_1_Goblin_4"});
             table17.AddRow(new string[] {
                         "Rear_2",
                         ""});
             table17.AddRow(new string[] {
                         "Rear_3",
-                        "R3_Goblin_4"});
+                        "Rear_3_Goblin_4"});
 #line 130
  testRunner.And("Opponent pack formation should look like this", ((string)(null)), table17, "And ");
 #line hidden

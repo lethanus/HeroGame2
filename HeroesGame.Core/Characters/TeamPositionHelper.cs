@@ -12,7 +12,7 @@ namespace HeroesGame.Characters
     {
         public static List<TeamPosition> GetTeamPositions()
         {
-            return Enum.GetValues(typeof(TeamPosition)).Cast<TeamPosition>().ToList();
+            return Enum.GetValues(typeof(TeamPosition)).Cast<TeamPosition>().Where(x=>x != TeamPosition.None).ToList();
         }
 
         public static TeamPosition GetFirstAvailablePositionInTeam(List<ICharacterInTeam> team)
