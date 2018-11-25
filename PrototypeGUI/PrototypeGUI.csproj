@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddingGiftsScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddingGiftsScreen.Designer.cs">
+      <DependentUpon>AddingGiftsScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigurationSettingsScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,15 @@
     <Compile Include="RecruitMercenariesScreen.Designer.cs">
       <DependentUpon>RecruitMercenariesScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="RemovingGiftScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemovingGiftScreen.Designer.cs">
+      <DependentUpon>RemovingGiftScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddingGiftsScreen.resx">
+      <DependentUpon>AddingGiftsScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigurationSettingsScreen.resx">
       <DependentUpon>ConfigurationSettingsScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +160,9 @@
     </Compile>
     <EmbeddedResource Include="RecruitMercenariesScreen.resx">
       <DependentUpon>RecruitMercenariesScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemovingGiftScreen.resx">
+      <DependentUpon>RemovingGiftScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

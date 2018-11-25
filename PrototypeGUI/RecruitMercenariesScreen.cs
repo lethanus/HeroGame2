@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeroesGame.RefresingMechanism;
 using HeroesGame.Mercenaries;
+using HeroesGame.Inventory;
 
 namespace PrototypeGUI
 {
@@ -33,6 +34,25 @@ namespace PrototypeGUI
             refreshTimer.Enabled = false;
             UpdateRefresh();
             RefreshRecruits();
+            UpdateGifts();
+        }
+
+        private void UpdateGifts()
+        {
+            var currentGifts = _mercenaryManagement.GetCurrentGifts();
+            listGifts.Columns.Clear();
+            listGifts.Columns.Add("Name", 100, HorizontalAlignment.Center);
+            listGifts.Columns.Add("Amount", 50, HorizontalAlignment.Center);
+            listGifts.Items.Clear();
+            foreach (var gift in currentGifts)
+            {
+                List<string> row = new List<string>();
+                row.Add(gift.Name);
+                row.Add(gift.Amount.ToString());
+                var listViewItem = new ListViewItem(row.ToArray());
+                listViewItem.Tag = gift;
+                listGifts.Items.Add(listViewItem);
+            }
         }
 
         private void RefreshRecruits()
@@ -135,6 +155,31 @@ namespace PrototypeGUI
                 var recruit = (Mercenary)listRecruits.SelectedItems[0].Tag;
                 var chance = _mercenaryManagement.GetConvinceChance(recruit.Level);
                 convinceChanceBox.Text = $"{chance}%";
+            }
+        }
+
+        private void btAddGift_Click(object sender, EventArgs e)
+        {
+            AddingGiftsScreen addingGiftsScreen = new AddingGiftsScreen(_mercenaryManagement);
+            if(addingGiftsScreen.ShowDialog() == DialogResult.OK)
+            {
+                var selectedGift = addingGiftsScreen.SelectedGift;
+                var amount = addingGiftsScreen.Amount;
+                _mercenaryManagement.AddGifts(selectedGift.ID, amount);
+                UpdateGifts();
+            }
+        }
+
+        private void btRemoveGift_Click(object sender, EventArgs e)
+        {
+            if (listGifts.SelectedItems.Count == 1)
+            {
+                var gift = (PositionInInventory)listGifts.SelectedItems[0].Tag;
+                RemovingGiftScreen removingGiftScreen = new RemovingGiftScreen();
+                if (removingGiftScreen.ShowDialog() == DialogResult.OK)
+                {
+
+                }
             }
         }
     }

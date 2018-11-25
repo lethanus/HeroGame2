@@ -256,6 +256,20 @@ namespace ConstructionYard
             Assert.AreEqual(expectedGiftItems.Count, itemsAsGifts.Count);
         }
 
+        [When(@"Valid as a gifts are items")]
+        public void WhenValidAsAGiftsAreItems(Table table)
+        {
+            var mercenaryManagement = objectContainer.Resolve<IMercenaryManagement>();
+            var itemsAsGifts = mercenaryManagement.GetAvailableGiftItems();
+            var expectedGiftItems = table.CreateSet<PositionInInventory>().ToList();
+            foreach (var item in expectedGiftItems)
+            {
+                Assert.AreEqual(1, itemsAsGifts.Count(x => x.ID == item.ID));
+            }
+            Assert.AreEqual(expectedGiftItems.Count, itemsAsGifts.Count);
+        }
+
+
         [When(@"Looged user will add '(.*)' items with ID '(.*)' as a gift")]
         public void WhenLoogedUserWillAddItemsWithIDAsAGift(int amount, string itemID)
         {

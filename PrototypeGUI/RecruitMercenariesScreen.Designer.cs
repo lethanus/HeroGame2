@@ -133,6 +133,7 @@
             this.btAddGift.TabIndex = 9;
             this.btAddGift.Text = "Add gift";
             this.btAddGift.UseVisualStyleBackColor = true;
+            this.btAddGift.Click += new System.EventHandler(this.btAddGift_Click);
             // 
             // btRemoveGift
             // 
@@ -142,14 +143,18 @@
             this.btRemoveGift.TabIndex = 10;
             this.btRemoveGift.Text = "Remove";
             this.btRemoveGift.UseVisualStyleBackColor = true;
+            this.btRemoveGift.Click += new System.EventHandler(this.btRemoveGift_Click);
             // 
             // listGifts
             // 
+            this.listGifts.FullRowSelect = true;
+            this.listGifts.GridLines = true;
             this.listGifts.Location = new System.Drawing.Point(530, 30);
             this.listGifts.Name = "listGifts";
             this.listGifts.Size = new System.Drawing.Size(258, 137);
             this.listGifts.TabIndex = 11;
             this.listGifts.UseCompatibleStateImageBehavior = false;
+            this.listGifts.View = System.Windows.Forms.View.Details;
             // 
             // label4
             // 

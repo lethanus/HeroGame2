@@ -2024,7 +2024,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 459
  testRunner.And("List of gifts should have items below", ((string)(null)), table70, "And ");
 #line 461
- testRunner.And("Looged user will add \'15\' items with ID \'TR_1\' as a gift", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Looged user will add \'10\' items with ID \'TR_1\' as a gift", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table71 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -2034,7 +2034,7 @@ this.ScenarioInitialize(scenarioInfo);
             table71.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
-                        "15",
+                        "10",
                         "Trophy"});
 #line 462
  testRunner.And("List of gifts should have items below", ((string)(null)), table71, "And ");
@@ -2048,6 +2048,172 @@ this.ScenarioInitialize(scenarioInfo);
                         "Category"});
 #line 466
  testRunner.And("List of gifts should have items below", ((string)(null)), table72, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("19 List of gifts management - more corner cases", SourceLine=469)]
+        public virtual void _19ListOfGiftsManagement_MoreCornerCases()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("19 List of gifts management - more corner cases", null, ((string[])(null)));
+#line 470
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table73 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Login",
+                        "Password"});
+            table73.AddRow(new string[] {
+                        "ID_1",
+                        "test",
+                        "test"});
+#line 471
+ testRunner.Given("Some accounts exists in system", ((string)(null)), table73, "Given ");
+#line 474
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Level",
+                        "Name",
+                        "Hp",
+                        "Attack_Min",
+                        "Attack_Max",
+                        "Defence",
+                        "Speed"});
+            table74.AddRow(new string[] {
+                        "Elf_A",
+                        "4",
+                        "Elf",
+                        "20",
+                        "10",
+                        "20",
+                        "10",
+                        "5"});
+#line 475
+ testRunner.And("There as some recruits", ((string)(null)), table74, "And ");
+#line 478
+ testRunner.And("The chance of convincing level \'1\' recruits is set to \'10000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 479
+ testRunner.And("The chance of convincing level \'2\' recruits is set to \'5000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 480
+ testRunner.And("The chance of convincing level \'3\' recruits is set to \'2000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 481
+ testRunner.And("The chance of convincing level \'4\' recruits is set to \'1000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 482
+ testRunner.And("Randomzer for convincing recruits will always return \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category",
+                        "Effects"});
+            table75.AddRow(new string[] {
+                        "TR_1",
+                        "Rat tail",
+                        "10",
+                        "Trophy",
+                        "Mercenary_Convince_Chance_(+1%)"});
+#line 483
+ testRunner.And("Inventory already contains items below", ((string)(null)), table75, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table76 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category",
+                        "Effects"});
+            table76.AddRow(new string[] {
+                        "TR_1",
+                        "Rat tail",
+                        "10",
+                        "Trophy",
+                        "Mercenary_Convince_Chance_(+1%)"});
+#line 486
+ testRunner.And("Valid as a gifts are items", ((string)(null)), table76, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table77 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category"});
+#line 489
+ testRunner.When("List of gifts should have items below", ((string)(null)), table77, "When ");
+#line 491
+ testRunner.And("Looged user will add \'5\' items with ID \'TR_1\' as a gift", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table78 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category"});
+            table78.AddRow(new string[] {
+                        "TR_1",
+                        "Rat tail",
+                        "5",
+                        "Trophy"});
+#line 492
+ testRunner.And("List of gifts should have items below", ((string)(null)), table78, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table79 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category",
+                        "Effects"});
+            table79.AddRow(new string[] {
+                        "TR_1",
+                        "Rat tail",
+                        "5",
+                        "Trophy",
+                        "Mercenary_Convince_Chance_(+1%)"});
+#line 495
+ testRunner.And("Valid as a gifts are items", ((string)(null)), table79, "And ");
+#line 498
+ testRunner.And("Looged user will add \'5\' items with ID \'TR_1\' as a gift", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table80 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category",
+                        "Effects"});
+#line 499
+ testRunner.And("Valid as a gifts are items", ((string)(null)), table80, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table81 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category"});
+            table81.AddRow(new string[] {
+                        "TR_1",
+                        "Rat tail",
+                        "10",
+                        "Trophy"});
+#line 501
+ testRunner.And("List of gifts should have items below", ((string)(null)), table81, "And ");
+#line 504
+ testRunner.And("Logged user will try to convince recruit with ID \'Elf_A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table82 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category"});
+#line 505
+ testRunner.And("List of gifts should have items below", ((string)(null)), table82, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table83 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category",
+                        "Effects"});
+#line 507
+ testRunner.And("Valid as a gifts are items", ((string)(null)), table83, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
