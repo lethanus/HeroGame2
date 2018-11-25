@@ -87,11 +87,10 @@ namespace PrototypeGUI
 
         private void UpdateRefresh()
         {
-            var status = _refreshingMechnism.GetRefreshStatus("Mercenaries", DateTime.Now);
-            btRefresh.Enabled = status == RefresStatus.Enabled;
-            var delay = _refreshingMechnism.GetDelayValue("Mercenaries");
+            btRefresh.Enabled = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, DateTime.Now) == RefresStatus.Enabled;
+            var delay = _refreshingMechnism.GetDelayValue(RefreshOption.Mercenaries);
             nextRefreshBar.Maximum = delay*4;
-            var lastRefreshTime = _refreshingMechnism.GetLastRefresh("Mercenaries");
+            var lastRefreshTime = _refreshingMechnism.GetLastRefresh(RefreshOption.Mercenaries);
             if (lastRefreshTime != null)
             {
                 var now = DateTime.Now;
@@ -116,7 +115,7 @@ namespace PrototypeGUI
 
         private void btRefresh_Click(object sender, EventArgs e)
         {
-            _refreshingMechnism.AddRefreshFactForLoggedAccount("Mercenaries", DateTime.Now);
+            _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Mercenaries, DateTime.Now);
             UpdateRefresh();
             refreshTimer.Enabled = true;
             _mercenaryManagement.GenerateMercenaries();

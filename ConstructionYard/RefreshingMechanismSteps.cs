@@ -36,7 +36,7 @@ namespace ConstructionYard
         }
 
         [Given(@"that there was no refresh actions before for option '(.*)' for account ID '(.*)'")]
-        public void GivenThatThereWasNoRefreshActionsBeforeForOption(string option, string accountID)
+        public void GivenThatThereWasNoRefreshActionsBeforeForOption(RefreshOption option, string accountID)
         {
             var refreshRepo = objectContainer.Resolve<IRefreshRepository>();
             var refreshes = refreshRepo.GetAll(accountID).Where(x=>x.Option == option).ToList();
@@ -62,14 +62,14 @@ namespace ConstructionYard
         }
         
         [Given(@"Refresh time for option '(.*)' is set to '(.*)' seconds")]
-        public void GivenRefreshTimeForOptionIsSetToSeconds(string option, string delayInSeconds)
+        public void GivenRefreshTimeForOptionIsSetToSeconds(RefreshOption option, string delayInSeconds)
         {
             var configRepo = objectContainer.Resolve<IConfigRepository>();
             configRepo.SetConfigParameter($"Delay_for_option_{option}_in_sec", delayInSeconds);
         }
         
         [When(@"mechanizm will set refresh to '(.*)' for option '(.*)'")]
-        public void WhenMechanizmWillSetRefreshToForOption(RefresStatus expectedStatus, string option)
+        public void WhenMechanizmWillSetRefreshToForOption(RefresStatus expectedStatus, RefreshOption option)
         {
             var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
             var actualStatus = refreshingMechnism.GetRefreshStatus(option, _currentTime);
@@ -78,14 +78,14 @@ namespace ConstructionYard
         }
         
         [When(@"player will use refresh for '(.*)' option at '(.*)'")]
-        public void WhenPlayerWillUseRefreshForOptionAt(string option, DateTime actionTime)
+        public void WhenPlayerWillUseRefreshForOptionAt(RefreshOption option, DateTime actionTime)
         {
             var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
             refreshingMechnism.AddRefreshFactForLoggedAccount(option, actionTime);
         }
         
         [Then(@"Refresh for option '(.*)' is '(.*)'")]
-        public void ThenRefreshForOptionIsAndNextRefreshIsAvailableAt(string option, RefresStatus expectedStatus)
+        public void ThenRefreshForOptionIsAndNextRefreshIsAvailableAt(RefreshOption option, RefresStatus expectedStatus)
         {
             var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
             var actualStatus = refreshingMechnism.GetRefreshStatus(option, _currentTime);
