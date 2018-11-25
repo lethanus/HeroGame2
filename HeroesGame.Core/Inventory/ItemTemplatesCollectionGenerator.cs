@@ -33,6 +33,14 @@ namespace HeroesGame.Inventory
                 Effects = "Mercenary_Convince_Chance_(+1%)"
             });
 
+            tempaltes.Add(new ItemTemplate
+            {
+                ID = "TR_4",
+                Name = "Trolls head",
+                Category = ItemCategory.Trophy,
+                Effects = "Mercenary_Convince_Chance_(+3%)"
+            });
+
             return tempaltes;
         }
     }

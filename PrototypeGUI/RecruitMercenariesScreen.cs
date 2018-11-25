@@ -177,10 +177,12 @@ namespace PrototypeGUI
             if (listGifts.SelectedItems.Count == 1)
             {
                 var gift = (PositionInInventory)listGifts.SelectedItems[0].Tag;
-                RemovingGiftScreen removingGiftScreen = new RemovingGiftScreen();
+                RemovingGiftScreen removingGiftScreen = new RemovingGiftScreen(gift);
                 if (removingGiftScreen.ShowDialog() == DialogResult.OK)
                 {
-
+                    var amount = removingGiftScreen.Amount;
+                    _mercenaryManagement.RemoveGifts(gift.ID, amount);
+                    UpdateGifts();
                 }
             }
         }
