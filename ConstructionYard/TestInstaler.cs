@@ -56,7 +56,7 @@ namespace ConstructionYard
             var formationTemplateRepository = new FormationTemplateJsonFileRepository("formationTemplates.json");
             objectContainer.RegisterInstanceAs<IFormationTemplateRepository>(formationTemplateRepository);
 
-            var opponentPackFormationBuilder = new OpponentPackFormationBuilder();
+            var opponentPackFormationBuilder = new OpponentPackFormationBuilder(formationTemplateRepository, mercenaryManagement);
             objectContainer.RegisterInstanceAs<IOpponentPackFormationBuilder>(opponentPackFormationBuilder);
             
         }
