@@ -26,7 +26,7 @@ namespace HeroesGame.Inventory
             if (position == null)
             {
                 var newItem = new PositionInInventory
-                { ID = seletedItem.ID, Category = seletedItem.Category, Name = seletedItem.Name, Amount = amount };
+                { ID = seletedItem.ID, Category = seletedItem.Category, Name = seletedItem.Name, Amount = amount, Effects = seletedItem.Effects };
                 _positionInInventoryRepository.Add(newItem, _accountManagement.GetLoggedAccount().ID);
             }
             else

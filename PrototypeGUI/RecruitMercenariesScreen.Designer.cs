@@ -155,6 +155,7 @@
             this.listGifts.TabIndex = 11;
             this.listGifts.UseCompatibleStateImageBehavior = false;
             this.listGifts.View = System.Windows.Forms.View.Details;
+            this.listGifts.SelectedIndexChanged += new System.EventHandler(this.listGifts_SelectedIndexChanged);
             // 
             // label4
             // 

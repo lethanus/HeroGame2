@@ -35,6 +35,7 @@ namespace PrototypeGUI
             listItems.Columns.Add("Name", 100, HorizontalAlignment.Center);
             listItems.Columns.Add("Category", 100, HorizontalAlignment.Center);
             listItems.Columns.Add("Amount", 100, HorizontalAlignment.Center);
+            listItems.Columns.Add("Effects", 200, HorizontalAlignment.Center);
             listItems.Items.Clear();
             foreach (var item in items)
             {
@@ -43,6 +44,7 @@ namespace PrototypeGUI
                 row.Add(item.Name);
                 row.Add(item.Category.ToString());
                 row.Add(item.Amount.ToString());
+                row.Add(item.Effects);
                 var listViewItem = new ListViewItem(row.ToArray());
                 listItems.Tag = item;
                 listItems.Items.Add(listViewItem);

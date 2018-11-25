@@ -53,6 +53,7 @@ namespace PrototypeGUI
                 listViewItem.Tag = gift;
                 listGifts.Items.Add(listViewItem);
             }
+            btRemoveGift.Enabled = listGifts.SelectedItems.Count == 1;
         }
 
         private void RefreshRecruits()
@@ -145,6 +146,7 @@ namespace PrototypeGUI
                 var result = _mercenaryManagement.ConvinceRecruit(recruit);
                 MessageBox.Show(result ? "Good job" : "Nah... Failed");
                 RefreshRecruits();
+                UpdateGifts();
             }
         }
 
@@ -181,6 +183,11 @@ namespace PrototypeGUI
 
                 }
             }
+        }
+
+        private void listGifts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btRemoveGift.Enabled = listGifts.SelectedItems.Count == 1;
         }
     }
 }
