@@ -40,26 +40,10 @@ namespace HeroesGame.Mercenaries
 
         public bool ConvinceRecruit(Mercenary recruit)
         {
-            var convinceChances = new Dictionary<int, ChanceRange>();
-            convinceChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_1_recruit")));
-            convinceChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_2_recruit")));
-            convinceChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_3_recruit")));
-            convinceChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_4_recruit")));
-            var randomValue = _randomizer.GetRandomValueInRange(1, convinceChances[1].MaxValue, "Recruits_convincing");
-
-
-            int randomValueModyficationPercent = 0;
-            foreach (var item in _gifts.Values)
-            {
-                var percentage = 0;
-                if(Int32.TryParse(item.Effects.Replace("Mercenary_Convince_Chance_(+", "").Replace("%)", "").Trim(), out percentage))
-                {
-                    randomValueModyficationPercent += percentage * item.Amount;
-                }
-            }
-            var toAdd = (randomValueModyficationPercent / 100.0) * convinceChances[recruit.Level].MaxValue;
-
-            var convinced = randomValue <= convinceChances[recruit.Level].Value + toAdd;
+            var firstLevelMax = new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_1_recruit"));
+            var convinceValue = CalculateConvinceValue(recruit.Level);
+            var randomValue = _randomizer.GetRandomValueInRange(1, firstLevelMax.MaxValue, "Recruits_convincing");
+            var convinced = randomValue <= convinceValue;
             if (convinced)
             { 
                 AddNewMercenary(recruit.CreateCharacter());
@@ -73,6 +57,27 @@ namespace HeroesGame.Mercenaries
             return convinced;
         }
 
+        private double CalculateConvinceValue(int level)
+        {
+            var convinceChances = new Dictionary<int, ChanceRange>();
+            convinceChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_1_recruit")));
+            convinceChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_2_recruit")));
+            convinceChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_3_recruit")));
+            convinceChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_4_recruit")));
+
+            int randomValueModyficationPercent = 0;
+            foreach (var item in _gifts.Values)
+            {
+                var percentage = 0;
+                if (Int32.TryParse(item.Effects.Replace("Mercenary_Convince_Chance_(+", "").Replace("%)", "").Trim(), out percentage))
+                {
+                    randomValueModyficationPercent += percentage * item.Amount;
+                }
+            }
+            var toAdd = (randomValueModyficationPercent / 100.0) * convinceChances[level].MaxValue;
+            return convinceChances[level].Value + toAdd;
+        }
+
         public double GetConvinceChance(int level)
         {
             var convinceChances = new Dictionary<int, ChanceRange>();
@@ -81,7 +86,7 @@ namespace HeroesGame.Mercenaries
             convinceChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_3_recruit")));
             convinceChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_4_recruit")));
 
-            return (convinceChances[level].Value / (convinceChances[level].MaxValue * 1.0)) * 100;
+            return (CalculateConvinceValue(level) / (convinceChances[level].MaxValue * 1.0)) * 100;
         }
 
         public void GenerateMercenaries()

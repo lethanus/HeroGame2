@@ -54,6 +54,7 @@ namespace PrototypeGUI
                 listGifts.Items.Add(listViewItem);
             }
             btRemoveGift.Enabled = listGifts.SelectedItems.Count == 1;
+            UpdateConvinceChance();
         }
 
         private void RefreshRecruits()
@@ -152,12 +153,19 @@ namespace PrototypeGUI
 
         private void listRecruits_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UpdateConvinceChance();
+        }
+
+        private void UpdateConvinceChance()
+        {
             if (listRecruits.SelectedItems.Count == 1)
             {
                 var recruit = (Mercenary)listRecruits.SelectedItems[0].Tag;
                 var chance = _mercenaryManagement.GetConvinceChance(recruit.Level);
+                if (chance > 100) chance = 100;
                 convinceChanceBox.Text = $"{chance}%";
             }
+            else convinceChanceBox.Text = "";
         }
 
         private void btAddGift_Click(object sender, EventArgs e)
