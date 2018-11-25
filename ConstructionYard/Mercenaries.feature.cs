@@ -1623,7 +1623,7 @@ this.ScenarioInitialize(scenarioInfo);
             table49.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
-                        "10",
+                        "7",
                         "Trophy"});
             table49.AddRow(new string[] {
                         "O_1",

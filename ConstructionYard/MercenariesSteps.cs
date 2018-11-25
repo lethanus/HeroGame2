@@ -251,7 +251,7 @@ namespace ConstructionYard
             var expectedGiftItems = table.CreateSet<PositionInInventory>().ToList();
             foreach (var item in expectedGiftItems)
             {
-                Assert.AreEqual(1, itemsAsGifts.Count(x => x.ID == item.ID));
+                Assert.AreEqual(item, itemsAsGifts.First(x => x.ID == item.ID));
             }
             Assert.AreEqual(expectedGiftItems.Count, itemsAsGifts.Count);
         }
@@ -264,7 +264,7 @@ namespace ConstructionYard
             var expectedGiftItems = table.CreateSet<PositionInInventory>().ToList();
             foreach (var item in expectedGiftItems)
             {
-                Assert.AreEqual(1, itemsAsGifts.Count(x => x.ID == item.ID));
+                Assert.AreEqual(item, itemsAsGifts.First(x => x.ID == item.ID));
             }
             Assert.AreEqual(expectedGiftItems.Count, itemsAsGifts.Count);
         }

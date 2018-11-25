@@ -359,7 +359,7 @@ Scenario: 15 Failing to convince level 4 recruit after bribery
 	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
 	And Inventory should have items below
 	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 10     | Trophy   |
+	| TR_1 | Rat tail | 7      | Trophy   |
 	| O_1  | Other    | 5      | Other    | 
 
 Scenario: 16 Successfully convincing level 4 recruit after bribery using better item
