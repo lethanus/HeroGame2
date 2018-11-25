@@ -201,5 +201,11 @@ namespace PrototypeGUI
             }
             MessageBox.Show("10 of each added!");
         }
+
+        private void btOpponentFormations_Click(object sender, EventArgs e)
+        {
+            FormationTemplatesScreen formationTemplatesScreen = new FormationTemplatesScreen(_formationTemplateRepository);
+            formationTemplatesScreen.ShowDialog();
+        }
     }
 }

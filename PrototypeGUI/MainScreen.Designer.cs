@@ -32,6 +32,7 @@
             this.accountDetailsBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gamePanel = new System.Windows.Forms.GroupBox();
+            this.btFillInventory = new System.Windows.Forms.Button();
             this.btPackFormation = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btAdventures = new System.Windows.Forms.Button();
@@ -44,7 +45,7 @@
             this.btMercenaryTemplates = new System.Windows.Forms.Button();
             this.btConfigSettings = new System.Windows.Forms.Button();
             this.btItemDictionary = new System.Windows.Forms.Button();
-            this.btFillInventory = new System.Windows.Forms.Button();
+            this.btOpponentFormations = new System.Windows.Forms.Button();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,6 +93,16 @@
             this.gamePanel.TabIndex = 3;
             this.gamePanel.TabStop = false;
             this.gamePanel.Text = "Game panel";
+            // 
+            // btFillInventory
+            // 
+            this.btFillInventory.Location = new System.Drawing.Point(228, 59);
+            this.btFillInventory.Name = "btFillInventory";
+            this.btFillInventory.Size = new System.Drawing.Size(124, 23);
+            this.btFillInventory.TabIndex = 8;
+            this.btFillInventory.Text = "Add 10 of all";
+            this.btFillInventory.UseVisualStyleBackColor = true;
+            this.btFillInventory.Click += new System.EventHandler(this.btFillInventory_Click);
             // 
             // btPackFormation
             // 
@@ -210,21 +221,22 @@
             this.btItemDictionary.UseVisualStyleBackColor = true;
             this.btItemDictionary.Click += new System.EventHandler(this.btItemDictionary_Click);
             // 
-            // btFillInventory
+            // btOpponentFormations
             // 
-            this.btFillInventory.Location = new System.Drawing.Point(228, 59);
-            this.btFillInventory.Name = "btFillInventory";
-            this.btFillInventory.Size = new System.Drawing.Size(124, 23);
-            this.btFillInventory.TabIndex = 8;
-            this.btFillInventory.Text = "Add 10 of all";
-            this.btFillInventory.UseVisualStyleBackColor = true;
-            this.btFillInventory.Click += new System.EventHandler(this.btFillInventory_Click);
+            this.btOpponentFormations.Location = new System.Drawing.Point(18, 328);
+            this.btOpponentFormations.Name = "btOpponentFormations";
+            this.btOpponentFormations.Size = new System.Drawing.Size(133, 23);
+            this.btOpponentFormations.TabIndex = 8;
+            this.btOpponentFormations.Text = "Opponent formations";
+            this.btOpponentFormations.UseVisualStyleBackColor = true;
+            this.btOpponentFormations.Click += new System.EventHandler(this.btOpponentFormations_Click);
             // 
             // btCampain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btOpponentFormations);
             this.Controls.Add(this.btItemDictionary);
             this.Controls.Add(this.btConfigSettings);
             this.Controls.Add(this.btMercenaryTemplates);
@@ -265,6 +277,7 @@
         private System.Windows.Forms.Button btPackFormation;
         private System.Windows.Forms.Button btItemDictionary;
         private System.Windows.Forms.Button btFillInventory;
+        private System.Windows.Forms.Button btOpponentFormations;
     }
 }
 

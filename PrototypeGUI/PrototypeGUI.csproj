@@ -57,6 +57,12 @@
     <Compile Include="ConfigurationSettingsScreen.Designer.cs">
       <DependentUpon>ConfigurationSettingsScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormationTemplatesScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormationTemplatesScreen.Designer.cs">
+      <DependentUpon>FormationTemplatesScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeroesScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigurationSettingsScreen.resx">
       <DependentUpon>ConfigurationSettingsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormationTemplatesScreen.resx">
+      <DependentUpon>FormationTemplatesScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeroesScreen.resx">
       <DependentUpon>HeroesScreen.cs</DependentUpon>
