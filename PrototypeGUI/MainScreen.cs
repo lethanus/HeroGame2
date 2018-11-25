@@ -207,5 +207,11 @@ namespace PrototypeGUI
             FormationTemplatesScreen formationTemplatesScreen = new FormationTemplatesScreen(_formationTemplateRepository);
             formationTemplatesScreen.ShowDialog();
         }
+
+        private void btAdventures_Click(object sender, EventArgs e)
+        {
+            QuestsScreen questsScreen = new QuestsScreen();
+            questsScreen.ShowDialog();
+        }
     }
 }

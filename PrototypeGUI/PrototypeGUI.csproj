@@ -51,6 +51,12 @@
     <Compile Include="AddingGiftsScreen.Designer.cs">
       <DependentUpon>AddingGiftsScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuestsScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuestsScreen.Designer.cs">
+      <DependentUpon>QuestsScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigurationSettingsScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </Compile>
     <EmbeddedResource Include="AddingGiftsScreen.resx">
       <DependentUpon>AddingGiftsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuestsScreen.resx">
+      <DependentUpon>QuestsScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigurationSettingsScreen.resx">
       <DependentUpon>ConfigurationSettingsScreen.cs</DependentUpon>

@@ -131,6 +131,7 @@
             this.btAdventures.TabIndex = 5;
             this.btAdventures.Text = "Adventures";
             this.btAdventures.UseVisualStyleBackColor = true;
+            this.btAdventures.Click += new System.EventHandler(this.btAdventures_Click);
             // 
             // btInventory
             // 
