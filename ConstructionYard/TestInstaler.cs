@@ -53,6 +53,12 @@ namespace ConstructionYard
             var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement, mercenaryTemplateRepository, valueRandomizer, configRepo, recruitRepo, inventoryManagement);
             objectContainer.RegisterInstanceAs<IMercenaryManagement>(mercenaryManagement);
 
+            var formationTemplateRepository = new FormationTemplateJsonFileRepository("formationTemplates.json");
+            objectContainer.RegisterInstanceAs<IFormationTemplateRepository>(formationTemplateRepository);
+
+            var opponentPackFormationBuilder = new OpponentPackFormationBuilder();
+            objectContainer.RegisterInstanceAs<IOpponentPackFormationBuilder>(opponentPackFormationBuilder);
+            
         }
 
         public static void CleanupRepository()
@@ -61,6 +67,7 @@ namespace ConstructionYard
             File.Delete("configuration.json");
             File.Delete("mercenaryTemplates.json");
             File.Delete("itemTemplates.json");
+            File.Delete("formationTemplates.json");
             foreach (var file in Directory.GetFiles(Directory.GetCurrentDirectory()))
             {
                 if (file.Contains("RefreshFacts_") || file.Contains("Mercenaries_") || file.Contains("Recruits_") || file.Contains("PackFormation_") || file.Contains("Inventory_"))

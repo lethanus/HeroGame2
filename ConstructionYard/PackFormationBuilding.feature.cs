@@ -359,6 +359,154 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("04 Building opponent formation base on template", SourceLine=80)]
+        public virtual void _04BuildingOpponentFormationBaseOnTemplate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 Building opponent formation base on template", null, ((string[])(null)));
+#line 81
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Level",
+                        "Name",
+                        "HP_range",
+                        "Min_Attack_range",
+                        "Defence_range",
+                        "Speed_range",
+                        "Attack_add_for_max"});
+            table10.AddRow(new string[] {
+                        "1",
+                        "Goblin",
+                        "18-22",
+                        "8-12",
+                        "8-12",
+                        "8-10",
+                        "4"});
+            table10.AddRow(new string[] {
+                        "2",
+                        "Goblin",
+                        "22-26",
+                        "12-16",
+                        "10-14",
+                        "9-11",
+                        "5"});
+            table10.AddRow(new string[] {
+                        "3",
+                        "Goblin",
+                        "26-34",
+                        "16-24",
+                        "12-16",
+                        "10-12",
+                        "7"});
+            table10.AddRow(new string[] {
+                        "4",
+                        "Goblin",
+                        "40-55",
+                        "30-40",
+                        "18-22",
+                        "11-13",
+                        "10"});
+#line 82
+ testRunner.Given("Some mercenary templates", ((string)(null)), table10, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Level",
+                        "F1",
+                        "F2",
+                        "F3",
+                        "M1",
+                        "M2",
+                        "M3",
+                        "M4",
+                        "R1",
+                        "R2",
+                        "R3"});
+            table11.AddRow(new string[] {
+                        "T_1",
+                        "Goblin pack - easy",
+                        "1",
+                        "Goblin@1",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table11.AddRow(new string[] {
+                        "T_2",
+                        "Goblin pack - normal",
+                        "2",
+                        "Goblin@2",
+                        "Goblin@2",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 88
+ testRunner.And("Have some formation templates", ((string)(null)), table11, "And ");
+#line 92
+ testRunner.When("System want to build opponent pack base on template \'T_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Level"});
+            table12.AddRow(new string[] {
+                        "F1_Goblin_1",
+                        "Goblin",
+                        "1"});
+#line 93
+ testRunner.Then("Generated opponents collection should have characters below", ((string)(null)), table12, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Position",
+                        "Character_ID"});
+            table13.AddRow(new string[] {
+                        "Front_1",
+                        "F1_Goblin_1"});
+            table13.AddRow(new string[] {
+                        "Front_2",
+                        ""});
+            table13.AddRow(new string[] {
+                        "Front_3",
+                        ""});
+            table13.AddRow(new string[] {
+                        "Middle_1",
+                        ""});
+            table13.AddRow(new string[] {
+                        "Middle_2",
+                        ""});
+            table13.AddRow(new string[] {
+                        "Middle_3",
+                        ""});
+            table13.AddRow(new string[] {
+                        "Middle_4",
+                        ""});
+            table13.AddRow(new string[] {
+                        "Rear_1",
+                        ""});
+            table13.AddRow(new string[] {
+                        "Rear_2",
+                        ""});
+            table13.AddRow(new string[] {
+                        "Rear_3",
+                        ""});
+#line 96
+ testRunner.And("Opponent pack formation should look like this", ((string)(null)), table13, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {
