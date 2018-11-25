@@ -34,6 +34,8 @@ namespace PrototypeGUI
         private IInventoryManagement _inventoryManagement;
         private IPositionInInventoryRepository _positionInInventoryRepository;
         private IItemTemplateRepository _itemTemplateRepository;
+        private IFormationTemplateRepository _formationTemplateRepository;
+        private IOpponentPackFormationBuilder _opponentPackFormationBuilder;
 
         public btCampain()
         {
@@ -138,6 +140,15 @@ namespace PrototypeGUI
 
             }
             _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository, new ValueRandomizer(), _configRepository, _recruitsRepository, _inventoryManagement);
+            _formationTemplateRepository = new FormationTemplateJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\FormationTemplates.json");
+            _opponentPackFormationBuilder = new OpponentPackFormationBuilder(_formationTemplateRepository, _mercenaryManagement);
+            if (_formationTemplateRepository.GetAll().Count == 0)
+            {
+                foreach (var template in FormationTemplatesCollectionGenerator.Generate())
+                {
+                    _formationTemplateRepository.Add(template);
+                }
+            }
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }

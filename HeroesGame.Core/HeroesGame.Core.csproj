@@ -71,6 +71,7 @@
     <Compile Include="Mercenaries\MercenaryTemplatesCollectionGenerator.cs" />
     <Compile Include="PackFormation\CharacterInThePack.cs" />
     <Compile Include="PackFormation\FormationTemplate.cs" />
+    <Compile Include="PackFormation\FormationTemplatesCollectionGenerator.cs" />
     <Compile Include="PackFormation\IFormationTemplateRepository.cs" />
     <Compile Include="PackFormation\IOpponentPackFormationBuilder.cs" />
     <Compile Include="PackFormation\IPackFormationBuilder.cs" />
