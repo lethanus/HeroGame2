@@ -202,7 +202,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 25
  testRunner.And("Fight will be vs generated team from template \'T_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
- testRunner.Then("Fight result should be \'Player wins\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Fight result should be \'PlayerWins\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -341,7 +341,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 49
  testRunner.And("Fight will be vs generated team from template \'T_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
- testRunner.Then("Fight result should be \'Player defeated\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Fight result should be \'PlayerDefeated\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -9,6 +9,6 @@ namespace HeroesGame.FightMechanizm
     public interface IFightManagement
     {
         void StartAfightAgainstTemplate(string opponentTemplateID);
-        string GetLastFightResult();
+        FightResult GetLastFightResult();
     }
 }

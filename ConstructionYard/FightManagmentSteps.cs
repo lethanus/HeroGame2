@@ -40,10 +40,10 @@ namespace ConstructionYard
         }
         
         [Then(@"Fight result should be '(.*)'")]
-        public void ThenFightResultShouldBe(string expectedResult)
+        public void ThenFightResultShouldBe(FightResult expectedResult)
         {
             var fightManagement = objectContainer.Resolve<IFightManagement>();
-            string result = fightManagement.GetLastFightResult();
+            FightResult result = fightManagement.GetLastFightResult();
             Assert.AreEqual(expectedResult, result);
         }
     }

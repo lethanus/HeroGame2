@@ -23,7 +23,7 @@ Scenario: 01 Player team for sure should win
 	When Player will set character with ID 'Elf_A' to position 'Front_1'
 	And Player will set character with ID 'Goblin_B' to position 'Front_2'
 	And Fight will be vs generated team from template 'T_1'
-	Then Fight result should be 'Player wins'
+	Then Fight result should be 'PlayerWins'
 	
 
 Scenario: 02 Player team for sure should lose
@@ -47,4 +47,4 @@ Scenario: 02 Player team for sure should lose
 	When Player will set character with ID 'Elf_A' to position 'Front_1'
 	And Player will set character with ID 'Goblin_B' to position 'Front_2'
 	And Fight will be vs generated team from template 'T_1'
-	Then Fight result should be 'Player defeated'
+	Then Fight result should be 'PlayerDefeated'

@@ -9,6 +9,7 @@ using HeroesGame.Mercenaries;
 
 namespace HeroesGame.FightMechanizm
 {
+    public enum FightResult { PlayerWins, PlayerDefeated }
     public class FightManagement : IFightManagement
     {
         private readonly IOpponentPackFormationBuilder _opponentPackFormationBuilder;
@@ -25,9 +26,9 @@ namespace HeroesGame.FightMechanizm
             _mercenaryManagement = mercenaryManagement;
         }
 
-        public string GetLastFightResult()
+        public FightResult GetLastFightResult()
         {
-            return _fightMechanizm.GetWinningTeam() == "Opponent" ? "Player defeated" : "Player wins";
+            return _fightMechanizm.GetWinningTeam() == "Opponent" ? FightResult.PlayerDefeated : FightResult.PlayerWins;
         }
 
         public void StartAfightAgainstTemplate(string opponentTemplateID)
@@ -49,8 +50,6 @@ namespace HeroesGame.FightMechanizm
                 playerCharacters.Add(character);
 
             }
-
-
 
             var allCharacters = new List<ICharacterInTeam>();
             allCharacters.AddRange(opponentCharacters);
