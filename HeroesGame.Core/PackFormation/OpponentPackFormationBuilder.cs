@@ -34,6 +34,7 @@ namespace HeroesGame.PackBuilding
             var splited = GetCharacterDescriptionOnPosition(template, position).Split('@');
             var character = _mercenaryManagement.GetMercenaryBaseOnTemplate(splited[0], Int32.Parse(splited[1])).CreateCharacter();
             character.ID = $"{position}_{splited[0]}_{splited[1]}";
+            character.SetPosition(position);
             return character;
         }
 

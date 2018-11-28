@@ -9,7 +9,7 @@ using HeroesGame.Core.Randomizers;
 
 namespace HeroesGame.FightMechanizm
 {
-    public class FightMechanizm
+    public class FightMechanizm : IFightMechanizm
     {
         private List<ICharacterInTeam> _characters = new List<ICharacterInTeam>();
         private string _firstTeam;
@@ -18,13 +18,24 @@ namespace HeroesGame.FightMechanizm
         private Logger _logger;
         private IValueRandomizer _randomizer;
 
+        public FightMechanizm(IValueRandomizer randomizer, Logger logger)
+        {
+            _randomizer = randomizer;
+            _logger = logger;
+        }
+
         public FightMechanizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam, Logger logger, IValueRandomizer randomizer)
+        {
+            SetupFight(startCharacters, firstTeam, secondTeam);
+            _logger = logger;
+            _randomizer = randomizer;
+        }
+
+        public void SetupFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
         {
             _characters = startCharacters;
             _firstTeam = firstTeam;
             _secondTeam = secondTeam;
-            _logger = logger;
-            _randomizer = randomizer;
         }
 
         public List<Character> StartFight()

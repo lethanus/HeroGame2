@@ -2,7 +2,7 @@
 	
 
 @mytag
-Scenario: 01 Player team for sure shoold win
+Scenario: 01 Player team for sure should win
 	Given Some mercenary templates
 	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
 	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
@@ -26,7 +26,7 @@ Scenario: 01 Player team for sure shoold win
 	Then Fight result should be 'Player wins'
 	
 
-Scenario: 02 Player team for sure shoold lose
+Scenario: 02 Player team for sure should lose
 	Given Some mercenary templates
 	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
 	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |

@@ -55,6 +55,7 @@
     <Compile Include="FightingMechanism\FightManagement.cs" />
     <Compile Include="FightingMechanism\FightMechanizm.cs" />
     <Compile Include="FightingMechanism\IFightManagement.cs" />
+    <Compile Include="FightingMechanism\IFightMechanizm.cs" />
     <Compile Include="Inventory\IInventoryManagement.cs" />
     <Compile Include="Inventory\IItemTemplateRepository.cs" />
     <Compile Include="Inventory\InventoryManagement.cs" />

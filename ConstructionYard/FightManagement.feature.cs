@@ -66,11 +66,11 @@ namespace ConstructionYard
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("01 Player team for sure shoold win", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("01 Player team for sure should win", new string[] {
                 "mytag"}, SourceLine=4)]
-        public virtual void _01PlayerTeamForSureShooldWin()
+        public virtual void _01PlayerTeamForSureShouldWin()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Player team for sure shoold win", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Player team for sure should win", null, new string[] {
                         "mytag"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -207,10 +207,10 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("02 Player team for sure shoold lose", SourceLine=28)]
-        public virtual void _02PlayerTeamForSureShooldLose()
+        [TechTalk.SpecRun.ScenarioAttribute("02 Player team for sure should lose", SourceLine=28)]
+        public virtual void _02PlayerTeamForSureShouldLose()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Player team for sure shoold lose", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Player team for sure should lose", null, ((string[])(null)));
 #line 29
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

@@ -10,6 +10,7 @@ using HeroesGame.Core.Randomizers;
 using HeroesGame.PackBuilding;
 using HeroesGame.Inventory;
 using HeroesGame.FightMechanizm;
+using HeroesGame.Loggers;
 
 namespace ConstructionYard
 {
@@ -19,6 +20,10 @@ namespace ConstructionYard
         public static void InitializeRepository(IObjectContainer objectContainer)
         {
             CleanupRepository();
+
+            var logger = new FakeLogger();
+            objectContainer.RegisterInstanceAs<Logger>(logger);
+
             var valueRandomizer = new ValueRandomizer();
             objectContainer.RegisterInstanceAs<IValueRandomizer>(valueRandomizer);
             var accountRepo = new AccountJsonFileRepository("accounts.json");
@@ -60,7 +65,10 @@ namespace ConstructionYard
             var opponentPackFormationBuilder = new OpponentPackFormationBuilder(formationTemplateRepository, mercenaryManagement);
             objectContainer.RegisterInstanceAs<IOpponentPackFormationBuilder>(opponentPackFormationBuilder);
 
-            var fightManagement = new FightManagement();
+            var fightMechanizm = new FightMechanizm(valueRandomizer, logger);
+            objectContainer.RegisterInstanceAs<IFightMechanizm>(fightMechanizm);
+
+            var fightManagement = new FightManagement(opponentPackFormationBuilder, fightMechanizm, packFormationBuilder, mercenaryManagement);
             objectContainer.RegisterInstanceAs<IFightManagement>(fightManagement);
 
         }
