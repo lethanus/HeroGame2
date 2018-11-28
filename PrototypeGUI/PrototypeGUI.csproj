@@ -51,6 +51,12 @@
     <Compile Include="AddingGiftsScreen.Designer.cs">
       <DependentUpon>AddingGiftsScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseFightTemplateScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseFightTemplateScreen.Designer.cs">
+      <DependentUpon>ChooseFightTemplateScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuestsScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </Compile>
     <EmbeddedResource Include="AddingGiftsScreen.resx">
       <DependentUpon>AddingGiftsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseFightTemplateScreen.resx">
+      <DependentUpon>ChooseFightTemplateScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuestsScreen.resx">
       <DependentUpon>QuestsScreen.cs</DependentUpon>

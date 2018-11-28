@@ -34,7 +34,7 @@ namespace HeroesGame.FightMechanizm
             return _fightMechanizm.GetWinningTeam() == opponentTeamName ? FightResult.PlayerDefeated : FightResult.PlayerWins;
         }
 
-        public void StartAfightAgainstTemplate(string opponentTemplateID)
+        public void StartFightAgainstTemplate(string opponentTemplateID)
         {
             _opponentPackFormationBuilder.GenerateOpponentsBaseOnTemplate(opponentTemplateID);
             var opponentCharacters = _opponentPackFormationBuilder.GetOpponentCharacters();

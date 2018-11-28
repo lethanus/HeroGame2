@@ -46,6 +46,7 @@
             this.btConfigSettings = new System.Windows.Forms.Button();
             this.btItemDictionary = new System.Windows.Forms.Button();
             this.btOpponentFormations = new System.Windows.Forms.Button();
+            this.btFightVsTemplate = new System.Windows.Forms.Button();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +79,7 @@
             // 
             // gamePanel
             // 
+            this.gamePanel.Controls.Add(this.btFightVsTemplate);
             this.gamePanel.Controls.Add(this.btFillInventory);
             this.gamePanel.Controls.Add(this.btPackFormation);
             this.gamePanel.Controls.Add(this.button1);
@@ -106,7 +108,7 @@
             // 
             // btPackFormation
             // 
-            this.btPackFormation.Location = new System.Drawing.Point(25, 111);
+            this.btPackFormation.Location = new System.Drawing.Point(25, 117);
             this.btPackFormation.Name = "btPackFormation";
             this.btPackFormation.Size = new System.Drawing.Size(124, 23);
             this.btPackFormation.TabIndex = 7;
@@ -232,6 +234,16 @@
             this.btOpponentFormations.UseVisualStyleBackColor = true;
             this.btOpponentFormations.Click += new System.EventHandler(this.btOpponentFormations_Click);
             // 
+            // btFightVsTemplate
+            // 
+            this.btFightVsTemplate.Location = new System.Drawing.Point(25, 146);
+            this.btFightVsTemplate.Name = "btFightVsTemplate";
+            this.btFightVsTemplate.Size = new System.Drawing.Size(124, 23);
+            this.btFightVsTemplate.TabIndex = 9;
+            this.btFightVsTemplate.Text = "Fight vs template";
+            this.btFightVsTemplate.UseVisualStyleBackColor = true;
+            this.btFightVsTemplate.Click += new System.EventHandler(this.btFightVsTemplate_Click);
+            // 
             // btCampain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +291,7 @@
         private System.Windows.Forms.Button btItemDictionary;
         private System.Windows.Forms.Button btFillInventory;
         private System.Windows.Forms.Button btOpponentFormations;
+        private System.Windows.Forms.Button btFightVsTemplate;
     }
 }
 

@@ -16,6 +16,13 @@ namespace HeroesGame.PackBuilding
         public string R1 { get; set; }
         public string R2 { get; set; }
         public string R3 { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
+
+    
 
 }

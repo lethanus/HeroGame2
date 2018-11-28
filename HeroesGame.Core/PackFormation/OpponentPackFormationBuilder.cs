@@ -29,7 +29,7 @@ namespace HeroesGame.PackBuilding
 
         private Character GenerateCharacterForPositionBaseOnTempalte(FormationTemplate template, TeamPosition position)
         {
-            if (GetCharacterDescriptionOnPosition(template, position) == "") return null;
+            if (string.IsNullOrEmpty(GetCharacterDescriptionOnPosition(template, position))) return null;
 
             var splited = GetCharacterDescriptionOnPosition(template, position).Split('@');
             var character = _mercenaryManagement.GetMercenaryBaseOnTemplate(splited[0], Int32.Parse(splited[1])).CreateCharacter();

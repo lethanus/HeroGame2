@@ -15,6 +15,8 @@ using HeroesGame.Repositories;
 using HeroesGame.PackBuilding;
 using HeroesGame.Core.Randomizers;
 using HeroesGame.Inventory;
+using HeroesGame.FightMechanizm;
+using HeroesGame.Loggers;
 
 namespace PrototypeGUI
 {
@@ -36,6 +38,10 @@ namespace PrototypeGUI
         private IItemTemplateRepository _itemTemplateRepository;
         private IFormationTemplateRepository _formationTemplateRepository;
         private IOpponentPackFormationBuilder _opponentPackFormationBuilder;
+        private IFightMechanizm _fightMechanizm;
+        private IFightManagement _fightManagement;
+        private IValueRandomizer _valueRandomizer;
+        private Logger _logger;
 
         public btCampain()
         {
@@ -149,6 +155,12 @@ namespace PrototypeGUI
                     _formationTemplateRepository.Add(template);
                 }
             }
+            _valueRandomizer = new ValueRandomizer();
+            _logger = new FakeLogger();
+            _fightMechanizm = new FightMechanizm(_valueRandomizer, _logger);
+
+            _fightManagement = new FightManagement(_opponentPackFormationBuilder, _fightMechanizm, _packFormationBuilder, _mercenaryManagement);
+
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
@@ -212,6 +224,27 @@ namespace PrototypeGUI
         {
             QuestsScreen questsScreen = new QuestsScreen();
             questsScreen.ShowDialog();
+        }
+
+        private void btFightVsTemplate_Click(object sender, EventArgs e)
+        {
+            ChooseFightTemplateScreen chooseFightTemplateScreen = new ChooseFightTemplateScreen(_formationTemplateRepository);
+            if(chooseFightTemplateScreen.ShowDialog() == DialogResult.OK)
+            {
+                var selectedTemplate = chooseFightTemplateScreen.SelectedTemplate;
+                _fightManagement.StartFightAgainstTemplate(selectedTemplate.ID);
+                var result = _fightManagement.GetLastFightResult();
+                MessageBox.Show(result.ToString());
+
+            }
+        }
+    }
+
+    public class FakeLogger : Logger
+    {
+        public void LogLine(string line)
+        {
+
         }
     }
 }
