@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HeroesGame.RefresingMechanism;
+
 
 namespace PrototypeGUI
 {
     public partial class QuestsScreen : Form
     {
-        public QuestsScreen()
+        private readonly IRefreshingMechnism _refreshingMechnism;
+
+        public QuestsScreen(IRefreshingMechnism refreshingMechnism)
         {
             InitializeComponent();
+            _refreshingMechnism = refreshingMechnism;
         }
 
         private void AdventuresScreen_Load(object sender, EventArgs e)

@@ -32,6 +32,7 @@
             this.accountDetailsBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gamePanel = new System.Windows.Forms.GroupBox();
+            this.btFightVsTemplate = new System.Windows.Forms.Button();
             this.btFillInventory = new System.Windows.Forms.Button();
             this.btPackFormation = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.btConfigSettings = new System.Windows.Forms.Button();
             this.btItemDictionary = new System.Windows.Forms.Button();
             this.btOpponentFormations = new System.Windows.Forms.Button();
-            this.btFightVsTemplate = new System.Windows.Forms.Button();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +96,16 @@
             this.gamePanel.TabStop = false;
             this.gamePanel.Text = "Game panel";
             // 
+            // btFightVsTemplate
+            // 
+            this.btFightVsTemplate.Location = new System.Drawing.Point(25, 146);
+            this.btFightVsTemplate.Name = "btFightVsTemplate";
+            this.btFightVsTemplate.Size = new System.Drawing.Size(124, 23);
+            this.btFightVsTemplate.TabIndex = 9;
+            this.btFightVsTemplate.Text = "Fight vs template";
+            this.btFightVsTemplate.UseVisualStyleBackColor = true;
+            this.btFightVsTemplate.Click += new System.EventHandler(this.btFightVsTemplate_Click);
+            // 
             // btFillInventory
             // 
             this.btFillInventory.Location = new System.Drawing.Point(228, 59);
@@ -131,9 +141,9 @@
             this.btAdventures.Name = "btAdventures";
             this.btAdventures.Size = new System.Drawing.Size(124, 23);
             this.btAdventures.TabIndex = 5;
-            this.btAdventures.Text = "Adventures";
+            this.btAdventures.Text = "Quests";
             this.btAdventures.UseVisualStyleBackColor = true;
-            this.btAdventures.Click += new System.EventHandler(this.btAdventures_Click);
+            this.btAdventures.Click += new System.EventHandler(this.btQuests_Click);
             // 
             // btInventory
             // 
@@ -233,16 +243,6 @@
             this.btOpponentFormations.Text = "Opponent formations";
             this.btOpponentFormations.UseVisualStyleBackColor = true;
             this.btOpponentFormations.Click += new System.EventHandler(this.btOpponentFormations_Click);
-            // 
-            // btFightVsTemplate
-            // 
-            this.btFightVsTemplate.Location = new System.Drawing.Point(25, 146);
-            this.btFightVsTemplate.Name = "btFightVsTemplate";
-            this.btFightVsTemplate.Size = new System.Drawing.Size(124, 23);
-            this.btFightVsTemplate.TabIndex = 9;
-            this.btFightVsTemplate.Text = "Fight vs template";
-            this.btFightVsTemplate.UseVisualStyleBackColor = true;
-            this.btFightVsTemplate.Click += new System.EventHandler(this.btFightVsTemplate_Click);
             // 
             // btCampain
             // 

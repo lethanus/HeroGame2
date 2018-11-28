@@ -216,9 +216,9 @@ namespace PrototypeGUI
             formationTemplatesScreen.ShowDialog();
         }
 
-        private void btAdventures_Click(object sender, EventArgs e)
+        private void btQuests_Click(object sender, EventArgs e)
         {
-            QuestsScreen questsScreen = new QuestsScreen();
+            QuestsScreen questsScreen = new QuestsScreen(_refreshingMechnism);
             questsScreen.ShowDialog();
         }
 
