@@ -12,6 +12,9 @@ namespace HeroesGame.FightMechanizm
     public enum FightResult { PlayerWins, PlayerDefeated }
     public class FightManagement : IFightManagement
     {
+        private const string opponentTeamName = "Opponent";
+        private const string playerTeamName = "Player";
+
         private readonly IOpponentPackFormationBuilder _opponentPackFormationBuilder;
         private readonly IFightMechanizm _fightMechanizm;
         private readonly IPackFormationBuilder _packFormationBuilder;
@@ -28,7 +31,7 @@ namespace HeroesGame.FightMechanizm
 
         public FightResult GetLastFightResult()
         {
-            return _fightMechanizm.GetWinningTeam() == "Opponent" ? FightResult.PlayerDefeated : FightResult.PlayerWins;
+            return _fightMechanizm.GetWinningTeam() == opponentTeamName ? FightResult.PlayerDefeated : FightResult.PlayerWins;
         }
 
         public void StartAfightAgainstTemplate(string opponentTemplateID)
@@ -37,7 +40,7 @@ namespace HeroesGame.FightMechanizm
             var opponentCharacters = _opponentPackFormationBuilder.GetOpponentCharacters();
             foreach(var oppChar in opponentCharacters)
             {
-                oppChar.SetTeam("Opponent");
+                oppChar.SetTeam(opponentTeamName);
             }
             var allPlayerCharacters = _mercenaryManagement.GetAllMercenariesForLoggedUser();
             var playerFormation = _packFormationBuilder.GetAll();
@@ -46,7 +49,7 @@ namespace HeroesGame.FightMechanizm
             {
                 var character = allPlayerCharacters.First(x => x.ID == position.Character_ID);
                 character.SetPosition(position.Position);
-                character.SetTeam("Player");
+                character.SetTeam(playerTeamName);
                 playerCharacters.Add(character);
 
             }
@@ -55,7 +58,7 @@ namespace HeroesGame.FightMechanizm
             allCharacters.AddRange(opponentCharacters);
             allCharacters.AddRange(playerCharacters);
 
-            _fightMechanizm.SetupFight(allCharacters, "Player", "Opponent");
+            _fightMechanizm.SetupFight(allCharacters, playerTeamName, opponentTeamName);
             _fightMechanizm.StartFight();
         }
     }
