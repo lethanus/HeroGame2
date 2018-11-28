@@ -36,7 +36,8 @@ namespace ConstructionYard
         public void WhenFightWillBeVsGeneratedTeamFromTemplate(string opponentTemplateID)
         {
             var fightManagement = objectContainer.Resolve<IFightManagement>();
-            fightManagement.StartFightAgainstTemplate(opponentTemplateID);
+            fightManagement.PrepareFightAgainstTemplate(opponentTemplateID);
+            fightManagement.StartFight();
         }
         
         [Then(@"Fight result should be '(.*)'")]

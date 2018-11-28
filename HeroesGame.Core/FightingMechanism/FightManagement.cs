@@ -19,6 +19,9 @@ namespace HeroesGame.FightMechanizm
         private readonly IFightMechanizm _fightMechanizm;
         private readonly IPackFormationBuilder _packFormationBuilder;
         private readonly IMercenaryManagement _mercenaryManagement;
+        private List<ICharacterInTeam> _playerCharacters = new List<ICharacterInTeam>();
+        private List<ICharacterInTeam> _opponentCharacters = new List<ICharacterInTeam>();
+
 
         public FightManagement(IOpponentPackFormationBuilder opponentPackFormationBuilder, IFightMechanizm fightMechanizm,
             IPackFormationBuilder packFormationBuilder, IMercenaryManagement mercenaryManagement)
@@ -34,31 +37,46 @@ namespace HeroesGame.FightMechanizm
             return _fightMechanizm.GetWinningTeam() == opponentTeamName ? FightResult.PlayerDefeated : FightResult.PlayerWins;
         }
 
-        public void StartFightAgainstTemplate(string opponentTemplateID)
+        public List<ICharacterInTeam> GetOpponentCharacters()
+        {
+            return _opponentCharacters;
+        }
+
+        public List<ICharacterInTeam> GetPlayerCharacters()
+        {
+            return _playerCharacters;
+        }
+
+        public void PrepareFightAgainstTemplate(string opponentTemplateID)
         {
             _opponentPackFormationBuilder.GenerateOpponentsBaseOnTemplate(opponentTemplateID);
             var opponentCharacters = _opponentPackFormationBuilder.GetOpponentCharacters();
             foreach(var oppChar in opponentCharacters)
             {
                 oppChar.SetTeam(opponentTeamName);
+                _opponentCharacters.Add(oppChar);
             }
             var allPlayerCharacters = _mercenaryManagement.GetAllMercenariesForLoggedUser();
             var playerFormation = _packFormationBuilder.GetAll();
-            var playerCharacters = new List<ICharacterInTeam>();
+            _playerCharacters = new List<ICharacterInTeam>();
             foreach(var position in playerFormation.Where(x=>x.Character_ID.Length > 0))
             {
                 var character = allPlayerCharacters.First(x => x.ID == position.Character_ID);
                 character.SetPosition(position.Position);
                 character.SetTeam(playerTeamName);
-                playerCharacters.Add(character);
+                _playerCharacters.Add(character);
 
             }
 
             var allCharacters = new List<ICharacterInTeam>();
-            allCharacters.AddRange(opponentCharacters);
-            allCharacters.AddRange(playerCharacters);
+            allCharacters.AddRange(_opponentCharacters);
+            allCharacters.AddRange(_playerCharacters);
 
             _fightMechanizm.SetupFight(allCharacters, playerTeamName, opponentTeamName);
+        }
+
+        public void StartFight()
+        {
             _fightMechanizm.StartFight();
         }
     }

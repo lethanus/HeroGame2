@@ -21,6 +21,11 @@ namespace HeroesGame.FightMechanizm
         public FightMechanizm(IValueRandomizer randomizer, Logger logger)
         {
             _randomizer = randomizer;
+            SetNewLogger(logger);
+        }
+
+        public void SetNewLogger(Logger logger)
+        {
             _logger = logger;
         }
 

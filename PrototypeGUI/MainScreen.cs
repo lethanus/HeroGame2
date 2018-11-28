@@ -157,10 +157,6 @@ namespace PrototypeGUI
             }
             _valueRandomizer = new ValueRandomizer();
             _logger = new FakeLogger();
-            _fightMechanizm = new FightMechanizm(_valueRandomizer, _logger);
-
-            _fightManagement = new FightManagement(_opponentPackFormationBuilder, _fightMechanizm, _packFormationBuilder, _mercenaryManagement);
-
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
@@ -228,14 +224,25 @@ namespace PrototypeGUI
 
         private void btFightVsTemplate_Click(object sender, EventArgs e)
         {
+            _fightMechanizm = new FightMechanizm(_valueRandomizer, _logger);
+
+            _fightManagement = new FightManagement(_opponentPackFormationBuilder, _fightMechanizm, _packFormationBuilder, _mercenaryManagement);
+
+
             ChooseFightTemplateScreen chooseFightTemplateScreen = new ChooseFightTemplateScreen(_formationTemplateRepository);
             if(chooseFightTemplateScreen.ShowDialog() == DialogResult.OK)
             {
                 var selectedTemplate = chooseFightTemplateScreen.SelectedTemplate;
-                _fightManagement.StartFightAgainstTemplate(selectedTemplate.ID);
-                var result = _fightManagement.GetLastFightResult();
-                MessageBox.Show(result.ToString());
+                _fightManagement.PrepareFightAgainstTemplate(selectedTemplate.ID);
 
+                FightScreen fightScreen = new FightScreen(_fightManagement, _fightMechanizm);
+                if (fightScreen.ShowDialog() == DialogResult.OK)
+                {
+
+
+                    var result = _fightManagement.GetLastFightResult();
+                    MessageBox.Show(result.ToString());
+                }
             }
         }
     }
