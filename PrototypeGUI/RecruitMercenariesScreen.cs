@@ -92,21 +92,17 @@ namespace PrototypeGUI
             var now = DateTime.Now;
             btRefresh.Enabled = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now) == RefresStatus.Enabled;
             var lastRefreshTime = _refreshingMechnism.GetLastRefresh(RefreshOption.Mercenaries);
-            if(lastRefreshTime.LastAction.AddSeconds(_maximum) >  now)
+            if(btRefresh.Enabled)
             {
-                var left = (lastRefreshTime.LastAction.AddSeconds(_maximum) - now).TotalSeconds;
-                btRefresh.Text = DateTime.MinValue.AddSeconds(left).ToLongTimeString();
-                btRefresh.Enabled = false;
-                refreshTimer.Enabled = true;
-            }
-            else
-            {
-                btRefresh.Enabled = true;
                 btRefresh.Text = "Refresh";
                 refreshTimer.Enabled = false;
             }
-            
-
+            else
+            {
+                var left = (lastRefreshTime.LastAction.AddSeconds(_maximum) - now).TotalSeconds;
+                btRefresh.Text = DateTime.MinValue.AddSeconds(left).ToLongTimeString();
+                refreshTimer.Enabled = true;
+            }
         }
 
         private void btRefresh_Click(object sender, EventArgs e)

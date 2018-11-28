@@ -22,8 +22,9 @@ namespace HeroesGame.RefresingMechanism
         public RefresStatus GetRefreshStatus(RefreshOption option, DateTime currentTime)
         {
             var refreshFact = GetLastRefresh(option);
-            int secondesToAdd = GetDelayValue(option);
             if (refreshFact == null) return RefresStatus.Enabled;
+            int secondesToAdd = GetDelayValue(option);
+
             return refreshFact.LastAction.AddSeconds(secondesToAdd) > currentTime ? RefresStatus.Disabled : RefresStatus.Enabled;
         }
 
