@@ -32,7 +32,6 @@
             this.btClose = new System.Windows.Forms.Button();
             this.listRecruits = new System.Windows.Forms.ListView();
             this.btRefresh = new System.Windows.Forms.Button();
-            this.nextRefreshBar = new System.Windows.Forms.ProgressBar();
             this.btConvince = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.convinceChanceBox = new System.Windows.Forms.TextBox();
@@ -44,8 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
-            this.timeLeftBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btClose
@@ -74,20 +71,11 @@
             // 
             this.btRefresh.Location = new System.Drawing.Point(12, 415);
             this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btRefresh.Size = new System.Drawing.Size(110, 23);
             this.btRefresh.TabIndex = 2;
             this.btRefresh.Text = "Refresh";
             this.btRefresh.UseVisualStyleBackColor = true;
             this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
-            // 
-            // nextRefreshBar
-            // 
-            this.nextRefreshBar.Location = new System.Drawing.Point(93, 415);
-            this.nextRefreshBar.Name = "nextRefreshBar";
-            this.nextRefreshBar.Size = new System.Drawing.Size(431, 23);
-            this.nextRefreshBar.Step = 1;
-            this.nextRefreshBar.TabIndex = 3;
-            this.nextRefreshBar.Value = 45;
             // 
             // btConvince
             // 
@@ -189,30 +177,11 @@
             this.refreshTimer.Interval = 250;
             this.refreshTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // timeLeftBox
-            // 
-            this.timeLeftBox.Location = new System.Drawing.Point(597, 418);
-            this.timeLeftBox.Name = "timeLeftBox";
-            this.timeLeftBox.ReadOnly = true;
-            this.timeLeftBox.Size = new System.Drawing.Size(100, 20);
-            this.timeLeftBox.TabIndex = 15;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(544, 421);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Time left";
-            // 
             // RecruitMercenariesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.timeLeftBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -223,7 +192,6 @@
             this.Controls.Add(this.convinceChanceBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btConvince);
-            this.Controls.Add(this.nextRefreshBar);
             this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.listRecruits);
             this.Controls.Add(this.btClose);
@@ -242,7 +210,6 @@
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.ListView listRecruits;
         private System.Windows.Forms.Button btRefresh;
-        private System.Windows.Forms.ProgressBar nextRefreshBar;
         private System.Windows.Forms.Button btConvince;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox convinceChanceBox;
@@ -254,7 +221,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer refreshTimer;
-        private System.Windows.Forms.TextBox timeLeftBox;
-        private System.Windows.Forms.Label label6;
     }
 }

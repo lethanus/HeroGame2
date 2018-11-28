@@ -17,6 +17,7 @@ namespace PrototypeGUI
     {
         private IRefreshingMechnism _refreshingMechnism;
         private IMercenaryManagement _mercenaryManagement;
+        private int _maximum = 0;
         public RecruitMercenariesScreen(IRefreshingMechnism refreshingMechnism, IMercenaryManagement mercenaryManagement)
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace PrototypeGUI
 
         private void RecruitMercenariesScreen_Load(object sender, EventArgs e)
         {
+            _maximum = _refreshingMechnism.GetDelayValue(RefreshOption.Mercenaries);
             refreshTimer.Enabled = false;
             UpdateRefresh();
             RefreshRecruits();
@@ -87,29 +89,23 @@ namespace PrototypeGUI
 
         private void UpdateRefresh()
         {
-            btRefresh.Enabled = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, DateTime.Now) == RefresStatus.Enabled;
-            var delay = _refreshingMechnism.GetDelayValue(RefreshOption.Mercenaries);
-            nextRefreshBar.Maximum = delay*4;
+            var now = DateTime.Now;
+            btRefresh.Enabled = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now) == RefresStatus.Enabled;
             var lastRefreshTime = _refreshingMechnism.GetLastRefresh(RefreshOption.Mercenaries);
-            if (lastRefreshTime != null)
+            if(lastRefreshTime.LastAction.AddSeconds(_maximum) >  now)
             {
-                var now = DateTime.Now;
-                if (lastRefreshTime.LastAction.AddSeconds(delay) > now)
-                {
-                    nextRefreshBar.Value = (int)(now - lastRefreshTime.LastAction).TotalSeconds*4;
-                    refreshTimer.Enabled = true;
-                }
-                else
-                {
-                    nextRefreshBar.Value = delay*4;
-                    refreshTimer.Enabled = false;
-                }
+                var left = (lastRefreshTime.LastAction.AddSeconds(_maximum) - now).TotalSeconds;
+                btRefresh.Text = DateTime.MinValue.AddSeconds(left).ToLongTimeString();
+                btRefresh.Enabled = false;
+                refreshTimer.Enabled = true;
             }
             else
             {
-                nextRefreshBar.Value = delay*4;
+                btRefresh.Enabled = true;
+                btRefresh.Text = "Refresh";
                 refreshTimer.Enabled = false;
             }
+            
 
         }
 
@@ -124,18 +120,7 @@ namespace PrototypeGUI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (nextRefreshBar.Value < nextRefreshBar.Maximum)
-            {
-                nextRefreshBar.Value++;
-                var left = (double) nextRefreshBar.Maximum - nextRefreshBar.Value;
-                timeLeftBox.Text = DateTime.MinValue.AddSeconds(left/4).ToLongTimeString();
-            }
-            else
-            {
-                refreshTimer.Enabled = false;
-                UpdateRefresh();
-                timeLeftBox.Text = "Ready";
-            }
+            UpdateRefresh();
         }
 
         private void btConvince_Click(object sender, EventArgs e)
