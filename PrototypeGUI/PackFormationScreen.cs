@@ -32,8 +32,13 @@ namespace PrototypeGUI
 
         private void PackFormationScreen_Load(object sender, EventArgs e)
         {
-            var characters = _mercenaryManagement.GetAllMercenariesForLoggedUser();
+            UpdateCharacters();
+        }
 
+        private void UpdateCharacters()
+        {
+            var characters = _mercenaryManagement.GetAllMercenariesForLoggedUser();
+            var positions = _packFormationBuilder.GetAll();
             listCharacters.Columns.Clear();
             listCharacters.Columns.Add("Level", 40, HorizontalAlignment.Center);
             listCharacters.Columns.Add("Name", 70, HorizontalAlignment.Center);
@@ -41,6 +46,7 @@ namespace PrototypeGUI
             listCharacters.Columns.Add("Attack", 50, HorizontalAlignment.Center);
             listCharacters.Columns.Add("Defence", 60, HorizontalAlignment.Center);
             listCharacters.Columns.Add("Speed", 50, HorizontalAlignment.Center);
+            listCharacters.Columns.Add("Position", 80, HorizontalAlignment.Center);
             listCharacters.Items.Clear();
             foreach (var character in characters)
             {
@@ -51,6 +57,8 @@ namespace PrototypeGUI
                 row.Add($"{character.getMin_Att().ToString()}-{character.getMax_Att().ToString()}");
                 row.Add(character.Def.ToString());
                 row.Add(character.Speed.ToString());
+                var onPosition = positions.FirstOrDefault(x => x.Character_ID == character.ID);
+                row.Add(onPosition == null ? "" : onPosition.Position.ToString());
                 var listViewItem = new ListViewItem(row.ToArray());
                 listViewItem.Tag = character;
                 listCharacters.Items.Add(listViewItem);
@@ -96,61 +104,61 @@ namespace PrototypeGUI
         private void btFront1_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Front_1);
-            RefreshPositions();
+            UpdateCharacters();
         }
 
         private void btFront2_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Front_2);
-            RefreshPositions();
+            UpdateCharacters();
         }
 
         private void btFront3_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Front_3);
-            RefreshPositions();
+            UpdateCharacters();
         }
 
         private void btMiddle1_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Middle_1);
-            RefreshPositions();
+            UpdateCharacters();
         }
 
         private void btMiddle2_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Middle_2);
-            RefreshPositions();
+            UpdateCharacters();
         }
 
         private void btMiddle3_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Middle_3);
-            RefreshPositions();
+            UpdateCharacters();
         }
 
         private void btMiddle4_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Middle_4);
-            RefreshPositions();
+            UpdateCharacters();
         }
 
         private void btRear1_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Rear_1);
-            RefreshPositions();
+            UpdateCharacters();
         }
 
         private void btRear2_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Rear_2);
-            RefreshPositions();
+            UpdateCharacters();
         }
 
         private void btRear3_Click(object sender, EventArgs e)
         {
             UpdatePosition(TeamPosition.Rear_3);
-            RefreshPositions();
+            UpdateCharacters();
         }
     }
 }

@@ -31,6 +31,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listCharacters = new System.Windows.Forms.ListView();
             this.gbTeamA = new System.Windows.Forms.GroupBox();
+            this.btRear2 = new System.Windows.Forms.Button();
+            this.btFront2 = new System.Windows.Forms.Button();
+            this.btFront3 = new System.Windows.Forms.Button();
+            this.btRear3 = new System.Windows.Forms.Button();
+            this.btMiddle4 = new System.Windows.Forms.Button();
+            this.btMiddle3 = new System.Windows.Forms.Button();
+            this.btMiddle2 = new System.Windows.Forms.Button();
+            this.btFront1 = new System.Windows.Forms.Button();
+            this.btRear1 = new System.Windows.Forms.Button();
+            this.btMiddle1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.rear3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,16 +62,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.front1 = new System.Windows.Forms.TextBox();
             this.btClose = new System.Windows.Forms.Button();
-            this.btMiddle1 = new System.Windows.Forms.Button();
-            this.btRear1 = new System.Windows.Forms.Button();
-            this.btFront1 = new System.Windows.Forms.Button();
-            this.btMiddle2 = new System.Windows.Forms.Button();
-            this.btMiddle3 = new System.Windows.Forms.Button();
-            this.btMiddle4 = new System.Windows.Forms.Button();
-            this.btRear3 = new System.Windows.Forms.Button();
-            this.btFront3 = new System.Windows.Forms.Button();
-            this.btFront2 = new System.Windows.Forms.Button();
-            this.btRear2 = new System.Windows.Forms.Button();
             this.gbTeamA.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +80,7 @@
             this.listCharacters.GridLines = true;
             this.listCharacters.Location = new System.Drawing.Point(12, 32);
             this.listCharacters.Name = "listCharacters";
-            this.listCharacters.Size = new System.Drawing.Size(345, 406);
+            this.listCharacters.Size = new System.Drawing.Size(479, 406);
             this.listCharacters.TabIndex = 3;
             this.listCharacters.UseCompatibleStateImageBehavior = false;
             this.listCharacters.View = System.Windows.Forms.View.Details;
@@ -118,12 +118,112 @@
             this.gbTeamA.Controls.Add(this.front2);
             this.gbTeamA.Controls.Add(this.label11);
             this.gbTeamA.Controls.Add(this.front1);
-            this.gbTeamA.Location = new System.Drawing.Point(363, 32);
+            this.gbTeamA.Location = new System.Drawing.Point(497, 32);
             this.gbTeamA.Name = "gbTeamA";
             this.gbTeamA.Size = new System.Drawing.Size(425, 377);
             this.gbTeamA.TabIndex = 5;
             this.gbTeamA.TabStop = false;
             this.gbTeamA.Text = "Team A";
+            // 
+            // btRear2
+            // 
+            this.btRear2.Location = new System.Drawing.Point(175, 177);
+            this.btRear2.Name = "btRear2";
+            this.btRear2.Size = new System.Drawing.Size(34, 23);
+            this.btRear2.TabIndex = 29;
+            this.btRear2.Text = "<<";
+            this.btRear2.UseVisualStyleBackColor = true;
+            this.btRear2.Click += new System.EventHandler(this.btRear2_Click);
+            // 
+            // btFront2
+            // 
+            this.btFront2.Location = new System.Drawing.Point(378, 177);
+            this.btFront2.Name = "btFront2";
+            this.btFront2.Size = new System.Drawing.Size(34, 23);
+            this.btFront2.TabIndex = 28;
+            this.btFront2.Text = "<<";
+            this.btFront2.UseVisualStyleBackColor = true;
+            this.btFront2.Click += new System.EventHandler(this.btFront2_Click);
+            // 
+            // btFront3
+            // 
+            this.btFront3.Location = new System.Drawing.Point(378, 269);
+            this.btFront3.Name = "btFront3";
+            this.btFront3.Size = new System.Drawing.Size(34, 23);
+            this.btFront3.TabIndex = 27;
+            this.btFront3.Text = "<<";
+            this.btFront3.UseVisualStyleBackColor = true;
+            this.btFront3.Click += new System.EventHandler(this.btFront3_Click);
+            // 
+            // btRear3
+            // 
+            this.btRear3.Location = new System.Drawing.Point(175, 269);
+            this.btRear3.Name = "btRear3";
+            this.btRear3.Size = new System.Drawing.Size(34, 23);
+            this.btRear3.TabIndex = 26;
+            this.btRear3.Text = "<<";
+            this.btRear3.UseVisualStyleBackColor = true;
+            this.btRear3.Click += new System.EventHandler(this.btRear3_Click);
+            // 
+            // btMiddle4
+            // 
+            this.btMiddle4.Location = new System.Drawing.Point(275, 322);
+            this.btMiddle4.Name = "btMiddle4";
+            this.btMiddle4.Size = new System.Drawing.Size(34, 23);
+            this.btMiddle4.TabIndex = 25;
+            this.btMiddle4.Text = "<<";
+            this.btMiddle4.UseVisualStyleBackColor = true;
+            this.btMiddle4.Click += new System.EventHandler(this.btMiddle4_Click);
+            // 
+            // btMiddle3
+            // 
+            this.btMiddle3.Location = new System.Drawing.Point(275, 230);
+            this.btMiddle3.Name = "btMiddle3";
+            this.btMiddle3.Size = new System.Drawing.Size(34, 23);
+            this.btMiddle3.TabIndex = 24;
+            this.btMiddle3.Text = "<<";
+            this.btMiddle3.UseVisualStyleBackColor = true;
+            this.btMiddle3.Click += new System.EventHandler(this.btMiddle3_Click);
+            // 
+            // btMiddle2
+            // 
+            this.btMiddle2.Location = new System.Drawing.Point(275, 138);
+            this.btMiddle2.Name = "btMiddle2";
+            this.btMiddle2.Size = new System.Drawing.Size(34, 23);
+            this.btMiddle2.TabIndex = 23;
+            this.btMiddle2.Text = "<<";
+            this.btMiddle2.UseVisualStyleBackColor = true;
+            this.btMiddle2.Click += new System.EventHandler(this.btMiddle2_Click);
+            // 
+            // btFront1
+            // 
+            this.btFront1.Location = new System.Drawing.Point(378, 87);
+            this.btFront1.Name = "btFront1";
+            this.btFront1.Size = new System.Drawing.Size(34, 23);
+            this.btFront1.TabIndex = 22;
+            this.btFront1.Text = "<<";
+            this.btFront1.UseVisualStyleBackColor = true;
+            this.btFront1.Click += new System.EventHandler(this.btFront1_Click);
+            // 
+            // btRear1
+            // 
+            this.btRear1.Location = new System.Drawing.Point(175, 87);
+            this.btRear1.Name = "btRear1";
+            this.btRear1.Size = new System.Drawing.Size(34, 23);
+            this.btRear1.TabIndex = 21;
+            this.btRear1.Text = "<<";
+            this.btRear1.UseVisualStyleBackColor = true;
+            this.btRear1.Click += new System.EventHandler(this.btRear1_Click);
+            // 
+            // btMiddle1
+            // 
+            this.btMiddle1.Location = new System.Drawing.Point(275, 36);
+            this.btMiddle1.Name = "btMiddle1";
+            this.btMiddle1.Size = new System.Drawing.Size(34, 23);
+            this.btMiddle1.TabIndex = 20;
+            this.btMiddle1.Text = "<<";
+            this.btMiddle1.UseVisualStyleBackColor = true;
+            this.btMiddle1.Click += new System.EventHandler(this.btMiddle1_Click);
             // 
             // label10
             // 
@@ -297,7 +397,7 @@
             // 
             // btClose
             // 
-            this.btClose.Location = new System.Drawing.Point(702, 415);
+            this.btClose.Location = new System.Drawing.Point(836, 424);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(86, 23);
             this.btClose.TabIndex = 12;
@@ -305,119 +405,19 @@
             this.btClose.UseVisualStyleBackColor = true;
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
-            // btMiddle1
-            // 
-            this.btMiddle1.Location = new System.Drawing.Point(275, 36);
-            this.btMiddle1.Name = "btMiddle1";
-            this.btMiddle1.Size = new System.Drawing.Size(34, 23);
-            this.btMiddle1.TabIndex = 20;
-            this.btMiddle1.Text = "<<";
-            this.btMiddle1.UseVisualStyleBackColor = true;
-            this.btMiddle1.Click += new System.EventHandler(this.btMiddle1_Click);
-            // 
-            // btRear1
-            // 
-            this.btRear1.Location = new System.Drawing.Point(175, 87);
-            this.btRear1.Name = "btRear1";
-            this.btRear1.Size = new System.Drawing.Size(34, 23);
-            this.btRear1.TabIndex = 21;
-            this.btRear1.Text = "<<";
-            this.btRear1.UseVisualStyleBackColor = true;
-            this.btRear1.Click += new System.EventHandler(this.btRear1_Click);
-            // 
-            // btFront1
-            // 
-            this.btFront1.Location = new System.Drawing.Point(378, 87);
-            this.btFront1.Name = "btFront1";
-            this.btFront1.Size = new System.Drawing.Size(34, 23);
-            this.btFront1.TabIndex = 22;
-            this.btFront1.Text = "<<";
-            this.btFront1.UseVisualStyleBackColor = true;
-            this.btFront1.Click += new System.EventHandler(this.btFront1_Click);
-            // 
-            // btMiddle2
-            // 
-            this.btMiddle2.Location = new System.Drawing.Point(275, 138);
-            this.btMiddle2.Name = "btMiddle2";
-            this.btMiddle2.Size = new System.Drawing.Size(34, 23);
-            this.btMiddle2.TabIndex = 23;
-            this.btMiddle2.Text = "<<";
-            this.btMiddle2.UseVisualStyleBackColor = true;
-            this.btMiddle2.Click += new System.EventHandler(this.btMiddle2_Click);
-            // 
-            // btMiddle3
-            // 
-            this.btMiddle3.Location = new System.Drawing.Point(275, 230);
-            this.btMiddle3.Name = "btMiddle3";
-            this.btMiddle3.Size = new System.Drawing.Size(34, 23);
-            this.btMiddle3.TabIndex = 24;
-            this.btMiddle3.Text = "<<";
-            this.btMiddle3.UseVisualStyleBackColor = true;
-            this.btMiddle3.Click += new System.EventHandler(this.btMiddle3_Click);
-            // 
-            // btMiddle4
-            // 
-            this.btMiddle4.Location = new System.Drawing.Point(275, 322);
-            this.btMiddle4.Name = "btMiddle4";
-            this.btMiddle4.Size = new System.Drawing.Size(34, 23);
-            this.btMiddle4.TabIndex = 25;
-            this.btMiddle4.Text = "<<";
-            this.btMiddle4.UseVisualStyleBackColor = true;
-            this.btMiddle4.Click += new System.EventHandler(this.btMiddle4_Click);
-            // 
-            // btRear3
-            // 
-            this.btRear3.Location = new System.Drawing.Point(175, 269);
-            this.btRear3.Name = "btRear3";
-            this.btRear3.Size = new System.Drawing.Size(34, 23);
-            this.btRear3.TabIndex = 26;
-            this.btRear3.Text = "<<";
-            this.btRear3.UseVisualStyleBackColor = true;
-            this.btRear3.Click += new System.EventHandler(this.btRear3_Click);
-            // 
-            // btFront3
-            // 
-            this.btFront3.Location = new System.Drawing.Point(378, 269);
-            this.btFront3.Name = "btFront3";
-            this.btFront3.Size = new System.Drawing.Size(34, 23);
-            this.btFront3.TabIndex = 27;
-            this.btFront3.Text = "<<";
-            this.btFront3.UseVisualStyleBackColor = true;
-            this.btFront3.Click += new System.EventHandler(this.btFront3_Click);
-            // 
-            // btFront2
-            // 
-            this.btFront2.Location = new System.Drawing.Point(378, 177);
-            this.btFront2.Name = "btFront2";
-            this.btFront2.Size = new System.Drawing.Size(34, 23);
-            this.btFront2.TabIndex = 28;
-            this.btFront2.Text = "<<";
-            this.btFront2.UseVisualStyleBackColor = true;
-            this.btFront2.Click += new System.EventHandler(this.btFront2_Click);
-            // 
-            // btRear2
-            // 
-            this.btRear2.Location = new System.Drawing.Point(175, 177);
-            this.btRear2.Name = "btRear2";
-            this.btRear2.Size = new System.Drawing.Size(34, 23);
-            this.btRear2.TabIndex = 29;
-            this.btRear2.Text = "<<";
-            this.btRear2.UseVisualStyleBackColor = true;
-            this.btRear2.Click += new System.EventHandler(this.btRear2_Click);
-            // 
             // PackFormationScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(934, 450);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.gbTeamA);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listCharacters);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(816, 489);
+            this.MaximumSize = new System.Drawing.Size(950, 489);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(816, 489);
+            this.MinimumSize = new System.Drawing.Size(950, 489);
             this.Name = "PackFormationScreen";
             this.Text = "Pack formation";
             this.Load += new System.EventHandler(this.PackFormationScreen_Load);
