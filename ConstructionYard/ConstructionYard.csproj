@@ -85,6 +85,12 @@
       <DependentUpon>AccountManagement.feature</DependentUpon>
     </Compile>
     <Compile Include="FakeLogger.cs" />
+    <Compile Include="FightManagement.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FightManagement.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FightManagmentSteps.cs" />
     <Compile Include="FightSimulations.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,6 +130,10 @@
     </None>
     <None Include="App.config" />
     <None Include="Default.srprofile" />
+    <None Include="FightManagement.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FightManagement.feature.cs</LastGenOutput>
+    </None>
     <None Include="FightSimulations.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FightSimulations.feature.cs</LastGenOutput>

@@ -9,6 +9,7 @@ using System.IO;
 using HeroesGame.Core.Randomizers;
 using HeroesGame.PackBuilding;
 using HeroesGame.Inventory;
+using HeroesGame.FightMechanizm;
 
 namespace ConstructionYard
 {
@@ -58,7 +59,10 @@ namespace ConstructionYard
 
             var opponentPackFormationBuilder = new OpponentPackFormationBuilder(formationTemplateRepository, mercenaryManagement);
             objectContainer.RegisterInstanceAs<IOpponentPackFormationBuilder>(opponentPackFormationBuilder);
-            
+
+            var fightManagement = new FightManagement();
+            objectContainer.RegisterInstanceAs<IFightManagement>(fightManagement);
+
         }
 
         public static void CleanupRepository()
