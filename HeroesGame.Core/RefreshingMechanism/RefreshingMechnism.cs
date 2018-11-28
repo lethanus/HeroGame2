@@ -19,13 +19,16 @@ namespace HeroesGame.RefresingMechanism
             _accountManagement = accountManagement;
         }
 
-        public RefresStatus GetRefreshStatus(RefreshOption option, DateTime currentTime)
+        public RefreshResults GetRefreshStatus(RefreshOption option, DateTime currentTime)
         {
             var refreshFact = GetLastRefresh(option);
-            if (refreshFact == null) return RefresStatus.Ready;
+            if (refreshFact == null) return new RefreshResults { Status = RefresStatus.Ready, SecondsLeft = 0 };
             int secondesToAdd = GetDelayValue(option);
+            var left = (int)(refreshFact.LastAction.AddSeconds(secondesToAdd) - currentTime).TotalSeconds;
 
-            return refreshFact.LastAction.AddSeconds(secondesToAdd) > currentTime ? RefresStatus.NotReady : RefresStatus.Ready;
+            return refreshFact.LastAction.AddSeconds(secondesToAdd) > currentTime ?
+                new RefreshResults { Status = RefresStatus.NotReady, SecondsLeft = left } : 
+                new RefreshResults { Status = RefresStatus.Ready, SecondsLeft = 0 };
         }
 
         public void AddRefreshFactForLoggedAccount(RefreshOption option, DateTime actionTime)

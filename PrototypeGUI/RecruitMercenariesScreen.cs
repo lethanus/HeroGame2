@@ -90,17 +90,17 @@ namespace PrototypeGUI
         private void UpdateRefresh()
         {
             var now = DateTime.Now;
-            btRefresh.Enabled = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now) == RefresStatus.Ready;
+            var result = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now);
+            btRefresh.Enabled = result.Status == RefresStatus.Ready;
             var lastRefreshTime = _refreshingMechnism.GetLastRefresh(RefreshOption.Mercenaries);
-            if(btRefresh.Enabled)
+            if(result.Status == RefresStatus.Ready)
             {
                 btRefresh.Text = "Refresh";
                 refreshTimer.Enabled = false;
             }
             else
             {
-                var left = (lastRefreshTime.LastAction.AddSeconds(_maximum) - now).TotalSeconds;
-                btRefresh.Text = DateTime.MinValue.AddSeconds(left).ToLongTimeString();
+                btRefresh.Text = DateTime.MinValue.AddSeconds(result.SecondsLeft).ToLongTimeString();
                 refreshTimer.Enabled = true;
             }
         }

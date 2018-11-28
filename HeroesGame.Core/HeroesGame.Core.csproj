@@ -88,6 +88,7 @@
     <Compile Include="RefreshingMechanism\IRefreshRepository.cs" />
     <Compile Include="RefreshingMechanism\RefreshFact.cs" />
     <Compile Include="RefreshingMechanism\RefreshingMechnism.cs" />
+    <Compile Include="RefreshingMechanism\RefreshResults.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

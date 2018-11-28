@@ -74,7 +74,7 @@ namespace ConstructionYard
             var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
             var actualStatus = refreshingMechnism.GetRefreshStatus(option, _currentTime);
 
-            Assert.AreEqual(expectedStatus, actualStatus);
+            Assert.AreEqual(expectedStatus, actualStatus.Status);
         }
         
         [When(@"player will use refresh for '(.*)' option at '(.*)'")]
@@ -90,7 +90,7 @@ namespace ConstructionYard
             var refreshingMechnism = objectContainer.Resolve<IRefreshingMechnism>();
             var actualStatus = refreshingMechnism.GetRefreshStatus(option, _currentTime);
 
-            Assert.AreEqual(expectedStatus, actualStatus);
+            Assert.AreEqual(expectedStatus, actualStatus.Status);
         }
     }
 }
