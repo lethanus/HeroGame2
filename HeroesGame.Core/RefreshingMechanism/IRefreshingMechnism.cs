@@ -3,7 +3,7 @@
 
 namespace HeroesGame.RefresingMechanism
 {
-    public enum RefresStatus { Enabled, Disabled }
+    public enum RefresStatus { Ready, NotReady }
     public interface IRefreshingMechnism
     {
         RefresStatus GetRefreshStatus(RefreshOption option, DateTime currentTime);

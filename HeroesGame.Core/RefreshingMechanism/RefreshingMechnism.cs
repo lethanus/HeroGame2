@@ -22,10 +22,10 @@ namespace HeroesGame.RefresingMechanism
         public RefresStatus GetRefreshStatus(RefreshOption option, DateTime currentTime)
         {
             var refreshFact = GetLastRefresh(option);
-            if (refreshFact == null) return RefresStatus.Enabled;
+            if (refreshFact == null) return RefresStatus.Ready;
             int secondesToAdd = GetDelayValue(option);
 
-            return refreshFact.LastAction.AddSeconds(secondesToAdd) > currentTime ? RefresStatus.Disabled : RefresStatus.Enabled;
+            return refreshFact.LastAction.AddSeconds(secondesToAdd) > currentTime ? RefresStatus.NotReady : RefresStatus.Ready;
         }
 
         public void AddRefreshFactForLoggedAccount(RefreshOption option, DateTime actionTime)

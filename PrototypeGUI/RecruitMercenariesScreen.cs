@@ -90,7 +90,7 @@ namespace PrototypeGUI
         private void UpdateRefresh()
         {
             var now = DateTime.Now;
-            btRefresh.Enabled = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now) == RefresStatus.Enabled;
+            btRefresh.Enabled = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now) == RefresStatus.Ready;
             var lastRefreshTime = _refreshingMechnism.GetLastRefresh(RefreshOption.Mercenaries);
             if(btRefresh.Enabled)
             {

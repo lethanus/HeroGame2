@@ -96,13 +96,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 12
  testRunner.When("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
- testRunner.And("mechanizm will set refresh to \'Enabled\' for option \'Mercenaries\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("mechanizm will set refresh to \'Ready\' for option \'Mercenaries\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
  testRunner.And("player will use refresh for \'Mercenaries\' option at \'2018-10-15 10:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 16
- testRunner.And("Refresh for option \'Mercenaries\' is \'Disabled\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Refresh for option \'Mercenaries\' is \'NotReady\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -154,7 +154,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 33
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 34
- testRunner.And("Refresh for option \'Mercenaries\' is \'Disabled\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Refresh for option \'Mercenaries\' is \'NotReady\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -206,7 +206,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 51
  testRunner.Then("Logged account id is \'ID_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 52
- testRunner.And("Refresh for option \'Mercenaries\' is \'Enabled\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Refresh for option \'Mercenaries\' is \'Ready\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
