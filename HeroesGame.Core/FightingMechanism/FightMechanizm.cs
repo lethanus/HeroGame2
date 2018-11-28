@@ -24,13 +24,6 @@ namespace HeroesGame.FightMechanizm
             _logger = logger;
         }
 
-        public FightMechanizm(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam, Logger logger, IValueRandomizer randomizer)
-        {
-            SetupFight(startCharacters, firstTeam, secondTeam);
-            _logger = logger;
-            _randomizer = randomizer;
-        }
-
         public void SetupFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
         {
             _characters = startCharacters;

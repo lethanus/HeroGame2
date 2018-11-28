@@ -40,7 +40,8 @@ namespace ConstructionYard
         [When(@"Fight between '(.*)' and '(.*)' starts")]
         public void WhenFightBetweenAndStarts(string firstTeam, string secondTeam)
         {
-            var fightMechnizm = new FightMechanizm(charactersInTeams, firstTeam, secondTeam, new FakeLogger(), new ValueRandomizer());
+            var fightMechnizm = new FightMechanizm( new ValueRandomizer(), new FakeLogger());
+            fightMechnizm.SetupFight(charactersInTeams, firstTeam, secondTeam);
             charactersAfterFight = fightMechnizm.StartFight();
             winningTeam = fightMechnizm.GetWinningTeam();
         }
