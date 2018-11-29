@@ -77,7 +77,7 @@
       <Link>Completed\AccountManagementSteps.cs</Link>
     </Compile>
     <Compile Include="..\FightSimulationsSteps.cs">
-      <Link>ToDo\FightSimulationsSteps.cs</Link>
+      <Link>Completed\FightSimulationsSteps.cs</Link>
     </Compile>
     <Compile Include="Completed\AccountManagement.feature.cs">
       <AutoGen>True</AutoGen>
@@ -91,7 +91,7 @@
       <DependentUpon>FightManagement.feature</DependentUpon>
     </Compile>
     <Compile Include="Completed\FightManagmentSteps.cs" />
-    <Compile Include="ToDo\FightSimulations.feature.cs">
+    <Compile Include="Completed\FightSimulations.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FightSimulations.feature</DependentUpon>
@@ -141,7 +141,7 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FightManagement.feature.cs</LastGenOutput>
     </None>
-    <None Include="ToDo\FightSimulations.feature">
+    <None Include="Completed\FightSimulations.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FightSimulations.feature.cs</LastGenOutput>
     </None>
@@ -183,6 +183,9 @@
       <Project>{4f4bc204-b37e-4b14-85b0-60f93724f9f8}</Project>
       <Name>HeroesGame.Repositories</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ToDo\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

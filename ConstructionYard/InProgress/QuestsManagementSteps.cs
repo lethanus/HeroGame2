@@ -35,5 +35,12 @@ namespace ConstructionYard
             }
             Assert.AreEqual(expectedQuests.Count, quests.Count);
         }
+
+        [Given(@"Number of quest to be generated is '(.*)'")]
+        public void GivenNumberOfQuestToBeGeneratedIs(int amountOfQuests)
+        {
+            
+        }
+
     }
 }
