@@ -70,7 +70,11 @@ namespace ConstructionYard
 
         public List<Quest> GetAll()
         {
-            return new List<Quest>();
+            var quests = new List<Quest>();
+
+            quests.Add(new Quest { ID = "Q1", Level = "1", FormationID = "T_1", Name = "Defeat - Goblin pack", WinRewards = "" });
+
+            return quests;
         }
     }
 
