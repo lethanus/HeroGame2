@@ -17,7 +17,6 @@ namespace PrototypeGUI
     {
         private IRefreshingMechnism _refreshingMechnism;
         private IMercenaryManagement _mercenaryManagement;
-        private int _maximum = 0;
         public RecruitMercenariesScreen(IRefreshingMechnism refreshingMechnism, IMercenaryManagement mercenaryManagement)
         {
             InitializeComponent();
@@ -32,8 +31,6 @@ namespace PrototypeGUI
 
         private void RecruitMercenariesScreen_Load(object sender, EventArgs e)
         {
-            _maximum = _refreshingMechnism.GetDelayValue(RefreshOption.Mercenaries);
-            refreshTimer.Enabled = false;
             UpdateRefresh();
             RefreshRecruits();
             UpdateGifts();
@@ -107,10 +104,11 @@ namespace PrototypeGUI
 
         private void btRefresh_Click(object sender, EventArgs e)
         {
-            _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Mercenaries, DateTime.Now);
-            UpdateRefresh();
-            refreshTimer.Enabled = true;
-            _mercenaryManagement.GenerateMercenaries();
+            if(_mercenaryManagement.GenerateMercenaries())
+            {
+                refreshTimer.Enabled = true;
+                btRefresh.Enabled = false;
+            }
             RefreshRecruits();
         }
 

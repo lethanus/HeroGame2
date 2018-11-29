@@ -9,7 +9,7 @@ namespace HeroesGame.Mercenaries
         void AddNewMercenary(Character mercenary);
         List<Character> GetAllMercenariesForLoggedUser();
         Mercenary GetMercenaryBaseOnTemplate(string mercenaryName, int mercenaryLevel);
-        void GenerateMercenaries();
+        bool GenerateMercenaries();
         List<Mercenary> GetRecruits();
         bool ConvinceRecruit(Mercenary recruit);
         double GetConvinceChance(int level);

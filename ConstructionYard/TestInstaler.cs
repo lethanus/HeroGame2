@@ -56,7 +56,7 @@ namespace ConstructionYard
             var inventoryManagement = new InventoryManagement(itemTemplateRepository, positionInInventoryRepository, accountManagement);
             objectContainer.RegisterInstanceAs<IInventoryManagement>(inventoryManagement);
 
-            var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement, mercenaryTemplateRepository, valueRandomizer, configRepo, recruitRepo, inventoryManagement);
+            var mercenaryManagement = new MercenaryManagement(mercenaryRepo, accountManagement, mercenaryTemplateRepository, valueRandomizer, configRepo, recruitRepo, inventoryManagement, refreshingMechnism);
             objectContainer.RegisterInstanceAs<IMercenaryManagement>(mercenaryManagement);
 
             var formationTemplateRepository = new FormationTemplateJsonFileRepository("formationTemplates.json");

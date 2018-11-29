@@ -145,7 +145,7 @@ namespace PrototypeGUI
                 }
 
             }
-            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository, new ValueRandomizer(), _configRepository, _recruitsRepository, _inventoryManagement);
+            _mercenaryManagement = new MercenaryManagement(_mercenaryRepository, _accountManagement, _mercenaryTemplateRepository, new ValueRandomizer(), _configRepository, _recruitsRepository, _inventoryManagement, _refreshingMechnism);
             _formationTemplateRepository = new FormationTemplateJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\FormationTemplates.json");
             _opponentPackFormationBuilder = new OpponentPackFormationBuilder(_formationTemplateRepository, _mercenaryManagement);
             if (_formationTemplateRepository.GetAll().Count == 0)

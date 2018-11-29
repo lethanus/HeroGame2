@@ -6,6 +6,7 @@ using System;
 using HeroesGame.Core.Randomizers;
 using HeroesGame.Configuration;
 using HeroesGame.Inventory;
+using HeroesGame.RefresingMechanism;
 
 namespace HeroesGame.Mercenaries
 {
@@ -19,10 +20,12 @@ namespace HeroesGame.Mercenaries
         private IConfigRepository _configRepository;
         private IRecruitsRepository _recruitsRepository;
         private IInventoryManagement _inventoryManagement;
+        private readonly IRefreshingMechnism _refreshingMechnism;
 
         public MercenaryManagement(IMercenaryRepository mercenaryRepository, IAccountManagement accountManagement,
             IMercenaryTemplateRepository mercenaryTemplateRepository, IValueRandomizer randomizer,
-            IConfigRepository configRepository, IRecruitsRepository recruitsRepository, IInventoryManagement inventoryManagement)
+            IConfigRepository configRepository, IRecruitsRepository recruitsRepository, IInventoryManagement inventoryManagement,
+            IRefreshingMechnism refreshingMechnism)
         {
             _mercenaryRepository = mercenaryRepository;
             _accountManagement = accountManagement;
@@ -31,6 +34,7 @@ namespace HeroesGame.Mercenaries
             _configRepository = configRepository;
             _recruitsRepository = recruitsRepository;
             _inventoryManagement = inventoryManagement;
+            _refreshingMechnism = refreshingMechnism;
         }
 
         public void AddNewMercenary(Character mercenary)
@@ -89,46 +93,54 @@ namespace HeroesGame.Mercenaries
             return (CalculateConvinceValue(level) / (convinceChances[level].MaxValue * 1.0)) * 100;
         }
 
-        public void GenerateMercenaries()
+        public bool GenerateMercenaries()
         {
-            _recruitsRepository.Clear(_accountManagement.GetLoggedAccount().ID);
-            var count = Int32.Parse(_configRepository.GetParameterValue("NumberOfRecruits"));
-            var mercenaryChances = new Dictionary<int, ChanceRange>();
-            mercenaryChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_1_mercenary")));
-            mercenaryChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_2_mercenary")));
-            mercenaryChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_3_mercenary")));
-            mercenaryChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_4_mercenary")));
-
-            List<Mercenary> mercenaries = new List<Mercenary>();
-
-            for(int i = 1; i<= count; i++)
+            var now = DateTime.Now;
+            var refreshResult = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now);
+            if (refreshResult.Status == RefresStatus.Ready)
             {
-                var level = 1;
-                var randomValue = _randomizer.GetRandomValueInRange(1, mercenaryChances[1].MaxValue, "Mercenary_level_chance");
+                _recruitsRepository.Clear(_accountManagement.GetLoggedAccount().ID);
+                var count = Int32.Parse(_configRepository.GetParameterValue("NumberOfRecruits"));
+                var mercenaryChances = new Dictionary<int, ChanceRange>();
+                mercenaryChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_1_mercenary")));
+                mercenaryChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_2_mercenary")));
+                mercenaryChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_3_mercenary")));
+                mercenaryChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_4_mercenary")));
 
-                for (int j = 1; j<=4; j++)
+                List<Mercenary> mercenaries = new List<Mercenary>();
+
+                for (int i = 1; i <= count; i++)
                 {
-                    if (randomValue < mercenaryChances[j].Value) level = j;
+                    var level = 1;
+                    var randomValue = _randomizer.GetRandomValueInRange(1, mercenaryChances[1].MaxValue, "Mercenary_level_chance");
+
+                    for (int j = 1; j <= 4; j++)
+                    {
+                        if (randomValue < mercenaryChances[j].Value) level = j;
+                    }
+
+                    var mercenariesOnLevel = _mercenaryTemplateRepository.GetAll().Where(x => x.Level == level.ToString());
+
+                    int counter = 1;
+                    var names = new Dictionary<int, string>();
+                    foreach (var name in mercenariesOnLevel.Select(x => x.Name).Distinct())
+                    {
+                        names.Add(counter++, name);
+                    }
+                    var randomValueForName = _randomizer.GetRandomValueInRange(1, counter, "Mercenary_name");
+
+                    var newMercenary = GetMercenaryBaseOnTemplate(names[randomValueForName], level);
+                    mercenaries.Add(newMercenary);
+
                 }
-
-                var mercenariesOnLevel = _mercenaryTemplateRepository.GetAll().Where(x => x.Level == level.ToString());
-
-                int counter = 1;
-                var names = new Dictionary<int, string>();
-                foreach(var name in mercenariesOnLevel.Select(x=>x.Name).Distinct())
+                foreach (var recruit in mercenaries)
                 {
-                    names.Add(counter++, name);
+                    _recruitsRepository.Add(recruit, _accountManagement.GetLoggedAccount().ID);
                 }
-                var randomValueForName = _randomizer.GetRandomValueInRange(1, counter, "Mercenary_name");
-
-                var newMercenary = GetMercenaryBaseOnTemplate(names[randomValueForName], level);
-                mercenaries.Add(newMercenary);
-
+                _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Mercenaries, now);
+                return true;
             }
-            foreach (var recruit in mercenaries)
-            {
-                _recruitsRepository.Add(recruit, _accountManagement.GetLoggedAccount().ID);
-            }
+            else return false;
         }
 
         public List<Character> GetAllMercenariesForLoggedUser()
