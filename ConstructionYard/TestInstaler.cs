@@ -11,6 +11,7 @@ using HeroesGame.PackBuilding;
 using HeroesGame.Inventory;
 using HeroesGame.FightMechanizm;
 using HeroesGame.Loggers;
+using HeroesGame.Quests;
 
 namespace ConstructionYard
 {

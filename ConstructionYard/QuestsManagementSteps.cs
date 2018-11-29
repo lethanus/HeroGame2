@@ -2,12 +2,11 @@
 using TechTalk.SpecFlow;
 using BoDi;
 using System.Linq;
-using System.Collections.Generic;
 using NUnit.Framework;
 using TechTalk.SpecFlow.Assist;
 using HeroesGame.Characters;
 using HeroesGame.FightMechanizm;
-using HeroesGame.Common;
+using HeroesGame.Quests;
 
 namespace ConstructionYard
 {
@@ -52,52 +51,6 @@ namespace ConstructionYard
                 Assert.AreEqual(quest, expectedQuests.First(x => x.ID == quest.ID));
             }
             Assert.AreEqual(expectedQuests.Count, quests.Count);
-        }
-    }
-
-    public interface IQuestManagement
-    {
-        List<Quest> GetAll();
-        bool GenerateQuests();
-    }
-
-    public class QuestManagement : IQuestManagement
-    {
-        public bool GenerateQuests()
-        {
-            return true;
-        }
-
-        public List<Quest> GetAll()
-        {
-            var quests = new List<Quest>();
-
-            quests.Add(new Quest { ID = "Q1", Level = "1", FormationID = "T_1", Name = "Defeat - Goblin pack", WinRewards = "" });
-
-            return quests;
-        }
-    }
-
-    public class Quest : ObjectWithID
-    {
-        public string Level { get; set; }
-        public string Name { get; set; }
-        public string FormationID { get; set; }
-        public string WinRewards { get; set; }
-
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            var hashCode = -1319351149;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Level);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(FormationID);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(WinRewards);
-            return hashCode;
         }
     }
 }
