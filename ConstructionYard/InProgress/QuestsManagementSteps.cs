@@ -7,6 +7,7 @@ using TechTalk.SpecFlow.Assist;
 using HeroesGame.Characters;
 using HeroesGame.FightMechanizm;
 using HeroesGame.Quests;
+using HeroesGame.Configuration;
 
 namespace ConstructionYard
 {
@@ -37,9 +38,10 @@ namespace ConstructionYard
         }
 
         [Given(@"Number of quest to be generated is '(.*)'")]
-        public void GivenNumberOfQuestToBeGeneratedIs(int amountOfQuests)
+        public void GivenNumberOfQuestToBeGeneratedIs(int numberOfQuests)
         {
-            
+            var configRepo = objectContainer.Resolve<IConfigRepository>();
+            configRepo.SetConfigParameter($"NumberOfQuests", numberOfQuests.ToString());
         }
 
     }
