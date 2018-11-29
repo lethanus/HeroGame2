@@ -8,16 +8,20 @@ using System.Collections.Generic;
 using HeroesGame.Characters;
 using HeroesGame.FightMechanizm;
 using HeroesGame.Core.Randomizers;
+using BoDi;
 
 namespace ConstructionYard
 {
     [Binding]
-    public class FightSimulationsSteps
+    public class FightSimulationsSteps : HeroesGameTestsBase
     {
         private Dictionary<string, Character> characters = new Dictionary<string, Character>();
         private List<ICharacterInTeam> charactersInTeams = new List<ICharacterInTeam>();
         private List<Character> charactersAfterFight = new List<Character>();
         private string winningTeam = "";
+
+        public FightSimulationsSteps(IObjectContainer objectContainer) : base(objectContainer) { }
+        
 
         [Given(@"The following characters")]
         public void GivenTheFollowingCharacters(Table table)
@@ -40,16 +44,17 @@ namespace ConstructionYard
         [When(@"Fight between '(.*)' and '(.*)' starts")]
         public void WhenFightBetweenAndStarts(string firstTeam, string secondTeam)
         {
-            var fightMechnizm = new FightMechanizm( new ValueRandomizer(), new FakeLogger());
+            var fightMechnizm = objectContainer.Resolve<IFightMechanizm>();
+            fightMechnizm.SetNewLogger( new FakeLogger());
             fightMechnizm.SetupFight(charactersInTeams, firstTeam, secondTeam);
             charactersAfterFight = fightMechnizm.StartFight();
-            winningTeam = fightMechnizm.GetWinningTeam();
         }
 
         [Then(@"Team '(.*)' won")]
         public void ThenTeamWon(string team)
         {
-            Assert.AreEqual(team, winningTeam);
+            var fightMechnizm = objectContainer.Resolve<IFightMechanizm>();
+            Assert.AreEqual(team, fightMechnizm.GetWinningTeam());
         }
 
 
