@@ -10,14 +10,14 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ConstructionYard
+namespace ConstructionYard.ToDo
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Fight simulations", Description="\tFighting ", SourceFile="FightSimulations.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Fight simulations", Description="\tFighting ", SourceFile="ToDo\\FightSimulations.feature", SourceLine=0)]
     public partial class FightSimulationsFeature
     {
         

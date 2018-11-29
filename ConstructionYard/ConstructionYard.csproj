@@ -74,95 +74,95 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\AccountManagementSteps.cs">
-      <Link>AccountManagementSteps.cs</Link>
+      <Link>Completed\AccountManagementSteps.cs</Link>
     </Compile>
     <Compile Include="..\FightSimulationsSteps.cs">
-      <Link>FightSimulationsSteps.cs</Link>
+      <Link>ToDo\FightSimulationsSteps.cs</Link>
     </Compile>
-    <Compile Include="AccountManagement.feature.cs">
+    <Compile Include="Completed\AccountManagement.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountManagement.feature</DependentUpon>
     </Compile>
-    <Compile Include="FakeLogger.cs" />
-    <Compile Include="FightManagement.feature.cs">
+    <Compile Include="TestsCommon\FakeLogger.cs" />
+    <Compile Include="Completed\FightManagement.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FightManagement.feature</DependentUpon>
     </Compile>
-    <Compile Include="FightManagmentSteps.cs" />
-    <Compile Include="FightSimulations.feature.cs">
+    <Compile Include="Completed\FightManagmentSteps.cs" />
+    <Compile Include="ToDo\FightSimulations.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FightSimulations.feature</DependentUpon>
     </Compile>
-    <Compile Include="InventoryManagement.feature.cs">
+    <Compile Include="Completed\InventoryManagement.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryManagement.feature</DependentUpon>
     </Compile>
-    <Compile Include="InventoryManagementSteps.cs" />
-    <Compile Include="Mercenaries.feature.cs">
+    <Compile Include="Completed\InventoryManagementSteps.cs" />
+    <Compile Include="Completed\Mercenaries.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Mercenaries.feature</DependentUpon>
     </Compile>
-    <Compile Include="MercenariesSteps.cs" />
-    <Compile Include="PackFormationBuilding.feature.cs">
+    <Compile Include="Completed\MercenariesSteps.cs" />
+    <Compile Include="Completed\PackFormationBuilding.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PackFormationBuilding.feature</DependentUpon>
     </Compile>
-    <Compile Include="PackFormationBuildingSteps.cs" />
+    <Compile Include="Completed\PackFormationBuildingSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestsManagement.feature.cs">
+    <Compile Include="InProgress\QuestsManagement.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuestsManagement.feature</DependentUpon>
     </Compile>
-    <Compile Include="QuestsManagementSteps.cs" />
-    <Compile Include="RefreshingMechanism.feature.cs">
+    <Compile Include="InProgress\QuestsManagementSteps.cs" />
+    <Compile Include="Completed\RefreshingMechanism.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RefreshingMechanism.feature</DependentUpon>
     </Compile>
-    <Compile Include="RefreshingMechanismSteps.cs" />
-    <Compile Include="TestInstaler.cs" />
+    <Compile Include="Completed\RefreshingMechanismSteps.cs" />
+    <Compile Include="TestsCommon\TestInstaler.cs" />
     <Compile Include="TestsCommon\HeroesGameTestsBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AccountManagement.feature">
+    <None Include="Completed\AccountManagement.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>AccountManagement.feature.cs</LastGenOutput>
     </None>
     <None Include="App.config" />
     <None Include="Default.srprofile" />
-    <None Include="FightManagement.feature">
+    <None Include="Completed\FightManagement.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FightManagement.feature.cs</LastGenOutput>
     </None>
-    <None Include="FightSimulations.feature">
+    <None Include="ToDo\FightSimulations.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FightSimulations.feature.cs</LastGenOutput>
     </None>
-    <None Include="InventoryManagement.feature">
+    <None Include="Completed\InventoryManagement.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>InventoryManagement.feature.cs</LastGenOutput>
     </None>
-    <None Include="Mercenaries.feature">
+    <None Include="Completed\Mercenaries.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Mercenaries.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="PackFormationBuilding.feature">
+    <None Include="Completed\PackFormationBuilding.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PackFormationBuilding.feature.cs</LastGenOutput>
     </None>
-    <None Include="QuestsManagement.feature">
+    <None Include="InProgress\QuestsManagement.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>QuestsManagement.feature.cs</LastGenOutput>
     </None>
-    <None Include="RefreshingMechanism.feature">
+    <None Include="Completed\RefreshingMechanism.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RefreshingMechanism.feature.cs</LastGenOutput>
     </None>

@@ -10,14 +10,14 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ConstructionYard
+namespace ConstructionYard.Completed
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Pack Formation Building", Description="\tMechanizm to ensure proper and valid formation in the pack for the fight", SourceFile="PackFormationBuilding.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Pack Formation Building", Description="\tMechanizm to ensure proper and valid formation in the pack for the fight", SourceFile="Completed\\PackFormationBuilding.feature", SourceLine=0)]
     public partial class PackFormationBuildingFeature
     {
         

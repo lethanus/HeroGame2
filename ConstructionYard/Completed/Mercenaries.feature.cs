@@ -10,14 +10,14 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ConstructionYard
+namespace ConstructionYard.Completed
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Mercenaries management", Description="\tManaging mercenaries for account", SourceFile="Mercenaries.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Mercenaries management", Description="\tManaging mercenaries for account", SourceFile="Completed\\Mercenaries.feature", SourceLine=0)]
     public partial class MercenariesManagementFeature
     {
         
