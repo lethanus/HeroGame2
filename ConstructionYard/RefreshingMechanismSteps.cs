@@ -13,27 +13,11 @@ using System.IO;
 namespace ConstructionYard
 {
     [Binding]
-    public class RefreshingMechanismSteps
+    public class RefreshingMechanismSteps : HeroesGameTestsBase
     {
-        private readonly IObjectContainer objectContainer;
         private DateTime _currentTime = DateTime.Now;
 
-        public RefreshingMechanismSteps(IObjectContainer objectContainer)
-        {
-            this.objectContainer = objectContainer;
-        }
-
-        [BeforeScenario]
-        public void InitializeRepository()
-        {
-            TestInstaler.InitializeRepository(objectContainer);
-        }
-
-        [AfterScenario]
-        public void CleanupRepository()
-        {
-            TestInstaler.CleanupRepository();
-        }
+        public RefreshingMechanismSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
         [Given(@"that there was no refresh actions before for option '(.*)' for account ID '(.*)'")]
         public void GivenThatThereWasNoRefreshActionsBeforeForOption(RefreshOption option, string accountID)

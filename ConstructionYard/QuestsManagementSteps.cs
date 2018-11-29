@@ -11,26 +11,9 @@ using HeroesGame.Quests;
 namespace ConstructionYard
 {
     [Binding]
-    public class QuestsManagementSteps
+    public class QuestsManagementSteps : HeroesGameTestsBase
     {
-        private readonly IObjectContainer objectContainer;
-
-        public QuestsManagementSteps(IObjectContainer objectContainer)
-        {
-            this.objectContainer = objectContainer;
-        }
-
-        [BeforeScenario]
-        public void InitializeRepository()
-        {
-            TestInstaler.InitializeRepository(objectContainer);
-        }
-
-        [AfterScenario]
-        public void CleanupRepository()
-        {
-            TestInstaler.CleanupRepository();
-        }
+        public QuestsManagementSteps(IObjectContainer objectContainer) : base(objectContainer) {}
 
         [When(@"Player will refresh and regenerate quests")]
         public void WhenPlayerWillRefreshAndRegenerateQuests()

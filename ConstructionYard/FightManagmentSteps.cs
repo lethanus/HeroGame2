@@ -11,26 +11,10 @@ using HeroesGame.FightMechanizm;
 namespace ConstructionYard
 {
     [Binding]
-    public class FightManagmentSteps
+    public class FightManagmentSteps : HeroesGameTestsBase
     {
-        private readonly IObjectContainer objectContainer;
+        public FightManagmentSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
-        public FightManagmentSteps(IObjectContainer objectContainer)
-        {
-            this.objectContainer = objectContainer;
-        }
-
-        [BeforeScenario]
-        public void InitializeRepository()
-        {
-            TestInstaler.InitializeRepository(objectContainer);
-        }
-
-        [AfterScenario]
-        public void CleanupRepository()
-        {
-            TestInstaler.CleanupRepository();
-        }
 
         [When(@"Fight will be vs generated team from template '(.*)'")]
         public void WhenFightWillBeVsGeneratedTeamFromTemplate(string opponentTemplateID)

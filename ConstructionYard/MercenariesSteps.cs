@@ -15,31 +15,13 @@ using HeroesGame.Inventory;
 namespace ConstructionYard
 {
     [Binding]
-    public class MercenariesSteps
+    public class MercenariesSteps : HeroesGameTestsBase
     {
-        private readonly IObjectContainer objectContainer;
         private Mercenary _newMercenary;
         
         private DateTime _currentTime = DateTime.Now;
 
-        public MercenariesSteps(IObjectContainer objectContainer)
-        {
-            this.objectContainer = objectContainer;
-        }
-
-        [BeforeScenario]
-        public void InitializeRepository()
-        {
-            
-            TestInstaler.InitializeRepository(objectContainer);
-            
-        }
-
-        [AfterScenario]
-        public void CleanupRepository()
-        {
-            TestInstaler.CleanupRepository();
-        }
+        public MercenariesSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
         [Given(@"Account '(.*)' already have some mercenaries")]
         public void GivenAccountAlreadyHaveSomeMercenaries(string accountID, Table table)

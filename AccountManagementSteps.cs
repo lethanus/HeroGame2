@@ -12,27 +12,11 @@ using System.IO;
 namespace ConstructionYard
 {
     [Binding]
-    public class AccountManagementSteps
+    public class AccountManagementSteps : HeroesGameTestsBase
     {
         private Account loggedId = null;
-        private readonly IObjectContainer objectContainer;
 
-        public AccountManagementSteps(IObjectContainer objectContainer)
-        {
-            this.objectContainer = objectContainer;
-        }
-
-        [BeforeScenario]
-        public void InitializeAccountRepository()
-        {
-            TestInstaler.InitializeRepository(objectContainer);
-        }
-
-        [AfterScenario]
-        public void CleanupAccountRepository()
-        {
-            TestInstaler.CleanupRepository();
-        }
+        public AccountManagementSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
         [Given(@"Some accounts exists in system")]
         public void GivenSomeAccountsExistsInSystem(Table table)

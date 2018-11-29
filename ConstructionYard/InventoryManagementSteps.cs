@@ -9,26 +9,9 @@ using HeroesGame.Inventory;
 namespace ConstructionYard
 {
     [Binding]
-    public class InventoryManagementSteps
+    public class InventoryManagementSteps : HeroesGameTestsBase
     {
-        private readonly IObjectContainer objectContainer;
-
-        public InventoryManagementSteps(IObjectContainer objectContainer)
-        {
-            this.objectContainer = objectContainer;
-        }
-
-        [BeforeScenario]
-        public void InitializeRepository()
-        {
-            TestInstaler.InitializeRepository(objectContainer);
-        }
-
-        [AfterScenario]
-        public void CleanupRepository()
-        {
-            TestInstaler.CleanupRepository();
-        }
+        public InventoryManagementSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
         [Given(@"Inventory already contains items below")]
         public void GivenInventoryAlreadyContainsItemsBelow(Table table)

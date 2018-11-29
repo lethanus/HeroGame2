@@ -11,26 +11,9 @@ using HeroesGame.PackBuilding;
 namespace ConstructionYard
 {
     [Binding]
-    public class PackFormationBuildingSteps
+    public class PackFormationBuildingSteps : HeroesGameTestsBase
     {
-        private readonly IObjectContainer objectContainer;
-
-        public PackFormationBuildingSteps(IObjectContainer objectContainer)
-        {
-            this.objectContainer = objectContainer;
-        }
-
-        [BeforeScenario]
-        public void InitializeRepository()
-        {
-            TestInstaler.InitializeRepository(objectContainer);
-        }
-
-        [AfterScenario]
-        public void CleanupRepository()
-        {
-            TestInstaler.CleanupRepository();
-        }
+        public PackFormationBuildingSteps(IObjectContainer objectContainer) : base(objectContainer) { }
 
         [When(@"Player will set character with ID '(.*)' to position '(.*)'")]
         public void WhenPlayerWillSetCharacterWithIDToPosition(string characterID, TeamPosition position)
