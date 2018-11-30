@@ -60,7 +60,7 @@ namespace PrototypeGUI
             {
                 var mainDir = @"C:\Emil\Projects\HeroGameDataFiles\Pictures\";
                 var character = (Character)listMercenaries.SelectedItems[0].Tag;
-                string pictureFile = $"{mainDir}{ character.Name}{character.Level}.jpg";
+                string pictureFile = $"{mainDir}{character.Name}{character.Level}.jpg";
                 if(File.Exists(pictureFile))
                 {
                     merccenaryPicture.Image = Image.FromFile(pictureFile);
