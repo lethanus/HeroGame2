@@ -72,7 +72,7 @@ namespace ConstructionYard
             var fightManagement = new FightManagement(opponentPackFormationBuilder, fightMechanizm, packFormationBuilder, mercenaryManagement);
             objectContainer.RegisterInstanceAs<IFightManagement>(fightManagement);
 
-            var questManagement = new QuestManagement(configRepo);
+            var questManagement = new QuestManagement(configRepo, refreshingMechnism);
             objectContainer.RegisterInstanceAs<IQuestManagement>(questManagement);
 
         }

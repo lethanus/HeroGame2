@@ -17,6 +17,7 @@ using HeroesGame.Core.Randomizers;
 using HeroesGame.Inventory;
 using HeroesGame.FightMechanizm;
 using HeroesGame.Loggers;
+using HeroesGame.Quests;
 
 namespace PrototypeGUI
 {
@@ -41,6 +42,7 @@ namespace PrototypeGUI
         private IFightMechanizm _fightMechanizm;
         private IFightManagement _fightManagement;
         private IValueRandomizer _valueRandomizer;
+        private IQuestManagement _questManagement;
         private Logger _logger;
 
         public btCampain()
@@ -105,6 +107,7 @@ namespace PrototypeGUI
             
             _configRepository = new ConfigJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\Configuration.json");
             EnsureConfigValue("Delay_for_option_Mercenaries_in_sec", "20");
+            EnsureConfigValue("Delay_for_option_Quests_in_sec", "20");
             EnsureConfigValue("NumberOfRecruits", "10");
             EnsureConfigValue("ChanceForLevel_1_mercenary", "10000_10000");
             EnsureConfigValue("ChanceForLevel_2_mercenary", "2500_10000");
@@ -115,6 +118,7 @@ namespace PrototypeGUI
             EnsureConfigValue("ConvinceLevel_2_recruit", "5000_10000");
             EnsureConfigValue("ConvinceLevel_3_recruit", "2000_10000");
             EnsureConfigValue("ConvinceLevel_4_recruit", "1000_10000");
+            EnsureConfigValue("NumberOfQuests", "5");
 
             _packFormationRepository = new PackFormationJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _packFormationBuilder = new PackFormationBuilder(_packFormationRepository, _accountManagement);
@@ -157,6 +161,7 @@ namespace PrototypeGUI
             }
             _valueRandomizer = new ValueRandomizer();
             _logger = new FakeLogger();
+            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism);
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
@@ -218,7 +223,7 @@ namespace PrototypeGUI
 
         private void btQuests_Click(object sender, EventArgs e)
         {
-            QuestsScreen questsScreen = new QuestsScreen(_refreshingMechnism);
+            QuestsScreen questsScreen = new QuestsScreen(_refreshingMechnism, _questManagement);
             questsScreen.ShowDialog();
         }
 

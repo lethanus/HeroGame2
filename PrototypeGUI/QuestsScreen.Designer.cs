@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
             this.btRefresh = new System.Windows.Forms.Button();
             this.listQuests = new System.Windows.Forms.ListView();
             this.btClose = new System.Windows.Forms.Button();
             this.btBeginQuest = new System.Windows.Forms.Button();
+            this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label5
@@ -52,6 +54,7 @@
             this.btRefresh.TabIndex = 19;
             this.btRefresh.Text = "Refresh";
             this.btRefresh.UseVisualStyleBackColor = true;
+            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
             // 
             // listQuests
             // 
@@ -84,6 +87,11 @@
             this.btBeginQuest.UseVisualStyleBackColor = true;
             this.btBeginQuest.Click += new System.EventHandler(this.btBeginQuest_Click);
             // 
+            // refreshTimer
+            // 
+            this.refreshTimer.Interval = 250;
+            this.refreshTimer.Tick += new System.EventHandler(this.refreshTimer_Tick);
+            // 
             // QuestsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,5 +118,6 @@
         private System.Windows.Forms.ListView listQuests;
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.Button btBeginQuest;
+        private System.Windows.Forms.Timer refreshTimer;
     }
 }

@@ -1,21 +1,32 @@
 ﻿using HeroesGame.Configuration;
 using System.Collections.Generic;
 using System;
+using HeroesGame.RefresingMechanism;
 
 namespace HeroesGame.Quests
 {
     public class QuestManagement : IQuestManagement
     {
         private readonly IConfigRepository _configRepository;
+        private readonly IRefreshingMechnism _refreshingMechnism;
 
-        public QuestManagement(IConfigRepository configRepository)
+        public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism)
         {
             _configRepository = configRepository;
+            _refreshingMechnism = refreshingMechnism;
         }
 
         public bool GenerateQuests()
         {
-            return true;
+            var now = DateTime.Now;
+            var refreshResult = _refreshingMechnism.GetRefreshStatus(RefreshOption.Quests, now);
+            if (refreshResult.Status == RefresStatus.Ready)
+            {
+
+                _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Quests, now);
+                return true;
+            }
+            else return false;
         }
 
         public List<Quest> GetAll()

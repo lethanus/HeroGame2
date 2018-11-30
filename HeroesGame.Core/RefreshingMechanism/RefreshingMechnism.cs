@@ -44,7 +44,7 @@ namespace HeroesGame.RefresingMechanism
 
         public RefreshFact GetLastRefresh(RefreshOption option)
         {
-            var refreshFacts = _refreshRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
+            var refreshFacts = _refreshRepository.GetAll(_accountManagement.GetLoggedAccount().ID).Where(x=>x.Option == option);
             return refreshFacts.OrderByDescending(x => x.LastAction).FirstOrDefault();
         }
     }
