@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeroesGame.Mercenaries;
 using HeroesGame.Characters;
+using System.IO;
 
 namespace PrototypeGUI
 {
@@ -57,10 +58,12 @@ namespace PrototypeGUI
         {
             if(listMercenaries.SelectedItems.Count == 1)
             {
+                var mainDir = @"C:\Emil\Projects\HeroGameDataFiles\Pictures\";
                 var character = (Character)listMercenaries.SelectedItems[0].Tag;
-                if (character.Name == "Rat")
+                string pictureFile = $"{mainDir}{ character.Name}{character.Level}.jpg";
+                if(File.Exists(pictureFile))
                 {
-                    merccenaryPicture.Image = Image.FromFile(@"C:\Emil\Projects\HeroGameDataFiles\Pictures\Rat1.jpg");
+                    merccenaryPicture.Image = Image.FromFile(pictureFile);
 
                 }
                 else merccenaryPicture.Image = null;
