@@ -92,6 +92,26 @@ namespace HeroesGame.Mercenaries
                 Defence_range = "10-14",
                 Speed_range = "9-11"
             });
+            tempaltes.Add(new MercenaryTemplate
+            {
+                Level = "1",
+                Name = "Rat",
+                HP_range = "22-26",
+                Min_Attack_range = "12-16",
+                Attack_add_for_max = "4",
+                Defence_range = "10-14",
+                Speed_range = "9-11"
+            });
+            tempaltes.Add(new MercenaryTemplate
+            {
+                Level = "2",
+                Name = "Rat",
+                HP_range = "22-26",
+                Min_Attack_range = "12-16",
+                Attack_add_for_max = "4",
+                Defence_range = "10-14",
+                Speed_range = "9-11"
+            });
 
 
             return tempaltes;

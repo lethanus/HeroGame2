@@ -30,6 +30,8 @@
         {
             this.btClose = new System.Windows.Forms.Button();
             this.listMercenaries = new System.Windows.Forms.ListView();
+            this.merccenaryPicture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.merccenaryPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // btClose
@@ -48,16 +50,27 @@
             this.listMercenaries.GridLines = true;
             this.listMercenaries.Location = new System.Drawing.Point(12, 12);
             this.listMercenaries.Name = "listMercenaries";
-            this.listMercenaries.Size = new System.Drawing.Size(776, 397);
+            this.listMercenaries.Size = new System.Drawing.Size(495, 397);
             this.listMercenaries.TabIndex = 1;
             this.listMercenaries.UseCompatibleStateImageBehavior = false;
             this.listMercenaries.View = System.Windows.Forms.View.Details;
+            this.listMercenaries.SelectedIndexChanged += new System.EventHandler(this.listMercenaries_SelectedIndexChanged);
+            // 
+            // merccenaryPicture
+            // 
+            this.merccenaryPicture.Location = new System.Drawing.Point(513, 12);
+            this.merccenaryPicture.Name = "merccenaryPicture";
+            this.merccenaryPicture.Size = new System.Drawing.Size(275, 201);
+            this.merccenaryPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.merccenaryPicture.TabIndex = 2;
+            this.merccenaryPicture.TabStop = false;
             // 
             // MercenariesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.merccenaryPicture);
             this.Controls.Add(this.listMercenaries);
             this.Controls.Add(this.btClose);
             this.MaximizeBox = false;
@@ -67,6 +80,7 @@
             this.Name = "MercenariesScreen";
             this.Text = "Mercenaries";
             this.Load += new System.EventHandler(this.MercenariesScreen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.merccenaryPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -75,5 +89,6 @@
 
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.ListView listMercenaries;
+        private System.Windows.Forms.PictureBox merccenaryPicture;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeroesGame.Mercenaries;
+using HeroesGame.Characters;
 
 namespace PrototypeGUI
 {
@@ -50,6 +51,21 @@ namespace PrototypeGUI
                 listViewItem.Tag = mercenary;
                 listMercenaries.Items.Add(listViewItem);
             }
+        }
+
+        private void listMercenaries_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listMercenaries.SelectedItems.Count == 1)
+            {
+                var character = (Character)listMercenaries.SelectedItems[0].Tag;
+                if (character.Name == "Rat")
+                {
+                    merccenaryPicture.Image = Image.FromFile(@"C:\Emil\Projects\HeroGameDataFiles\Pictures\Rat1.jpg");
+
+                }
+                else merccenaryPicture.Image = null;
+            }
+            else merccenaryPicture.Image = null;
         }
     }
 }
