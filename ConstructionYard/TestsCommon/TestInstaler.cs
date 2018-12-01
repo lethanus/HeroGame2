@@ -72,7 +72,9 @@ namespace ConstructionYard
             var fightManagement = new FightManagement(opponentPackFormationBuilder, fightMechanizm, packFormationBuilder, mercenaryManagement);
             objectContainer.RegisterInstanceAs<IFightManagement>(fightManagement);
 
-            var questManagement = new QuestManagement(configRepo, refreshingMechnism, valueRandomizer, formationTemplateRepository);
+            var questRepository = new QuestsJasonFileRepository(Directory.GetCurrentDirectory());
+            objectContainer.RegisterInstanceAs<IQuestRepository>(questRepository);
+            var questManagement = new QuestManagement(configRepo, refreshingMechnism, valueRandomizer, formationTemplateRepository,accountManagement, questRepository);
             objectContainer.RegisterInstanceAs<IQuestManagement>(questManagement);
 
         }
@@ -86,7 +88,9 @@ namespace ConstructionYard
             File.Delete("formationTemplates.json");
             foreach (var file in Directory.GetFiles(Directory.GetCurrentDirectory()))
             {
-                if (file.Contains("RefreshFacts_") || file.Contains("Mercenaries_") || file.Contains("Recruits_") || file.Contains("PackFormation_") || file.Contains("Inventory_"))
+                if (file.Contains("RefreshFacts_") || file.Contains("Mercenaries_") || 
+                    file.Contains("Recruits_") || file.Contains("PackFormation_") ||
+                    file.Contains("Inventory_") || file.Contains("Quests_"))
                     File.Delete(file);
             }
         }

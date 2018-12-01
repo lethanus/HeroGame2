@@ -55,6 +55,7 @@
     <Compile Include="PackBuilding\FormationTemplateJsonFileRepository.cs" />
     <Compile Include="PackBuilding\PackFormationJsonFileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quests\QuestsJasonFileRepository.cs" />
     <Compile Include="RefreshingMechanism\RefreshJsonFileRepository.cs" />
   </ItemGroup>
   <ItemGroup />

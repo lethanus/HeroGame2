@@ -6,6 +6,7 @@ using HeroesGame.RefresingMechanism;
 using HeroesGame.Core.Randomizers;
 using HeroesGame.Mercenaries;
 using HeroesGame.PackBuilding;
+using HeroesGame.Accounts;
 
 namespace HeroesGame.Quests
 {
@@ -15,14 +16,19 @@ namespace HeroesGame.Quests
         private readonly IRefreshingMechnism _refreshingMechnism;
         private readonly IValueRandomizer _randomizer;
         private readonly IFormationTemplateRepository _formationTemplateRepository;
-        private List<Quest> _quests = new List<Quest>();
+        private readonly IAccountManagement _accountManagement;
+        private readonly IQuestRepository _questRepository;
 
-        public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism, IValueRandomizer randomizer, IFormationTemplateRepository formationTemplateRepository)
+        public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism, 
+            IValueRandomizer randomizer, IFormationTemplateRepository formationTemplateRepository,
+            IAccountManagement accountManagement, IQuestRepository questRepository)
         {
             _configRepository = configRepository;
             _refreshingMechnism = refreshingMechnism;
             _randomizer = randomizer;
             _formationTemplateRepository = formationTemplateRepository;
+            _accountManagement = accountManagement;
+            _questRepository = questRepository;
         }
 
         public bool GenerateQuests()
@@ -31,11 +37,9 @@ namespace HeroesGame.Quests
             var refreshResult = _refreshingMechnism.GetRefreshStatus(RefreshOption.Quests, now);
             if (refreshResult.Status == RefresStatus.Ready)
             {
-
-                _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Quests, now);
+                _questRepository.Clear(_accountManagement.GetLoggedAccount().ID);
                 var numberOfQuests = Int32.Parse(_configRepository.GetParameterValue("NumberOfQuests"));
-                _quests.Clear();
-
+                var quests = new List<Quest>();
                 var questLevelChanges = new Dictionary<int, ChanceRange>();
                 questLevelChanges.Add(1, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_1_quest")));
                 questLevelChanges.Add(2, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_2_quest")));
@@ -56,8 +60,14 @@ namespace HeroesGame.Quests
                     if (formationTemplates.Count() == 1)
                         choosenFormationTemplate = formationTemplates.First();
 
-                    _quests.Add(new Quest { ID = $"Q_{i}", Level = level.ToString(), FormationID = choosenFormationTemplate.ID, Name = "Defeat - Goblin pack", WinRewards = "" });
+                    quests.Add(new Quest { ID = $"Q_{i}", Level = level.ToString(), FormationID = choosenFormationTemplate.ID, Name = "Defeat - Goblin pack", WinRewards = "" });
                 }
+                foreach (var quest in quests)
+                {
+                    _questRepository.Add(quest, _accountManagement.GetLoggedAccount().ID);
+                }
+
+                _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Quests, now);
                 return true;
             }
             else return false;
@@ -65,7 +75,7 @@ namespace HeroesGame.Quests
 
         public List<Quest> GetAll()
         {
-            return _quests;
+            return _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }
     }
 }
