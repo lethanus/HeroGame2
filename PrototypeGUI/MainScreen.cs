@@ -120,6 +120,11 @@ namespace PrototypeGUI
             EnsureConfigValue("ConvinceLevel_4_recruit", "1000_10000");
             EnsureConfigValue("NumberOfQuests", "5");
 
+            EnsureConfigValue("ChanceForLevel_1_quest", "7500_10000");
+            EnsureConfigValue("ChanceForLevel_2_quest", "5000_10000");
+            EnsureConfigValue("ChanceForLevel_3_quest", "2000_10000");
+            EnsureConfigValue("ChanceForLevel_4_quest", "1000_10000");
+
             _packFormationRepository = new PackFormationJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _packFormationBuilder = new PackFormationBuilder(_packFormationRepository, _accountManagement);
 
@@ -161,7 +166,7 @@ namespace PrototypeGUI
             }
             _valueRandomizer = new ValueRandomizer();
             _logger = new FakeLogger();
-            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism);
+            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer, _formationTemplateRepository);
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }

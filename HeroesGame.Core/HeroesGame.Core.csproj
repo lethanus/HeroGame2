@@ -64,6 +64,7 @@
     <Compile Include="Inventory\ItemTemplatesCollectionGenerator.cs" />
     <Compile Include="Inventory\PositionInInventory.cs" />
     <Compile Include="Loggers\Logger.cs" />
+    <Compile Include="Configuration\ChanceRange.cs" />
     <Compile Include="Mercenaries\IMercenaryManagement.cs" />
     <Compile Include="Mercenaries\IMercenaryRepository.cs" />
     <Compile Include="Mercenaries\IMercenaryTemplateRepository.cs" />
