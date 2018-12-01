@@ -57,10 +57,17 @@ namespace HeroesGame.Quests
 
                     var formationTemplates = _formationTemplateRepository.GetAll().Where(x => x.Level == level);
                     FormationTemplate choosenFormationTemplate = null;
-                    if (formationTemplates.Count() == 1)
-                        choosenFormationTemplate = formationTemplates.First();
+                    var possibleFormations = formationTemplates.Where(x => x.Level == level);
+                    var amountOfTemplates = possibleFormations.Count();
+                    var counter = 1;
+                    var formationDictionary = possibleFormations.ToDictionary(x => counter++, x => x);
+                    if (amountOfTemplates > 0)
+                    {
+                        var choosen = _randomizer.GetRandomValueInRange(1, amountOfTemplates+1, "ChoosingFormation");
+                        choosenFormationTemplate = formationDictionary[choosen];
 
-                    quests.Add(new Quest { ID = $"Q_{i}", Level = level.ToString(), FormationID = choosenFormationTemplate.ID, Name = "Defeat - Goblin pack", WinRewards = "" });
+                        quests.Add(new Quest { ID = $"Q_{i}", Level = level.ToString(), FormationID = choosenFormationTemplate.ID, Name = $"Defeat - {choosenFormationTemplate.Name}", WinRewards = "" });
+                    }
                 }
                 foreach (var quest in quests)
                 {

@@ -59,5 +59,13 @@ namespace ConstructionYard
             randomizer.SetReturnValue($"Quest_level_chance", randomizerResult);
         }
 
+        [Then(@"List of quests should contain at least '(.*)' quests with FormationID '(.*)' and Level '(.*)'")]
+        public void ThenListOfQuestsShouldContainAtLeastQuestsWithFormationID(int minimumAmount, string formationID, string level)
+        {
+            var questManagement = objectContainer.Resolve<IQuestManagement>();
+            var quests = questManagement.GetAll();
+            Assert.Greater(quests.Count(x => x.FormationID == formationID && x.Level == level), minimumAmount);
+        }
+
     }
 }
