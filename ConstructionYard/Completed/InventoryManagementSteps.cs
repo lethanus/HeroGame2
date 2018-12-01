@@ -58,7 +58,7 @@ namespace ConstructionYard
             var expectedPositionsInInventory = table.CreateSet<PositionInInventory>().ToList();
             foreach (var item in expectedPositionsInInventory)
             {
-                Assert.AreEqual(item, positionsInInventory.First(x => x.ID == item.ID));
+                Assert.IsTrue(item.Equals(positionsInInventory.First(x => x.ID == item.ID)));
             }
             Assert.AreEqual(expectedPositionsInInventory.Count, positionsInInventory.Count);
         }

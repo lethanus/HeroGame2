@@ -63,8 +63,9 @@ namespace ConstructionYard
             var expectedCharactersAfterFight = table.CreateSet<Character>();
             foreach(var expectedChar in expectedCharactersAfterFight)
             {
-                Assert.AreEqual(expectedChar, charactersAfterFight.First(x=>x.ID == expectedChar.ID));
+                Assert.IsTrue(expectedChar.Equals( charactersAfterFight.First(x=>x.ID == expectedChar.ID)));
             }
+            Assert.AreEqual(expectedCharactersAfterFight.Count(), charactersAfterFight.Count);
         }
     }
 }

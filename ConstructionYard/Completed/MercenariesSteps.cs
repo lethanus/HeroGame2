@@ -65,8 +65,9 @@ namespace ConstructionYard
             var expectedMercenaries = table.CreateSet<Character>();
             foreach (var mercenary in expectedMercenaries)
             {
-                Assert.AreEqual(mercenary, accountMerceenaries.First(x => x.ID == mercenary.ID));
+                Assert.IsTrue(mercenary.Equals(accountMerceenaries.First(x => x.ID == mercenary.ID)));
             }
+            Assert.AreEqual(expectedMercenaries.Count(), accountMerceenaries.Count());
         }
 
         [Given(@"Some mercenary templates")]
@@ -233,7 +234,7 @@ namespace ConstructionYard
             var expectedGiftItems = table.CreateSet<PositionInInventory>().ToList();
             foreach (var item in expectedGiftItems)
             {
-                Assert.AreEqual(item, itemsAsGifts.First(x => x.ID == item.ID));
+                Assert.IsTrue(item.Equals(itemsAsGifts.First(x => x.ID == item.ID)));
             }
             Assert.AreEqual(expectedGiftItems.Count, itemsAsGifts.Count);
         }
@@ -246,7 +247,7 @@ namespace ConstructionYard
             var expectedGiftItems = table.CreateSet<PositionInInventory>().ToList();
             foreach (var item in expectedGiftItems)
             {
-                Assert.AreEqual(item, itemsAsGifts.First(x => x.ID == item.ID));
+                Assert.IsTrue(item.Equals(itemsAsGifts.First(x => x.ID == item.ID)));
             }
             Assert.AreEqual(expectedGiftItems.Count, itemsAsGifts.Count);
         }
@@ -267,7 +268,7 @@ namespace ConstructionYard
             var expectedGiftItems = table.CreateSet<PositionInInventory>().ToList();
             foreach (var item in expectedGiftItems)
             {
-                Assert.AreEqual(item, currentGifts.First(x => x.ID == item.ID));
+                Assert.IsTrue(item.Equals(currentGifts.First(x => x.ID == item.ID)));
             }
             Assert.AreEqual(expectedGiftItems.Count, currentGifts.Count);
         }

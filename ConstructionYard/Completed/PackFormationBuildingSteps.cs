@@ -61,7 +61,7 @@ namespace ConstructionYard
             List<Character> characters = opponentPackFormationBuilder.GetOpponentCharacters();
             foreach (var expectedcharacter in expected)
             {
-                Assert.AreEqual(expectedcharacter, characters.First(x => x.ID == expectedcharacter.ID));
+                Assert.IsTrue(expectedcharacter.Equals(characters.First(x => x.ID == expectedcharacter.ID)));
             }
             Assert.AreEqual(expected.Count, characters.Count);
         }
