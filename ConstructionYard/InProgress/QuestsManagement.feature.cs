@@ -165,6 +165,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 19
  testRunner.And("Number of quest to be generated is \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
+ testRunner.And("The chance of getting level \'1\' quests is set to \'10000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.And("The chance of getting level \'2\' quests is set to \'2500\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+ testRunner.And("The chance of getting level \'3\' quests is set to \'1000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.And("The chance of getting level \'4\' quests is set to \'100\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.And("Randomzer for quests level will always return \'9000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
  testRunner.When("Player will refresh and regenerate quests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -179,17 +189,17 @@ this.ScenarioInitialize(scenarioInfo);
                         "Defeat - Goblin pack",
                         "T_1",
                         ""});
-#line 21
+#line 26
  testRunner.Then("List of quests should contain", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("02 Generating three the same quests", SourceLine=25)]
+        [TechTalk.SpecRun.ScenarioAttribute("02 Generating three the same quests", SourceLine=30)]
         public virtual void _02GeneratingThreeTheSameQuests()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Generating three the same quests", null, ((string[])(null)));
-#line 26
+#line 31
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -233,7 +243,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "18-22",
                         "11-13",
                         "10"});
-#line 27
+#line 32
  testRunner.Given("Some mercenary templates", ((string)(null)), table5, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -264,7 +274,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "",
                         "",
                         ""});
-#line 33
+#line 38
  testRunner.And("Have some formation templates", ((string)(null)), table6, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -275,13 +285,23 @@ this.ScenarioInitialize(scenarioInfo);
                         "ID_1",
                         "test",
                         "test"});
-#line 36
- testRunner.And("Some accounts exists in system", ((string)(null)), table7, "And ");
-#line 39
- testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
- testRunner.And("Number of quest to be generated is \'3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
+ testRunner.And("Some accounts exists in system", ((string)(null)), table7, "And ");
+#line 44
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 45
+ testRunner.And("Number of quest to be generated is \'3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
+ testRunner.And("The chance of getting level \'1\' quests is set to \'10000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+ testRunner.And("The chance of getting level \'2\' quests is set to \'2500\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
+ testRunner.And("The chance of getting level \'3\' quests is set to \'1000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 49
+ testRunner.And("The chance of getting level \'4\' quests is set to \'100\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 50
+ testRunner.And("Randomzer for quests level will always return \'9000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
  testRunner.When("Player will refresh and regenerate quests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -308,8 +328,149 @@ this.ScenarioInitialize(scenarioInfo);
                         "Defeat - Goblin pack",
                         "T_1",
                         ""});
-#line 42
+#line 52
  testRunner.Then("List of quests should contain", ((string)(null)), table8, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("03 Generating one level 4 quest", SourceLine=58)]
+        public virtual void _03GeneratingOneLevel4Quest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 Generating one level 4 quest", null, ((string[])(null)));
+#line 59
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Level",
+                        "Name",
+                        "HP_range",
+                        "Min_Attack_range",
+                        "Defence_range",
+                        "Speed_range",
+                        "Attack_add_for_max"});
+            table9.AddRow(new string[] {
+                        "1",
+                        "Goblin",
+                        "18-22",
+                        "8-12",
+                        "8-12",
+                        "8-10",
+                        "4"});
+            table9.AddRow(new string[] {
+                        "2",
+                        "Goblin",
+                        "22-26",
+                        "12-16",
+                        "10-14",
+                        "9-11",
+                        "5"});
+            table9.AddRow(new string[] {
+                        "3",
+                        "Goblin",
+                        "26-34",
+                        "16-24",
+                        "12-16",
+                        "10-12",
+                        "7"});
+            table9.AddRow(new string[] {
+                        "4",
+                        "Goblin",
+                        "40-55",
+                        "30-40",
+                        "18-22",
+                        "11-13",
+                        "10"});
+#line 60
+ testRunner.Given("Some mercenary templates", ((string)(null)), table9, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Level",
+                        "F1",
+                        "F2",
+                        "F3",
+                        "M1",
+                        "M2",
+                        "M3",
+                        "M4",
+                        "R1",
+                        "R2",
+                        "R3"});
+            table10.AddRow(new string[] {
+                        "T_1",
+                        "Goblin pack",
+                        "1",
+                        "Goblin@1",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table10.AddRow(new string[] {
+                        "T_4",
+                        "Goblin pack",
+                        "4",
+                        "Goblin@1",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 66
+ testRunner.And("Have some formation templates", ((string)(null)), table10, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Login",
+                        "Password"});
+            table11.AddRow(new string[] {
+                        "ID_1",
+                        "test",
+                        "test"});
+#line 70
+ testRunner.And("Some accounts exists in system", ((string)(null)), table11, "And ");
+#line 73
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 74
+ testRunner.And("Number of quest to be generated is \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 75
+ testRunner.And("The chance of getting level \'1\' quests is set to \'10000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 76
+ testRunner.And("The chance of getting level \'2\' quests is set to \'2500\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
+ testRunner.And("The chance of getting level \'3\' quests is set to \'1000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+ testRunner.And("The chance of getting level \'4\' quests is set to \'100\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+ testRunner.And("Randomzer for quests level will always return \'90\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+ testRunner.When("Player will refresh and regenerate quests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Level",
+                        "Name",
+                        "FormationID",
+                        "WinRewards"});
+            table12.AddRow(new string[] {
+                        "Q_1",
+                        "4",
+                        "Defeat - Goblin pack",
+                        "T_4",
+                        ""});
+#line 81
+ testRunner.Then("List of quests should contain", ((string)(null)), table12, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

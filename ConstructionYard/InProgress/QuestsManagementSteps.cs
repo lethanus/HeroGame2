@@ -8,6 +8,7 @@ using HeroesGame.Characters;
 using HeroesGame.FightMechanizm;
 using HeroesGame.Quests;
 using HeroesGame.Configuration;
+using HeroesGame.Core.Randomizers;
 
 namespace ConstructionYard
 {
@@ -32,7 +33,7 @@ namespace ConstructionYard
             var expectedQuests = table.CreateSet<Quest>().ToList();
             foreach (var quest in expectedQuests)
             {
-                Assert.AreEqual(quest, expectedQuests.First(x => x.ID == quest.ID));
+                Assert.IsTrue( quests.First(x=>x.ID == quest.ID).Equals(quest));
             }
             Assert.AreEqual(expectedQuests.Count, quests.Count);
         }
@@ -42,6 +43,20 @@ namespace ConstructionYard
         {
             var configRepo = objectContainer.Resolve<IConfigRepository>();
             configRepo.SetConfigParameter($"NumberOfQuests", numberOfQuests.ToString());
+        }
+
+        [Given(@"The chance of getting level '(.*)' quests is set to '(.*)' of '(.*)'")]
+        public void GivenTheChanceOfGettingLevelQuestsIsSetToOf(int level, int chanceValue, int chanceMax)
+        {
+            var configRepo = objectContainer.Resolve<IConfigRepository>();
+            configRepo.SetConfigParameter($"ChanceForLevel_{level}_quest", $"{chanceValue}_{chanceMax}");
+        }
+
+        [Given(@"Randomzer for quests level will always return '(.*)'")]
+        public void GivenRandomzerForQuestsLevelWillAlwaysReturn(int randomizerResult)
+        {
+            var randomizer = objectContainer.Resolve<IValueRandomizer>();
+            randomizer.SetReturnValue($"Quest_level_chance", randomizerResult);
         }
 
     }

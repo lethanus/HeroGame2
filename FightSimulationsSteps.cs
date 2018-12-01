@@ -18,7 +18,6 @@ namespace ConstructionYard
         private Dictionary<string, Character> characters = new Dictionary<string, Character>();
         private List<ICharacterInTeam> charactersInTeams = new List<ICharacterInTeam>();
         private List<Character> charactersAfterFight = new List<Character>();
-        private string winningTeam = "";
 
         public FightSimulationsSteps(IObjectContainer objectContainer) : base(objectContainer) { }
         

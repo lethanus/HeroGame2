@@ -12,7 +12,11 @@ namespace HeroesGame.Quests
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            var toCompare = obj as Quest;
+            if (toCompare == null) return false;
+            if (toCompare.Name == Name && toCompare.Level == Level && toCompare.FormationID == FormationID && toCompare.WinRewards == WinRewards)
+                return true;
+            return false;
         }
 
         public override int GetHashCode()

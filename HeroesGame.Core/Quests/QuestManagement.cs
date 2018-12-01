@@ -36,7 +36,7 @@ namespace HeroesGame.Quests
 
             for (int i = 1; i <= numberOfQuests; i++)
             {
-                quests.Add(new Quest { ID = $"Q_{1}", Level = "1", FormationID = "T_1", Name = "Defeat - Goblin pack", WinRewards = "" });
+                quests.Add(new Quest { ID = $"Q_{i}", Level = "1", FormationID = "T_1", Name = "Defeat - Goblin pack", WinRewards = "" });
             }
             return quests;
         }
