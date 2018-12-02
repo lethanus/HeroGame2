@@ -9,6 +9,7 @@ using HeroesGame.FightMechanizm;
 using HeroesGame.Quests;
 using HeroesGame.Configuration;
 using HeroesGame.Core.Randomizers;
+using HeroesGame.Accounts;
 
 namespace ConstructionYard
 {
@@ -86,6 +87,25 @@ namespace ConstructionYard
                 rewardTemplatesRepository.Add(template);
             }
         }
+
+        [Given(@"List of quests contains")]
+        public void GivenListOfQuestsContains(Table table)
+        {
+            var questRepository = objectContainer.Resolve<IQuestRepository>();
+            var accountManagement = objectContainer.Resolve<IAccountManagement>();
+            var quests = table.CreateSet<Quest>().ToList();
+            foreach (var quest in quests)
+            {
+                questRepository.Add(quest, accountManagement.GetLoggedAccount().ID);
+            }
+        }
+
+        [When(@"Player will complete quest with ID '(.*)'")]
+        public void WhenPlayerWillCompleteQuestWithID(string questID)
+        {
+            
+        }
+
 
     }
 }
