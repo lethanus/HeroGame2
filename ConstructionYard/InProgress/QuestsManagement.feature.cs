@@ -1643,6 +1643,160 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("12 Player team for sure should win fight for low level fight quest", SourceLine=337)]
+        public virtual void _12PlayerTeamForSureShouldWinFightForLowLevelFightQuest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("12 Player team for sure should win fight for low level fight quest", null, ((string[])(null)));
+#line 338
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Level",
+                        "Name",
+                        "HP_range",
+                        "Min_Attack_range",
+                        "Defence_range",
+                        "Speed_range",
+                        "Attack_add_for_max"});
+            table61.AddRow(new string[] {
+                        "1",
+                        "Goblin",
+                        "18-22",
+                        "8-12",
+                        "8-12",
+                        "8-10",
+                        "4"});
+            table61.AddRow(new string[] {
+                        "2",
+                        "Goblin",
+                        "22-26",
+                        "12-16",
+                        "10-14",
+                        "9-11",
+                        "5"});
+            table61.AddRow(new string[] {
+                        "3",
+                        "Goblin",
+                        "26-34",
+                        "16-24",
+                        "12-16",
+                        "10-12",
+                        "7"});
+            table61.AddRow(new string[] {
+                        "4",
+                        "Goblin",
+                        "40-55",
+                        "30-40",
+                        "18-22",
+                        "11-13",
+                        "10"});
+#line 339
+ testRunner.Given("Some mercenary templates", ((string)(null)), table61, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Level",
+                        "F1",
+                        "F2",
+                        "F3",
+                        "M1",
+                        "M2",
+                        "M3",
+                        "M4",
+                        "R1",
+                        "R2",
+                        "R3"});
+            table62.AddRow(new string[] {
+                        "T_1",
+                        "Goblin pack",
+                        "1",
+                        "Goblin@1",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 345
+ testRunner.And("Have some formation templates", ((string)(null)), table62, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Login",
+                        "Password"});
+            table63.AddRow(new string[] {
+                        "ID_1",
+                        "test",
+                        "test"});
+#line 348
+ testRunner.And("Some accounts exists in system", ((string)(null)), table63, "And ");
+#line 351
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table64.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "200",
+                        "200",
+                        "30",
+                        "30",
+                        "5",
+                        "10",
+                        ""});
+            table64.AddRow(new string[] {
+                        "Goblin_B",
+                        "Goblin",
+                        "100",
+                        "100",
+                        "20",
+                        "20",
+                        "0",
+                        "5",
+                        ""});
+#line 352
+ testRunner.And("Account \'ID_1\' already have some mercenaries", ((string)(null)), table64, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Level",
+                        "Name",
+                        "FormationID",
+                        "RewardsID"});
+            table65.AddRow(new string[] {
+                        "Q_1",
+                        "1",
+                        "Defeat - Goblin pack",
+                        "T_1",
+                        ""});
+#line 356
+ testRunner.And("List of quests contains", ((string)(null)), table65, "And ");
+#line 359
+ testRunner.When("Player will set character with ID \'Elf_A\' to position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 360
+ testRunner.And("Player will set character with ID \'Goblin_B\' to position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 361
+ testRunner.And("Player will start quest with ID \'Q_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 362
+ testRunner.Then("Quest \'Q_1\' should be completed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {

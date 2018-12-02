@@ -156,5 +156,15 @@ namespace HeroesGame.Quests
             string itemID = _itemTemplateRepository.GetAll().First(x => x.Name == itemName).ID;
             _inventoryManagement.AddItems(itemID, amount);
         }
+
+        public void StartQuest(string questID)
+        {
+            
+        }
+
+        public string GetQuestResult(string questID)
+        {
+            return "";
+        }
     }
 }
