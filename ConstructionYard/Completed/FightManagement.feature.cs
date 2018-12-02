@@ -315,7 +315,7 @@ this.ScenarioInitialize(scenarioInfo);
             table8.AddRow(new string[] {
                         "Elf_A",
                         "Elf",
-                        "200",
+                        "20",
                         "20",
                         "30",
                         "30",
@@ -325,7 +325,7 @@ this.ScenarioInitialize(scenarioInfo);
             table8.AddRow(new string[] {
                         "Goblin_B",
                         "Goblin",
-                        "100",
+                        "10",
                         "10",
                         "20",
                         "20",

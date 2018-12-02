@@ -114,14 +114,13 @@ namespace ConstructionYard
             questManagement.StartQuest(questID);
         }
 
-        [Then(@"Quest '(.*)' should be completed")]
-        public void ThenQuestShouldBeComplated(string questID)
+        [Then(@"Quest '(.*)' should be '(.*)'")]
+        public void ThenQuestShouldBe(string questID, string expectedResult)
         {
             var questManagement = objectContainer.Resolve<IQuestManagement>();
             var result = questManagement.GetQuestResult(questID);
-            Assert.AreEqual("Completed", result);
+            Assert.AreEqual(expectedResult, result);
         }
-
 
     }
 }

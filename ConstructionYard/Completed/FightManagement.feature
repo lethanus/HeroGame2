@@ -42,8 +42,8 @@ Scenario: 02 Player team for sure should lose
 	And I try to login for 'test' and password 'test'
 	And Account 'ID_1' already have some mercenaries
 	| ID       | Name   | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
-	| Elf_A    | Elf    | 200   | 20 | 30      | 30      | 5   | 7     |        |
-	| Goblin_B | Goblin | 100   | 10 | 20      | 20      | 0   | 5     |        |
+	| Elf_A    | Elf    | 20    | 20 | 30      | 30      | 5   | 7     |        |
+	| Goblin_B | Goblin | 10    | 10 | 20      | 20      | 0   | 5     |        |
 	When Player will set character with ID 'Elf_A' to position 'Front_1'
 	And Player will set character with ID 'Goblin_B' to position 'Front_2'
 	And Fight will be vs generated team from template 'T_1'
