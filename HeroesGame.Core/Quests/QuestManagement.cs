@@ -67,8 +67,16 @@ namespace HeroesGame.Quests
                     {
                         var choosen = _randomizer.GetRandomValueInRange(1, amountOfTemplates+1, "ChoosingFormation");
                         choosenFormationTemplate = formationDictionary[choosen];
-
-                        var rewardTemplate =_rewardTemplatesRepository.GetAll().FirstOrDefault(x=>x.Level == level.ToString());
+                        RewardTemplate rewardTemplate = null;
+                        var counterRewards = 1;
+                        var allRewardTemplates = _rewardTemplatesRepository.GetAll().Where(x => x.Level == level.ToString());
+                        var amountOfRewardTemplates = allRewardTemplates.Count();
+                        var rewardsDictionary = allRewardTemplates.ToDictionary(x => counterRewards++, x => x);
+                        if (amountOfRewardTemplates > 0)
+                        {
+                            var choosenReward = _randomizer.GetRandomValueInRange(1, amountOfRewardTemplates + 1, "ChoosingRewards");
+                            rewardTemplate = rewardsDictionary[choosenReward];
+                        }
 
                         quests.Add(new Quest {
                             ID = $"Q_{i}",
