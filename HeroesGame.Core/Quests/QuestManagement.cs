@@ -42,43 +42,23 @@ namespace HeroesGame.Quests
                 _questRepository.Clear(_accountManagement.GetLoggedAccount().ID);
                 var numberOfQuests = Int32.Parse(_configRepository.GetParameterValue("NumberOfQuests"));
                 var quests = new List<Quest>();
-                var questLevelChanges = new Dictionary<int, ChanceRange>();
-                questLevelChanges.Add(1, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_1_quest")));
-                questLevelChanges.Add(2, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_2_quest")));
-                questLevelChanges.Add(3, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_3_quest")));
-                questLevelChanges.Add(4, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_4_quest")));
+                var questLevelChances = new Dictionary<int, ChanceRange>();
+                questLevelChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_1_quest")));
+                questLevelChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_2_quest")));
+                questLevelChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_3_quest")));
+                questLevelChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_4_quest")));
 
                 for (int i = 1; i <= numberOfQuests; i++)
                 {
-                    var randomValue = _randomizer.GetRandomValueInRange(1, questLevelChanges[1].MaxValue, "Quest_level_chance");
-                    int level = 1;
-                    for (int j = 1; j <= 4; j++)
-                    {
-                        if (randomValue < questLevelChanges[j].Value) level = j;
-                    }
+                    var level = GetRandomLevel(questLevelChances);
 
-                    var formationTemplates = _formationTemplateRepository.GetAll().Where(x => x.Level == level);
-                    FormationTemplate choosenFormationTemplate = null;
-                    var possibleFormations = formationTemplates.Where(x => x.Level == level);
-                    var amountOfTemplates = possibleFormations.Count();
-                    var counter = 1;
-                    var formationDictionary = possibleFormations.ToDictionary(x => counter++, x => x);
-                    if (amountOfTemplates > 0)
+                    FormationTemplate choosenFormationTemplate = GetRandomFormationTemplateForLevel(level);
+                    RewardTemplate rewardTemplate = GetRandomRewardTemplateForLevel(level);
+
+                    if (choosenFormationTemplate != null)
                     {
-                        var choosen = _randomizer.GetRandomValueInRange(1, amountOfTemplates+1, "ChoosingFormation");
-                        choosenFormationTemplate = formationDictionary[choosen];
-                        RewardTemplate rewardTemplate = null;
-                        var counterRewards = 1;
-                        var allRewardTemplates = _rewardTemplatesRepository.GetAll().Where(x => x.Level == level.ToString());
-                        var amountOfRewardTemplates = allRewardTemplates.Count();
-                        var rewardsDictionary = allRewardTemplates.ToDictionary(x => counterRewards++, x => x);
-                        if (amountOfRewardTemplates > 0)
+                        quests.Add(new Quest
                         {
-                            var choosenReward = _randomizer.GetRandomValueInRange(1, amountOfRewardTemplates + 1, "ChoosingRewards");
-                            rewardTemplate = rewardsDictionary[choosenReward];
-                        }
-
-                        quests.Add(new Quest {
                             ID = $"Q_{i}",
                             Level = level.ToString(),
                             FormationID = choosenFormationTemplate.ID,
@@ -86,6 +66,7 @@ namespace HeroesGame.Quests
                             WinRewards = rewardTemplate == null ? "" : rewardTemplate.ID
                         });
                     }
+
                 }
                 foreach (var quest in quests)
                 {
@@ -98,7 +79,49 @@ namespace HeroesGame.Quests
             else return false;
         }
 
-        public List<Quest> GetAll()
+        private int GetRandomLevel(Dictionary<int, ChanceRange> questLevelChances)
+        {
+            var randomValue = _randomizer.GetRandomValueInRange(1, questLevelChances[1].MaxValue, "Quest_level_chance");
+            int level = 1;
+            for (int j = 1; j <= 4; j++)
+            {
+                if (randomValue < questLevelChances[j].Value) level = j;
+            }
+            return level;
+        }
+
+        private FormationTemplate GetRandomFormationTemplateForLevel(int level)
+        {
+            FormationTemplate choosenFormationTemplate = null;
+            var formationTemplates = _formationTemplateRepository.GetAll().Where(x => x.Level == level);
+            var possibleFormations = formationTemplates.Where(x => x.Level == level);
+            var amountOfTemplates = possibleFormations.Count();
+            var counter = 1;
+            var formationDictionary = possibleFormations.ToDictionary(x => counter++, x => x);
+            if (amountOfTemplates > 0)
+            {
+                var choosen = _randomizer.GetRandomValueInRange(1, amountOfTemplates + 1, "ChoosingFormation");
+                choosenFormationTemplate = formationDictionary[choosen];
+            }
+            return choosenFormationTemplate;
+        }
+
+        private RewardTemplate GetRandomRewardTemplateForLevel(int level)
+        {
+            RewardTemplate rewardTemplate = null;
+            var counterRewards = 1;
+            var allRewardTemplates = _rewardTemplatesRepository.GetAll().Where(x => x.Level == level.ToString());
+            var amountOfRewardTemplates = allRewardTemplates.Count();
+            var rewardsDictionary = allRewardTemplates.ToDictionary(x => counterRewards++, x => x);
+            if (amountOfRewardTemplates > 0)
+            {
+                var choosenReward = _randomizer.GetRandomValueInRange(1, amountOfRewardTemplates + 1, "ChoosingRewards");
+                rewardTemplate = rewardsDictionary[choosenReward];
+            }
+            return rewardTemplate;
+        }
+
+            public List<Quest> GetAll()
         {
             return _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }
