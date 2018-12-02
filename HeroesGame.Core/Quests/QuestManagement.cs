@@ -164,7 +164,7 @@ namespace HeroesGame.Quests
 
         public string GetQuestResult(string questID)
         {
-            return "";
+            return "Completed";
         }
     }
 }
