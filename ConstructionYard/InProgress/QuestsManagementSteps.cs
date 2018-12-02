@@ -103,7 +103,8 @@ namespace ConstructionYard
         [When(@"Player will complete quest with ID '(.*)'")]
         public void WhenPlayerWillCompleteQuestWithID(string questID)
         {
-            
+            var questManagement = objectContainer.Resolve<IQuestManagement>();
+            questManagement.StartQuest(questID);
         }
 
 

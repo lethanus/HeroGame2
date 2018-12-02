@@ -7,6 +7,7 @@ using HeroesGame.Core.Randomizers;
 using HeroesGame.Mercenaries;
 using HeroesGame.PackBuilding;
 using HeroesGame.Accounts;
+using HeroesGame.Inventory;
 
 namespace HeroesGame.Quests
 {
@@ -19,10 +20,12 @@ namespace HeroesGame.Quests
         private readonly IAccountManagement _accountManagement;
         private readonly IQuestRepository _questRepository;
         private readonly IRewardTemplatesRepository _rewardTemplatesRepository;
+        private readonly IInventoryManagement _inventoryManagement;
 
         public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism, 
             IValueRandomizer randomizer, IFormationTemplateRepository formationTemplateRepository,
-            IAccountManagement accountManagement, IQuestRepository questRepository, IRewardTemplatesRepository rewardTemplatesRepository)
+            IAccountManagement accountManagement, IQuestRepository questRepository, 
+            IRewardTemplatesRepository rewardTemplatesRepository, IInventoryManagement inventoryManagement)
         {
             _configRepository = configRepository;
             _refreshingMechnism = refreshingMechnism;
@@ -31,6 +34,7 @@ namespace HeroesGame.Quests
             _accountManagement = accountManagement;
             _questRepository = questRepository;
             _rewardTemplatesRepository = rewardTemplatesRepository;
+            _inventoryManagement = inventoryManagement;
         }
 
         public bool GenerateQuests()
@@ -125,6 +129,13 @@ namespace HeroesGame.Quests
         public List<Quest> GetAll()
         {
             return _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
+        }
+
+        public void StartQuest(string questID)
+        {
+            var quest = _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID).First(x => x.ID == questID);
+            _inventoryManagement.AddItems("TR_2", 1);
+            _questRepository.Remove(quest, _accountManagement.GetLoggedAccount().ID);
         }
     }
 }

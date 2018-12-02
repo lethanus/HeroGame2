@@ -11,5 +11,6 @@ namespace HeroesGame.Quests
         void Clear(string iD);
         void Add(Quest quest, string iD);
         List<Quest> GetAll(string accountID);
+        void Remove(Quest item, string accountID);
     }
 }
