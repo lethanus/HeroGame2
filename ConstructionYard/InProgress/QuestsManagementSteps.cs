@@ -67,6 +67,15 @@ namespace ConstructionYard
             Assert.Greater(quests.Count(x => x.FormationID == formationID && x.Level == level), minimumAmount);
         }
 
+        [Then(@"List of quests should contain at least '(.*)' quests with Rewards using template '(.*)'")]
+        public void ThenListOfQuestsShouldContainAtLeastQuestsWithRewardsUsingTemplate(int minimumAmount, string rewardTemplateID)
+        {
+            var questManagement = objectContainer.Resolve<IQuestManagement>();
+            var quests = questManagement.GetAll();
+            Assert.Greater(quests.Count(x => x.WinRewards == rewardTemplateID), minimumAmount);
+        }
+
+
         [Given(@"Reward templates have")]
         public void GivenRewardTemplatesHave(Table table)
         {
