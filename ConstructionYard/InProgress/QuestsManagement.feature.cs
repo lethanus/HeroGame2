@@ -1924,13 +1924,28 @@ this.ScenarioInitialize(scenarioInfo);
                         ""});
 #line 379
  testRunner.And("Account \'ID_1\' already have some mercenaries", ((string)(null)), table69, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Level",
+                        "Name",
+                        "FormationID",
+                        "RewardsID"});
+            table70.AddRow(new string[] {
+                        "Q_1",
+                        "1",
+                        "Defeat - Goblin pack",
+                        "T_1",
+                        ""});
 #line 383
- testRunner.When("Player will set character with ID \'Elf_A\' to position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 384
- testRunner.And("Player will set character with ID \'Goblin_B\' to position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 385
- testRunner.And("Player will start quest with ID \'Q_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("List of quests contains", ((string)(null)), table70, "And ");
 #line 386
+ testRunner.When("Player will set character with ID \'Elf_A\' to position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 387
+ testRunner.And("Player will set character with ID \'Goblin_B\' to position \'Front_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 388
+ testRunner.And("Player will start quest with ID \'Q_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 389
  testRunner.Then("Quest \'Q_1\' should be \'NotCompleted\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

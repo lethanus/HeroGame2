@@ -380,6 +380,9 @@ Scenario: 13 Player team for sure should lose fight for high level fight quest
 	| ID       | Name   | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 	| Elf_A    | Elf    | 20    | 20 | 30      | 30      | 5   | 7     |        |
 	| Goblin_B | Goblin | 10    | 10 | 20      | 20      | 0   | 5     |        |
+	And List of quests contains
+	| ID  | Level | Name                 | FormationID | RewardsID |
+	| Q_1 | 1     | Defeat - Goblin pack | T_1         |           |
 	When Player will set character with ID 'Elf_A' to position 'Front_1'
 	And Player will set character with ID 'Goblin_B' to position 'Front_2'
 	And Player will start quest with ID 'Q_1'

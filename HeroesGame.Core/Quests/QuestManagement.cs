@@ -8,6 +8,7 @@ using HeroesGame.Mercenaries;
 using HeroesGame.PackBuilding;
 using HeroesGame.Accounts;
 using HeroesGame.Inventory;
+using HeroesGame.FightMechanizm;
 
 namespace HeroesGame.Quests
 {
@@ -22,12 +23,13 @@ namespace HeroesGame.Quests
         private readonly IRewardTemplatesRepository _rewardTemplatesRepository;
         private readonly IInventoryManagement _inventoryManagement;
         private readonly IItemTemplateRepository _itemTemplateRepository;
+        private readonly IFightManagement _fightManagement;
 
         public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism, 
             IValueRandomizer randomizer, IFormationTemplateRepository formationTemplateRepository,
             IAccountManagement accountManagement, IQuestRepository questRepository, 
             IRewardTemplatesRepository rewardTemplatesRepository, IInventoryManagement inventoryManagement,
-            IItemTemplateRepository itemTemplateRepository)
+            IItemTemplateRepository itemTemplateRepository, IFightManagement fightManagement)
         {
             _configRepository = configRepository;
             _refreshingMechnism = refreshingMechnism;
@@ -38,6 +40,7 @@ namespace HeroesGame.Quests
             _rewardTemplatesRepository = rewardTemplatesRepository;
             _inventoryManagement = inventoryManagement;
             _itemTemplateRepository = itemTemplateRepository;
+            _fightManagement = fightManagement;
         }
 
         public bool GenerateQuests()
@@ -159,12 +162,16 @@ namespace HeroesGame.Quests
 
         public void StartQuest(string questID)
         {
-            
+            var selectedQuest = GetAll().First(x => x.ID == questID);
+            _fightManagement.PrepareFightAgainstTemplate(selectedQuest.FormationID);
+            _fightManagement.StartFight();
         }
 
         public string GetQuestResult(string questID)
         {
-            return "Completed";
+            var result = _fightManagement.GetLastFightResult();
+
+            return result == FightResult.PlayerWins ? "Completed" : "NotCompleted";
         }
     }
 }

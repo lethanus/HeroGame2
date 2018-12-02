@@ -178,7 +178,7 @@ namespace PrototypeGUI
                 }
             }
 
-            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer, _formationTemplateRepository, _accountManagement, _questsRepository, _rewardTemplatesRepository,_inventoryManagement, _itemTemplateRepository);
+            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer, _formationTemplateRepository, _accountManagement, _questsRepository, _rewardTemplatesRepository,_inventoryManagement, _itemTemplateRepository, _fightManagement);
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
