@@ -242,7 +242,7 @@ Scenario: 08 After successfully completing quest rewards should be added to inve
 	And List of quests contains
 	| ID  | Level | Name                 | FormationID | RewardsID |
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_2       |
-	When Player will complete quest with ID 'Q_1' with result 'Complete'
+	When Player will complete quest with ID 'Q_1' with result 'Completed'
 	Then Inventory should have items below
 	| ID   | Name | Amount | Category |
 	| TR_2 | Wine | 1      | Rewards  |
@@ -270,7 +270,7 @@ Scenario: 09 After failing quest rewards should not be added to inventory
 	And List of quests contains
 	| ID  | Level | Name                 | FormationID | RewardsID |
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_2       |
-	When Player will complete quest with ID 'Q_1' with result 'Failed'
+	When Player will complete quest with ID 'Q_1' with result 'NotCompleted'
 	Then Inventory should have items below
 	| ID   | Name | Amount | Category |
 	And List of quests should contain
@@ -297,7 +297,7 @@ Scenario: 10 After successfully completing quest rewards should be added to inve
 	And List of quests contains
 	| ID  | Level | Name                 | FormationID | RewardsID |
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_3       |
-	When Player will complete quest with ID 'Q_1' with result 'Complete'
+	When Player will complete quest with ID 'Q_1' with result 'Completed'
 	Then Inventory should have items below
 	| ID   | Name | Amount | Category |
 	| TR_4 | Rum  | 10     | Rewards  |
@@ -325,7 +325,7 @@ Scenario: 11 After successfully completing quest many rewards should be added to
 	And List of quests contains
 	| ID  | Level | Name                 | FormationID | RewardsID |
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_3       |
-	When Player will complete quest with ID 'Q_1' with result 'Complete'
+	When Player will complete quest with ID 'Q_1' with result 'Completed'
 	Then Inventory should have items below
 	| ID   | Name  | Amount | Category |
 	| TR_4 | Rum   | 10     | Rewards  |

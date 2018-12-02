@@ -137,15 +137,18 @@ namespace HeroesGame.Quests
             return _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }
 
-        public void ComplateQuest(string questID, string result)
+        public void CompleteQuest(string questID, string result)
         {
             var quest = _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID).First(x => x.ID == questID);
-            if (result == "Complete")
+            if (result == "Completed")
             {
-                var rewardTemaplate = _rewardTemplatesRepository.GetAll().First(x => x.ID == quest.RewardsID);
-                foreach(var reward in  rewardTemaplate.Rewards.Split(':'))
+                if (!string.IsNullOrEmpty(quest.RewardsID))
                 {
-                    AddReward(reward);
+                    var rewardTemaplate = _rewardTemplatesRepository.GetAll().First(x => x.ID == quest.RewardsID);
+                    foreach (var reward in rewardTemaplate.Rewards.Split(':'))
+                    {
+                        AddReward(reward);
+                    }
                 }
             }
             _questRepository.Remove(quest, _accountManagement.GetLoggedAccount().ID);
@@ -165,6 +168,7 @@ namespace HeroesGame.Quests
             var selectedQuest = GetAll().First(x => x.ID == questID);
             _fightManagement.PrepareFightAgainstTemplate(selectedQuest.FormationID);
             _fightManagement.StartFight();
+            CompleteQuest(questID, GetQuestResult(questID));
         }
 
         public string GetQuestResult(string questID)

@@ -1257,7 +1257,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 242
  testRunner.And("List of quests contains", ((string)(null)), table37, "And ");
 #line 245
- testRunner.When("Player will complete quest with ID \'Q_1\' with result \'Complete\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Player will complete quest with ID \'Q_1\' with result \'Completed\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -1375,7 +1375,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 270
  testRunner.And("List of quests contains", ((string)(null)), table44, "And ");
 #line 273
- testRunner.When("Player will complete quest with ID \'Q_1\' with result \'Failed\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Player will complete quest with ID \'Q_1\' with result \'NotCompleted\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -1488,7 +1488,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 297
  testRunner.And("List of quests contains", ((string)(null)), table51, "And ");
 #line 300
- testRunner.When("Player will complete quest with ID \'Q_1\' with result \'Complete\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Player will complete quest with ID \'Q_1\' with result \'Completed\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -1606,7 +1606,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 325
  testRunner.And("List of quests contains", ((string)(null)), table58, "And ");
 #line 328
- testRunner.When("Player will complete quest with ID \'Q_1\' with result \'Complete\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Player will complete quest with ID \'Q_1\' with result \'Completed\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
