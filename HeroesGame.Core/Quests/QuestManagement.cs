@@ -134,7 +134,8 @@ namespace HeroesGame.Quests
         public void ComplateQuest(string questID, string result)
         {
             var quest = _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID).First(x => x.ID == questID);
-            _inventoryManagement.AddItems("TR_2", 1);
+            if(result == "Complete")
+                _inventoryManagement.AddItems("TR_2", 1);
             _questRepository.Remove(quest, _accountManagement.GetLoggedAccount().ID);
         }
     }
