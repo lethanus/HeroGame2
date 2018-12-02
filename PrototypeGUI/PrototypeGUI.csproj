@@ -143,6 +143,12 @@
     <Compile Include="RemovingGiftScreen.Designer.cs">
       <DependentUpon>RemovingGiftScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="RewardTemplatesScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RewardTemplatesScreen.Designer.cs">
+      <DependentUpon>RewardTemplatesScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddingGiftsScreen.resx">
       <DependentUpon>AddingGiftsScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RemovingGiftScreen.resx">
       <DependentUpon>RemovingGiftScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RewardTemplatesScreen.resx">
+      <DependentUpon>RewardTemplatesScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

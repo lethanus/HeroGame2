@@ -47,6 +47,7 @@
             this.btConfigSettings = new System.Windows.Forms.Button();
             this.btItemDictionary = new System.Windows.Forms.Button();
             this.btOpponentFormations = new System.Windows.Forms.Button();
+            this.btRewards = new System.Windows.Forms.Button();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -244,11 +245,22 @@
             this.btOpponentFormations.UseVisualStyleBackColor = true;
             this.btOpponentFormations.Click += new System.EventHandler(this.btOpponentFormations_Click);
             // 
+            // btRewards
+            // 
+            this.btRewards.Location = new System.Drawing.Point(18, 299);
+            this.btRewards.Name = "btRewards";
+            this.btRewards.Size = new System.Drawing.Size(133, 23);
+            this.btRewards.TabIndex = 9;
+            this.btRewards.Text = "Reward templates";
+            this.btRewards.UseVisualStyleBackColor = true;
+            this.btRewards.Click += new System.EventHandler(this.btRewards_Click);
+            // 
             // btCampain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btRewards);
             this.Controls.Add(this.btOpponentFormations);
             this.Controls.Add(this.btItemDictionary);
             this.Controls.Add(this.btConfigSettings);
@@ -292,6 +304,7 @@
         private System.Windows.Forms.Button btFillInventory;
         private System.Windows.Forms.Button btOpponentFormations;
         private System.Windows.Forms.Button btFightVsTemplate;
+        private System.Windows.Forms.Button btRewards;
     }
 }
 

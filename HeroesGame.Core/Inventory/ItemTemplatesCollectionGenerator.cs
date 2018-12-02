@@ -41,6 +41,22 @@ namespace HeroesGame.Inventory
                 Effects = "Mercenary_Convince_Chance_(+3%)"
             });
 
+            tempaltes.Add(new ItemTemplate
+            {
+                ID = "TR_5",
+                Name = "Beer",
+                Category = ItemCategory.Rewards,
+                Effects = ""
+            });
+
+            tempaltes.Add(new ItemTemplate
+            {
+                ID = "TR_6",
+                Name = "Wine",
+                Category = ItemCategory.Rewards,
+                Effects = ""
+            });
+
             return tempaltes;
         }
     }

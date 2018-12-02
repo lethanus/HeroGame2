@@ -170,6 +170,14 @@ namespace PrototypeGUI
             _logger = new FakeLogger();
             _questsRepository = new QuestsJasonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
             _rewardTemplatesRepository = new RewardTemplatesJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\RewardTemplates.json");
+            if (_rewardTemplatesRepository.GetAll().Count == 0)
+            {
+                foreach (var template in RewardTemplatesCollectionGenerator.Generate())
+                {
+                    _rewardTemplatesRepository.Add(template);
+                }
+            }
+
             _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer, _formationTemplateRepository, _accountManagement, _questsRepository, _rewardTemplatesRepository);
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
@@ -258,6 +266,12 @@ namespace PrototypeGUI
                     MessageBox.Show(result.ToString());
                 }
             }
+        }
+
+        private void btRewards_Click(object sender, EventArgs e)
+        {
+            RewardTemplatesScreen rewardTemplatesScreen = new RewardTemplatesScreen(_rewardTemplatesRepository);
+            rewardTemplatesScreen.ShowDialog();
         }
     }
 

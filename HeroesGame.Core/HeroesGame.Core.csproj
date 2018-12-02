@@ -89,6 +89,7 @@
     <Compile Include="Quests\Quest.cs" />
     <Compile Include="Quests\QuestManagement.cs" />
     <Compile Include="Quests\RewardTemplate.cs" />
+    <Compile Include="Quests\RewardTemplatesCollectionGenerator.cs" />
     <Compile Include="Randomizers\IValueRandomizer.cs" />
     <Compile Include="Randomizers\ValueRandomizer.cs" />
     <Compile Include="RefreshingMechanism\IRefreshingMechnism.cs" />
