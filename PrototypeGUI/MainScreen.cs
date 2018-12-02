@@ -44,6 +44,7 @@ namespace PrototypeGUI
         private IValueRandomizer _valueRandomizer;
         private IQuestManagement _questManagement;
         private IQuestRepository _questsRepository;
+        private IRewardTemplatesRepository _rewardTemplatesRepository;
         private Logger _logger;
 
         public btCampain()
@@ -168,7 +169,8 @@ namespace PrototypeGUI
             _valueRandomizer = new ValueRandomizer();
             _logger = new FakeLogger();
             _questsRepository = new QuestsJasonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\");
-            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer, _formationTemplateRepository, _accountManagement, _questsRepository);
+            _rewardTemplatesRepository = new RewardTemplatesJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\RewardTemplates.json");
+            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer, _formationTemplateRepository, _accountManagement, _questsRepository, _rewardTemplatesRepository);
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }

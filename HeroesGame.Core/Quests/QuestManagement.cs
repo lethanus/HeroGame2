@@ -18,10 +18,11 @@ namespace HeroesGame.Quests
         private readonly IFormationTemplateRepository _formationTemplateRepository;
         private readonly IAccountManagement _accountManagement;
         private readonly IQuestRepository _questRepository;
+        private readonly IRewardTemplatesRepository _rewardTemplatesRepository;
 
         public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism, 
             IValueRandomizer randomizer, IFormationTemplateRepository formationTemplateRepository,
-            IAccountManagement accountManagement, IQuestRepository questRepository)
+            IAccountManagement accountManagement, IQuestRepository questRepository, IRewardTemplatesRepository rewardTemplatesRepository)
         {
             _configRepository = configRepository;
             _refreshingMechnism = refreshingMechnism;
@@ -29,6 +30,7 @@ namespace HeroesGame.Quests
             _formationTemplateRepository = formationTemplateRepository;
             _accountManagement = accountManagement;
             _questRepository = questRepository;
+            _rewardTemplatesRepository = rewardTemplatesRepository;
         }
 
         public bool GenerateQuests()
@@ -66,7 +68,15 @@ namespace HeroesGame.Quests
                         var choosen = _randomizer.GetRandomValueInRange(1, amountOfTemplates+1, "ChoosingFormation");
                         choosenFormationTemplate = formationDictionary[choosen];
 
-                        quests.Add(new Quest { ID = $"Q_{i}", Level = level.ToString(), FormationID = choosenFormationTemplate.ID, Name = $"Defeat - {choosenFormationTemplate.Name}", WinRewards = "" });
+                        var rewardTemplate =_rewardTemplatesRepository.GetAll().FirstOrDefault(x=>x.Level == level.ToString());
+
+                        quests.Add(new Quest {
+                            ID = $"Q_{i}",
+                            Level = level.ToString(),
+                            FormationID = choosenFormationTemplate.ID,
+                            Name = $"Defeat - {choosenFormationTemplate.Name}",
+                            WinRewards = rewardTemplate == null ? "" : rewardTemplate.ID
+                        });
                     }
                 }
                 foreach (var quest in quests)

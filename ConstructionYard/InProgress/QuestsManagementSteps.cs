@@ -70,7 +70,12 @@ namespace ConstructionYard
         [Given(@"Reward templates have")]
         public void GivenRewardTemplatesHave(Table table)
         {
-            
+            var rewardTemplatesRepository = objectContainer.Resolve<IRewardTemplatesRepository>();
+            var rewardTemplates = table.CreateSet<RewardTemplate>().ToList();
+            foreach (var template in rewardTemplates)
+            {
+                rewardTemplatesRepository.Add(template);
+            }
         }
 
     }

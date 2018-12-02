@@ -25,6 +25,9 @@ namespace ConstructionYard
             var logger = new FakeLogger();
             objectContainer.RegisterInstanceAs<Logger>(logger);
 
+            var rewardTemplatesRepository = new RewardTemplatesJsonFileRepository("rewardTemplates.json");
+            objectContainer.RegisterInstanceAs<IRewardTemplatesRepository>(rewardTemplatesRepository);
+
             var valueRandomizer = new ValueRandomizer();
             objectContainer.RegisterInstanceAs<IValueRandomizer>(valueRandomizer);
             var accountRepo = new AccountJsonFileRepository("accounts.json");
@@ -74,13 +77,14 @@ namespace ConstructionYard
 
             var questRepository = new QuestsJasonFileRepository(Directory.GetCurrentDirectory());
             objectContainer.RegisterInstanceAs<IQuestRepository>(questRepository);
-            var questManagement = new QuestManagement(configRepo, refreshingMechnism, valueRandomizer, formationTemplateRepository,accountManagement, questRepository);
+            var questManagement = new QuestManagement(configRepo, refreshingMechnism, valueRandomizer, formationTemplateRepository,accountManagement, questRepository, rewardTemplatesRepository);
             objectContainer.RegisterInstanceAs<IQuestManagement>(questManagement);
 
         }
 
         public static void CleanupRepository()
         {
+            File.Delete("rewardTemplates.json");
             File.Delete("accounts.json");
             File.Delete("configuration.json");
             File.Delete("mercenaryTemplates.json");
