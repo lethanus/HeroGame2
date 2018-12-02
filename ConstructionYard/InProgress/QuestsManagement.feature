@@ -131,8 +131,8 @@ Scenario: 05 Generating reward for quest on level 1
 	| TR_4 | Rum   | Rewards  | 4     |
 	And Reward templates have
 	| ID  | Rewards | Level |
-	| R_1 | 1xBeer  | 1     |
-	| R_2 | 1xWine  | 2     |
+	| R_1 | 1_Beer  | 1     |
+	| R_2 | 1_Wine  | 2     |
 	And I try to login for 'test' and password 'test'
 	And Number of quest to be generated is '1'
 	And The chance of getting level '1' quests is set to '10000' of '10000'
@@ -167,8 +167,8 @@ Scenario: 06 Generating reward for quests on level 2
 	| TR_4 | Rum   | Rewards  | 4     |
 	And Reward templates have
 	| ID  | Rewards | Level |
-	| R_1 | 1xBeer  | 1     |
-	| R_2 | 1xWine  | 2     |
+	| R_1 | 1_Beer  | 1     |
+	| R_2 | 1_Wine  | 2     |
 	And I try to login for 'test' and password 'test'
 	And Number of quest to be generated is '2'
 	And The chance of getting level '1' quests is set to '10000' of '10000'
@@ -206,9 +206,9 @@ Scenario: 07 Generating different quests for level 2 with rewards
 	| TR_4 | Rum   | Rewards  | 4     |
 	And Reward templates have
 	| ID  | Rewards | Level |
-	| R_1 | 1xBeer  | 2     |
-	| R_2 | 1xWine  | 2     |
-	| R_3 | 1xRum   | 2     |
+	| R_1 | 1_Beer  | 2     |
+	| R_2 | 1_Wine  | 2     |
+	| R_3 | 10_Rum  | 2     |
 	And I try to login for 'test' and password 'test'
 	And Number of quest to be generated is '1000'
 	And The chance of getting level '1' quests is set to '10000' of '10000'
@@ -236,9 +236,9 @@ Scenario: 08 After successfully completing quest rewards should be added to inve
 	| TR_4 | Rum   | Rewards  | 4     |
 	And Reward templates have
 	| ID  | Rewards | Level |
-	| R_1 | 1xBeer  | 2     |
-	| R_2 | 1xWine  | 2     |
-	| R_3 | 1xRum   | 2     |
+	| R_1 | 1_Beer  | 2     |
+	| R_2 | 1_Wine  | 2     |
+	| R_3 | 10_Rum  | 2     |
 	And List of quests contains
 	| ID  | Level | Name                 | FormationID | RewardsID |
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_2       |
@@ -264,9 +264,9 @@ Scenario: 09 After failing quest rewards should not be added to inventory
 	| TR_4 | Rum   | Rewards  | 4     |
 	And Reward templates have
 	| ID  | Rewards | Level |
-	| R_1 | 1xBeer  | 2     |
-	| R_2 | 1xWine  | 2     |
-	| R_3 | 1xRum   | 2     |
+	| R_1 | 1_Beer  | 2     |
+	| R_2 | 1_Wine  | 2     |
+	| R_3 | 10_Rum  | 2     |
 	And List of quests contains
 	| ID  | Level | Name                 | FormationID | RewardsID |
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_2       |
@@ -291,9 +291,9 @@ Scenario: 10 After successfully completing quest rewards should be added to inve
 	| TR_4 | Rum   | Rewards  | 4     |
 	And Reward templates have
 	| ID  | Rewards | Level |
-	| R_1 | 1xBeer  | 2     |
-	| R_2 | 1xWine  | 2     |
-	| R_3 | 10xRum  | 2     |
+	| R_1 | 1_Beer  | 2     |
+	| R_2 | 1_Wine  | 2     |
+	| R_3 | 10_Rum  | 2     |
 	And List of quests contains
 	| ID  | Level | Name                 | FormationID | RewardsID |
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_3       |

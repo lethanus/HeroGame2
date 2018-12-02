@@ -77,7 +77,7 @@ namespace ConstructionYard
 
             var questRepository = new QuestsJasonFileRepository(Directory.GetCurrentDirectory());
             objectContainer.RegisterInstanceAs<IQuestRepository>(questRepository);
-            var questManagement = new QuestManagement(configRepo, refreshingMechnism, valueRandomizer, formationTemplateRepository,accountManagement, questRepository, rewardTemplatesRepository, inventoryManagement);
+            var questManagement = new QuestManagement(configRepo, refreshingMechnism, valueRandomizer, formationTemplateRepository,accountManagement, questRepository, rewardTemplatesRepository, inventoryManagement, itemTemplateRepository);
             objectContainer.RegisterInstanceAs<IQuestManagement>(questManagement);
 
         }

@@ -21,11 +21,13 @@ namespace HeroesGame.Quests
         private readonly IQuestRepository _questRepository;
         private readonly IRewardTemplatesRepository _rewardTemplatesRepository;
         private readonly IInventoryManagement _inventoryManagement;
+        private readonly IItemTemplateRepository _itemTemplateRepository;
 
         public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism, 
             IValueRandomizer randomizer, IFormationTemplateRepository formationTemplateRepository,
             IAccountManagement accountManagement, IQuestRepository questRepository, 
-            IRewardTemplatesRepository rewardTemplatesRepository, IInventoryManagement inventoryManagement)
+            IRewardTemplatesRepository rewardTemplatesRepository, IInventoryManagement inventoryManagement,
+            IItemTemplateRepository itemTemplateRepository)
         {
             _configRepository = configRepository;
             _refreshingMechnism = refreshingMechnism;
@@ -35,6 +37,7 @@ namespace HeroesGame.Quests
             _questRepository = questRepository;
             _rewardTemplatesRepository = rewardTemplatesRepository;
             _inventoryManagement = inventoryManagement;
+            _itemTemplateRepository = itemTemplateRepository;
         }
 
         public bool GenerateQuests()
@@ -134,8 +137,15 @@ namespace HeroesGame.Quests
         public void ComplateQuest(string questID, string result)
         {
             var quest = _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID).First(x => x.ID == questID);
-            if(result == "Complete")
-                _inventoryManagement.AddItems("TR_2", 1);
+            if (result == "Complete")
+            {
+                var rewardTemaplate = _rewardTemplatesRepository.GetAll().First(x => x.ID == quest.RewardsID);
+                var splited = rewardTemaplate.Rewards.Split('_');
+                int amount = Int32.Parse(splited[0]);
+                string itemName = splited[1];
+                string itemID = _itemTemplateRepository.GetAll().First(x => x.Name == itemName).ID;
+                _inventoryManagement.AddItems(itemID, amount);
+            }
             _questRepository.Remove(quest, _accountManagement.GetLoggedAccount().ID);
         }
     }

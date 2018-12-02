@@ -751,11 +751,11 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level"});
             table20.AddRow(new string[] {
                         "R_1",
-                        "1xBeer",
+                        "1_Beer",
                         "1"});
             table20.AddRow(new string[] {
                         "R_2",
-                        "1xWine",
+                        "1_Wine",
                         "2"});
 #line 132
  testRunner.And("Reward templates have", ((string)(null)), table20, "And ");
@@ -921,11 +921,11 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level"});
             table26.AddRow(new string[] {
                         "R_1",
-                        "1xBeer",
+                        "1_Beer",
                         "1"});
             table26.AddRow(new string[] {
                         "R_2",
-                        "1xWine",
+                        "1_Wine",
                         "2"});
 #line 168
  testRunner.And("Reward templates have", ((string)(null)), table26, "And ");
@@ -1125,15 +1125,15 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level"});
             table32.AddRow(new string[] {
                         "R_1",
-                        "1xBeer",
+                        "1_Beer",
                         "2"});
             table32.AddRow(new string[] {
                         "R_2",
-                        "1xWine",
+                        "1_Wine",
                         "2"});
             table32.AddRow(new string[] {
                         "R_3",
-                        "1xRum",
+                        "10_Rum",
                         "2"});
 #line 207
  testRunner.And("Reward templates have", ((string)(null)), table32, "And ");
@@ -1229,15 +1229,15 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level"});
             table36.AddRow(new string[] {
                         "R_1",
-                        "1xBeer",
+                        "1_Beer",
                         "2"});
             table36.AddRow(new string[] {
                         "R_2",
-                        "1xWine",
+                        "1_Wine",
                         "2"});
             table36.AddRow(new string[] {
                         "R_3",
-                        "1xRum",
+                        "10_Rum",
                         "2"});
 #line 237
  testRunner.And("Reward templates have", ((string)(null)), table36, "And ");
@@ -1347,15 +1347,15 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level"});
             table43.AddRow(new string[] {
                         "R_1",
-                        "1xBeer",
+                        "1_Beer",
                         "2"});
             table43.AddRow(new string[] {
                         "R_2",
-                        "1xWine",
+                        "1_Wine",
                         "2"});
             table43.AddRow(new string[] {
                         "R_3",
-                        "1xRum",
+                        "10_Rum",
                         "2"});
 #line 265
  testRunner.And("Reward templates have", ((string)(null)), table43, "And ");
@@ -1460,15 +1460,15 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level"});
             table50.AddRow(new string[] {
                         "R_1",
-                        "1xBeer",
+                        "1_Beer",
                         "2"});
             table50.AddRow(new string[] {
                         "R_2",
-                        "1xWine",
+                        "1_Wine",
                         "2"});
             table50.AddRow(new string[] {
                         "R_3",
-                        "10xRum",
+                        "10_Rum",
                         "2"});
 #line 292
  testRunner.And("Reward templates have", ((string)(null)), table50, "And ");
