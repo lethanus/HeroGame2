@@ -153,7 +153,7 @@ namespace PrototypeGUI
             {
                 var selectedGift = addingGiftsScreen.SelectedGift;
                 var amount = addingGiftsScreen.Amount;
-                _mercenaryManagement.AddGifts(selectedGift.ID, amount);
+                _mercenaryManagement.AddGifts(selectedGift.Name, amount);
                 UpdateGifts();
             }
         }
@@ -167,7 +167,7 @@ namespace PrototypeGUI
                 if (removingGiftScreen.ShowDialog() == DialogResult.OK)
                 {
                     var amount = removingGiftScreen.Amount;
-                    _mercenaryManagement.RemoveGifts(gift.ID, amount);
+                    _mercenaryManagement.RemoveGifts(gift.Name, amount);
                     UpdateGifts();
                 }
             }
