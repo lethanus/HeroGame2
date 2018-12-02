@@ -100,11 +100,11 @@ namespace ConstructionYard
             }
         }
 
-        [When(@"Player will complete quest with ID '(.*)'")]
-        public void WhenPlayerWillCompleteQuestWithID(string questID)
+        [When(@"Player will complete quest with ID '(.*)' with result '(.*)'")]
+        public void WhenPlayerWillCompleteQuestWithID(string questID, string result)
         {
             var questManagement = objectContainer.Resolve<IQuestManagement>();
-            questManagement.StartQuest(questID);
+            questManagement.ComplateQuest(questID, result);
         }
 
 

@@ -131,7 +131,7 @@ namespace HeroesGame.Quests
             return _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }
 
-        public void StartQuest(string questID)
+        public void ComplateQuest(string questID, string result)
         {
             var quest = _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID).First(x => x.ID == questID);
             _inventoryManagement.AddItems("TR_2", 1);

@@ -242,9 +242,36 @@ Scenario: 08 After successfully completing quest rewards should be added to inve
 	And List of quests contains
 	| ID  | Level | Name                 | FormationID | RewardsID |
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_2       |
-	When Player will complete quest with ID 'Q_1'
+	When Player will complete quest with ID 'Q_1' with result 'Complete'
 	Then Inventory should have items below
 	| ID   | Name | Amount | Category |
 	| TR_2 | Wine | 1      | Rewards  |
+	And List of quests should contain
+	| ID  | Level | Name                 | FormationID | RewardsID |
+
+Scenario: 09 After failing quest rewards should not be added to inventory
+	Given Some accounts exists in system
+	| ID   | Login | Password |
+	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
+	And Inventory already contains items below
+	| ID | Name | Amount | Category |
+	And Items dictionary contains items below
+	| ID   | Name  | Category | Level |
+	| TR_1 | Beer  | Rewards  | 1     |
+	| TR_2 | Wine  | Rewards  | 2     |
+	| TR_3 | Wodka | Rewards  | 3     |
+	| TR_4 | Rum   | Rewards  | 4     |
+	And Reward templates have
+	| ID  | Rewards | Level |
+	| R_1 | 1xBeer  | 2     |
+	| R_2 | 1xWine  | 2     |
+	| R_3 | 1xRum   | 2     |
+	And List of quests contains
+	| ID  | Level | Name                 | FormationID | RewardsID |
+	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_2       |
+	When Player will complete quest with ID 'Q_1' with result 'Failed'
+	Then Inventory should have items below
+	| ID   | Name | Amount | Category |
 	And List of quests should contain
 	| ID  | Level | Name                 | FormationID | RewardsID |

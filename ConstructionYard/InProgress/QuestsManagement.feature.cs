@@ -1257,7 +1257,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 242
  testRunner.And("List of quests contains", ((string)(null)), table37, "And ");
 #line 245
- testRunner.When("Player will complete quest with ID \'Q_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Player will complete quest with ID \'Q_1\' with result \'Complete\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -1280,6 +1280,119 @@ this.ScenarioInitialize(scenarioInfo);
                         "RewardsID"});
 #line 249
  testRunner.And("List of quests should contain", ((string)(null)), table39, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("09 After failing quest rewards should not be added to inventory", SourceLine=251)]
+        public virtual void _09AfterFailingQuestRewardsShouldNotBeAddedToInventory()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09 After failing quest rewards should not be added to inventory", null, ((string[])(null)));
+#line 252
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Login",
+                        "Password"});
+            table40.AddRow(new string[] {
+                        "ID_1",
+                        "test",
+                        "test"});
+#line 253
+ testRunner.Given("Some accounts exists in system", ((string)(null)), table40, "Given ");
+#line 256
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category"});
+#line 257
+ testRunner.And("Inventory already contains items below", ((string)(null)), table41, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Category",
+                        "Level"});
+            table42.AddRow(new string[] {
+                        "TR_1",
+                        "Beer",
+                        "Rewards",
+                        "1"});
+            table42.AddRow(new string[] {
+                        "TR_2",
+                        "Wine",
+                        "Rewards",
+                        "2"});
+            table42.AddRow(new string[] {
+                        "TR_3",
+                        "Wodka",
+                        "Rewards",
+                        "3"});
+            table42.AddRow(new string[] {
+                        "TR_4",
+                        "Rum",
+                        "Rewards",
+                        "4"});
+#line 259
+ testRunner.And("Items dictionary contains items below", ((string)(null)), table42, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Rewards",
+                        "Level"});
+            table43.AddRow(new string[] {
+                        "R_1",
+                        "1xBeer",
+                        "2"});
+            table43.AddRow(new string[] {
+                        "R_2",
+                        "1xWine",
+                        "2"});
+            table43.AddRow(new string[] {
+                        "R_3",
+                        "1xRum",
+                        "2"});
+#line 265
+ testRunner.And("Reward templates have", ((string)(null)), table43, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Level",
+                        "Name",
+                        "FormationID",
+                        "RewardsID"});
+            table44.AddRow(new string[] {
+                        "Q_1",
+                        "1",
+                        "Defeat - Goblin pack",
+                        "T_1",
+                        "R_2"});
+#line 270
+ testRunner.And("List of quests contains", ((string)(null)), table44, "And ");
+#line 273
+ testRunner.When("Player will complete quest with ID \'Q_1\' with result \'Failed\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "Amount",
+                        "Category"});
+#line 274
+ testRunner.Then("Inventory should have items below", ((string)(null)), table45, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Level",
+                        "Name",
+                        "FormationID",
+                        "RewardsID"});
+#line 276
+ testRunner.And("List of quests should contain", ((string)(null)), table46, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
