@@ -140,13 +140,21 @@ namespace HeroesGame.Quests
             if (result == "Complete")
             {
                 var rewardTemaplate = _rewardTemplatesRepository.GetAll().First(x => x.ID == quest.RewardsID);
-                var splited = rewardTemaplate.Rewards.Split('_');
-                int amount = Int32.Parse(splited[0]);
-                string itemName = splited[1];
-                string itemID = _itemTemplateRepository.GetAll().First(x => x.Name == itemName).ID;
-                _inventoryManagement.AddItems(itemID, amount);
+                foreach(var reward in  rewardTemaplate.Rewards.Split(':'))
+                {
+                    AddReward(reward);
+                }
             }
             _questRepository.Remove(quest, _accountManagement.GetLoggedAccount().ID);
+        }
+
+        private void AddReward(string rewardString)
+        {
+            var splited = rewardString.Split('_');
+            int amount = Int32.Parse(splited[0]);
+            string itemName = splited[1];
+            string itemID = _itemTemplateRepository.GetAll().First(x => x.Name == itemName).ID;
+            _inventoryManagement.AddItems(itemID, amount);
         }
     }
 }
