@@ -129,6 +129,10 @@ Scenario: 05 Generating reward for quest on level 1
 	| TR_2 | Wine  | Rewards  | 2     |
 	| TR_3 | Wodka | Rewards  | 3     |
 	| TR_4 | Rum   | Rewards  | 4     |
+	And Reward templates have
+	| ID  | Rewards | Level |
+	| R_1 | 1xBeer  | 1     |
+	| R_2 | 1xWine  | 2     |
 	And I try to login for 'test' and password 'test'
 	And Number of quest to be generated is '1'
 	And The chance of getting level '1' quests is set to '10000' of '10000'
@@ -139,4 +143,4 @@ Scenario: 05 Generating reward for quest on level 1
 	When Player will refresh and regenerate quests
 	Then List of quests should contain
 	| ID  | Level | Name                 | FormationID | WinRewards |
-	| Q_1 | 1     | Defeat - Goblin pack | T_1         | 1xBeer     |
+	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_1        |

@@ -744,37 +744,52 @@ this.ScenarioInitialize(scenarioInfo);
                         "4"});
 #line 126
  testRunner.And("Items dictionary contains items below", ((string)(null)), table19, "And ");
-#line 132
- testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 133
- testRunner.And("Number of quest to be generated is \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 134
- testRunner.And("The chance of getting level \'1\' quests is set to \'10000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 135
- testRunner.And("The chance of getting level \'2\' quests is set to \'2500\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 136
- testRunner.And("The chance of getting level \'3\' quests is set to \'1000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 137
- testRunner.And("The chance of getting level \'4\' quests is set to \'100\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 138
- testRunner.And("Randomzer for quests level will always return \'9000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 139
- testRunner.When("Player will refresh and regenerate quests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Rewards",
+                        "Level"});
+            table20.AddRow(new string[] {
+                        "R_1",
+                        "1xBeer",
+                        "1"});
+            table20.AddRow(new string[] {
+                        "R_2",
+                        "1xWine",
+                        "2"});
+#line 132
+ testRunner.And("Reward templates have", ((string)(null)), table20, "And ");
+#line 136
+ testRunner.And("I try to login for \'test\' and password \'test\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 137
+ testRunner.And("Number of quest to be generated is \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 138
+ testRunner.And("The chance of getting level \'1\' quests is set to \'10000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 139
+ testRunner.And("The chance of getting level \'2\' quests is set to \'2500\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
+ testRunner.And("The chance of getting level \'3\' quests is set to \'1000\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 141
+ testRunner.And("The chance of getting level \'4\' quests is set to \'100\' of \'10000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 142
+ testRunner.And("Randomzer for quests level will always return \'9000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 143
+ testRunner.When("Player will refresh and regenerate quests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Level",
                         "Name",
                         "FormationID",
                         "WinRewards"});
-            table20.AddRow(new string[] {
+            table21.AddRow(new string[] {
                         "Q_1",
                         "1",
                         "Defeat - Goblin pack",
                         "T_1",
-                        "1xBeer"});
-#line 140
- testRunner.Then("List of quests should contain", ((string)(null)), table20, "Then ");
+                        "R_1"});
+#line 144
+ testRunner.Then("List of quests should contain", ((string)(null)), table21, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

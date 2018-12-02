@@ -67,5 +67,11 @@ namespace ConstructionYard
             Assert.Greater(quests.Count(x => x.FormationID == formationID && x.Level == level), minimumAmount);
         }
 
+        [Given(@"Reward templates have")]
+        public void GivenRewardTemplatesHave(Table table)
+        {
+            
+        }
+
     }
 }
