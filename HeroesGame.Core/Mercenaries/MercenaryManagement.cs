@@ -54,7 +54,7 @@ namespace HeroesGame.Mercenaries
             }
             foreach (var item in _gifts.Values)
             {
-                _inventoryManagement.RemoveItems(item.ID, item.Amount);
+                _inventoryManagement.RemoveItems(item.Identyficator, item.Amount);
             }
             _gifts.Clear();
             _recruitsRepository.Remove(recruit, _accountManagement.GetLoggedAccount().ID);
@@ -182,23 +182,23 @@ namespace HeroesGame.Mercenaries
             var availableGifts = _inventoryManagement.GetAvailableGiftItems();
             foreach(var gift in availableGifts)
             {
-                if (_gifts.ContainsKey(gift.ID))
+                if (_gifts.ContainsKey(gift.Name))
                 {
-                    gift.Amount -= _gifts[gift.ID].Amount;
+                    gift.Amount -= _gifts[gift.Name].Amount;
                 }
             }
             return availableGifts.Where(x=>x.Amount > 0).ToList();
         }
 
-        public void AddGifts(string itemID, int amount)
+        public void AddGifts(string itemName, int amount)
         {
-            var item = _inventoryManagement.GetAvailableGiftItems().First(x => x.ID == itemID);
+            var item = _inventoryManagement.GetAvailableGiftItems().First(x => x.Name == itemName);
             item.Amount = amount;
-            if (_gifts.ContainsKey(item.ID))
+            if (_gifts.ContainsKey(item.Name))
             {
-                _gifts[item.ID].Amount += amount;
+                _gifts[item.Name].Amount += amount;
             }
-            else _gifts.Add(item.ID, item);
+            else _gifts.Add(item.Name, item);
         }
 
         public void RemoveGifts(string itemID, int amount)

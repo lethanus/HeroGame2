@@ -312,6 +312,10 @@ Scenario: 14 Successfully convincing level 4 recruit after bribery
 	And The chance of convincing level '3' recruits is set to '2000' of '10000'
 	And The chance of convincing level '4' recruits is set to '1000' of '10000'
 	And Randomzer for convincing recruits will always return '1290'
+	And Items dictionary contains items below
+	| ID   | Name     | Category | Effects                         |
+	| TR_1 | Rat tail | Trophy   | Mercenary_Convince_Chance_(+1%) |
+	| O_1  | Other    | Other    | None                            |
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                         |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
@@ -319,7 +323,7 @@ Scenario: 14 Successfully convincing level 4 recruit after bribery
 	And Valid as a gifts are items
 	| ID   | Name     | Amount | Category | Effects                         |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
-	When Looged user will add '3' items with ID 'TR_1' as a gift 
+	When Looged user will add '3' items with ID 'Rat tail' as a gift 
 	And Logged user will try to convince recruit with ID 'Elf_A'
 	Then Logged account id is 'ID_1'
 	And Logged account should have mercenaries
@@ -327,9 +331,9 @@ Scenario: 14 Successfully convincing level 4 recruit after bribery
 	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        | 
 	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
 	And Inventory should have items below
-	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 7      | Trophy   |
-	| O_1  | Other    | 5      | Other    | 
+	| ID   | Name     | Amount | Category | Effects                         |
+	| TR_1 | Rat tail | 7      | Trophy   | Mercenary_Convince_Chance_(+1%) |
+	| O_1  | Other    | 5      | Other    | None                            | 
 
 Scenario: 15 Failing to convince level 4 recruit after bribery
 	Given Some accounts exists in system
@@ -344,6 +348,10 @@ Scenario: 15 Failing to convince level 4 recruit after bribery
 	And The chance of convincing level '3' recruits is set to '2000' of '10000'
 	And The chance of convincing level '4' recruits is set to '1000' of '10000'
 	And Randomzer for convincing recruits will always return '1310'
+	And Items dictionary contains items below
+	| ID   | Name     | Category | Effects                         |
+	| TR_1 | Rat tail | Trophy   | Mercenary_Convince_Chance_(+1%) |
+	| O_1  | Other    | Other    | None                            |
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                         |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
@@ -351,16 +359,16 @@ Scenario: 15 Failing to convince level 4 recruit after bribery
 	And Valid as a gifts are items
 	| ID   | Name     | Amount | Category | Effects                         |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%) |
-	When Looged user will add '3' items with ID 'TR_1' as a gift 
+	When Looged user will add '3' items with ID 'Rat tail' as a gift 
 	And Logged user will try to convince recruit with ID 'Elf_A'
 	Then Logged account id is 'ID_1'
 	And Logged account should have mercenaries
 	| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
 	And Inventory should have items below
-	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 7      | Trophy   |
-	| O_1  | Other    | 5      | Other    | 
+	| ID   | Name     | Amount | Category | Effects                         |
+	| TR_1 | Rat tail | 7      | Trophy   | Mercenary_Convince_Chance_(+1%) |
+	| O_1  | Other    | 5      | Other    | None                            | 
 
 Scenario: 16 Successfully convincing level 4 recruit after bribery using better item
 	Given Some accounts exists in system
@@ -375,6 +383,10 @@ Scenario: 16 Successfully convincing level 4 recruit after bribery using better 
 	And The chance of convincing level '3' recruits is set to '2000' of '10000'
 	And The chance of convincing level '4' recruits is set to '1000' of '10000'
 	And Randomzer for convincing recruits will always return '1990'
+	And Items dictionary contains items below
+	| ID   | Name     | Category | Effects                          |
+	| TR_1 | Rat tail | Trophy   | Mercenary_Convince_Chance_(+10%) |
+	| O_1  | Other    | Other    | None                             |
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                          |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+10%) |
@@ -382,7 +394,7 @@ Scenario: 16 Successfully convincing level 4 recruit after bribery using better 
 	And Valid as a gifts are items
 	| ID   | Name     | Amount | Category | Effects                          |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+10%) |
-	When Looged user will add '1' items with ID 'TR_1' as a gift 
+	When Looged user will add '1' items with ID 'Rat tail' as a gift 
 	And Logged user will try to convince recruit with ID 'Elf_A'
 	Then Logged account id is 'ID_1'
 	And Logged account should have mercenaries
@@ -390,9 +402,9 @@ Scenario: 16 Successfully convincing level 4 recruit after bribery using better 
 	| Elf_A | Elf  | 20    | 20 | 10      | 20      | 10  | 5     |        |
 	And Count of potential recruits generated should be '0' for user with ID 'ID_1'
 	And Inventory should have items below
-	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 9      | Trophy   |
-	| O_1  | Other    | 5      | Other    | 
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 9      | Trophy   | Mercenary_Convince_Chance_(+10%) |
+	| O_1  | Other    | 5      | Other    | None                             | 
 
 
 Scenario: 17 List of gifts management
@@ -408,6 +420,10 @@ Scenario: 17 List of gifts management
 	And The chance of convincing level '3' recruits is set to '2000' of '10000'
 	And The chance of convincing level '4' recruits is set to '1000' of '10000'
 	And Randomzer for convincing recruits will always return '90'
+	And Items dictionary contains items below
+	| ID   | Name     | Category | Effects                          |
+	| TR_1 | Rat tail | Trophy   | Mercenary_Convince_Chance_(+10%) |
+	| O_1  | Other    | Other    | None                             |
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                          |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+10%) |
@@ -416,17 +432,17 @@ Scenario: 17 List of gifts management
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+10%) |
 	When List of gifts should have items below
 	| ID   | Name     | Amount | Category |
-	And Looged user will add '5' items with ID 'TR_1' as a gift 
+	And Looged user will add '5' items with ID 'Rat tail' as a gift 
 	And List of gifts should have items below
-	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 5      | Trophy   |
-	And Looged user will remove '3' items with ID 'TR_1' from gifts 
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 5      | Trophy   | Mercenary_Convince_Chance_(+10%) |
+	And Looged user will remove '3' items with ID 'Rat tail' from gifts 
 	And List of gifts should have items below
-	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 2      | Trophy   |
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 2      | Trophy   | Mercenary_Convince_Chance_(+10%) |
 	And Logged user will try to convince recruit with ID 'Elf_A'
 	And List of gifts should have items below
-	| ID   | Name     | Amount | Category |
+	| ID   | Name     | Amount | Category | Effects                          |
 
 
 
@@ -443,6 +459,10 @@ Scenario: 18 List of gifts management - corner cases
 	And The chance of convincing level '3' recruits is set to '2000' of '10000'
 	And The chance of convincing level '4' recruits is set to '1000' of '10000'
 	And Randomzer for convincing recruits will always return '10000'
+	And Items dictionary contains items below
+	| ID   | Name     | Category | Effects                         |
+	| TR_1 | Rat tail | Trophy   | Mercenary_Convince_Chance_(+1%) |
+	| O_1  | Other    | Other    | None                            |
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                          |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%)  |
@@ -451,20 +471,20 @@ Scenario: 18 List of gifts management - corner cases
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%)  |
 	When List of gifts should have items below
 	| ID   | Name     | Amount | Category |
-	And Looged user will add '5' items with ID 'TR_1' as a gift 
+	And Looged user will add '5' items with ID 'Rat tail' as a gift 
+	And List of gifts should have items below
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 5      | Trophy   | Mercenary_Convince_Chance_(+1%)  |
+	And Looged user will remove '10' items with ID 'Rat tail' from gifts 
 	And List of gifts should have items below
 	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 5      | Trophy   |
-	And Looged user will remove '10' items with ID 'TR_1' from gifts 
+	And Looged user will add '10' items with ID 'Rat tail' as a gift 
 	And List of gifts should have items below
-	| ID   | Name     | Amount | Category |
-	And Looged user will add '10' items with ID 'TR_1' as a gift 
-	And List of gifts should have items below
-	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 10     | Trophy   |
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%)  |
 	And Logged user will try to convince recruit with ID 'Elf_A'
 	And List of gifts should have items below
-	| ID   | Name     | Amount | Category |
+	| ID   | Name     | Amount | Category | Effects                          |
 
 
 Scenario: 19 List of gifts management - more corner cases
@@ -480,6 +500,10 @@ Scenario: 19 List of gifts management - more corner cases
 	And The chance of convincing level '3' recruits is set to '2000' of '10000'
 	And The chance of convincing level '4' recruits is set to '1000' of '10000'
 	And Randomzer for convincing recruits will always return '10000'
+	And Items dictionary contains items below
+	| ID   | Name     | Category | Effects                         |
+	| TR_1 | Rat tail | Trophy   | Mercenary_Convince_Chance_(+1%) |
+	| O_1  | Other    | Other    | None                            |
 	And Inventory already contains items below
 	| ID   | Name     | Amount | Category | Effects                          |
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%)  |
@@ -488,19 +512,19 @@ Scenario: 19 List of gifts management - more corner cases
 	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%)  |
 	When List of gifts should have items below
 	| ID   | Name     | Amount | Category |
-	And Looged user will add '5' items with ID 'TR_1' as a gift 
+	And Looged user will add '5' items with ID 'Rat tail' as a gift 
 	And List of gifts should have items below
-	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 5      | Trophy   |
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 5      | Trophy   | Mercenary_Convince_Chance_(+1%)  |
 	And Valid as a gifts are items
 	| ID   | Name     | Amount | Category | Effects                          |
 	| TR_1 | Rat tail | 5      | Trophy   | Mercenary_Convince_Chance_(+1%)  |
-	And Looged user will add '5' items with ID 'TR_1' as a gift 
+	And Looged user will add '5' items with ID 'Rat tail' as a gift 
 	And Valid as a gifts are items
 	| ID   | Name     | Amount | Category | Effects                          |
 	And List of gifts should have items below
-	| ID   | Name     | Amount | Category |
-	| TR_1 | Rat tail | 10     | Trophy   |
+	| ID   | Name     | Amount | Category | Effects                          |
+	| TR_1 | Rat tail | 10     | Trophy   | Mercenary_Convince_Chance_(+1%)  |
 	And Logged user will try to convince recruit with ID 'Elf_A'
 	And List of gifts should have items below
 	| ID   | Name     | Amount | Category |

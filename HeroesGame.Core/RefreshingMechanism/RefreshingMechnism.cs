@@ -33,7 +33,7 @@ namespace HeroesGame.RefresingMechanism
 
         public void AddRefreshFactForLoggedAccount(RefreshOption option, DateTime actionTime)
         {
-            _refreshRepository.Add(new RefreshFact { Option = option, LastAction = actionTime }, _accountManagement.GetLoggedAccount().ID);
+            _refreshRepository.Add(new RefreshFact { ID = Guid.NewGuid().ToString(), Option = option, LastAction = actionTime }, _accountManagement.GetLoggedAccount().ID);
         }
 
         public int GetDelayValue(RefreshOption option)

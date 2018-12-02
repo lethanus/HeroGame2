@@ -92,21 +92,21 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
-                        "Amount",
                         "Category"});
+            table2.AddRow(new string[] {
+                        "TR_1",
+                        "Rat tail",
+                        "Trophy"});
 #line 10
- testRunner.And("Inventory already contains items below", ((string)(null)), table2, "And ");
+ testRunner.And("Items dictionary contains items below", ((string)(null)), table2, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
+                        "Amount",
                         "Category"});
-            table3.AddRow(new string[] {
-                        "TR_1",
-                        "Rat tail",
-                        "Trophy"});
-#line 12
- testRunner.And("Items dictionary contains items below", ((string)(null)), table3, "And ");
+#line 13
+ testRunner.And("Inventory already contains items below", ((string)(null)), table3, "And ");
 #line 15
  testRunner.When("Adding item with ID \'TR_1\' with amount \'5\' to inventory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -150,26 +150,26 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
-                        "Amount",
                         "Category"});
             table6.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
-                        "5",
                         "Trophy"});
 #line 26
- testRunner.And("Inventory already contains items below", ((string)(null)), table6, "And ");
+ testRunner.And("Items dictionary contains items below", ((string)(null)), table6, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
+                        "Amount",
                         "Category"});
             table7.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
+                        "5",
                         "Trophy"});
 #line 29
- testRunner.And("Items dictionary contains items below", ((string)(null)), table7, "And ");
+ testRunner.And("Inventory already contains items below", ((string)(null)), table7, "And ");
 #line 32
  testRunner.When("Adding item with ID \'TR_1\' with amount \'5\' to inventory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -189,10 +189,10 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("03 Reducing amuont of items", SourceLine=37)]
-        public virtual void _03ReducingAmuontOfItems()
+        [TechTalk.SpecRun.ScenarioAttribute("03 Reducing amount of items", SourceLine=37)]
+        public virtual void _03ReducingAmountOfItems()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 Reducing amuont of items", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 Reducing amount of items", null, ((string[])(null)));
 #line 38
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -213,28 +213,28 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
-                        "Amount",
                         "Category"});
             table10.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
-                        "10",
                         "Trophy"});
 #line 43
- testRunner.And("Inventory already contains items below", ((string)(null)), table10, "And ");
+ testRunner.And("Items dictionary contains items below", ((string)(null)), table10, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
+                        "Amount",
                         "Category"});
             table11.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
+                        "10",
                         "Trophy"});
 #line 46
- testRunner.And("Items dictionary contains items below", ((string)(null)), table11, "And ");
+ testRunner.And("Inventory already contains items below", ((string)(null)), table11, "And ");
 #line 49
- testRunner.When("Removing item with ID \'TR_1\' with amount \'5\' to inventory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Removing item with ID \'Rat tail\' with amount \'5\' to inventory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -276,28 +276,28 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
-                        "Amount",
                         "Category"});
             table14.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
-                        "10",
                         "Trophy"});
 #line 60
- testRunner.And("Inventory already contains items below", ((string)(null)), table14, "And ");
+ testRunner.And("Items dictionary contains items below", ((string)(null)), table14, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
+                        "Amount",
                         "Category"});
             table15.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
+                        "10",
                         "Trophy"});
 #line 63
- testRunner.And("Items dictionary contains items below", ((string)(null)), table15, "And ");
+ testRunner.And("Inventory already contains items below", ((string)(null)), table15, "And ");
 #line 66
- testRunner.When("Removing item with ID \'TR_1\' with amount \'10\' to inventory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Removing item with ID \'Rat tail\' with amount \'10\' to inventory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -334,28 +334,28 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
-                        "Amount",
                         "Category"});
             table18.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
-                        "10",
                         "Trophy"});
 #line 76
- testRunner.And("Inventory already contains items below", ((string)(null)), table18, "And ");
+ testRunner.And("Items dictionary contains items below", ((string)(null)), table18, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Name",
+                        "Amount",
                         "Category"});
             table19.AddRow(new string[] {
                         "TR_1",
                         "Rat tail",
+                        "10",
                         "Trophy"});
 #line 79
- testRunner.And("Items dictionary contains items below", ((string)(null)), table19, "And ");
+ testRunner.And("Inventory already contains items below", ((string)(null)), table19, "And ");
 #line 82
- testRunner.When("Removing item with ID \'TR_1\' with amount \'15\' to inventory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Removing item with ID \'Rat tail\' with amount \'15\' to inventory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",

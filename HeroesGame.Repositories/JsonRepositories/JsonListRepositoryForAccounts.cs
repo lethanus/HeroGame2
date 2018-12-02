@@ -22,7 +22,13 @@ namespace HeroesGame.Repositories
 
         public void Add(T item, string accountID)
         {
-            var items = GetAll(accountID);
+            var items = GetAllFacts(accountID);
+            item.FactOperation = FactOperation.ADD;
+            item.FactTime = DateTime.Now;
+            if (item.Amount == 0)
+                item.Amount = 1;
+            if (string.IsNullOrEmpty( item.Identyficator))
+                item.Identyficator = item.ID;
             items.Add(item);
             SaveAll(items, accountID, _directoryPath);
         }
@@ -36,6 +42,28 @@ namespace HeroesGame.Repositories
 
         public List<T> GetAll(string accountID)
         {
+            var facts = GetAllFacts(accountID);
+            var items = new Dictionary<string, T>();
+            foreach(var item in facts)
+            {
+                if(items.ContainsKey(item.Identyficator))
+                {
+                    if (item.FactOperation == FactOperation.ADD)
+                        items[item.Identyficator].Amount += item.Amount;
+                    else
+                        items[item.Identyficator].Amount -= item.Amount;
+                }
+                else
+                {
+                    items.Add(item.Identyficator, item);
+                }
+            }
+
+            return items.Values.Where(x=>x.Amount > 0).ToList();
+        }
+
+        protected List<T> GetAllFacts(string accountID)
+        {
             string pathToFile = $"{_directoryPath}\\{_filePrefix}_{accountID}.json";
             if (!File.Exists(pathToFile))
             {
@@ -45,19 +73,27 @@ namespace HeroesGame.Repositories
             return JsonConvert.DeserializeObject<List<T>>(json);
         }
 
+
         public void Clear(string accountID)
         {
-            string pathToFile = $"{_directoryPath}\\{_filePrefix}_{accountID}.json";
-            List<T> items = new List<T>();
-            string json = JsonConvert.SerializeObject(items, Formatting.Indented);
-            File.WriteAllText(pathToFile, json);
+            var allItems = GetAllFacts(accountID);
+            var items = GetAll(accountID);
+            foreach(var item in items)
+            {
+                item.FactOperation = FactOperation.REMOVE;
+                item.FactTime = DateTime.Now;
+                allItems.Add(item);
+            }
+            SaveAll(allItems, accountID, _directoryPath);
         }
 
         public void Remove(T item, string accountID)
         {
-            var items = GetAll(accountID);
-            var filtered = items.Where(x => x.ID != item.ID).ToList();
-            SaveAll(filtered, accountID, _directoryPath);
+            var items = GetAllFacts(accountID);
+            item.FactOperation = FactOperation.REMOVE;
+            item.FactTime = DateTime.Now;
+            items.Add(item);
+            SaveAll(items, accountID, _directoryPath);
         }
     }
 }

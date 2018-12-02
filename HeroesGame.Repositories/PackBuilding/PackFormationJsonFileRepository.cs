@@ -27,7 +27,7 @@ namespace HeroesGame.Repositories
 
         public List<CharacterInThePack> GetAll(string accountID)
         {
-            var positions = base.GetAll(accountID);
+            var positions = GetAllFacts(accountID);
             if (positions.Count == 0)
                 positions.AddRange(CreateDefaultPositions());
             return positions;

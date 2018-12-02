@@ -20,7 +20,7 @@ namespace ConstructionYard
             var positionsInInventory = table.CreateSet<PositionInInventory>().ToList();
             foreach(var item in positionsInInventory)
             {
-                inventoryManagement.AddPosition(item);
+                inventoryManagement.AddItems(item.ID, item.Amount);
             }
         }
         
@@ -58,7 +58,7 @@ namespace ConstructionYard
             var expectedPositionsInInventory = table.CreateSet<PositionInInventory>().ToList();
             foreach (var item in expectedPositionsInInventory)
             {
-                Assert.IsTrue(item.Equals(positionsInInventory.First(x => x.ID == item.ID)));
+                Assert.IsTrue(item.Equals( positionsInInventory.First(x=> x.Name == item.Name)));
             }
             Assert.AreEqual(expectedPositionsInInventory.Count, positionsInInventory.Count);
         }
