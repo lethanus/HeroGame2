@@ -303,3 +303,33 @@ Scenario: 10 After successfully completing quest rewards should be added to inve
 	| TR_4 | Rum  | 10     | Rewards  |
 	And List of quests should contain
 	| ID  | Level | Name                 | FormationID | RewardsID |
+
+Scenario: 11 After successfully completing quest many rewards should be added to inventory
+	Given Some accounts exists in system
+	| ID   | Login | Password |
+	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
+	And Inventory already contains items below
+	| ID | Name | Amount | Category |
+	And Items dictionary contains items below
+	| ID   | Name  | Category | Level |
+	| TR_1 | Beer  | Rewards  | 1     |
+	| TR_2 | Wine  | Rewards  | 2     |
+	| TR_3 | Wodka | Rewards  | 3     |
+	| TR_4 | Rum   | Rewards  | 4     |
+	And Reward templates have
+	| ID  | Rewards                | Level |
+	| R_1 | 1_Beer                 | 2     |
+	| R_2 | 1_Wine                 | 2     |
+	| R_3 | 10_Rum:15_Wodka:2_Wine | 2     |
+	And List of quests contains
+	| ID  | Level | Name                 | FormationID | RewardsID |
+	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_3       |
+	When Player will complete quest with ID 'Q_1' with result 'Complete'
+	Then Inventory should have items below
+	| ID   | Name  | Amount | Category |
+	| TR_4 | Rum   | 10     | Rewards  |
+	| TR_3 | Wodka | 15     | Rewards  |
+	| TR_2 | Wine  | 2      | Rewards  |
+	And List of quests should contain
+	| ID  | Level | Name                 | FormationID | RewardsID |
