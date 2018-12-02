@@ -63,7 +63,8 @@ namespace HeroesGame.Quests
                             Level = level.ToString(),
                             FormationID = choosenFormationTemplate.ID,
                             Name = $"Defeat - {choosenFormationTemplate.Name}",
-                            WinRewards = rewardTemplate == null ? "" : rewardTemplate.ID
+                            RewardsID = rewardTemplate == null ? "" : rewardTemplate.ID,
+                            WinRewards = rewardTemplate == null ? "" : rewardTemplate.Rewards
                         });
                     }
 
@@ -121,7 +122,7 @@ namespace HeroesGame.Quests
             return rewardTemplate;
         }
 
-            public List<Quest> GetAll()
+        public List<Quest> GetAll()
         {
             return _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }

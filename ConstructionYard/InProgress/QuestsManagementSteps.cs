@@ -72,7 +72,7 @@ namespace ConstructionYard
         {
             var questManagement = objectContainer.Resolve<IQuestManagement>();
             var quests = questManagement.GetAll();
-            Assert.Greater(quests.Count(x => x.WinRewards == rewardTemplateID), minimumAmount);
+            Assert.Greater(quests.Count(x => x.RewardsID == rewardTemplateID), minimumAmount);
         }
 
 

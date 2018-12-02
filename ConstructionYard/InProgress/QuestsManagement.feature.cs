@@ -182,7 +182,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level",
                         "Name",
                         "FormationID",
-                        "WinRewards"});
+                        "RewardsID"});
             table4.AddRow(new string[] {
                         "Q_1",
                         "1",
@@ -309,7 +309,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level",
                         "Name",
                         "FormationID",
-                        "WinRewards"});
+                        "RewardsID"});
             table8.AddRow(new string[] {
                         "Q_1",
                         "1",
@@ -462,7 +462,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level",
                         "Name",
                         "FormationID",
-                        "WinRewards"});
+                        "RewardsID"});
             table12.AddRow(new string[] {
                         "Q_1",
                         "4",
@@ -781,7 +781,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level",
                         "Name",
                         "FormationID",
-                        "WinRewards"});
+                        "RewardsID"});
             table21.AddRow(new string[] {
                         "Q_1",
                         "1",
@@ -951,7 +951,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Level",
                         "Name",
                         "FormationID",
-                        "WinRewards"});
+                        "RewardsID"});
             table27.AddRow(new string[] {
                         "Q_1",
                         "2",

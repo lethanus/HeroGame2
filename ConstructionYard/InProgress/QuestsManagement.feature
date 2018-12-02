@@ -24,8 +24,8 @@ Scenario: 01 Generating one quest
 	And Randomzer for quests level will always return '9000'
 	When Player will refresh and regenerate quests
 	Then List of quests should contain
-	| ID  | Level | Name                 | FormationID | WinRewards |
-	| Q_1 | 1     | Defeat - Goblin pack | T_1         |            |
+	| ID  | Level | Name                 | FormationID | RewardsID |
+	| Q_1 | 1     | Defeat - Goblin pack | T_1         |           |
 
 
 Scenario: 02 Generating three the same quests
@@ -50,10 +50,10 @@ Scenario: 02 Generating three the same quests
 	And Randomzer for quests level will always return '9000'
 	When Player will refresh and regenerate quests
 	Then List of quests should contain
-	| ID  | Level | Name                 | FormationID | WinRewards |
-	| Q_1 | 1     | Defeat - Goblin pack | T_1         |            |
-	| Q_2 | 1     | Defeat - Goblin pack | T_1         |            |
-	| Q_3 | 1     | Defeat - Goblin pack | T_1         |            |
+	| ID  | Level | Name                 | FormationID | RewardsID |
+	| Q_1 | 1     | Defeat - Goblin pack | T_1         |           |
+	| Q_2 | 1     | Defeat - Goblin pack | T_1         |           |
+	| Q_3 | 1     | Defeat - Goblin pack | T_1         |           |
 
 
 Scenario: 03 Generating one level 4 quest 
@@ -79,8 +79,8 @@ Scenario: 03 Generating one level 4 quest
 	And Randomzer for quests level will always return '90'
 	When Player will refresh and regenerate quests
 	Then List of quests should contain
-	| ID  | Level | Name                 | FormationID | WinRewards |
-	| Q_1 | 4     | Defeat - Goblin pack | T_4         |            |
+	| ID  | Level | Name                 | FormationID | RewardsID |
+	| Q_1 | 4     | Defeat - Goblin pack | T_4         |           |
 
 
 Scenario: 04 Generating different quests for level 2 
@@ -142,8 +142,8 @@ Scenario: 05 Generating reward for quest on level 1
 	And Randomzer for quests level will always return '9000'
 	When Player will refresh and regenerate quests
 	Then List of quests should contain
-	| ID  | Level | Name                 | FormationID | WinRewards |
-	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_1        |
+	| ID  | Level | Name                 | FormationID | RewardsID |
+	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_1       |
 
 
 Scenario: 06 Generating reward for quests on level 2
@@ -178,9 +178,9 @@ Scenario: 06 Generating reward for quests on level 2
 	And Randomzer for quests level will always return '2400'
 	When Player will refresh and regenerate quests
 	Then List of quests should contain
-	| ID  | Level | Name                 | FormationID | WinRewards |
-	| Q_1 | 2     | Defeat - Goblin pack | T_1         | R_2        |
-	| Q_2 | 2     | Defeat - Goblin pack | T_1         | R_2        |
+	| ID  | Level | Name                 | FormationID | RewardsID |
+	| Q_1 | 2     | Defeat - Goblin pack | T_1         | R_2       |
+	| Q_2 | 2     | Defeat - Goblin pack | T_1         | R_2       |
 
 
 Scenario: 07 Generating different quests for level 2 with rewards
