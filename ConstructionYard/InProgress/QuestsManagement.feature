@@ -433,3 +433,50 @@ Scenario: 14 Complete scenario for completed quest
 	| TR_2 | Wine  | 5      | Rewards  |
 	| TR_3 | Wodka | 15     | Rewards  |
 	| TR_4 | Rum   | 10     | Rewards  |
+	And List of quests should contain
+	| ID  | Level | Name                 | FormationID | RewardsID |
+
+Scenario: 15 Complete scenario for not completed quest
+	Given Some mercenary templates
+	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
+	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
+	| 2     | Goblin | 22-26    | 12-16            | 10-14         | 9-11        | 5                  |
+	| 3     | Goblin | 26-34    | 16-24            | 12-16         | 10-12       | 7                  |
+	| 4     | Goblin | 40-55    | 30-40            | 18-22         | 11-13       | 10                 |
+	And Have some formation templates
+	| ID  | Name        | Level | F1       | F2       | F3       | M1 | M2 | M3 | M4 | R1 | R2 | R3 |
+	| T_1 | Goblin pack | 1     | Goblin@4 | Goblin@4 | Goblin@4 |    |    |    |    |    |    |    |
+	And Some accounts exists in system
+	| ID   | Login | Password |
+	| ID_1 | test  | test     |
+	And I try to login for 'test' and password 'test'
+	And Items dictionary contains items below
+	| ID   | Name  | Category | Level |
+	| TR_1 | Beer  | Rewards  | 1     |
+	| TR_2 | Wine  | Rewards  | 2     |
+	| TR_3 | Wodka | Rewards  | 3     |
+	| TR_4 | Rum   | Rewards  | 4     |
+	And Reward templates have
+	| ID  | Rewards                | Level |
+	| R_1 | 1_Beer                 | 2     |
+	| R_2 | 1_Wine                 | 2     |
+	| R_3 | 10_Rum:15_Wodka:2_Wine | 2     |
+	And Inventory already contains items below
+	| ID   | Name | Amount | Category |
+	| TR_2 | Wine | 3      | Rewards  |
+	And Account 'ID_1' already have some mercenaries
+	| ID       | Name   | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
+	| Elf_A    | Elf    | 20    | 20 | 30      | 30      | 5   | 10    |        |
+	| Goblin_B | Goblin | 10    | 10 | 20      | 20      | 0   | 5     |        |
+	And List of quests contains
+	| ID  | Level | Name                 | FormationID | RewardsID |
+	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_3       |
+	When Player will set character with ID 'Elf_A' to position 'Front_1'
+	And Player will set character with ID 'Goblin_B' to position 'Front_2'
+	And Player will start quest with ID 'Q_1'
+	Then Quest 'Q_1' should be 'NotCompleted'
+	And Inventory should have items below
+	| ID   | Name  | Amount | Category |
+	| TR_2 | Wine  | 3      | Rewards  |
+	And List of quests should contain
+	| ID  | Level | Name                 | FormationID | RewardsID |
