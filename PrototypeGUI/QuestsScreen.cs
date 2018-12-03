@@ -38,7 +38,13 @@ namespace PrototypeGUI
 
         private void btBeginQuest_Click(object sender, EventArgs e)
         {
-
+            if (listQuests.SelectedItems.Count == 1)
+            {
+                var quest = (Quest)listQuests.SelectedItems[0].Tag;
+                var questResult = _questManagement.StartQuest(quest.ID);
+                questResultsBox.Text = $"Quest {quest.Name} {questResult} {Environment.NewLine} Rewards: {quest.WinRewards}";
+                RefreshQuests();
+            }
         }
 
         private void btRefresh_Click(object sender, EventArgs e)

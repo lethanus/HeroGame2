@@ -123,7 +123,7 @@ namespace PrototypeGUI
             {
                 var recruit = (Mercenary)listRecruits.SelectedItems[0].Tag;
                 var result = _mercenaryManagement.ConvinceRecruit(recruit);
-                MessageBox.Show(result ? "Good job" : "Nah... Failed");
+                ConvinceResultBox.Text = result ? "Good job" : "Nah... Failed";
                 RefreshRecruits();
                 UpdateGifts();
             }

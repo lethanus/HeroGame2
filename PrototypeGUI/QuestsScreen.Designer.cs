@@ -35,6 +35,8 @@
             this.btClose = new System.Windows.Forms.Button();
             this.btBeginQuest = new System.Windows.Forms.Button();
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.questResultsBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label5
@@ -79,7 +81,7 @@
             // 
             // btBeginQuest
             // 
-            this.btBeginQuest.Location = new System.Drawing.Point(597, 351);
+            this.btBeginQuest.Location = new System.Drawing.Point(546, 201);
             this.btBeginQuest.Name = "btBeginQuest";
             this.btBeginQuest.Size = new System.Drawing.Size(138, 23);
             this.btBeginQuest.TabIndex = 25;
@@ -92,11 +94,31 @@
             this.refreshTimer.Interval = 250;
             this.refreshTimer.Tick += new System.EventHandler(this.refreshTimer_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(543, 247);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Last quest results";
+            // 
+            // questResultsBox
+            // 
+            this.questResultsBox.Location = new System.Drawing.Point(546, 263);
+            this.questResultsBox.Name = "questResultsBox";
+            this.questResultsBox.ReadOnly = true;
+            this.questResultsBox.Size = new System.Drawing.Size(242, 148);
+            this.questResultsBox.TabIndex = 27;
+            this.questResultsBox.Text = "";
+            // 
             // QuestsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.questResultsBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btBeginQuest);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btRefresh);
@@ -119,5 +141,7 @@
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.Button btBeginQuest;
         private System.Windows.Forms.Timer refreshTimer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox questResultsBox;
     }
 }

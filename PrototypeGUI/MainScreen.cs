@@ -21,7 +21,7 @@ using HeroesGame.Quests;
 
 namespace PrototypeGUI
 {
-    public partial class btCampain : Form
+    public partial class MainScreen : Form
     {
         private IAccountRepository _accountRepository;
         private IConfigRepository _configRepository;
@@ -47,7 +47,7 @@ namespace PrototypeGUI
         private IRewardTemplatesRepository _rewardTemplatesRepository;
         private Logger _logger;
 
-        public btCampain()
+        public MainScreen()
         {
             InitializeComponent();
         }
@@ -95,7 +95,7 @@ namespace PrototypeGUI
             recruitMercenariesScreen.ShowDialog();
         }
 
-        private void btCampain_Load(object sender, EventArgs e)
+        private void mainScreen_Load(object sender, EventArgs e)
         {
             _accountRepository = new AccountJsonFileRepository(@"C:\Emil\Projects\HeroGameDataFiles\Accounts.json");
             var accounts = _accountRepository.GetAll();
@@ -178,7 +178,9 @@ namespace PrototypeGUI
                 }
             }
 
-            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer, _formationTemplateRepository, _accountManagement, _questsRepository, _rewardTemplatesRepository,_inventoryManagement, _itemTemplateRepository, _fightManagement);
+            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer,
+                _formationTemplateRepository, _accountManagement, _questsRepository,
+                _rewardTemplatesRepository,_inventoryManagement, _itemTemplateRepository, _opponentPackFormationBuilder, _logger,_packFormationBuilder, _mercenaryManagement);
 
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }

@@ -15,49 +15,49 @@ namespace HeroesGame.Quests
             {
                 ID = "R_1",
                 Level = "1",
-                Rewards = "1xBeer"
+                Rewards = "1_Beer"
             });
             tempaltes.Add(new RewardTemplate
             {
                 ID = "R_2",
                 Level = "2",
-                Rewards = "2xBeer"
+                Rewards = "2_Beer"
             });
             tempaltes.Add(new RewardTemplate
             {
                 ID = "R_3",
                 Level = "3",
-                Rewards = "3xBeer"
+                Rewards = "3_Beer"
             });
             tempaltes.Add(new RewardTemplate
             {
                 ID = "R_4",
                 Level = "4",
-                Rewards = "4xBeer"
+                Rewards = "4_Beer"
             });
             tempaltes.Add(new RewardTemplate
             {
                 ID = "R_5",
                 Level = "1",
-                Rewards = "1xWine"
+                Rewards = "1_Wine"
             });
             tempaltes.Add(new RewardTemplate
             {
                 ID = "R_6",
                 Level = "2",
-                Rewards = "2xWine"
+                Rewards = "2_Wine"
             });
             tempaltes.Add(new RewardTemplate
             {
                 ID = "R_7",
                 Level = "3",
-                Rewards = "3xWine"
+                Rewards = "3_Wine"
             });
             tempaltes.Add(new RewardTemplate
             {
                 ID = "R_8",
                 Level = "4",
-                Rewards = "4xWine"
+                Rewards = "4_Wine"
             });
             return tempaltes;
         }

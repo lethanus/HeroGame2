@@ -221,121 +221,7 @@ Scenario: 07 Generating different quests for level 2 with rewards
 	And List of quests should contain at least '10' quests with Rewards using template 'R_2'
 	And List of quests should contain at least '10' quests with Rewards using template 'R_3'
 
-Scenario: 08 After successfully completing quest rewards should be added to inventory
-	Given Some accounts exists in system
-	| ID   | Login | Password |
-	| ID_1 | test  | test     |
-	And I try to login for 'test' and password 'test'
-	And Inventory already contains items below
-	| ID | Name | Amount | Category |
-	And Items dictionary contains items below
-	| ID   | Name  | Category | Level |
-	| TR_1 | Beer  | Rewards  | 1     |
-	| TR_2 | Wine  | Rewards  | 2     |
-	| TR_3 | Wodka | Rewards  | 3     |
-	| TR_4 | Rum   | Rewards  | 4     |
-	And Reward templates have
-	| ID  | Rewards | Level |
-	| R_1 | 1_Beer  | 2     |
-	| R_2 | 1_Wine  | 2     |
-	| R_3 | 10_Rum  | 2     |
-	And List of quests contains
-	| ID  | Level | Name                 | FormationID | RewardsID |
-	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_2       |
-	When Player will complete quest with ID 'Q_1' with result 'Completed'
-	Then Inventory should have items below
-	| ID   | Name | Amount | Category |
-	| TR_2 | Wine | 1      | Rewards  |
-	And List of quests should contain
-	| ID  | Level | Name                 | FormationID | RewardsID |
-
-Scenario: 09 After failing quest rewards should not be added to inventory
-	Given Some accounts exists in system
-	| ID   | Login | Password |
-	| ID_1 | test  | test     |
-	And I try to login for 'test' and password 'test'
-	And Inventory already contains items below
-	| ID | Name | Amount | Category |
-	And Items dictionary contains items below
-	| ID   | Name  | Category | Level |
-	| TR_1 | Beer  | Rewards  | 1     |
-	| TR_2 | Wine  | Rewards  | 2     |
-	| TR_3 | Wodka | Rewards  | 3     |
-	| TR_4 | Rum   | Rewards  | 4     |
-	And Reward templates have
-	| ID  | Rewards | Level |
-	| R_1 | 1_Beer  | 2     |
-	| R_2 | 1_Wine  | 2     |
-	| R_3 | 10_Rum  | 2     |
-	And List of quests contains
-	| ID  | Level | Name                 | FormationID | RewardsID |
-	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_2       |
-	When Player will complete quest with ID 'Q_1' with result 'NotCompleted'
-	Then Inventory should have items below
-	| ID   | Name | Amount | Category |
-	And List of quests should contain
-	| ID  | Level | Name                 | FormationID | RewardsID |
-
-Scenario: 10 After successfully completing quest rewards should be added to inventory
-	Given Some accounts exists in system
-	| ID   | Login | Password |
-	| ID_1 | test  | test     |
-	And I try to login for 'test' and password 'test'
-	And Inventory already contains items below
-	| ID | Name | Amount | Category |
-	And Items dictionary contains items below
-	| ID   | Name  | Category | Level |
-	| TR_1 | Beer  | Rewards  | 1     |
-	| TR_2 | Wine  | Rewards  | 2     |
-	| TR_3 | Wodka | Rewards  | 3     |
-	| TR_4 | Rum   | Rewards  | 4     |
-	And Reward templates have
-	| ID  | Rewards | Level |
-	| R_1 | 1_Beer  | 2     |
-	| R_2 | 1_Wine  | 2     |
-	| R_3 | 10_Rum  | 2     |
-	And List of quests contains
-	| ID  | Level | Name                 | FormationID | RewardsID |
-	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_3       |
-	When Player will complete quest with ID 'Q_1' with result 'Completed'
-	Then Inventory should have items below
-	| ID   | Name | Amount | Category |
-	| TR_4 | Rum  | 10     | Rewards  |
-	And List of quests should contain
-	| ID  | Level | Name                 | FormationID | RewardsID |
-
-Scenario: 11 After successfully completing quest many rewards should be added to inventory
-	Given Some accounts exists in system
-	| ID   | Login | Password |
-	| ID_1 | test  | test     |
-	And I try to login for 'test' and password 'test'
-	And Inventory already contains items below
-	| ID | Name | Amount | Category |
-	And Items dictionary contains items below
-	| ID   | Name  | Category | Level |
-	| TR_1 | Beer  | Rewards  | 1     |
-	| TR_2 | Wine  | Rewards  | 2     |
-	| TR_3 | Wodka | Rewards  | 3     |
-	| TR_4 | Rum   | Rewards  | 4     |
-	And Reward templates have
-	| ID  | Rewards                | Level |
-	| R_1 | 1_Beer                 | 2     |
-	| R_2 | 1_Wine                 | 2     |
-	| R_3 | 10_Rum:15_Wodka:2_Wine | 2     |
-	And List of quests contains
-	| ID  | Level | Name                 | FormationID | RewardsID |
-	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_3       |
-	When Player will complete quest with ID 'Q_1' with result 'Completed'
-	Then Inventory should have items below
-	| ID   | Name  | Amount | Category |
-	| TR_4 | Rum   | 10     | Rewards  |
-	| TR_3 | Wodka | 15     | Rewards  |
-	| TR_2 | Wine  | 2      | Rewards  |
-	And List of quests should contain
-	| ID  | Level | Name                 | FormationID | RewardsID |
-
-
-Scenario: 12 Player team for sure should win fight for low level fight quest
+Scenario: 08 Player team for sure should win fight for low level fight quest
 	Given Some mercenary templates
 	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
 	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
@@ -358,11 +244,10 @@ Scenario: 12 Player team for sure should win fight for low level fight quest
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         |           |
 	When Player will set character with ID 'Elf_A' to position 'Front_1'
 	And Player will set character with ID 'Goblin_B' to position 'Front_2'
-	And Player will start quest with ID 'Q_1'
-	Then Quest 'Q_1' should be 'Completed'
+	And Player will complete quest with ID 'Q_1' with result 'Completed'
 
 
-Scenario: 13 Player team for sure should lose fight for high level fight quest
+Scenario: 09 Player team for sure should lose fight for high level fight quest
 	Given Some mercenary templates
 	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
 	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
@@ -385,11 +270,10 @@ Scenario: 13 Player team for sure should lose fight for high level fight quest
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         |           |
 	When Player will set character with ID 'Elf_A' to position 'Front_1'
 	And Player will set character with ID 'Goblin_B' to position 'Front_2'
-	And Player will start quest with ID 'Q_1'
-	Then Quest 'Q_1' should be 'NotCompleted'
+	And Player will complete quest with ID 'Q_1' with result 'NotCompleted'
 
 
-Scenario: 14 Complete scenario for completed quest
+Scenario: 10 Complete scenario for completed quest
 	Given Some mercenary templates
 	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
 	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
@@ -426,9 +310,8 @@ Scenario: 14 Complete scenario for completed quest
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_3       |
 	When Player will set character with ID 'Elf_A' to position 'Front_1'
 	And Player will set character with ID 'Goblin_B' to position 'Front_2'
-	And Player will start quest with ID 'Q_1'
-	Then Quest 'Q_1' should be 'Completed'
-	And Inventory should have items below
+	And Player will complete quest with ID 'Q_1' with result 'Completed'
+	Then Inventory should have items below
 	| ID   | Name  | Amount | Category |
 	| TR_2 | Wine  | 5      | Rewards  |
 	| TR_3 | Wodka | 15     | Rewards  |
@@ -436,7 +319,7 @@ Scenario: 14 Complete scenario for completed quest
 	And List of quests should contain
 	| ID  | Level | Name                 | FormationID | RewardsID |
 
-Scenario: 15 Complete scenario for not completed quest
+Scenario: 11 Complete scenario for not completed quest
 	Given Some mercenary templates
 	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
 	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
@@ -473,9 +356,8 @@ Scenario: 15 Complete scenario for not completed quest
 	| Q_1 | 1     | Defeat - Goblin pack | T_1         | R_3       |
 	When Player will set character with ID 'Elf_A' to position 'Front_1'
 	And Player will set character with ID 'Goblin_B' to position 'Front_2'
-	And Player will start quest with ID 'Q_1'
-	Then Quest 'Q_1' should be 'NotCompleted'
-	And Inventory should have items below
+	And Player will complete quest with ID 'Q_1' with result 'NotCompleted'
+	Then Inventory should have items below
 	| ID   | Name  | Amount | Category |
 	| TR_2 | Wine  | 3      | Rewards  |
 	And List of quests should contain

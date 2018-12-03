@@ -16,7 +16,7 @@ namespace PrototypeGUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new btCampain());
+            Application.Run(new MainScreen());
         }
     }
 }

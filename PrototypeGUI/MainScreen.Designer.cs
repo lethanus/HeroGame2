@@ -1,6 +1,6 @@
 ﻿namespace PrototypeGUI
 {
-    partial class btCampain
+    partial class MainScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -276,7 +276,7 @@
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "btCampain";
             this.Text = "Game Main Screen";
-            this.Load += new System.EventHandler(this.btCampain_Load);
+            this.Load += new System.EventHandler(this.mainScreen_Load);
             this.gamePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

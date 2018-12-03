@@ -6,8 +6,6 @@ namespace HeroesGame.Quests
     {
         List<Quest> GetAll();
         bool GenerateQuests();
-        void CompleteQuest(string questID, string result);
-        void StartQuest(string questID);
-        string GetQuestResult(string questID);
+        string StartQuest(string questID);
     }
 }

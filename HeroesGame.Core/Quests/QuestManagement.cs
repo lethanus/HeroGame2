@@ -9,6 +9,7 @@ using HeroesGame.PackBuilding;
 using HeroesGame.Accounts;
 using HeroesGame.Inventory;
 using HeroesGame.FightMechanizm;
+using HeroesGame.Loggers;
 
 namespace HeroesGame.Quests
 {
@@ -23,13 +24,17 @@ namespace HeroesGame.Quests
         private readonly IRewardTemplatesRepository _rewardTemplatesRepository;
         private readonly IInventoryManagement _inventoryManagement;
         private readonly IItemTemplateRepository _itemTemplateRepository;
-        private readonly IFightManagement _fightManagement;
+        private readonly IOpponentPackFormationBuilder _opponentPackFormationBuilder;
+        private readonly Logger _logger;
+        private readonly IPackFormationBuilder _packFormationBuilder;
+        private readonly IMercenaryManagement _mercenaryManagement;
 
         public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism, 
             IValueRandomizer randomizer, IFormationTemplateRepository formationTemplateRepository,
             IAccountManagement accountManagement, IQuestRepository questRepository, 
             IRewardTemplatesRepository rewardTemplatesRepository, IInventoryManagement inventoryManagement,
-            IItemTemplateRepository itemTemplateRepository, IFightManagement fightManagement)
+            IItemTemplateRepository itemTemplateRepository, IOpponentPackFormationBuilder opponentPackFormationBuilder,
+            Logger logger, IPackFormationBuilder packFormationBuilder, IMercenaryManagement mercenaryManagement)
         {
             _configRepository = configRepository;
             _refreshingMechnism = refreshingMechnism;
@@ -40,7 +45,10 @@ namespace HeroesGame.Quests
             _rewardTemplatesRepository = rewardTemplatesRepository;
             _inventoryManagement = inventoryManagement;
             _itemTemplateRepository = itemTemplateRepository;
-            _fightManagement = fightManagement;
+            _opponentPackFormationBuilder = opponentPackFormationBuilder;
+            _logger = logger;
+            _packFormationBuilder = packFormationBuilder;
+            _mercenaryManagement = mercenaryManagement;
         }
 
         public bool GenerateQuests()
@@ -137,23 +145,6 @@ namespace HeroesGame.Quests
             return _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID);
         }
 
-        public void CompleteQuest(string questID, string result)
-        {
-            var quest = _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID).First(x => x.ID == questID);
-            if (result == "Completed")
-            {
-                if (!string.IsNullOrEmpty(quest.RewardsID))
-                {
-                    var rewardTemaplate = _rewardTemplatesRepository.GetAll().First(x => x.ID == quest.RewardsID);
-                    foreach (var reward in rewardTemaplate.Rewards.Split(':'))
-                    {
-                        AddReward(reward);
-                    }
-                }
-            }
-            _questRepository.Remove(quest, _accountManagement.GetLoggedAccount().ID);
-        }
-
         private void AddReward(string rewardString)
         {
             var splited = rewardString.Split('_');
@@ -163,19 +154,28 @@ namespace HeroesGame.Quests
             _inventoryManagement.AddItems(itemID, amount);
         }
 
-        public void StartQuest(string questID)
+        public string StartQuest(string questID)
         {
             var selectedQuest = GetAll().First(x => x.ID == questID);
-            _fightManagement.PrepareFightAgainstTemplate(selectedQuest.FormationID);
-            _fightManagement.StartFight();
-            CompleteQuest(questID, GetQuestResult(questID));
+
+            IFightMechanizm fightMechanizm = new FightMechanizm.FightMechanizm(_randomizer, _logger);
+            IFightManagement fightManagement = new FightManagement(_opponentPackFormationBuilder, fightMechanizm, _packFormationBuilder, _mercenaryManagement);
+
+            fightManagement.PrepareFightAgainstTemplate(selectedQuest.FormationID);
+            fightManagement.StartFight();
+            var questResult = fightManagement.GetLastFightResult();
+            var quest = _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID).First(x => x.ID == questID);
+            if (questResult == FightResult.PlayerWins && !string.IsNullOrEmpty(quest.RewardsID))
+            {
+                var rewardTemaplate = _rewardTemplatesRepository.GetAll().First(x => x.ID == quest.RewardsID);
+                foreach (var reward in rewardTemaplate.Rewards.Split(':'))
+                {
+                    AddReward(reward);
+                }
+            }
+            _questRepository.Remove(quest, _accountManagement.GetLoggedAccount().ID);
+            return questResult == FightResult.PlayerWins ? "Completed" : "NotCompleted";
         }
 
-        public string GetQuestResult(string questID)
-        {
-            var result = _fightManagement.GetLastFightResult();
-
-            return result == FightResult.PlayerWins ? "Completed" : "NotCompleted";
-        }
     }
 }

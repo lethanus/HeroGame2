@@ -101,26 +101,11 @@ namespace ConstructionYard
         }
 
         [When(@"Player will complete quest with ID '(.*)' with result '(.*)'")]
-        public void WhenPlayerWillCompleteQuestWithID(string questID, string result)
+        public void WhenPlayerWillStartQuestWithID(string questID, string expectedResult)
         {
             var questManagement = objectContainer.Resolve<IQuestManagement>();
-            questManagement.CompleteQuest(questID, result);
-        }
-
-        [When(@"Player will start quest with ID '(.*)'")]
-        public void WhenPlayerWillStartQuestWithID(string questID)
-        {
-            var questManagement = objectContainer.Resolve<IQuestManagement>();
-            questManagement.StartQuest(questID);
-        }
-
-        [Then(@"Quest '(.*)' should be '(.*)'")]
-        public void ThenQuestShouldBe(string questID, string expectedResult)
-        {
-            var questManagement = objectContainer.Resolve<IQuestManagement>();
-            var result = questManagement.GetQuestResult(questID);
+            var result = questManagement.StartQuest(questID);
             Assert.AreEqual(expectedResult, result);
         }
-
     }
 }
