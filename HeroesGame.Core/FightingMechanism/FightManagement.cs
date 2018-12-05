@@ -20,6 +20,7 @@ namespace HeroesGame.FightMechanizm
         private readonly IPackFormationBuilder _packFormationBuilder;
         private readonly IMercenaryManagement _mercenaryManagement;
         private List<ICharacterInTeam> _playerCharacters = new List<ICharacterInTeam>();
+        private List<ICharacterInTeam> _allCharacters = new List<ICharacterInTeam>();
         private List<ICharacterInTeam> _opponentCharacters = new List<ICharacterInTeam>();
 
 
@@ -68,16 +69,15 @@ namespace HeroesGame.FightMechanizm
 
             }
 
-            var allCharacters = new List<ICharacterInTeam>();
-            allCharacters.AddRange(_opponentCharacters);
-            allCharacters.AddRange(_playerCharacters);
+            _allCharacters.Clear();
+            _allCharacters.AddRange(_opponentCharacters);
+            _allCharacters.AddRange(_playerCharacters);
 
-            _fightMechanizm.SetupFight(allCharacters, playerTeamName, opponentTeamName);
         }
 
         public void StartFight()
         {
-            _fightMechanizm.StartFight();
+            _fightMechanizm.StartFight(_allCharacters, playerTeamName, opponentTeamName);
         }
     }
 }

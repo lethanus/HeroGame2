@@ -11,9 +11,8 @@ namespace HeroesGame.FightMechanizm
     public interface IFightMechanizm
     {
 
-        List<Character> StartFight();
+        List<Character> StartFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam);
         string GetWinningTeam();
-        void SetupFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam);
         void SetNewLogger(Logger logger);
     }
 }

@@ -11,12 +11,9 @@ namespace HeroesGame.FightMechanizm
 {
     public class FightMechanizm : IFightMechanizm
     {
-        private List<ICharacterInTeam> _characters = new List<ICharacterInTeam>();
-        private string _firstTeam;
-        private string _secondTeam;
-        private string _winningTeam;
         private Logger _logger;
         private IValueRandomizer _randomizer;
+        private string _winningTeam;
 
         public FightMechanizm(IValueRandomizer randomizer, Logger logger)
         {
@@ -29,24 +26,17 @@ namespace HeroesGame.FightMechanizm
             _logger = logger;
         }
 
-        public void SetupFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
-        {
-            _characters = startCharacters;
-            _firstTeam = firstTeam;
-            _secondTeam = secondTeam;
-        }
-
-        public List<Character> StartFight()
+        public List<Character> StartFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
         {
             int i = 1;
-            while (!AllCharactersAreDeadInTeam(_firstTeam) && !AllCharactersAreDeadInTeam(_secondTeam))
+            while (!AllCharactersAreDeadInTeam(firstTeam, startCharacters) && !AllCharactersAreDeadInTeam(secondTeam, startCharacters))
             {
                 _logger.LogLine($"Turn {i++} started");
-                foreach (var attacker in _characters.OrderByDescending(x => x.getSpeed()))
+                foreach (var attacker in startCharacters.OrderByDescending(x => x.getSpeed()))
                 {
                     if (attacker.getHp() > 0)
                     {
-                        var defender = _characters.FirstOrDefault(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
+                        var defender = startCharacters.FirstOrDefault(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
 
                         if (defender != null)
                         {
@@ -57,12 +47,12 @@ namespace HeroesGame.FightMechanizm
                 }
             }
             
-            return _characters.Select(x => x.GetCharacter()).ToList();
+            return startCharacters.Select(x => x.GetCharacter()).ToList();
         }
 
-        private bool AllCharactersAreDeadInTeam(string teamName)
+        private bool AllCharactersAreDeadInTeam(string teamName, List<ICharacterInTeam> startCharacters)
         {
-            var liveSecondTeamCount = _characters.Count(x => x.GetTeam() != teamName && x.getHp() > 0);
+            var liveSecondTeamCount = startCharacters.Count(x => x.GetTeam() != teamName && x.getHp() > 0);
             if (liveSecondTeamCount == 0)
             {
                 _winningTeam = teamName;

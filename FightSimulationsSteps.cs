@@ -45,8 +45,7 @@ namespace ConstructionYard
         {
             var fightMechnizm = objectContainer.Resolve<IFightMechanizm>();
             fightMechnizm.SetNewLogger( new FakeLogger());
-            fightMechnizm.SetupFight(charactersInTeams, firstTeam, secondTeam);
-            charactersAfterFight = fightMechnizm.StartFight();
+            charactersAfterFight = fightMechnizm.StartFight(charactersInTeams, firstTeam, secondTeam);
         }
 
         [Then(@"Team '(.*)' won")]
