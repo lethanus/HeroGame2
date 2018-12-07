@@ -50,6 +50,8 @@ namespace HeroesGame.FightMechanizm
 
         public void PrepareFightAgainstTemplate(string opponentTemplateID)
         {
+            _opponentCharacters.Clear();
+            _playerCharacters.Clear();
             _opponentPackFormationBuilder.GenerateOpponentsBaseOnTemplate(opponentTemplateID);
             var opponentCharacters = _opponentPackFormationBuilder.GetOpponentCharacters();
             foreach(var oppChar in opponentCharacters)
