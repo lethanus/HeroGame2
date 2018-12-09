@@ -76,6 +76,7 @@ namespace HeroesGame.Mercenaries
 
         public double GetConvinceChance(int level)
         {
+            configurationAdapter.LoadConfigs(_configRepository);
             return (CalculateConvinceValue(level) / (configurationAdapter.MercenaryConvinceChances[level].MaxValue * 1.0)) * 100;
         }
 
