@@ -77,7 +77,7 @@ namespace ConstructionYard
             {
                 Assert.IsTrue(expectedAction.Equals(fightActions.First(x => x.Action_Order == expectedAction.Action_Order)));
             }
-            Assert.AreEqual(expectedFightActions.Count(), charactersAfterFight.Count);
+            Assert.AreEqual(expectedFightActions.Count(), fightActions.Count);
         }
 
     }

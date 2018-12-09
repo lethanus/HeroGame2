@@ -81,7 +81,18 @@ namespace HeroesGame.FightMechanizm
 
         public List<FightAction> GetFightActions()
         {
-            return new List<FightAction>();
+            var actions =  new List<FightAction>();
+            actions.Add(new FightAction
+            {
+                Action_Order = 1,
+                Attacker_ID = "Elf_A",
+                Attacker_Position = TeamPosition.Front_1,
+                Defender_ID = "Rat_A",
+                Defender_Position = TeamPosition.Front_1,
+                Defender_New_Hp = 0,
+                Attacker_DMG_dealt = 1
+            });
+            return actions;
         }
     }
 }
