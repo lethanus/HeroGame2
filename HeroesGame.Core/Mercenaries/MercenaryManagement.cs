@@ -48,16 +48,12 @@ namespace HeroesGame.Mercenaries
             configurationAdapter.LoadConfigs(_configRepository);
             var firstLevelMax = configurationAdapter.MercenaryConvinceChances[1];
             var convinceValue = CalculateConvinceValue(recruit.Level);
-            var randomValue = _randomizer.GetRandomValueInRange(1, firstLevelMax.MaxValue, "Recruits_convincing");
-            var convinced = randomValue <= convinceValue;
+            var convinceRandomValue = _randomizer.GetRandomValueInRange(1, firstLevelMax.MaxValue, "Recruits_convincing");
+            var convinced = convinceRandomValue <= convinceValue;
             if (convinced)
-            { 
                 AddNewMercenary(recruit.CreateCharacter());
-            }
-            foreach (var item in _gifts.Values)
-            {
-                _inventoryManagement.RemoveItems(item.Identyficator, item.Amount);
-            }
+            
+            _gifts.Values.ToList().ForEach(item => _inventoryManagement.RemoveItems(item.Identyficator, item.Amount) );
             _gifts.Clear();
             _recruitsRepository.Remove(recruit, _accountManagement.GetLoggedAccount().ID);
             return convinced;
