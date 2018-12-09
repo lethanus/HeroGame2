@@ -655,7 +655,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Rat_A",
                         "Front_1",
                         "0",
-                        "1"});
+                        "10"});
 #line 129
  testRunner.And("Replay acctions are", ((string)(null)), table16, "And ");
 #line hidden

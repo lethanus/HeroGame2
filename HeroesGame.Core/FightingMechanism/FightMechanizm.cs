@@ -14,6 +14,7 @@ namespace HeroesGame.FightMechanizm
         private Logger _logger;
         private IValueRandomizer _randomizer;
         private string _winningTeam;
+        private List<FightAction> actions = new List<FightAction>();
 
         public FightMechanizm(IValueRandomizer randomizer, Logger logger)
         {
@@ -28,7 +29,9 @@ namespace HeroesGame.FightMechanizm
 
         public List<Character> StartFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
         {
+            actions.Clear();
             int i = 1;
+            int actionCounter = 1;
             while (!AllCharactersAreDeadInTeam(firstTeam, startCharacters) && !AllCharactersAreDeadInTeam(secondTeam, startCharacters))
             {
                 _logger.LogLine($"Turn {i++} started");
@@ -41,6 +44,16 @@ namespace HeroesGame.FightMechanizm
                         if (defender != null)
                         {
                             var newHp = CalculateNewHp(attacker, defender);
+                            actions.Add(new FightAction
+                            {
+                                Action_Order = actionCounter++,
+                                Attacker_ID = attacker.getID(),
+                                Attacker_Position = attacker.GetPosition(),
+                                Defender_ID = defender.getID(),
+                                Defender_Position = defender.GetPosition(),
+                                Defender_New_Hp = newHp,
+                                Attacker_DMG_dealt = defender.getHp() - newHp
+                            });
                             defender.setNewHP(newHp);
                         }
                     }
@@ -62,10 +75,15 @@ namespace HeroesGame.FightMechanizm
             return false;
         }
 
-        private int CalculateNewHp(ICharacterInTeam attacker, ICharacterInTeam defender)
+        private int CalculateDamage(ICharacterInTeam attacker, ICharacterInTeam defender)
         {
             var attack_value = _randomizer.GetRandomValueInRange(attacker.getMin_Att(), attacker.getMax_Att(), "Attack");
-            var damage = attack_value > defender.getDef() ? attack_value - defender.getDef() : 0;
+            return attack_value > defender.getDef() ? attack_value - defender.getDef() : 0;
+        }
+
+        private int CalculateNewHp(ICharacterInTeam attacker, ICharacterInTeam defender)
+        {
+            int damage = CalculateDamage(attacker, defender);
             var newHP = defender.getHp() < damage ? 0 : defender.getHp() - damage;
 
             var isKilled = newHP == 0 ? "[Killed]" : "";
@@ -81,17 +99,6 @@ namespace HeroesGame.FightMechanizm
 
         public List<FightAction> GetFightActions()
         {
-            var actions =  new List<FightAction>();
-            actions.Add(new FightAction
-            {
-                Action_Order = 1,
-                Attacker_ID = "Elf_A",
-                Attacker_Position = TeamPosition.Front_1,
-                Defender_ID = "Rat_A",
-                Defender_Position = TeamPosition.Front_1,
-                Defender_New_Hp = 0,
-                Attacker_DMG_dealt = 1
-            });
             return actions;
         }
     }

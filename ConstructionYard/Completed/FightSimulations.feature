@@ -128,7 +128,7 @@ Scenario: 08 Fight replay with one shot
 	Then Team 'A' won
 	And Replay acctions are
 	| Action_Order | Attacker_ID | Attacker_Position | Defender_ID | Defender_Position | Defender_New_Hp | Attacker_DMG_dealt |
-	| 1            | Elf_A       | Front_1           | Rat_A       | Front_1           | 0               | 1                  |
+	| 1            | Elf_A       | Front_1           | Rat_A       | Front_1           | 0               | 10                 |
 
 
 Scenario: 09 Fight replay with three shots
