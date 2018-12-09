@@ -21,6 +21,7 @@ namespace PrototypeGUI
         private Dictionary<int,FightAction> _actions;
         private readonly FightResult _fightResult;
         private int actionID;
+        private FightAction currentAction;
 
         public FightScreen(List<ICharacterInTeam> teamA, List<ICharacterInTeam> teamB, List<FightAction> actions, FightResult fightResult)
         {
@@ -95,6 +96,13 @@ namespace PrototypeGUI
                 textBox.Text = character.GetCharacter().ToCharacterString();
                 if (character.GetCharacter().Hp == 0) textBox.BackColor = Color.Orange;
                 else textBox.BackColor = Color.LightGreen;
+                if (currentAction != null)
+                {
+                    if (character.getID() == currentAction.Attacker_ID)
+                        textBox.BackColor = Color.Green;
+                    if (character.getID() == currentAction.Defender_ID)
+                        textBox.BackColor = Color.Red;
+                }
             }
         }
 
@@ -107,9 +115,10 @@ namespace PrototypeGUI
             }
             else
             {
-                var action = _actions[actionID++];
-
-                logBox.AppendText(action.ToString() + Environment.NewLine);
+                currentAction = _actions[actionID++];
+                var all = _teamA.Union(_teamB);
+                all.First(x => x.getID() == currentAction.Defender_ID).setNewHP(currentAction.Defender_New_Hp);
+                logBox.AppendText(currentAction.ToString() + Environment.NewLine);
                 UpdateCharacters(_teamA, _teamB);
             }
         }

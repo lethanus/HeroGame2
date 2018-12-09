@@ -38,12 +38,13 @@ namespace HeroesGame.Characters
             ID = Guid.NewGuid().ToString();
         }
 
-        public Character CreateCopy()
+        public Character CreateCopy(bool keepOldID = true)
         {
             var newChar = new Character(Name, MaxHp, Min_Att, Max_Att, Def, Speed, Skills);
             newChar._team = _team;
             newChar._teamPosition = _teamPosition;
             newChar.Level = Level;
+            if (keepOldID) newChar.ID = ID;
             return newChar;
         }
 

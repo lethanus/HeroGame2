@@ -22,16 +22,17 @@ namespace HeroesGame.FightMechanizm
 
         public List<Character> StartFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
         {
+            var characters = startCharacters.Select(x => x.GetCharacter().CreateCopy()).ToList<ICharacterInTeam>();
             actions.Clear();
             int i = 1;
             int actionCounter = 1;
-            while (!AllCharactersAreDeadInTeam(firstTeam, startCharacters) && !AllCharactersAreDeadInTeam(secondTeam, startCharacters))
+            while (!AllCharactersAreDeadInTeam(firstTeam, characters) && !AllCharactersAreDeadInTeam(secondTeam, characters))
             {
-                foreach (var attacker in startCharacters.OrderByDescending(x => x.getSpeed()))
+                foreach (var attacker in characters.OrderByDescending(x => x.getSpeed()))
                 {
                     if (attacker.getHp() > 0)
                     {
-                        var defender = startCharacters.FirstOrDefault(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
+                        var defender = characters.FirstOrDefault(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
 
                         if (defender != null)
                         {
@@ -52,7 +53,7 @@ namespace HeroesGame.FightMechanizm
                 }
             }
             
-            return startCharacters.Select(x => x.GetCharacter()).ToList();
+            return characters.Select(x => x.GetCharacter()).ToList();
         }
 
         private bool AllCharactersAreDeadInTeam(string teamName, List<ICharacterInTeam> startCharacters)
