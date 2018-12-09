@@ -44,7 +44,6 @@ namespace ConstructionYard
         public void WhenFightBetweenAndStarts(string firstTeam, string secondTeam)
         {
             var fightMechnizm = objectContainer.Resolve<IFightMechanizm>();
-            fightMechnizm.SetNewLogger( new FakeLogger());
             charactersAfterFight = fightMechnizm.StartFight(charactersInTeams, firstTeam, secondTeam);
         }
 

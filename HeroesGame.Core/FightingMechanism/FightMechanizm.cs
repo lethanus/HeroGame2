@@ -11,20 +11,13 @@ namespace HeroesGame.FightMechanizm
 {
     public class FightMechanizm : IFightMechanizm
     {
-        private Logger _logger;
         private IValueRandomizer _randomizer;
         private string _winningTeam;
         private List<FightAction> actions = new List<FightAction>();
 
-        public FightMechanizm(IValueRandomizer randomizer, Logger logger)
+        public FightMechanizm(IValueRandomizer randomizer)
         {
             _randomizer = randomizer;
-            SetNewLogger(logger);
-        }
-
-        public void SetNewLogger(Logger logger)
-        {
-            _logger = logger;
         }
 
         public List<Character> StartFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam)
@@ -34,7 +27,6 @@ namespace HeroesGame.FightMechanizm
             int actionCounter = 1;
             while (!AllCharactersAreDeadInTeam(firstTeam, startCharacters) && !AllCharactersAreDeadInTeam(secondTeam, startCharacters))
             {
-                _logger.LogLine($"Turn {i++} started");
                 foreach (var attacker in startCharacters.OrderByDescending(x => x.getSpeed()))
                 {
                     if (attacker.getHp() > 0)

@@ -158,7 +158,7 @@ namespace HeroesGame.Quests
         {
             var selectedQuest = GetAll().First(x => x.ID == questID);
 
-            IFightMechanizm fightMechanizm = new FightMechanizm.FightMechanizm(_randomizer, _logger);
+            IFightMechanizm fightMechanizm = new FightMechanizm.FightMechanizm(_randomizer);
             IFightManagement fightManagement = new FightManagement(_opponentPackFormationBuilder, fightMechanizm, _packFormationBuilder, _mercenaryManagement);
 
             fightManagement.PrepareFightAgainstTemplate(selectedQuest.FormationID);

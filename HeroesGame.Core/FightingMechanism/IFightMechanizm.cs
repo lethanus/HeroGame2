@@ -13,7 +13,6 @@ namespace HeroesGame.FightMechanizm
 
         List<Character> StartFight(List<ICharacterInTeam> startCharacters, string firstTeam, string secondTeam);
         string GetWinningTeam();
-        void SetNewLogger(Logger logger);
         List<FightAction> GetFightActions();
     }
 }

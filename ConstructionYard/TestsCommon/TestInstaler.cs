@@ -69,7 +69,7 @@ namespace ConstructionYard
             var opponentPackFormationBuilder = new OpponentPackFormationBuilder(formationTemplateRepository, mercenaryManagement);
             objectContainer.RegisterInstanceAs<IOpponentPackFormationBuilder>(opponentPackFormationBuilder);
 
-            var fightMechanizm = new FightMechanizm(valueRandomizer, logger);
+            var fightMechanizm = new FightMechanizm(valueRandomizer);
             objectContainer.RegisterInstanceAs<IFightMechanizm>(fightMechanizm);
 
             var fightManagement = new FightManagement(opponentPackFormationBuilder, fightMechanizm, packFormationBuilder, mercenaryManagement);
