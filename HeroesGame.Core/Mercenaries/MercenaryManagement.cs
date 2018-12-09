@@ -21,6 +21,7 @@ namespace HeroesGame.Mercenaries
         private IRecruitsRepository _recruitsRepository;
         private IInventoryManagement _inventoryManagement;
         private readonly IRefreshingMechnism _refreshingMechnism;
+        private ConfigurationAdapter configurationAdapter = new ConfigurationAdapter();
 
         public MercenaryManagement(IMercenaryRepository mercenaryRepository, IAccountManagement accountManagement,
             IMercenaryTemplateRepository mercenaryTemplateRepository, IValueRandomizer randomizer,
@@ -44,7 +45,8 @@ namespace HeroesGame.Mercenaries
 
         public bool ConvinceRecruit(Mercenary recruit)
         {
-            var firstLevelMax = new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_1_recruit"));
+            configurationAdapter.LoadMercenaryConfigs(_configRepository);
+            var firstLevelMax = configurationAdapter.MercenaryConvinceChances[1];
             var convinceValue = CalculateConvinceValue(recruit.Level);
             var randomValue = _randomizer.GetRandomValueInRange(1, firstLevelMax.MaxValue, "Recruits_convincing");
             var convinced = randomValue <= convinceValue;
@@ -63,12 +65,6 @@ namespace HeroesGame.Mercenaries
 
         private double CalculateConvinceValue(int level)
         {
-            var convinceChances = new Dictionary<int, ChanceRange>();
-            convinceChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_1_recruit")));
-            convinceChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_2_recruit")));
-            convinceChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_3_recruit")));
-            convinceChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_4_recruit")));
-
             int randomValueModyficationPercent = 0;
             foreach (var item in _gifts.Values)
             {
@@ -78,45 +74,33 @@ namespace HeroesGame.Mercenaries
                     randomValueModyficationPercent += percentage * item.Amount;
                 }
             }
-            var toAdd = (randomValueModyficationPercent / 100.0) * convinceChances[level].MaxValue;
-            return convinceChances[level].Value + toAdd;
+            var toAdd = (randomValueModyficationPercent / 100.0) * configurationAdapter.MercenaryConvinceChances[level].MaxValue;
+            return configurationAdapter.MercenaryConvinceChances[level].Value + toAdd;
         }
 
         public double GetConvinceChance(int level)
         {
-            var convinceChances = new Dictionary<int, ChanceRange>();
-            convinceChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_1_recruit")));
-            convinceChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_2_recruit")));
-            convinceChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_3_recruit")));
-            convinceChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ConvinceLevel_4_recruit")));
-
-            return (CalculateConvinceValue(level) / (convinceChances[level].MaxValue * 1.0)) * 100;
+            return (CalculateConvinceValue(level) / (configurationAdapter.MercenaryConvinceChances[level].MaxValue * 1.0)) * 100;
         }
 
         public bool GenerateMercenaries()
         {
+            configurationAdapter.LoadMercenaryConfigs(_configRepository);
             var now = DateTime.Now;
             var refreshResult = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now);
             if (refreshResult.Status == RefresStatus.Ready)
             {
                 _recruitsRepository.Clear(_accountManagement.GetLoggedAccount().ID);
-                var count = Int32.Parse(_configRepository.GetParameterValue("NumberOfRecruits"));
-                var mercenaryChances = new Dictionary<int, ChanceRange>();
-                mercenaryChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_1_mercenary")));
-                mercenaryChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_2_mercenary")));
-                mercenaryChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_3_mercenary")));
-                mercenaryChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_4_mercenary")));
-
                 List<Mercenary> mercenaries = new List<Mercenary>();
 
-                for (int i = 1; i <= count; i++)
+                for (int i = 1; i <= configurationAdapter.NumberOfRecruits; i++)
                 {
                     var level = 1;
-                    var randomValue = _randomizer.GetRandomValueInRange(1, mercenaryChances[1].MaxValue, "Mercenary_level_chance");
+                    var randomValue = _randomizer.GetRandomValueInRange(1, configurationAdapter.MercenaryGenerateChances[1].MaxValue, "Mercenary_level_chance");
 
                     for (int j = 1; j <= 4; j++)
                     {
-                        if (randomValue < mercenaryChances[j].Value) level = j;
+                        if (randomValue < configurationAdapter.MercenaryGenerateChances[j].Value) level = j;
                     }
 
                     var mercenariesOnLevel = _mercenaryTemplateRepository.GetAll().Where(x => x.Level == level.ToString());
