@@ -182,6 +182,11 @@ namespace PrototypeGUI
                 _formationTemplateRepository, _accountManagement, _questsRepository,
                 _rewardTemplatesRepository,_inventoryManagement, _itemTemplateRepository, _opponentPackFormationBuilder, _logger,_packFormationBuilder, _mercenaryManagement);
 
+            _fightMechanizm = new FightMechanizm(_valueRandomizer, _logger);
+
+            _fightManagement = new FightManagement(_opponentPackFormationBuilder, _fightMechanizm, _packFormationBuilder, _mercenaryManagement);
+
+
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
 
@@ -248,25 +253,15 @@ namespace PrototypeGUI
 
         private void btFightVsTemplate_Click(object sender, EventArgs e)
         {
-            _fightMechanizm = new FightMechanizm(_valueRandomizer, _logger);
-
-            _fightManagement = new FightManagement(_opponentPackFormationBuilder, _fightMechanizm, _packFormationBuilder, _mercenaryManagement);
-
-
             ChooseFightTemplateScreen chooseFightTemplateScreen = new ChooseFightTemplateScreen(_formationTemplateRepository);
             if(chooseFightTemplateScreen.ShowDialog() == DialogResult.OK)
             {
                 var selectedTemplate = chooseFightTemplateScreen.SelectedTemplate;
                 _fightManagement.PrepareFightAgainstTemplate(selectedTemplate.ID);
+                _fightManagement.StartFight();
 
-                FightScreen fightScreen = new FightScreen(_fightManagement, _fightMechanizm);
-                if (fightScreen.ShowDialog() == DialogResult.OK)
-                {
-
-
-                    var result = _fightManagement.GetLastFightResult();
-                    MessageBox.Show(result.ToString());
-                }
+                FightScreen fightScreen = new FightScreen(_fightManagement.GetPlayerCharacters(), _fightManagement.GetOpponentCharacters(), _fightMechanizm.GetFightActions(), _fightManagement.GetLastFightResult());
+                fightScreen.ShowDialog();
             }
         }
 

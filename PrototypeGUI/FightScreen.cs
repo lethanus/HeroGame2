@@ -16,16 +16,18 @@ namespace PrototypeGUI
 {
     public partial class FightScreen : Form
     {
-        public List<ICharacterInTeam> teamA = new List<ICharacterInTeam>();
-        public List<ICharacterInTeam> teamB = new List<ICharacterInTeam>();
-        private IFightManagement _fightManagement;
-        private readonly IFightMechanizm _fightMechanizm;
+        private List<ICharacterInTeam> _teamA;
+        private List<ICharacterInTeam> _teamB;
+        private List<FightAction> _actions;
+        private readonly FightResult _fightResult;
 
-        public FightScreen(IFightManagement fightManagement, IFightMechanizm fightMechanizm)
+        public FightScreen(List<ICharacterInTeam> teamA, List<ICharacterInTeam> teamB, List<FightAction> actions, FightResult fightResult)
         {
             InitializeComponent();
-            _fightManagement = fightManagement;
-            _fightMechanizm = fightMechanizm;
+            _teamA = teamA;
+            _teamB = teamB;
+            _actions = actions;
+            _fightResult = fightResult;
         }
 
         private void btClose_Click(object sender, EventArgs e)
@@ -37,22 +39,19 @@ namespace PrototypeGUI
         private void btStart_Click(object sender, EventArgs e)
         {
             btStart.Enabled = false;
-            var all = new List<ICharacterInTeam>();
-            all.AddRange(teamA);
-            all.AddRange(teamB);
-            _fightManagement.StartFight();
-            UpdateCharacters(teamA, teamB);
+            foreach(var action in _actions)
+            {
+                logBox.AppendText(action.ToString() + Environment.NewLine);
+                UpdateCharacters(_teamA, _teamB);
+            }
+            logBox.AppendText(_fightResult.ToString() + Environment.NewLine);
             btClose.Enabled = true;
-
         }
 
         private void FightScreen_Load(object sender, EventArgs e)
         {
-            _fightMechanizm.SetNewLogger(new TextBoxLogger(logBox));
-            teamA = _fightManagement.GetPlayerCharacters();
-            teamB = _fightManagement.GetOpponentCharacters();
             btClose.Enabled = false;
-            UpdateCharacters(teamA, teamB);
+            UpdateCharacters(_teamA, _teamB);
         }
 
         private void UpdateCharacters(List<ICharacterInTeam> teamA, List<ICharacterInTeam> teamB)
@@ -99,21 +98,6 @@ namespace PrototypeGUI
                 if (character.GetCharacter().Hp == 0) textBox.BackColor = Color.Orange;
                 else textBox.BackColor = Color.LightGreen;
             }
-        }
-    }
-
-    public class TextBoxLogger : Logger
-    {
-        private RichTextBox _richTextBox;
-
-        public TextBoxLogger(RichTextBox richTextBox)
-        {
-            _richTextBox = richTextBox;
-        }
-
-        public void LogLine(string line)
-        {
-            _richTextBox.AppendText(line + Environment.NewLine);
         }
     }
 }

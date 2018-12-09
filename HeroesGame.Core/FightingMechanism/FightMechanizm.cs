@@ -69,7 +69,6 @@ namespace HeroesGame.FightMechanizm
             if (liveSecondTeamCount == 0)
             {
                 _winningTeam = teamName;
-                _logger.LogLine($"Team {_winningTeam} won");
                 return true;
             }
             return false;
@@ -84,12 +83,7 @@ namespace HeroesGame.FightMechanizm
         private int CalculateNewHp(ICharacterInTeam attacker, ICharacterInTeam defender)
         {
             int damage = CalculateDamage(attacker, defender);
-            var newHP = defender.getHp() < damage ? 0 : defender.getHp() - damage;
-
-            var isKilled = newHP == 0 ? "[Killed]" : "";
-            _logger.LogLine($"[{attacker.GetTeam()}] {attacker.getName()} dealed {damage} damage to {defender.getName()} and new HP is {newHP} {isKilled}");
-
-            return newHP;
+            return defender.getHp() < damage ? 0 : defender.getHp() - damage;
         }
 
         public string GetWinningTeam()

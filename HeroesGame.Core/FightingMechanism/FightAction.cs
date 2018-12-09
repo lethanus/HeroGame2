@@ -31,6 +31,11 @@ namespace HeroesGame.FightMechanizm
                 return true;
             return false;
         }
+
+        public override string ToString()
+        {
+            return $"{Attacker_ID} on {Attacker_Position} is  hitting {Defender_ID} on {Defender_Position} for {Attacker_DMG_dealt} DMG points and reducing his HP to {Defender_New_Hp}";
+        }
     }
 
     
