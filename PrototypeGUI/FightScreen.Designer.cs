@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.teamAfront1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbTeamA = new System.Windows.Forms.GroupBox();
@@ -74,6 +75,7 @@
             this.btClose = new System.Windows.Forms.Button();
             this.logBox = new System.Windows.Forms.RichTextBox();
             this.btStart = new System.Windows.Forms.Button();
+            this.fightTimer = new System.Windows.Forms.Timer(this.components);
             this.gbTeamA.SuspendLayout();
             this.gbTeamB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -552,6 +554,11 @@
             this.btStart.UseVisualStyleBackColor = true;
             this.btStart.Click += new System.EventHandler(this.btStart_Click);
             // 
+            // fightTimer
+            // 
+            this.fightTimer.Interval = 200;
+            this.fightTimer.Tick += new System.EventHandler(this.fightTimer_Tick);
+            // 
             // FightScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -631,5 +638,6 @@
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.RichTextBox logBox;
         private System.Windows.Forms.Button btStart;
+        private System.Windows.Forms.Timer fightTimer;
     }
 }

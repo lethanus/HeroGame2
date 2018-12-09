@@ -18,33 +18,31 @@ namespace PrototypeGUI
     {
         private List<ICharacterInTeam> _teamA;
         private List<ICharacterInTeam> _teamB;
-        private List<FightAction> _actions;
+        private Dictionary<int,FightAction> _actions;
         private readonly FightResult _fightResult;
+        private int actionID;
 
         public FightScreen(List<ICharacterInTeam> teamA, List<ICharacterInTeam> teamB, List<FightAction> actions, FightResult fightResult)
         {
             InitializeComponent();
             _teamA = teamA;
             _teamB = teamB;
-            _actions = actions;
+            _actions = actions.ToDictionary(x=>x.Action_Order, x=>x);
             _fightResult = fightResult;
         }
 
         private void btClose_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            this.Close();
+            Close();
         }
 
         private void btStart_Click(object sender, EventArgs e)
         {
             btStart.Enabled = false;
-            foreach(var action in _actions)
-            {
-                logBox.AppendText(action.ToString() + Environment.NewLine);
-                UpdateCharacters(_teamA, _teamB);
-            }
-            logBox.AppendText(_fightResult.ToString() + Environment.NewLine);
+            btClose.Enabled = true;
+            actionID = 1;
+            fightTimer.Enabled = true;
             btClose.Enabled = true;
         }
 
@@ -97,6 +95,22 @@ namespace PrototypeGUI
                 textBox.Text = character.GetCharacter().ToCharacterString();
                 if (character.GetCharacter().Hp == 0) textBox.BackColor = Color.Orange;
                 else textBox.BackColor = Color.LightGreen;
+            }
+        }
+
+        private void fightTimer_Tick(object sender, EventArgs e)
+        {
+            if (!_actions.ContainsKey(actionID))
+            {
+                logBox.AppendText(_fightResult.ToString() + Environment.NewLine);
+                fightTimer.Enabled = false;
+            }
+            else
+            {
+                var action = _actions[actionID++];
+
+                logBox.AppendText(action.ToString() + Environment.NewLine);
+                UpdateCharacters(_teamA, _teamB);
             }
         }
     }
