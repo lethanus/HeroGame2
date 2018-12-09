@@ -591,10 +591,10 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("08 Fight replay", SourceLine=119)]
-        public virtual void _08FightReplay()
+        [TechTalk.SpecRun.ScenarioAttribute("08 Fight replay with one shot", SourceLine=119)]
+        public virtual void _08FightReplayWithOneShot()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08 Fight replay", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08 Fight replay with one shot", null, ((string[])(null)));
 #line 120
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -658,6 +658,93 @@ this.ScenarioInitialize(scenarioInfo);
                         "1"});
 #line 129
  testRunner.And("Replay acctions are", ((string)(null)), table16, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("09 Fight replay with three shots", SourceLine=133)]
+        public virtual void _09FightReplayWithThreeShots()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09 Fight replay with three shots", null, ((string[])(null)));
+#line 134
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table17.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "20",
+                        "20",
+                        "30",
+                        "30",
+                        "5",
+                        "10",
+                        ""});
+            table17.AddRow(new string[] {
+                        "Rat_A",
+                        "Rat",
+                        "50",
+                        "50",
+                        "7",
+                        "7",
+                        "0",
+                        "5",
+                        ""});
+#line 135
+ testRunner.Given("The following characters", ((string)(null)), table17, "Given ");
+#line 139
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
+ testRunner.And("Character \'Rat_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 141
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 142
+ testRunner.Then("Team \'A\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Action_Order",
+                        "Attacker_ID",
+                        "Attacker_Position",
+                        "Defender_ID",
+                        "Defender_Position",
+                        "Defender_New_Hp",
+                        "Attacker_DMG_dealt"});
+            table18.AddRow(new string[] {
+                        "1",
+                        "Elf_A",
+                        "Front_1",
+                        "Rat_A",
+                        "Front_1",
+                        "20",
+                        "30"});
+            table18.AddRow(new string[] {
+                        "2",
+                        "Rat_A",
+                        "Front_1",
+                        "Elf_A",
+                        "Front_1",
+                        "18",
+                        "2"});
+            table18.AddRow(new string[] {
+                        "3",
+                        "Elf_A",
+                        "Front_1",
+                        "Rat_A",
+                        "Front_1",
+                        "0",
+                        "20"});
+#line 143
+ testRunner.And("Replay acctions are", ((string)(null)), table18, "And ");
 #line hidden
             this.ScenarioCleanup();
         }

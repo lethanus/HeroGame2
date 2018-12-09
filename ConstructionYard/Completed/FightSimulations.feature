@@ -117,7 +117,7 @@ Scenario: 05 Fast Elf killing many Goblins and gets wounded
 	And Team 'B' won
 
 
-Scenario: 08 Fight replay
+Scenario: 08 Fight replay with one shot
 	Given The following characters
 		| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
 		| Elf_A | Elf  | 20    | 20 | 30      | 30      | 5   | 10    |        |
@@ -129,3 +129,19 @@ Scenario: 08 Fight replay
 	And Replay acctions are
 	| Action_Order | Attacker_ID | Attacker_Position | Defender_ID | Defender_Position | Defender_New_Hp | Attacker_DMG_dealt |
 	| 1            | Elf_A       | Front_1           | Rat_A       | Front_1           | 0               | 1                  |
+
+
+Scenario: 09 Fight replay with three shots
+	Given The following characters
+		| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
+		| Elf_A | Elf  | 20    | 20 | 30      | 30      | 5   | 10    |        |
+		| Rat_A | Rat  | 50    | 50 | 7       | 7       | 0   | 5     |        |
+	And Character 'Elf_A' is assigned to team 'A' on position 'Front_1'
+	And Character 'Rat_A' is assigned to team 'B' on position 'Front_1'
+	When Fight between 'A' and 'B' starts
+	Then Team 'A' won
+	And Replay acctions are
+	| Action_Order | Attacker_ID | Attacker_Position | Defender_ID | Defender_Position | Defender_New_Hp | Attacker_DMG_dealt |
+	| 1            | Elf_A       | Front_1           | Rat_A       | Front_1           | 20              | 30                 |
+	| 2            | Rat_A       | Front_1           | Elf_A       | Front_1           | 18              | 2                  |
+	| 3            | Elf_A       | Front_1           | Rat_A       | Front_1           | 0               | 20                 |
