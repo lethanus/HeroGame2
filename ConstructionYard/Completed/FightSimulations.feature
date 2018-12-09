@@ -115,3 +115,17 @@ Scenario: 05 Fast Elf killing many Goblins and gets wounded
 		| Elf_A   | 0        |
 		| Human_B | 10-90    |
 	And Team 'B' won
+
+
+Scenario: 08 Fight replay
+	Given The following characters
+		| ID    | Name | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills |
+		| Elf_A | Elf  | 20    | 20 | 30      | 30      | 5   | 10    |        |
+		| Rat_A | Rat  | 10    | 10 | 1       | 1       | 0   | 5     |        |
+	And Character 'Elf_A' is assigned to team 'A' on position 'Front_1'
+	And Character 'Rat_A' is assigned to team 'B' on position 'Front_1'
+	When Fight between 'A' and 'B' starts
+	Then Team 'A' won
+	And Replay acctions are
+	| Action_Order | Attacker_ID | Attacker_Position | Defender_ID | Defender_Position | Defender_New_Hp | Attacker_DMG_dealt |
+	| 1            | Elf_A       | Front_1           | Rat_A       | Front_1           | 0               | 1                  |

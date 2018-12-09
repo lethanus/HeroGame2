@@ -66,5 +66,21 @@ namespace ConstructionYard
             }
             Assert.AreEqual(expectedCharactersAfterFight.Count(), charactersAfterFight.Count);
         }
+
+        [Then(@"Replay acctions are")]
+        public void ThenReplayAcctionsAre(Table table)
+        {
+            var fightMechnizm = objectContainer.Resolve<IFightMechanizm>();
+            var expectedFightActions = table.CreateSet<FightAction>();
+            var fightActions = fightMechnizm.GetFightActions();
+            foreach (var expectedAction in expectedFightActions)
+            {
+                Assert.IsTrue(expectedAction.Equals(fightActions.First(x => x.Action_Order == expectedAction.Action_Order)));
+            }
+            Assert.AreEqual(expectedFightActions.Count(), charactersAfterFight.Count);
+        }
+
     }
+
+
 }

@@ -78,5 +78,10 @@ namespace HeroesGame.FightMechanizm
         {
             return _winningTeam;
         }
+
+        public List<FightAction> GetFightActions()
+        {
+            return new List<FightAction>();
+        }
     }
 }
