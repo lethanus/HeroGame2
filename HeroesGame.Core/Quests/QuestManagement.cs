@@ -25,6 +25,7 @@ namespace HeroesGame.Quests
         private readonly IInventoryManagement _inventoryManagement;
         private readonly IItemTemplateRepository _itemTemplateRepository;
         private readonly IFightManagement _fightManagement;
+        private ConfigurationAdapter configurationAdapter = new ConfigurationAdapter();
 
         public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism, 
             IValueRandomizer randomizer, IFormationTemplateRepository formationTemplateRepository,
@@ -46,22 +47,17 @@ namespace HeroesGame.Quests
 
         public bool GenerateQuests()
         {
+            configurationAdapter.LoadConfigs(_configRepository);
             var now = DateTime.Now;
             var refreshResult = _refreshingMechnism.GetRefreshStatus(RefreshOption.Quests, now);
             if (refreshResult.Status == RefresStatus.Ready)
             {
                 _questRepository.Clear(_accountManagement.GetLoggedAccount().ID);
-                var numberOfQuests = Int32.Parse(_configRepository.GetParameterValue("NumberOfQuests"));
-                var quests = new List<Quest>();
-                var questLevelChances = new Dictionary<int, ChanceRange>();
-                questLevelChances.Add(1, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_1_quest")));
-                questLevelChances.Add(2, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_2_quest")));
-                questLevelChances.Add(3, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_3_quest")));
-                questLevelChances.Add(4, new ChanceRange(_configRepository.GetParameterValue("ChanceForLevel_4_quest")));
 
-                for (int i = 1; i <= numberOfQuests; i++)
+                var quests = new List<Quest>();
+                for (int i = 1; i <= configurationAdapter.NumberOfQuests; i++)
                 {
-                    var level = GetRandomLevel(questLevelChances);
+                    var level = GetRandomLevel(configurationAdapter.QuestGenerateChances);
 
                     FormationTemplate choosenFormationTemplate = GetRandomFormationTemplateForLevel(level);
                     RewardTemplate rewardTemplate = GetRandomRewardTemplateForLevel(level);

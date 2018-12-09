@@ -11,9 +11,13 @@ namespace HeroesGame.Configuration
         public int NumberOfRecruits { get; private set; }
         public Dictionary<int, ChanceRange> MercenaryGenerateChances { get; private set; }
         public Dictionary<int, ChanceRange> MercenaryConvinceChances { get; private set; }
+
+        public int NumberOfQuests { get; private set; }
+        public Dictionary<int, ChanceRange> QuestGenerateChances { get; private set; }
+
         private bool _alreadyLoaded = false;
 
-        public void LoadMercenaryConfigs(IConfigRepository configRepository)
+        public void LoadConfigs(IConfigRepository configRepository)
         {
             if (!_alreadyLoaded)
             {
@@ -31,6 +35,15 @@ namespace HeroesGame.Configuration
                 MercenaryConvinceChances.Add(2, new ChanceRange(configRepository.GetParameterValue("ConvinceLevel_2_recruit")));
                 MercenaryConvinceChances.Add(3, new ChanceRange(configRepository.GetParameterValue("ConvinceLevel_3_recruit")));
                 MercenaryConvinceChances.Add(4, new ChanceRange(configRepository.GetParameterValue("ConvinceLevel_4_recruit")));
+
+                value = configRepository.GetParameterValue("NumberOfQuests");
+                NumberOfQuests = string.IsNullOrEmpty(value) ? 0 : Int32.Parse(value);
+
+                QuestGenerateChances = new Dictionary<int, ChanceRange>();
+                QuestGenerateChances.Add(1, new ChanceRange(configRepository.GetParameterValue("ChanceForLevel_1_quest")));
+                QuestGenerateChances.Add(2, new ChanceRange(configRepository.GetParameterValue("ChanceForLevel_2_quest")));
+                QuestGenerateChances.Add(3, new ChanceRange(configRepository.GetParameterValue("ChanceForLevel_3_quest")));
+                QuestGenerateChances.Add(4, new ChanceRange(configRepository.GetParameterValue("ChanceForLevel_4_quest")));
                 _alreadyLoaded = true;
             }
         }

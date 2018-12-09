@@ -45,7 +45,7 @@ namespace HeroesGame.Mercenaries
 
         public bool ConvinceRecruit(Mercenary recruit)
         {
-            configurationAdapter.LoadMercenaryConfigs(_configRepository);
+            configurationAdapter.LoadConfigs(_configRepository);
             var firstLevelMax = configurationAdapter.MercenaryConvinceChances[1];
             var convinceValue = CalculateConvinceValue(recruit.Level);
             var randomValue = _randomizer.GetRandomValueInRange(1, firstLevelMax.MaxValue, "Recruits_convincing");
@@ -85,7 +85,7 @@ namespace HeroesGame.Mercenaries
 
         public bool GenerateMercenaries()
         {
-            configurationAdapter.LoadMercenaryConfigs(_configRepository);
+            configurationAdapter.LoadConfigs(_configRepository);
             var now = DateTime.Now;
             var refreshResult = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now);
             if (refreshResult.Status == RefresStatus.Ready)
@@ -95,14 +95,7 @@ namespace HeroesGame.Mercenaries
 
                 for (int i = 1; i <= configurationAdapter.NumberOfRecruits; i++)
                 {
-                    var level = 1;
-                    var randomValue = _randomizer.GetRandomValueInRange(1, configurationAdapter.MercenaryGenerateChances[1].MaxValue, "Mercenary_level_chance");
-
-                    for (int j = 1; j <= 4; j++)
-                    {
-                        if (randomValue < configurationAdapter.MercenaryGenerateChances[j].Value) level = j;
-                    }
-
+                    var level = GetRandomLevel(configurationAdapter.MercenaryGenerateChances);
                     var mercenariesOnLevel = _mercenaryTemplateRepository.GetAll().Where(x => x.Level == level.ToString());
 
                     int counter = 1;
@@ -125,6 +118,17 @@ namespace HeroesGame.Mercenaries
                 return true;
             }
             else return false;
+        }
+
+        private int GetRandomLevel(Dictionary<int, ChanceRange> questLevelChances)
+        {
+            var randomValue = _randomizer.GetRandomValueInRange(1, questLevelChances[1].MaxValue, "Mercenary_level_chance");
+            int level = 1;
+            for (int j = 1; j <= 4; j++)
+            {
+                if (randomValue < questLevelChances[j].Value) level = j;
+            }
+            return level;
         }
 
         public List<Character> GetAllMercenariesForLoggedUser()
