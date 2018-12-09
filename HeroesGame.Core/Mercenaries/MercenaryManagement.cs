@@ -96,28 +96,21 @@ namespace HeroesGame.Mercenaries
                 for (int i = 1; i <= configurationAdapter.NumberOfRecruits; i++)
                 {
                     var level = GetRandomLevel(configurationAdapter.MercenaryGenerateChances);
-                    var mercenariesOnLevel = _mercenaryTemplateRepository.GetAll().Where(x => x.Level == level.ToString());
-
-                    int counter = 1;
-                    var names = new Dictionary<int, string>();
-                    foreach (var name in mercenariesOnLevel.Select(x => x.Name).Distinct())
-                    {
-                        names.Add(counter++, name);
-                    }
-                    var randomValueForName = _randomizer.GetRandomValueInRange(1, counter, "Mercenary_name");
-
-                    var newMercenary = GetMercenaryBaseOnTemplate(names[randomValueForName], level);
-                    mercenaries.Add(newMercenary);
-
-                }
-                foreach (var recruit in mercenaries)
-                {
-                    _recruitsRepository.Add(recruit, _accountManagement.GetLoggedAccount().ID);
+                    _recruitsRepository.Add(GenerateRandomMercenary(level), _accountManagement.GetLoggedAccount().ID);
                 }
                 _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Mercenaries, now);
                 return true;
             }
             else return false;
+        }
+
+        private Mercenary GenerateRandomMercenary(int level)
+        {
+            var mercenariesOnLevel = _mercenaryTemplateRepository.GetAll().Where(x => x.Level == level.ToString());
+            int counter = 1;
+            var names = mercenariesOnLevel.ToDictionary(x => counter++, x => x.Name);
+            var randomValueForName = _randomizer.GetRandomValueInRange(1, counter, "Mercenary_name");
+            return GetMercenaryBaseOnTemplate(names[randomValueForName], level);
         }
 
         private int GetRandomLevel(Dictionary<int, ChanceRange> questLevelChances)

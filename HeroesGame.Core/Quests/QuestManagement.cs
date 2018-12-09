@@ -54,38 +54,34 @@ namespace HeroesGame.Quests
             {
                 _questRepository.Clear(_accountManagement.GetLoggedAccount().ID);
 
-                var quests = new List<Quest>();
                 for (int i = 1; i <= configurationAdapter.NumberOfQuests; i++)
-                {
-                    var level = GetRandomLevel(configurationAdapter.QuestGenerateChances);
-
-                    FormationTemplate choosenFormationTemplate = GetRandomFormationTemplateForLevel(level);
-                    RewardTemplate rewardTemplate = GetRandomRewardTemplateForLevel(level);
-
-                    if (choosenFormationTemplate != null)
-                    {
-                        quests.Add(new Quest
-                        {
-                            ID = $"Q_{i}",
-                            Level = level.ToString(),
-                            FormationID = choosenFormationTemplate.ID,
-                            Name = $"Defeat - {choosenFormationTemplate.Name}",
-                            RewardsID = rewardTemplate == null ? "" : rewardTemplate.ID,
-                            WinRewards = rewardTemplate == null ? "" : rewardTemplate.Rewards
-                        });
-                    }
-
-                }
-                foreach (var quest in quests)
-                {
-                    _questRepository.Add(quest, _accountManagement.GetLoggedAccount().ID);
-                }
+                    GenerateFightQuest(GetRandomLevel(configurationAdapter.QuestGenerateChances), i);
 
                 _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Quests, now);
                 return true;
             }
             else return false;
         }
+
+        private void GenerateFightQuest(int level, int counter)
+        {
+            FormationTemplate choosenFormationTemplate = GetRandomFormationTemplateForLevel(level);
+            RewardTemplate rewardTemplate = GetRandomRewardTemplateForLevel(level);
+
+            if (choosenFormationTemplate != null)
+            {
+                _questRepository.Add(new Quest
+                {
+                    ID = $"Q_{counter}",
+                    Level = level.ToString(),
+                    FormationID = choosenFormationTemplate.ID,
+                    Name = $"Defeat - {choosenFormationTemplate.Name}",
+                    RewardsID = rewardTemplate == null ? "" : rewardTemplate.ID,
+                    WinRewards = rewardTemplate == null ? "" : rewardTemplate.Rewards
+                }, _accountManagement.GetLoggedAccount().ID);
+            }
+        }
+
 
         private int GetRandomLevel(Dictionary<int, ChanceRange> questLevelChances)
         {
