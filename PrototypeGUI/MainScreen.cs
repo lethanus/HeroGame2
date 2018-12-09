@@ -178,15 +178,13 @@ namespace PrototypeGUI
                 }
             }
 
-            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer,
-                _formationTemplateRepository, _accountManagement, _questsRepository,
-                _rewardTemplatesRepository,_inventoryManagement, _itemTemplateRepository, _opponentPackFormationBuilder, _logger,_packFormationBuilder, _mercenaryManagement);
-
             _fightMechanizm = new FightMechanizm(_valueRandomizer);
 
             _fightManagement = new FightManagement(_opponentPackFormationBuilder, _fightMechanizm, _packFormationBuilder, _mercenaryManagement);
 
-
+            _questManagement = new QuestManagement(_configRepository, _refreshingMechnism, _valueRandomizer,
+                _formationTemplateRepository, _accountManagement, _questsRepository,
+                _rewardTemplatesRepository, _inventoryManagement, _itemTemplateRepository, _fightManagement);
             UpdateGameControls(_accountManagement.GetLoggedAccount());
         }
 
@@ -258,12 +256,9 @@ namespace PrototypeGUI
             {
                 var selectedTemplate = chooseFightTemplateScreen.SelectedTemplate;
                 _fightManagement.PrepareFightAgainstTemplate(selectedTemplate.ID);
-                
-                var player = _fightManagement.GetPlayerCharacters();
-                var opponent = _fightManagement.GetOpponentCharacters();
                 _fightManagement.StartFight();
 
-                FightScreen fightScreen = new FightScreen(player, opponent, _fightMechanizm.GetFightActions(), _fightManagement.GetLastFightResult());
+                FightScreen fightScreen = new FightScreen(_fightManagement.GetFightReplay());
                 fightScreen.ShowDialog();
             }
         }

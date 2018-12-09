@@ -14,5 +14,6 @@ namespace HeroesGame.FightMechanizm
         void StartFight();
         List<ICharacterInTeam> GetPlayerCharacters();
         List<ICharacterInTeam> GetOpponentCharacters();
+        FightReplay GetFightReplay();
     }
 }

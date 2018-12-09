@@ -575,6 +575,7 @@
             this.Name = "FightScreen";
             this.Text = "Fight screen";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FightScreen_FormClosing);
             this.Load += new System.EventHandler(this.FightScreen_Load);
             this.gbTeamA.ResumeLayout(false);
             this.gbTeamA.PerformLayout();

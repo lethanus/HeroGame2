@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HeroesGame.FightMechanizm;
 
 namespace HeroesGame.Quests
 {
@@ -7,5 +8,6 @@ namespace HeroesGame.Quests
         List<Quest> GetAll();
         bool GenerateQuests();
         string StartQuest(string questID);
+        FightReplay GetLastFightReplay();
     }
 }

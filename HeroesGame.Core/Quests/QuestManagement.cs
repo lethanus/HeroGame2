@@ -24,17 +24,13 @@ namespace HeroesGame.Quests
         private readonly IRewardTemplatesRepository _rewardTemplatesRepository;
         private readonly IInventoryManagement _inventoryManagement;
         private readonly IItemTemplateRepository _itemTemplateRepository;
-        private readonly IOpponentPackFormationBuilder _opponentPackFormationBuilder;
-        private readonly Logger _logger;
-        private readonly IPackFormationBuilder _packFormationBuilder;
-        private readonly IMercenaryManagement _mercenaryManagement;
+        private readonly IFightManagement _fightManagement;
 
         public QuestManagement(IConfigRepository configRepository, IRefreshingMechnism refreshingMechnism, 
             IValueRandomizer randomizer, IFormationTemplateRepository formationTemplateRepository,
             IAccountManagement accountManagement, IQuestRepository questRepository, 
             IRewardTemplatesRepository rewardTemplatesRepository, IInventoryManagement inventoryManagement,
-            IItemTemplateRepository itemTemplateRepository, IOpponentPackFormationBuilder opponentPackFormationBuilder,
-            Logger logger, IPackFormationBuilder packFormationBuilder, IMercenaryManagement mercenaryManagement)
+            IItemTemplateRepository itemTemplateRepository, IFightManagement fightManagement)
         {
             _configRepository = configRepository;
             _refreshingMechnism = refreshingMechnism;
@@ -45,10 +41,7 @@ namespace HeroesGame.Quests
             _rewardTemplatesRepository = rewardTemplatesRepository;
             _inventoryManagement = inventoryManagement;
             _itemTemplateRepository = itemTemplateRepository;
-            _opponentPackFormationBuilder = opponentPackFormationBuilder;
-            _logger = logger;
-            _packFormationBuilder = packFormationBuilder;
-            _mercenaryManagement = mercenaryManagement;
+             _fightManagement = fightManagement;
         }
 
         public bool GenerateQuests()
@@ -158,12 +151,9 @@ namespace HeroesGame.Quests
         {
             var selectedQuest = GetAll().First(x => x.ID == questID);
 
-            IFightMechanizm fightMechanizm = new FightMechanizm.FightMechanizm(_randomizer);
-            IFightManagement fightManagement = new FightManagement(_opponentPackFormationBuilder, fightMechanizm, _packFormationBuilder, _mercenaryManagement);
-
-            fightManagement.PrepareFightAgainstTemplate(selectedQuest.FormationID);
-            fightManagement.StartFight();
-            var questResult = fightManagement.GetLastFightResult();
+            _fightManagement.PrepareFightAgainstTemplate(selectedQuest.FormationID);
+            _fightManagement.StartFight();
+            var questResult = _fightManagement.GetLastFightResult();
             var quest = _questRepository.GetAll(_accountManagement.GetLoggedAccount().ID).First(x => x.ID == questID);
             if (questResult == FightResult.PlayerWins && !string.IsNullOrEmpty(quest.RewardsID))
             {
@@ -177,5 +167,9 @@ namespace HeroesGame.Quests
             return questResult == FightResult.PlayerWins ? "Completed" : "NotCompleted";
         }
 
+        public FightReplay GetLastFightReplay()
+        {
+            return _fightManagement.GetFightReplay();
+        }
     }
 }

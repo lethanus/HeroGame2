@@ -42,6 +42,11 @@ namespace PrototypeGUI
             {
                 var quest = (Quest)listQuests.SelectedItems[0].Tag;
                 var questResult = _questManagement.StartQuest(quest.ID);
+
+                FightScreen fightScreen = new FightScreen(_questManagement.GetLastFightReplay());
+                fightScreen.ShowDialog();
+
+
                 questResultsBox.Text = $"Quest {quest.Name} {questResult} {Environment.NewLine} Rewards: {quest.WinRewards}";
                 RefreshQuests();
             }

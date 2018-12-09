@@ -81,5 +81,16 @@ namespace HeroesGame.FightMechanizm
         {
             _fightMechanizm.StartFight(_allCharacters, playerTeamName, opponentTeamName);
         }
+
+        public FightReplay GetFightReplay()
+        {
+            return new FightReplay
+            {
+                TeamA = GetPlayerCharacters(),
+                TeamB = GetOpponentCharacters(),
+                FightResult = GetLastFightResult(),
+                Actions = _fightMechanizm.GetFightActions().ToDictionary(x => x.Action_Order, x => x)
+            };
+        }
     }
 }

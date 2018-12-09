@@ -16,20 +16,14 @@ namespace PrototypeGUI
 {
     public partial class FightScreen : Form
     {
-        private List<ICharacterInTeam> _teamA;
-        private List<ICharacterInTeam> _teamB;
-        private Dictionary<int,FightAction> _actions;
-        private readonly FightResult _fightResult;
+        private readonly FightReplay _fightReplay;
         private int actionID;
         private FightAction currentAction;
 
-        public FightScreen(List<ICharacterInTeam> teamA, List<ICharacterInTeam> teamB, List<FightAction> actions, FightResult fightResult)
+        public FightScreen(FightReplay fightReplay)
         {
             InitializeComponent();
-            _teamA = teamA;
-            _teamB = teamB;
-            _actions = actions.ToDictionary(x=>x.Action_Order, x=>x);
-            _fightResult = fightResult;
+            _fightReplay = fightReplay;
         }
 
         private void btClose_Click(object sender, EventArgs e)
@@ -50,7 +44,7 @@ namespace PrototypeGUI
         private void FightScreen_Load(object sender, EventArgs e)
         {
             btClose.Enabled = false;
-            UpdateCharacters(_teamA, _teamB);
+            UpdateCharacters(_fightReplay.TeamA, _fightReplay.TeamB);
         }
 
         private void UpdateCharacters(List<ICharacterInTeam> teamA, List<ICharacterInTeam> teamB)
@@ -108,19 +102,24 @@ namespace PrototypeGUI
 
         private void fightTimer_Tick(object sender, EventArgs e)
         {
-            if (!_actions.ContainsKey(actionID))
+            if (!_fightReplay.Actions.ContainsKey(actionID))
             {
-                logBox.AppendText(_fightResult.ToString() + Environment.NewLine);
+                logBox.AppendText(_fightReplay.FightResult.ToString() + Environment.NewLine);
                 fightTimer.Enabled = false;
             }
             else
             {
-                currentAction = _actions[actionID++];
-                var all = _teamA.Union(_teamB);
+                currentAction = _fightReplay.Actions[actionID++];
+                var all = _fightReplay.TeamA.Union(_fightReplay.TeamB);
                 all.First(x => x.getID() == currentAction.Defender_ID).setNewHP(currentAction.Defender_New_Hp);
                 logBox.AppendText(currentAction.ToString() + Environment.NewLine);
-                UpdateCharacters(_teamA, _teamB);
+                UpdateCharacters(_fightReplay.TeamA, _fightReplay.TeamB);
             }
+        }
+
+        private void FightScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            fightTimer.Enabled = false;
         }
     }
 }
