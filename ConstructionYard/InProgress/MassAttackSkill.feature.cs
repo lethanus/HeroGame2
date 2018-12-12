@@ -181,6 +181,225 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("02 Mass first line attack should hit first front line", SourceLine=26)]
+        public virtual void _02MassFirstLineAttackShouldHitFirstFrontLine()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Mass first line attack should hit first front line", null, ((string[])(null)));
+#line 27
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table3.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "30",
+                        "30",
+                        "30",
+                        "30",
+                        "0",
+                        "10",
+                        "Mass_Front"});
+            table3.AddRow(new string[] {
+                        "Troll_F1",
+                        "Troll",
+                        "30",
+                        "30",
+                        "30",
+                        "30",
+                        "0",
+                        "5",
+                        ""});
+            table3.AddRow(new string[] {
+                        "Troll_F2",
+                        "Troll",
+                        "30",
+                        "30",
+                        "30",
+                        "30",
+                        "0",
+                        "5",
+                        ""});
+            table3.AddRow(new string[] {
+                        "Troll_M1",
+                        "Troll",
+                        "30",
+                        "30",
+                        "1",
+                        "1",
+                        "0",
+                        "5",
+                        ""});
+            table3.AddRow(new string[] {
+                        "Troll_M2",
+                        "Troll",
+                        "30",
+                        "30",
+                        "1",
+                        "1",
+                        "0",
+                        "5",
+                        ""});
+            table3.AddRow(new string[] {
+                        "Troll_R1",
+                        "Troll",
+                        "30",
+                        "30",
+                        "1",
+                        "1",
+                        "0",
+                        "5",
+                        ""});
+            table3.AddRow(new string[] {
+                        "Troll_R2",
+                        "Troll",
+                        "30",
+                        "30",
+                        "1",
+                        "1",
+                        "0",
+                        "5",
+                        ""});
+#line 28
+ testRunner.Given("The following characters", ((string)(null)), table3, "Given ");
+#line 37
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 38
+ testRunner.And("Character \'Troll_F1\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
+ testRunner.And("Character \'Troll_F2\' is assigned to team \'B\' on position \'Front_3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 40
+ testRunner.And("Character \'Troll_M1\' is assigned to team \'B\' on position \'Middle_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 41
+ testRunner.And("Character \'Troll_M2\' is assigned to team \'B\' on position \'Middle_4\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.And("Character \'Troll_R1\' is assigned to team \'B\' on position \'Rear_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+ testRunner.And("Character \'Troll_R2\' is assigned to team \'B\' on position \'Rear_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 45
+ testRunner.Then("Team \'A\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Action_Order",
+                        "Attacker_ID",
+                        "Attacker_Position",
+                        "Defender_ID",
+                        "Defender_Position",
+                        "Defender_New_Hp",
+                        "Attacker_DMG_dealt"});
+            table4.AddRow(new string[] {
+                        "1",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_F1",
+                        "Front_1",
+                        "0",
+                        "30"});
+            table4.AddRow(new string[] {
+                        "1",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_F2",
+                        "Front_3",
+                        "0",
+                        "30"});
+            table4.AddRow(new string[] {
+                        "2",
+                        "Troll_M1",
+                        "Middle_2",
+                        "Elf_A",
+                        "Front_1",
+                        "29",
+                        "1"});
+            table4.AddRow(new string[] {
+                        "3",
+                        "Troll_M2",
+                        "Middle_4",
+                        "Elf_A",
+                        "Front_1",
+                        "28",
+                        "1"});
+            table4.AddRow(new string[] {
+                        "4",
+                        "Troll_R1",
+                        "Rear_2",
+                        "Elf_A",
+                        "Front_1",
+                        "27",
+                        "1"});
+            table4.AddRow(new string[] {
+                        "5",
+                        "Troll_R2",
+                        "Rear_2",
+                        "Elf_A",
+                        "Front_1",
+                        "26",
+                        "1"});
+            table4.AddRow(new string[] {
+                        "6",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_M1",
+                        "Middle_2",
+                        "0",
+                        "30"});
+            table4.AddRow(new string[] {
+                        "6",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_M2",
+                        "Middle_4",
+                        "0",
+                        "30"});
+            table4.AddRow(new string[] {
+                        "7",
+                        "Troll_R1",
+                        "Rear_2",
+                        "Elf_A",
+                        "Front_1",
+                        "25",
+                        "1"});
+            table4.AddRow(new string[] {
+                        "8",
+                        "Troll_R2",
+                        "Rear_2",
+                        "Elf_A",
+                        "Front_1",
+                        "24",
+                        "1"});
+            table4.AddRow(new string[] {
+                        "9",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_R1",
+                        "Rear_2",
+                        "0",
+                        "30"});
+            table4.AddRow(new string[] {
+                        "9",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_R2",
+                        "Rear_3",
+                        "0",
+                        "30"});
+#line 46
+ testRunner.And("Replay acctions are", ((string)(null)), table4, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {
