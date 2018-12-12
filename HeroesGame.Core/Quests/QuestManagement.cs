@@ -53,9 +53,11 @@ namespace HeroesGame.Quests
             if (refreshResult.Status == RefresStatus.Ready)
             {
                 _questRepository.Clear(_accountManagement.GetLoggedAccount().ID);
-
+                List<Quest> quests = new List<Quest>();
                 for (int i = 1; i <= configurationAdapter.NumberOfQuests; i++)
-                    GenerateFightQuest(GetRandomLevel(configurationAdapter.QuestGenerateChances), i);
+                    quests.Add(GenerateFightQuest(GetRandomLevel(configurationAdapter.QuestGenerateChances), i));
+
+                _questRepository.AddMany(quests, _accountManagement.GetLoggedAccount().ID);
 
                 _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Quests, now);
                 return true;
@@ -63,14 +65,13 @@ namespace HeroesGame.Quests
             else return false;
         }
 
-        private void GenerateFightQuest(int level, int counter)
+        private Quest GenerateFightQuest(int level, int counter)
         {
             FormationTemplate choosenFormationTemplate = GetRandomFormationTemplateForLevel(level);
             RewardTemplate rewardTemplate = GetRandomRewardTemplateForLevel(level);
-
             if (choosenFormationTemplate != null)
             {
-                _questRepository.Add(new Quest
+                return new Quest
                 {
                     ID = $"Q_{counter}",
                     Level = level.ToString(),
@@ -78,8 +79,9 @@ namespace HeroesGame.Quests
                     Name = $"Defeat - {choosenFormationTemplate.Name}",
                     RewardsID = rewardTemplate == null ? "" : rewardTemplate.ID,
                     WinRewards = rewardTemplate == null ? "" : rewardTemplate.Rewards
-                }, _accountManagement.GetLoggedAccount().ID);
+                };
             }
+            return null;
         }
 
 

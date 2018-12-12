@@ -20,15 +20,32 @@ namespace HeroesGame.Repositories
             _filePrefix = filePrefix;
         }
 
+        public void AddMany(List<T> itemsToAdd, string accountID)
+        {
+            var items = GetAllFacts(accountID);
+            foreach (var item in itemsToAdd)
+            {
+                PrepareToAdd(item);
+                items.Add(item);
+            }
+            SaveAll(items, accountID, _directoryPath);
+        }
+
+        public void RemoveMany(List<T> itemsToRemove, string accountID)
+        {
+            var items = GetAllFacts(accountID);
+            foreach (var item in itemsToRemove)
+            {
+                PrepareToRemove(item);
+                items.Add(item);
+            }
+            SaveAll(items, accountID, _directoryPath);
+        }
+
         public void Add(T item, string accountID)
         {
             var items = GetAllFacts(accountID);
-            item.FactOperation = FactOperation.ADD;
-            item.FactTime = DateTime.Now;
-            if (item.Amount == 0)
-                item.Amount = 1;
-            if (string.IsNullOrEmpty( item.Identyficator))
-                item.Identyficator = item.ID;
+            PrepareToAdd(item);
             items.Add(item);
             SaveAll(items, accountID, _directoryPath);
         }
@@ -90,10 +107,25 @@ namespace HeroesGame.Repositories
         public void Remove(T item, string accountID)
         {
             var items = GetAllFacts(accountID);
-            item.FactOperation = FactOperation.REMOVE;
-            item.FactTime = DateTime.Now;
+            PrepareToRemove(item);
             items.Add(item);
             SaveAll(items, accountID, _directoryPath);
+        }
+
+        private void PrepareToAdd(T item)
+        {
+            item.FactOperation = FactOperation.ADD;
+            item.FactTime = DateTime.Now;
+            if (item.Amount == 0)
+                item.Amount = 1;
+            if (string.IsNullOrEmpty(item.Identyficator))
+                item.Identyficator = item.ID;
+        }
+
+        private void PrepareToRemove(T item)
+        {
+            item.FactOperation = FactOperation.REMOVE;
+            item.FactTime = DateTime.Now;
         }
     }
 }
