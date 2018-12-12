@@ -84,6 +84,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountManagement.feature</DependentUpon>
     </Compile>
+    <Compile Include="InProgress\RangeAttackSkill.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RangeAttackSkill.feature</DependentUpon>
+    </Compile>
     <Compile Include="TestsCommon\FakeLogger.cs" />
     <Compile Include="Completed\FightManagement.feature.cs">
       <AutoGen>True</AutoGen>
@@ -115,12 +120,12 @@
     </Compile>
     <Compile Include="Completed\PackFormationBuildingSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="InProgress\QuestsManagement.feature.cs">
+    <Compile Include="Completed\QuestsManagement.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuestsManagement.feature</DependentUpon>
     </Compile>
-    <Compile Include="InProgress\QuestsManagementSteps.cs" />
+    <Compile Include="Completed\QuestsManagementSteps.cs" />
     <Compile Include="Completed\RefreshingMechanism.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -153,12 +158,16 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Mercenaries.feature.cs</LastGenOutput>
     </None>
+    <None Include="InProgress\RangeAttackSkill.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RangeAttackSkill.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Completed\PackFormationBuilding.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PackFormationBuilding.feature.cs</LastGenOutput>
     </None>
-    <None Include="InProgress\QuestsManagement.feature">
+    <None Include="Completed\QuestsManagement.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>QuestsManagement.feature.cs</LastGenOutput>
     </None>

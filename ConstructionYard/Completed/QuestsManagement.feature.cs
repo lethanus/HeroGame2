@@ -10,14 +10,14 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ConstructionYard.InProgress
+namespace ConstructionYard.Completed
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Quests management", SourceFile="InProgress\\QuestsManagement.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Quests management", SourceFile="Completed\\QuestsManagement.feature", SourceLine=0)]
     public partial class QuestsManagementFeature
     {
         
