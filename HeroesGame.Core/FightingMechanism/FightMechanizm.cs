@@ -47,9 +47,21 @@ namespace HeroesGame.FightMechanizm
                                 x.GetPosition() == TeamPosition.Middle_3 ||
                                 x.GetPosition() == TeamPosition.Middle_4
                                 );
-                                if(defender == null)
+                                if (defender == null)
                                 {
-                                    defender = liveOpponents.FirstOrDefault();
+                                    defender = liveOpponents.FirstOrDefault(x =>
+                                    x.GetPosition() == TeamPosition.Rear_1 ||
+                                    x.GetPosition() == TeamPosition.Rear_2 ||
+                                    x.GetPosition() == TeamPosition.Rear_3
+                                    );
+                                    if (defender == null)
+                                    {
+                                        defender = liveOpponents.FirstOrDefault(x =>
+                                        x.GetPosition() == TeamPosition.Front_1 ||
+                                        x.GetPosition() == TeamPosition.Front_2 ||
+                                        x.GetPosition() == TeamPosition.Front_3
+                                        );
+                                    }
                                 }
                             }
                         }
