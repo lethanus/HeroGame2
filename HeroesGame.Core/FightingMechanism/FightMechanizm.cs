@@ -39,7 +39,7 @@ namespace HeroesGame.FightMechanizm
                             defender = liveOpponents.FirstOrDefault();
                         else
                         {
-                            if(skill == "Range_One_Random")
+                            if(skill == "Range_One_First")
                             {
                                 defender = liveOpponents.FirstOrDefault(x => TeamPositionHelper.MiddleLane.Contains(x.GetPosition()));
                                 if (defender == null)

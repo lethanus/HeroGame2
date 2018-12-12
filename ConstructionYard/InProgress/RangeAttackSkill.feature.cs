@@ -95,7 +95,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "30",
                         "0",
                         "10",
-                        "Range_One_Random"});
+                        "Range_One_First"});
             table1.AddRow(new string[] {
                         "Troll_A",
                         "Troll",
@@ -194,7 +194,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "30",
                         "0",
                         "10",
-                        "Range_One_Random"});
+                        "Range_One_First"});
             table3.AddRow(new string[] {
                         "Troll_A",
                         "Troll",
@@ -295,7 +295,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "30",
                         "0",
                         "10",
-                        "Range_One_Random"});
+                        "Range_One_First"});
             table5.AddRow(new string[] {
                         "Troll_F",
                         "Troll",
@@ -399,6 +399,105 @@ this.ScenarioInitialize(scenarioInfo);
                         "30"});
 #line 51
  testRunner.And("Replay acctions are", ((string)(null)), table6, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("04 Range attack should hit first character on middle lane", SourceLine=59)]
+        public virtual void _04RangeAttackShouldHitFirstCharacterOnMiddleLane()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 Range attack should hit first character on middle lane", null, ((string[])(null)));
+#line 60
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table7.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "31",
+                        "31",
+                        "40",
+                        "40",
+                        "0",
+                        "10",
+                        "Range_One_First"});
+            table7.AddRow(new string[] {
+                        "Troll_M1",
+                        "Troll",
+                        "40",
+                        "40",
+                        "15",
+                        "15",
+                        "0",
+                        "5",
+                        ""});
+            table7.AddRow(new string[] {
+                        "Troll_M3",
+                        "Troll",
+                        "30",
+                        "30",
+                        "30",
+                        "30",
+                        "0",
+                        "5",
+                        ""});
+#line 61
+ testRunner.Given("The following characters", ((string)(null)), table7, "Given ");
+#line 66
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+ testRunner.And("Character \'Troll_M1\' is assigned to team \'B\' on position \'Middle_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+ testRunner.And("Character \'Troll_M3\' is assigned to team \'B\' on position \'Middle_3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 70
+ testRunner.Then("Team \'A\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Action_Order",
+                        "Attacker_ID",
+                        "Attacker_Position",
+                        "Defender_ID",
+                        "Defender_Position",
+                        "Defender_New_Hp",
+                        "Attacker_DMG_dealt"});
+            table8.AddRow(new string[] {
+                        "1",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_M1",
+                        "Middle_1",
+                        "0",
+                        "40"});
+            table8.AddRow(new string[] {
+                        "2",
+                        "Troll_M3",
+                        "Middle_3",
+                        "Elf_A",
+                        "Front_1",
+                        "1",
+                        "30"});
+            table8.AddRow(new string[] {
+                        "3",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_M3",
+                        "Middle_3",
+                        "0",
+                        "30"});
+#line 71
+ testRunner.And("Replay acctions are", ((string)(null)), table8, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
