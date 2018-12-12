@@ -74,7 +74,7 @@ namespace ConstructionYard
             var fightActions = fightMechnizm.GetFightActions();
             foreach (var expectedAction in expectedFightActions)
             {
-                Assert.IsTrue(expectedAction.Equals(fightActions.First(x => x.Action_Order == expectedAction.Action_Order)));
+                Assert.IsTrue(fightActions.Contains(expectedAction));
             }
             Assert.AreEqual(expectedFightActions.Count(), fightActions.Count);
         }

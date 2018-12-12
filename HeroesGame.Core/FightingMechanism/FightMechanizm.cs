@@ -35,11 +35,13 @@ namespace HeroesGame.FightMechanizm
                         ICharacterInTeam defender = null;
                         var liveOpponents = characters.Where(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
                         var skill = attacker.getSkills();
-                        if(string.IsNullOrEmpty(skill))
+                        if (string.IsNullOrEmpty(skill))
+                        {
                             defender = liveOpponents.FirstOrDefault();
+                        }
                         else
                         {
-                            if(skill == "Range_One_First")
+                            if (skill == "Range_One_First")
                             {
                                 defender = liveOpponents.FirstOrDefault(x => TeamPositionHelper.MiddleLane.Contains(x.GetPosition()));
                                 if (defender == null)
@@ -66,6 +68,25 @@ namespace HeroesGame.FightMechanizm
                                 }
                             }
 
+                            if (skill == "Mass_All")
+                            {
+                                foreach (var character in liveOpponents)
+                                {
+                                    var newHp = CalculateNewHp(attacker, character);
+                                    actions.Add(new FightAction
+                                    {
+                                        Action_Order = actionCounter,
+                                        Attacker_ID = attacker.getID(),
+                                        Attacker_Position = attacker.GetPosition(),
+                                        Defender_ID = character.getID(),
+                                        Defender_Position = character.GetPosition(),
+                                        Defender_New_Hp = newHp,
+                                        Attacker_DMG_dealt = character.getHp() - newHp
+                                    });
+                                    character.setNewHP(newHp);
+                                }
+
+                            }
                         }
                         if (defender != null)
                         {
