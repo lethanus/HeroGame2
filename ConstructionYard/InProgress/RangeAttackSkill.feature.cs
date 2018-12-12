@@ -603,6 +603,105 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("06 Range attack aiming for low Hp should hit character on mid lane", SourceLine=95)]
+        public virtual void _06RangeAttackAimingForLowHpShouldHitCharacterOnMidLane()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06 Range attack aiming for low Hp should hit character on mid lane", null, ((string[])(null)));
+#line 96
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Name",
+                        "MaxHp",
+                        "Hp",
+                        "Min_Att",
+                        "Max_Att",
+                        "Def",
+                        "Speed",
+                        "Skills"});
+            table11.AddRow(new string[] {
+                        "Elf_A",
+                        "Elf",
+                        "30",
+                        "30",
+                        "30",
+                        "30",
+                        "0",
+                        "10",
+                        "Range_One_LowHp"});
+            table11.AddRow(new string[] {
+                        "Troll_A",
+                        "Troll",
+                        "30",
+                        "30",
+                        "15",
+                        "15",
+                        "0",
+                        "5",
+                        ""});
+            table11.AddRow(new string[] {
+                        "Troll_B",
+                        "Troll",
+                        "30",
+                        "30",
+                        "30",
+                        "30",
+                        "0",
+                        "5",
+                        ""});
+#line 97
+ testRunner.Given("The following characters", ((string)(null)), table11, "Given ");
+#line 102
+ testRunner.And("Character \'Elf_A\' is assigned to team \'A\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 103
+ testRunner.And("Character \'Troll_A\' is assigned to team \'B\' on position \'Front_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 104
+ testRunner.And("Character \'Troll_B\' is assigned to team \'B\' on position \'Middle_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 105
+ testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 106
+ testRunner.Then("Team \'A\' won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Action_Order",
+                        "Attacker_ID",
+                        "Attacker_Position",
+                        "Defender_ID",
+                        "Defender_Position",
+                        "Defender_New_Hp",
+                        "Attacker_DMG_dealt"});
+            table12.AddRow(new string[] {
+                        "1",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_B",
+                        "Middle_1",
+                        "0",
+                        "30"});
+            table12.AddRow(new string[] {
+                        "2",
+                        "Troll_A",
+                        "Front_1",
+                        "Elf_A",
+                        "Front_1",
+                        "15",
+                        "15"});
+            table12.AddRow(new string[] {
+                        "3",
+                        "Elf_A",
+                        "Front_1",
+                        "Troll_A",
+                        "Front_1",
+                        "0",
+                        "30"});
+#line 107
+ testRunner.And("Replay acctions are", ((string)(null)), table12, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {
