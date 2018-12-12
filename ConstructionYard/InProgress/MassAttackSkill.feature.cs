@@ -284,7 +284,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 42
  testRunner.And("Character \'Troll_R1\' is assigned to team \'B\' on position \'Rear_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 43
- testRunner.And("Character \'Troll_R2\' is assigned to team \'B\' on position \'Rear_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Character \'Troll_R2\' is assigned to team \'B\' on position \'Rear_3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 44
  testRunner.When("Fight between \'A\' and \'B\' starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 45
@@ -341,7 +341,7 @@ this.ScenarioInitialize(scenarioInfo);
             table4.AddRow(new string[] {
                         "5",
                         "Troll_R2",
-                        "Rear_2",
+                        "Rear_3",
                         "Elf_A",
                         "Front_1",
                         "26",
@@ -373,7 +373,7 @@ this.ScenarioInitialize(scenarioInfo);
             table4.AddRow(new string[] {
                         "8",
                         "Troll_R2",
-                        "Rear_2",
+                        "Rear_3",
                         "Elf_A",
                         "Front_1",
                         "24",

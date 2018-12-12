@@ -85,7 +85,37 @@ namespace HeroesGame.FightMechanizm
                                     });
                                     character.setNewHP(newHp);
                                 }
+                                actionCounter++;
 
+                            }
+                            if (skill == "Mass_Front")
+                            {
+                                var charactersInLine = liveOpponents.Where(x => TeamPositionHelper.FrontLane.Contains(x.GetPosition()));
+                                if (charactersInLine.Count() == 0)
+                                {
+                                    charactersInLine = liveOpponents.Where(x => TeamPositionHelper.MiddleLane.Contains(x.GetPosition()));
+                                    if (charactersInLine.Count() == 0)
+                                    {
+                                        charactersInLine = liveOpponents.Where(x => TeamPositionHelper.RearLane.Contains(x.GetPosition()));
+                                    }
+                                }
+
+                                foreach (var character in charactersInLine)
+                                {
+                                    var newHp = CalculateNewHp(attacker, character);
+                                    actions.Add(new FightAction
+                                    {
+                                        Action_Order = actionCounter,
+                                        Attacker_ID = attacker.getID(),
+                                        Attacker_Position = attacker.GetPosition(),
+                                        Defender_ID = character.getID(),
+                                        Defender_Position = character.GetPosition(),
+                                        Defender_New_Hp = newHp,
+                                        Attacker_DMG_dealt = character.getHp() - newHp
+                                    });
+                                    character.setNewHP(newHp);
+                                }
+                                actionCounter++;
                             }
                         }
                         if (defender != null)

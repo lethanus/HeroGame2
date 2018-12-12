@@ -40,7 +40,7 @@ Scenario: 02 Mass first line attack should hit first front line
 	And Character 'Troll_M1' is assigned to team 'B' on position 'Middle_2'
 	And Character 'Troll_M2' is assigned to team 'B' on position 'Middle_4'
 	And Character 'Troll_R1' is assigned to team 'B' on position 'Rear_2'
-	And Character 'Troll_R2' is assigned to team 'B' on position 'Rear_2'
+	And Character 'Troll_R2' is assigned to team 'B' on position 'Rear_3'
 	When Fight between 'A' and 'B' starts
 	Then Team 'A' won
 	And Replay acctions are
@@ -50,10 +50,10 @@ Scenario: 02 Mass first line attack should hit first front line
 	| 2            | Troll_M1    | Middle_2          | Elf_A       | Front_1           | 29              | 1                  |
 	| 3            | Troll_M2    | Middle_4          | Elf_A       | Front_1           | 28              | 1                  |
 	| 4            | Troll_R1    | Rear_2            | Elf_A       | Front_1           | 27              | 1                  |
-	| 5            | Troll_R2    | Rear_2            | Elf_A       | Front_1           | 26              | 1                  |
+	| 5            | Troll_R2    | Rear_3            | Elf_A       | Front_1           | 26              | 1                  |
 	| 6            | Elf_A       | Front_1           | Troll_M1    | Middle_2          | 0               | 30                 |
 	| 6            | Elf_A       | Front_1           | Troll_M2    | Middle_4          | 0               | 30                 |
 	| 7            | Troll_R1    | Rear_2            | Elf_A       | Front_1           | 25              | 1                  |
-	| 8            | Troll_R2    | Rear_2            | Elf_A       | Front_1           | 24              | 1                  |
+	| 8            | Troll_R2    | Rear_3            | Elf_A       | Front_1           | 24              | 1                  |
 	| 9            | Elf_A       | Front_1           | Troll_R1    | Rear_2            | 0               | 30                 |
 	| 9            | Elf_A       | Front_1           | Troll_R2    | Rear_3            | 0               | 30                 |
