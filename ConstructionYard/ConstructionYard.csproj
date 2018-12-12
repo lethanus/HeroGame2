@@ -84,10 +84,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountManagement.feature</DependentUpon>
     </Compile>
-    <Compile Include="InProgress\RangeAttackSkill.feature.cs">
+    <Compile Include="Completed\RangeAttackSkill.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RangeAttackSkill.feature</DependentUpon>
+    </Compile>
+    <Compile Include="InProgress\MassAttackSkill.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MassAttackSkill.feature</DependentUpon>
     </Compile>
     <Compile Include="TestsCommon\FakeLogger.cs" />
     <Compile Include="Completed\FightManagement.feature.cs">
@@ -158,9 +163,13 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Mercenaries.feature.cs</LastGenOutput>
     </None>
-    <None Include="InProgress\RangeAttackSkill.feature">
+    <None Include="Completed\RangeAttackSkill.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RangeAttackSkill.feature.cs</LastGenOutput>
+    </None>
+    <None Include="InProgress\MassAttackSkill.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MassAttackSkill.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Completed\PackFormationBuilding.feature">
