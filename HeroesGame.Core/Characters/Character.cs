@@ -150,5 +150,10 @@ namespace HeroesGame.Characters
         {
             return Max_Att;
         }
+
+        public string getSkills()
+        {
+            return Skills;
+        }
     }
 }

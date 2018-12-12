@@ -17,5 +17,6 @@ namespace HeroesGame.Characters
         int getDef();
         int getSpeed();
         void setNewHP(int hp);
+        string getSkills();
     }
 }

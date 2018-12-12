@@ -32,8 +32,27 @@ namespace HeroesGame.FightMechanizm
                 {
                     if (attacker.getHp() > 0)
                     {
-                        var defender = characters.FirstOrDefault(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
-
+                        ICharacterInTeam defender = null;
+                        var liveOpponents = characters.Where(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
+                        var skill = attacker.getSkills();
+                        if(string.IsNullOrEmpty(skill))
+                            defender = liveOpponents.FirstOrDefault();
+                        else
+                        {
+                            if(skill == "Range_One_Random")
+                            {
+                                defender = liveOpponents.FirstOrDefault(x =>
+                                x.GetPosition() == TeamPosition.Middle_1 ||
+                                x.GetPosition() == TeamPosition.Middle_2 ||
+                                x.GetPosition() == TeamPosition.Middle_3 ||
+                                x.GetPosition() == TeamPosition.Middle_4
+                                );
+                                if(defender == null)
+                                {
+                                    defender = liveOpponents.FirstOrDefault();
+                                }
+                            }
+                        }
                         if (defender != null)
                         {
                             var newHp = CalculateNewHp(attacker, defender);

@@ -1,7 +1,7 @@
 ﻿Feature: Range Attack Skill
 
 @mytag
-Scenario: Range attack should hit character on mid lane
+Scenario: 01 Range attack should hit character on mid lane
 	Given The following characters
 		| ID      | Name  | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills           |
 		| Elf_A   | Elf   | 30    | 30 | 30      | 30      | 0   | 10    | Range_One_Random |
@@ -16,4 +16,4 @@ Scenario: Range attack should hit character on mid lane
 	| Action_Order | Attacker_ID | Attacker_Position | Defender_ID | Defender_Position | Defender_New_Hp | Attacker_DMG_dealt |
 	| 1            | Elf_A       | Front_1           | Troll_B     | Middle_1          | 0               | 30                 |
 	| 2            | Troll_A     | Front_1           | Elf_A       | Front_1           | 15              | 15                 |
-	| 3            | Elf_A       | Front_1           | Troll_A     | Front_1           | 0               | 20                 |
+	| 3            | Elf_A       | Front_1           | Troll_A     | Front_1           | 0               | 30                 |

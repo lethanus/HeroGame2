@@ -66,11 +66,11 @@ namespace ConstructionYard.InProgress
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Range attack should hit character on mid lane", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("01 Range attack should hit character on mid lane", new string[] {
                 "mytag"}, SourceLine=3)]
-        public virtual void RangeAttackShouldHitCharacterOnMidLane()
+        public virtual void _01RangeAttackShouldHitCharacterOnMidLane()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Range attack should hit character on mid lane", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Range attack should hit character on mid lane", null, new string[] {
                         "mytag"});
 #line 4
 this.ScenarioInitialize(scenarioInfo);
@@ -160,7 +160,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Troll_A",
                         "Front_1",
                         "0",
-                        "20"});
+                        "30"});
 #line 15
  testRunner.And("Replay acctions are", ((string)(null)), table2, "And ");
 #line hidden
