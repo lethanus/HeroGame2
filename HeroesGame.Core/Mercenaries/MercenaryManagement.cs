@@ -84,21 +84,23 @@ namespace HeroesGame.Mercenaries
         {
             configurationAdapter.LoadConfigs(_configRepository);
             var now = DateTime.Now;
-            var refreshResult = _refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now);
-            if (refreshResult.Status == RefresStatus.Ready)
+            if (_refreshingMechnism.GetRefreshStatus(RefreshOption.Mercenaries, now).Status == RefresStatus.Ready)
             {
                 _recruitsRepository.Clear(_accountManagement.GetLoggedAccount().ID);
-                List<Mercenary> mercenaries = new List<Mercenary>();
-
-                for (int i = 1; i <= configurationAdapter.NumberOfRecruits; i++)
-                {
-                    var level = GetRandomLevel(configurationAdapter.MercenaryGenerateChances);
-                    _recruitsRepository.Add(GenerateRandomMercenary(level), _accountManagement.GetLoggedAccount().ID);
-                }
+                AddRandomMercenaries(configurationAdapter.NumberOfRecruits);
                 _refreshingMechnism.AddRefreshFactForLoggedAccount(RefreshOption.Mercenaries, now);
                 return true;
             }
-            else return false;
+            return false;
+        }
+        private void AddRandomMercenaries(int count)
+        {
+            for (int i = 1; i <= count; i++)
+            {
+                var level = GetRandomLevel(configurationAdapter.MercenaryGenerateChances);
+                var generatedMercenary = GenerateRandomMercenary(level);
+                _recruitsRepository.Add(generatedMercenary, _accountManagement.GetLoggedAccount().ID);
+            }
         }
 
         private Mercenary GenerateRandomMercenary(int level)
