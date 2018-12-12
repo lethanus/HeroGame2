@@ -73,3 +73,21 @@ Scenario: 04 Range attack should hit first character on middle lane
 	| 1            | Elf_A       | Front_1           | Troll_M1    | Middle_1          | 0               | 40                 |
 	| 2            | Troll_M3    | Middle_3          | Elf_A       | Front_1           | 1               | 30                 |
 	| 3            | Elf_A       | Front_1           | Troll_M3    | Middle_3          | 0               | 30                 |
+
+
+Scenario: 05 Range attack aiming for low Hp should hit first character with lowest hp on middle lane
+	Given The following characters
+		| ID       | Name  | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills          |
+		| Elf_A    | Elf   | 31    | 31 | 40      | 40      | 0   | 10    | Range_One_LowHp |
+		| Troll_M1 | Troll | 40    | 40 | 15      | 15      | 0   | 5     |                 |
+		| Troll_M3 | Troll | 30    | 30 | 30      | 30      | 0   | 5     |                 |
+	And Character 'Elf_A' is assigned to team 'A' on position 'Front_1'
+	And Character 'Troll_M1' is assigned to team 'B' on position 'Middle_1'
+	And Character 'Troll_M3' is assigned to team 'B' on position 'Middle_3'
+	When Fight between 'A' and 'B' starts
+	Then Team 'A' won
+	And Replay acctions are
+	| Action_Order | Attacker_ID | Attacker_Position | Defender_ID | Defender_Position | Defender_New_Hp | Attacker_DMG_dealt |
+	| 3            | Elf_A       | Front_1           | Troll_M3    | Middle_3          | 0               | 30                 |
+	| 2            | Troll_M1    | Middle_1          | Elf_A       | Front_1           | 16              | 15                 |
+	| 1            | Elf_A       | Front_1           | Troll_M1    | Middle_1          | 0               | 40                 |
