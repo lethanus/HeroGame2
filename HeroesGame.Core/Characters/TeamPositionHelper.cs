@@ -10,6 +10,22 @@ namespace HeroesGame.Characters
 
     public class TeamPositionHelper
     {
+        public static List<TeamPosition> FrontLane = new List<TeamPosition>
+        {
+            TeamPosition.Front_1, TeamPosition.Front_2, TeamPosition.Front_3
+        };
+
+        public static List<TeamPosition> MiddleLane = new List<TeamPosition>
+        {
+            TeamPosition.Middle_1, TeamPosition.Middle_2, TeamPosition.Middle_3, TeamPosition.Middle_4
+        };
+
+        public static List<TeamPosition> RearLane = new List<TeamPosition>
+        {
+            TeamPosition.Rear_1, TeamPosition.Rear_2, TeamPosition.Rear_3
+        };
+
+
         public static List<TeamPosition> GetTeamPositions()
         {
             return Enum.GetValues(typeof(TeamPosition)).Cast<TeamPosition>().Where(x=>x != TeamPosition.None).ToList();

@@ -41,26 +41,13 @@ namespace HeroesGame.FightMechanizm
                         {
                             if(skill == "Range_One_Random")
                             {
-                                defender = liveOpponents.FirstOrDefault(x =>
-                                x.GetPosition() == TeamPosition.Middle_1 ||
-                                x.GetPosition() == TeamPosition.Middle_2 ||
-                                x.GetPosition() == TeamPosition.Middle_3 ||
-                                x.GetPosition() == TeamPosition.Middle_4
-                                );
+                                defender = liveOpponents.FirstOrDefault(x => TeamPositionHelper.MiddleLane.Contains(x.GetPosition()));
                                 if (defender == null)
                                 {
-                                    defender = liveOpponents.FirstOrDefault(x =>
-                                    x.GetPosition() == TeamPosition.Rear_1 ||
-                                    x.GetPosition() == TeamPosition.Rear_2 ||
-                                    x.GetPosition() == TeamPosition.Rear_3
-                                    );
+                                    defender = liveOpponents.FirstOrDefault(x => TeamPositionHelper.RearLane.Contains(x.GetPosition()));
                                     if (defender == null)
                                     {
-                                        defender = liveOpponents.FirstOrDefault(x =>
-                                        x.GetPosition() == TeamPosition.Front_1 ||
-                                        x.GetPosition() == TeamPosition.Front_2 ||
-                                        x.GetPosition() == TeamPosition.Front_3
-                                        );
+                                        defender = liveOpponents.FirstOrDefault(x => TeamPositionHelper.FrontLane.Contains(x.GetPosition()));
                                     }
                                 }
                             }
