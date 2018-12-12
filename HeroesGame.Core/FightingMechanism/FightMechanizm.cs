@@ -51,6 +51,21 @@ namespace HeroesGame.FightMechanizm
                                     }
                                 }
                             }
+
+                            if (skill == "Range_One_LowHp")
+                            {
+                                var sortedByHp = liveOpponents.OrderBy(x => x.getHp());
+                                defender = sortedByHp.FirstOrDefault(x => TeamPositionHelper.MiddleLane.Contains(x.GetPosition()));
+                                if (defender == null)
+                                {
+                                    defender = sortedByHp.FirstOrDefault(x => TeamPositionHelper.RearLane.Contains(x.GetPosition()));
+                                    if (defender == null)
+                                    {
+                                        defender = sortedByHp.FirstOrDefault(x => TeamPositionHelper.FrontLane.Contains(x.GetPosition()));
+                                    }
+                                }
+                            }
+
                         }
                         if (defender != null)
                         {

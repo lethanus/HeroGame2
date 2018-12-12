@@ -88,9 +88,9 @@ Scenario: 05 Range attack aiming for low Hp should hit first character with lowe
 	Then Team 'A' won
 	And Replay acctions are
 	| Action_Order | Attacker_ID | Attacker_Position | Defender_ID | Defender_Position | Defender_New_Hp | Attacker_DMG_dealt |
-	| 3            | Elf_A       | Front_1           | Troll_M3    | Middle_3          | 0               | 30                 |
+	| 1            | Elf_A       | Front_1           | Troll_M3    | Middle_3          | 0               | 30                 |
 	| 2            | Troll_M1    | Middle_1          | Elf_A       | Front_1           | 16              | 15                 |
-	| 1            | Elf_A       | Front_1           | Troll_M1    | Middle_1          | 0               | 40                 |
+	| 3            | Elf_A       | Front_1           | Troll_M1    | Middle_1          | 0               | 40                 |
 
 
 Scenario: 06 Range attack aiming for low Hp should hit character on mid lane

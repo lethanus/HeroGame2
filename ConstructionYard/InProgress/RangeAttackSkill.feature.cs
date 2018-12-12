@@ -574,7 +574,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Defender_New_Hp",
                         "Attacker_DMG_dealt"});
             table10.AddRow(new string[] {
-                        "3",
+                        "1",
                         "Elf_A",
                         "Front_1",
                         "Troll_M3",
@@ -590,7 +590,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "16",
                         "15"});
             table10.AddRow(new string[] {
-                        "1",
+                        "3",
                         "Elf_A",
                         "Front_1",
                         "Troll_M1",
