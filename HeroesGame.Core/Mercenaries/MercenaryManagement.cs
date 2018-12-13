@@ -142,6 +142,7 @@ namespace HeroesGame.Mercenaries
             newMercenary.Level = Int32.Parse(mercenaryTemplate.Level);
             newMercenary.Name = mercenaryTemplate.Name;
             newMercenary.ID = $"{Guid.NewGuid().ToString()}_{newMercenary.Level}_{newMercenary.Name}";
+            newMercenary.Skills = mercenaryTemplate.Skills;
 
             return newMercenary;
         }

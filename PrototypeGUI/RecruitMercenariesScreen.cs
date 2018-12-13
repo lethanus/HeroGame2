@@ -67,6 +67,7 @@ namespace PrototypeGUI
             listRecruits.Columns.Add("Attack", 50, HorizontalAlignment.Right);
             listRecruits.Columns.Add("Defence", 70, HorizontalAlignment.Right);
             listRecruits.Columns.Add("Speed", 50, HorizontalAlignment.Right);
+            listRecruits.Columns.Add("Skills", 100, HorizontalAlignment.Right);
             listRecruits.Items.Clear();
             foreach (var recruit in recruits)
             {
@@ -77,6 +78,7 @@ namespace PrototypeGUI
                 row.Add($"{recruit.Attack_Min.ToString()}-{recruit.Attack_Max.ToString()}");
                 row.Add(recruit.Defence.ToString());
                 row.Add(recruit.Speed.ToString());
+                row.Add(recruit.Skills);
                 var listViewItem = new ListViewItem(row.ToArray());
                 listViewItem.Tag = recruit;
                 listRecruits.Items.Add(listViewItem);

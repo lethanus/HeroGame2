@@ -9,5 +9,6 @@
         public string Defence_range { get; set; }
         public string Speed_range { get; set; }
         public string Attack_add_for_max { get; set; }
+        public string Skills { get; set; }
     }
 }

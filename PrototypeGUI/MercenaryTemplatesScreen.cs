@@ -35,6 +35,7 @@ namespace PrototypeGUI
             listMercenaryTemplates.Columns.Add("Attack_add_for_max", 130, HorizontalAlignment.Center);
             listMercenaryTemplates.Columns.Add("Defence_range", 100, HorizontalAlignment.Center);
             listMercenaryTemplates.Columns.Add("Speed_range", 100, HorizontalAlignment.Center);
+            listMercenaryTemplates.Columns.Add("Skills", 100, HorizontalAlignment.Center);
             listMercenaryTemplates.Items.Clear();
             foreach (var template in _mercenaryTemplateRepository.GetAll())
             {
@@ -46,6 +47,7 @@ namespace PrototypeGUI
                 row.Add(template.Attack_add_for_max);
                 row.Add(template.Defence_range);
                 row.Add(template.Speed_range);
+                row.Add(template.Skills);
                 var listViewItem = new ListViewItem(row.ToArray());
                 listViewItem.Tag = template;
                 listMercenaryTemplates.Items.Add(listViewItem);

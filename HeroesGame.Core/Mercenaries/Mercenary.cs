@@ -12,6 +12,7 @@ namespace HeroesGame.Mercenaries
         public int Attack_Max { get; set; }
         public int Defence { get; set; }
         public int Speed { get; set; }
+        public string Skills { get; set; }
 
         public Character CreateCharacter()
         {
@@ -25,6 +26,7 @@ namespace HeroesGame.Mercenaries
             character.Def = Defence;
             character.Speed = Speed;
             character.Level = Level;
+            character.Skills = Skills;
 
             return character;
         }

@@ -47,6 +47,7 @@ namespace PrototypeGUI
             listCharacters.Columns.Add("Defence", 60, HorizontalAlignment.Center);
             listCharacters.Columns.Add("Speed", 50, HorizontalAlignment.Center);
             listCharacters.Columns.Add("Position", 80, HorizontalAlignment.Center);
+            listCharacters.Columns.Add("Skills", 100, HorizontalAlignment.Center);
             listCharacters.Items.Clear();
             foreach (var character in characters)
             {
@@ -59,6 +60,7 @@ namespace PrototypeGUI
                 row.Add(character.Speed.ToString());
                 var onPosition = positions.FirstOrDefault(x => x.Character_ID == character.ID);
                 row.Add(onPosition == null ? "" : onPosition.Position.ToString());
+                row.Add(character.Skills);
                 var listViewItem = new ListViewItem(row.ToArray());
                 listViewItem.Tag = character;
                 listCharacters.Items.Add(listViewItem);

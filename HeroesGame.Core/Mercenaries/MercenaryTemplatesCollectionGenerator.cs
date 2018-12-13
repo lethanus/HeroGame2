@@ -21,6 +21,7 @@ namespace HeroesGame.Mercenaries
                 Attack_add_for_max = "4",
                 Defence_range = "8-12",
                 Speed_range = "8-10"
+                
             });
             tempaltes.Add(new MercenaryTemplate
             {
@@ -30,7 +31,8 @@ namespace HeroesGame.Mercenaries
                 Min_Attack_range = "12-16",
                 Attack_add_for_max = "4",
                 Defence_range = "10-14",
-                Speed_range = "9-11"
+                Speed_range = "9-11",
+                Skills = "Range_One_First"
             });
             tempaltes.Add(new MercenaryTemplate
             {
@@ -40,7 +42,8 @@ namespace HeroesGame.Mercenaries
                 Min_Attack_range = "16-24",
                 Attack_add_for_max = "4",
                 Defence_range = "10-12",
-                Speed_range = "9-11"
+                Speed_range = "9-11",
+                Skills = "Range_One_LowHp"
             });
             tempaltes.Add(new MercenaryTemplate
             {
@@ -50,7 +53,8 @@ namespace HeroesGame.Mercenaries
                 Min_Attack_range = "30-40",
                 Attack_add_for_max = "4",
                 Defence_range = "18-22",
-                Speed_range = "11-13"
+                Speed_range = "11-13",
+                Skills = "Mass_Front"
             });
             tempaltes.Add(new MercenaryTemplate
             {
@@ -80,7 +84,8 @@ namespace HeroesGame.Mercenaries
                 Min_Attack_range = "12-16",
                 Attack_add_for_max = "4",
                 Defence_range = "10-14",
-                Speed_range = "9-11"
+                Speed_range = "9-11",
+                Skills = "Range_One_LowHp"
             });
             tempaltes.Add(new MercenaryTemplate
             {
@@ -90,7 +95,8 @@ namespace HeroesGame.Mercenaries
                 Min_Attack_range = "12-16",
                 Attack_add_for_max = "4",
                 Defence_range = "10-14",
-                Speed_range = "9-11"
+                Speed_range = "9-11",
+                Skills = "Range_One_LowHp"
             });
             tempaltes.Add(new MercenaryTemplate
             {

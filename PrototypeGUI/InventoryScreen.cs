@@ -31,7 +31,6 @@ namespace PrototypeGUI
             var items = _inventoryManagement.GetAll();
 
             listItems.Columns.Clear();
-            listItems.Columns.Add("ID", 100, HorizontalAlignment.Center);
             listItems.Columns.Add("Name", 100, HorizontalAlignment.Center);
             listItems.Columns.Add("Category", 100, HorizontalAlignment.Center);
             listItems.Columns.Add("Amount", 100, HorizontalAlignment.Center);
@@ -40,7 +39,6 @@ namespace PrototypeGUI
             foreach (var item in items)
             {
                 List<string> row = new List<string>();
-                row.Add(item.ID);
                 row.Add(item.Name);
                 row.Add(item.Category.ToString());
                 row.Add(item.Amount.ToString());

@@ -38,6 +38,7 @@ namespace PrototypeGUI
             listMercenaries.Columns.Add("Attack", 50, HorizontalAlignment.Center);
             listMercenaries.Columns.Add("Defence", 70, HorizontalAlignment.Center);
             listMercenaries.Columns.Add("Speed", 50, HorizontalAlignment.Center);
+            listMercenaries.Columns.Add("Skills", 100, HorizontalAlignment.Center);
             listMercenaries.Items.Clear();
             foreach(var mercenary in mercenaries)
             {
@@ -48,6 +49,7 @@ namespace PrototypeGUI
                 row.Add($"{mercenary.getMin_Att().ToString()}-{mercenary.getMax_Att().ToString()}");
                 row.Add(mercenary.Def.ToString());
                 row.Add(mercenary.Speed.ToString());
+                row.Add(mercenary.Skills);
                 var listViewItem = new ListViewItem(row.ToArray());
                 listViewItem.Tag = mercenary;
                 listMercenaries.Items.Add(listViewItem);

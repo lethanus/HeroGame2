@@ -79,11 +79,11 @@ Scenario: 04 Generating potential recruits for level 1
 	| ID_1 | test  | test     |
 	And I try to login for 'test' and password 'test'
 	And Some mercenary templates
-	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max |
-	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  |
-	| 2     | Goblin | 22-26    | 12-16            | 10-14         | 9-11        | 5                  |
-	| 3     | Goblin | 26-34    | 16-24            | 12-16         | 10-12       | 7                  |
-	| 4     | Goblin | 40-55    | 30-40            | 18-22         | 11-13       | 10                 |
+	| Level | Name   | HP_range | Min_Attack_range | Defence_range | Speed_range | Attack_add_for_max | Skills    |
+	| 1     | Goblin | 18-22    | 8-12             | 8-12          | 8-10        | 4                  | skillNmae |
+	| 2     | Goblin | 22-26    | 12-16            | 10-14         | 9-11        | 5                  | skillNmae |
+	| 3     | Goblin | 26-34    | 16-24            | 12-16         | 10-12       | 7                  | skillNmae |
+	| 4     | Goblin | 40-55    | 30-40            | 18-22         | 11-13       | 10                 | skillNmae |
 	And Number of recruits is set to '5'
 	And The chance of getting level '1' mercenaries is set to '100' of '100'
 	And Randomzer for mercenary level will always return '7'
@@ -91,6 +91,7 @@ Scenario: 04 Generating potential recruits for level 1
 	Then Count of potential recruits generated should be '5' for user with ID 'ID_1'
 	And All potential recruits should have set 'Name' to 'Goblin'
 	And All potential recruits should have set 'Level' to '1'
+	And All potential recruits should have set 'Skills' to 'skillNmae'
 	And All potential recruits should have set value of 'Hp' between '18' and '22'
 	And All potential recruits should have set value of 'Attack_Min' between '8' and '12'
 	And All potential recruits should have set value of 'Attack_Max' between '12' and '16'

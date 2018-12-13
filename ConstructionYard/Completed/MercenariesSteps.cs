@@ -153,6 +153,7 @@ namespace ConstructionYard
                 {
                     case "Name": { valueToCompare = mercenary.Name; break; }
                     case "Level": { valueToCompare = mercenary.Level.ToString(); break; }
+                    case "Skills": { valueToCompare = mercenary.Skills; break; }
                 }
                 Assert.AreEqual(value, valueToCompare);
             }
