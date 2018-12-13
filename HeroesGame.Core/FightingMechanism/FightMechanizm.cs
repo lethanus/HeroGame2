@@ -34,110 +34,42 @@ namespace HeroesGame.FightMechanizm
                     {
                         ICharacterInTeam defender = null;
                         var liveOpponents = characters.Where(x => x.GetTeam() != attacker.GetTeam() && x.getHp() > 0);
-                        var skill = attacker.getSkills();
-                        if (string.IsNullOrEmpty(skill))
+                        var skillType = attacker.getSkills();
+
+                        if (string.IsNullOrEmpty(skillType))
                         {
                             defender = liveOpponents.FirstOrDefault();
+                            if (defender != null)
+                                CreateAttackFact(attacker, defender, actionCounter++);
                         }
                         else
                         {
-                            if (skill == "Range_One_First")
-                            {
-                                defender = liveOpponents.FirstOrDefault(x => TeamPositionHelper.MiddleLane.Contains(x.GetPosition()));
-                                if (defender == null)
-                                {
-                                    defender = liveOpponents.FirstOrDefault(x => TeamPositionHelper.RearLane.Contains(x.GetPosition()));
-                                    if (defender == null)
-                                    {
-                                        defender = liveOpponents.FirstOrDefault(x => TeamPositionHelper.FrontLane.Contains(x.GetPosition()));
-                                    }
-                                }
-                            }
-
-                            if (skill == "Range_One_LowHp")
-                            {
-                                var sortedByHp = liveOpponents.OrderBy(x => x.getHp());
-                                defender = sortedByHp.FirstOrDefault(x => TeamPositionHelper.MiddleLane.Contains(x.GetPosition()));
-                                if (defender == null)
-                                {
-                                    defender = sortedByHp.FirstOrDefault(x => TeamPositionHelper.RearLane.Contains(x.GetPosition()));
-                                    if (defender == null)
-                                    {
-                                        defender = sortedByHp.FirstOrDefault(x => TeamPositionHelper.FrontLane.Contains(x.GetPosition()));
-                                    }
-                                }
-                            }
-
-                            if (skill == "Mass_All")
-                            {
-                                foreach (var character in liveOpponents)
-                                {
-                                    var newHp = CalculateNewHp(attacker, character);
-                                    actions.Add(new FightAction
-                                    {
-                                        Action_Order = actionCounter,
-                                        Attacker_ID = attacker.getID(),
-                                        Attacker_Position = attacker.GetPosition(),
-                                        Defender_ID = character.getID(),
-                                        Defender_Position = character.GetPosition(),
-                                        Defender_New_Hp = newHp,
-                                        Attacker_DMG_dealt = character.getHp() - newHp
-                                    });
-                                    character.setNewHP(newHp);
-                                }
-                                actionCounter++;
-
-                            }
-                            if (skill == "Mass_Front")
-                            {
-                                var charactersInLine = liveOpponents.Where(x => TeamPositionHelper.FrontLane.Contains(x.GetPosition()));
-                                if (charactersInLine.Count() == 0)
-                                {
-                                    charactersInLine = liveOpponents.Where(x => TeamPositionHelper.MiddleLane.Contains(x.GetPosition()));
-                                    if (charactersInLine.Count() == 0)
-                                    {
-                                        charactersInLine = liveOpponents.Where(x => TeamPositionHelper.RearLane.Contains(x.GetPosition()));
-                                    }
-                                }
-
-                                foreach (var character in charactersInLine)
-                                {
-                                    var newHp = CalculateNewHp(attacker, character);
-                                    actions.Add(new FightAction
-                                    {
-                                        Action_Order = actionCounter,
-                                        Attacker_ID = attacker.getID(),
-                                        Attacker_Position = attacker.GetPosition(),
-                                        Defender_ID = character.getID(),
-                                        Defender_Position = character.GetPosition(),
-                                        Defender_New_Hp = newHp,
-                                        Attacker_DMG_dealt = character.getHp() - newHp
-                                    });
-                                    character.setNewHP(newHp);
-                                }
-                                actionCounter++;
-                            }
-                        }
-                        if (defender != null)
-                        {
-                            var newHp = CalculateNewHp(attacker, defender);
-                            actions.Add(new FightAction
-                            {
-                                Action_Order = actionCounter++,
-                                Attacker_ID = attacker.getID(),
-                                Attacker_Position = attacker.GetPosition(),
-                                Defender_ID = defender.getID(),
-                                Defender_Position = defender.GetPosition(),
-                                Defender_New_Hp = newHp,
-                                Attacker_DMG_dealt = defender.getHp() - newHp
-                            });
-                            defender.setNewHP(newHp);
+                            var attackSkill = SkillFactory.CreateSkill(skillType);
+                            var targets = attackSkill.GetTargets(liveOpponents.ToList());
+                            targets.ToList().ForEach(target => CreateAttackFact(attacker, target, actionCounter));
+                            actionCounter++;
                         }
                     }
                 }
             }
             
             return characters.Select(x => x.GetCharacter()).ToList();
+        }
+
+        private void CreateAttackFact(ICharacterInTeam attacker, ICharacterInTeam defender, int actionCounter)
+        {
+            var newHp = CalculateNewHp(attacker, defender);
+            actions.Add(new FightAction
+            {
+                Action_Order = actionCounter,
+                Attacker_ID = attacker.getID(),
+                Attacker_Position = attacker.GetPosition(),
+                Defender_ID = defender.getID(),
+                Defender_Position = defender.GetPosition(),
+                Defender_New_Hp = newHp,
+                Attacker_DMG_dealt = defender.getHp() - newHp
+            });
+            defender.setNewHP(newHp);
         }
 
         private bool AllCharactersAreDeadInTeam(string teamName, List<ICharacterInTeam> startCharacters)

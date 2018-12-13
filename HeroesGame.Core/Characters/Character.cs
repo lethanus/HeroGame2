@@ -1,6 +1,6 @@
 ﻿using System;
 using HeroesGame.Common;
-
+using HeroesGame.FightMechanizm;
 
 namespace HeroesGame.Characters
 {
