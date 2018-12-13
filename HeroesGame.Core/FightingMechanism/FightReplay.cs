@@ -11,7 +11,7 @@ namespace HeroesGame.FightMechanizm
     {
         public List<ICharacterInTeam> TeamA { get; set; }
         public List<ICharacterInTeam> TeamB { get; set; }
-        public Dictionary<int, FightAction> Actions { get; set; }
+        public List<FightAction> Actions { get; set; }
         public FightResult FightResult { get; set; }
     }
 }

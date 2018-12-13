@@ -4,7 +4,7 @@
 	I want to be told the sum of two numbers
 
 @mytag
-Scenario: 01 Mass attack should hit all character
+Scenario: 01 Mass attack should hit all characters
 	Given The following characters
 		| ID      | Name  | MaxHp | Hp | Min_Att | Max_Att | Def | Speed | Skills   |
 		| Elf_A   | Elf   | 30    | 30 | 30      | 30      | 0   | 10    | Mass_All |

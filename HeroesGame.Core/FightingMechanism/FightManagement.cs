@@ -89,7 +89,7 @@ namespace HeroesGame.FightMechanizm
                 TeamA = GetPlayerCharacters(),
                 TeamB = GetOpponentCharacters(),
                 FightResult = GetLastFightResult(),
-                Actions = _fightMechanizm.GetFightActions().ToDictionary(x => x.Action_Order, x => x)
+                Actions = _fightMechanizm.GetFightActions()
             };
         }
     }

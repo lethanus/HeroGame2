@@ -68,11 +68,11 @@ namespace ConstructionYard.InProgress
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("01 Mass attack should hit all character", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("01 Mass attack should hit all characters", new string[] {
                 "mytag"}, SourceLine=6)]
-        public virtual void _01MassAttackShouldHitAllCharacter()
+        public virtual void _01MassAttackShouldHitAllCharacters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Mass attack should hit all character", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Mass attack should hit all characters", null, new string[] {
                         "mytag"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);

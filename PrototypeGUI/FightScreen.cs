@@ -18,7 +18,7 @@ namespace PrototypeGUI
     {
         private readonly FightReplay _fightReplay;
         private int actionID;
-        private FightAction currentAction;
+        private List<FightAction> currentActions;
 
         public FightScreen(FightReplay fightReplay)
         {
@@ -90,30 +90,35 @@ namespace PrototypeGUI
                 textBox.Text = character.GetCharacter().ToCharacterString();
                 if (character.GetCharacter().Hp == 0) textBox.BackColor = Color.Orange;
                 else textBox.BackColor = Color.LightGreen;
-                if (currentAction != null)
-                {
-                    if (character.getID() == currentAction.Attacker_ID)
-                        textBox.BackColor = Color.Green;
-                    if (character.getID() == currentAction.Defender_ID)
-                        textBox.BackColor = Color.Red;
-                }
+                if(currentActions!= null)
+                    foreach (var action in currentActions)
+                    {
+                        if (character.getID() == action.Attacker_ID)
+                            textBox.BackColor = Color.Green;
+                        if (character.getID() == action.Defender_ID)
+                            textBox.BackColor = Color.Red;
+                    }
             }
         }
 
         private void fightTimer_Tick(object sender, EventArgs e)
         {
-            if (!_fightReplay.Actions.ContainsKey(actionID))
+            if (_fightReplay.Actions.Count(x=>x.Action_Order == actionID) == 0)
             {
                 logBox.AppendText(_fightReplay.FightResult.ToString() + Environment.NewLine);
                 fightTimer.Enabled = false;
             }
             else
             {
-                currentAction = _fightReplay.Actions[actionID++];
-                var all = _fightReplay.TeamA.Union(_fightReplay.TeamB);
-                all.First(x => x.getID() == currentAction.Defender_ID).setNewHP(currentAction.Defender_New_Hp);
-                logBox.AppendText(currentAction.ToString() + Environment.NewLine);
+                currentActions = _fightReplay.Actions.Where(x=>x.Action_Order == actionID).ToList();
+                foreach (var action in currentActions)
+                {
+                    var all = _fightReplay.TeamA.Union(_fightReplay.TeamB);
+                    all.First(x => x.getID() == action.Defender_ID).setNewHP(action.Defender_New_Hp);
+                    logBox.AppendText(action.ToString() + Environment.NewLine);
+                }
                 UpdateCharacters(_fightReplay.TeamA, _fightReplay.TeamB);
+                actionID++;
             }
         }
 
